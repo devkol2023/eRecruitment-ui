@@ -1,0 +1,20 @@
+<div class="categories-section">
+    <h2>Explore Our Popular Categories</h2>
+    <p class="description">Find the right category that matches your career goals.</p>
+    <div class="categories-list">
+      <div
+        class="category-item"
+        *ngFor="let category of categories"
+      >
+        <div class="icon-container">
+          <img [src]="category.icon" [alt]="category.name" />
+        </div>
+        <h3>{{ category.name }}</h3>
+        <p class="count">Jobs: {{ category.count }}</p>
+      </div>
+    </div>
+    <div class="action-container">
+      <button class="action-button">Discover All Categories</button>
+    </div>
+  </div>
+  

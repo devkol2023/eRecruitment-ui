@@ -5,12 +5,14 @@ import { JobDashboardRoutingModule } from './job-dashboard-routing.module';
 import { JobDashboardComponent } from './job-dashboard.component';
 import { JobSearchComponent } from './job-search/job-search.component';
 import { AngularMaterialModule } from '../../shared/angular-material.module';
+import { FeaturedJobsComponent } from './featured-jobs/featured-jobs.component';
 
 
 @NgModule({
   declarations: [
     JobDashboardComponent,
-    JobSearchComponent
+    JobSearchComponent,
+    FeaturedJobsComponent
   ],
   imports: [
     CommonModule,
