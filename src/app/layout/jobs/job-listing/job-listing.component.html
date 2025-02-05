@@ -1,0 +1,4 @@
+<div class="job-listing-container">
+    <app-job-filter (filtersChanged)="updateFilters($event)"></app-job-filter>
+    <app-job-list [filters]="currentFilters"></app-job-list>
+</div>

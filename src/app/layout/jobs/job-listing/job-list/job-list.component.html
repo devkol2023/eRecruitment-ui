@@ -1,0 +1,22 @@
+<div class="job-list-container">
+    <header class="job-header">
+      <h4>{{ jobs.length }} Jobs Found</h4>
+    </header>
+  
+    <div class="job-item" *ngFor="let job of jobs">
+      <div class="job-logo">
+        <img [src]="job.logo" alt="{{ job.company }} Logo" />
+      </div>
+      <div class="job-details">
+        <h5>{{ job.title }}</h5>
+        <p>{{ job.company }}</p>
+        <p><mat-icon>location_on</mat-icon> {{ job.location }}</p>
+        <p>{{ job.salary }}</p>
+      </div>
+      <div class="job-meta">
+        <button mat-button color="primary">{{ job.type }}</button>
+        <p>{{ job.postedTime }}</p>
+      </div>
+    </div>
+  </div>
+  
