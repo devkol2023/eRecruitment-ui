@@ -16,6 +16,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     transition: transform 0.3s ease-in-out, box-shadow 0.2s ease-in-out !important;
     outline: none !important;
     font-size: 16px;
+    height: 40px;
 }
 
 .btn:hover {
@@ -24,3 +25,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background-color: #aa2417 !important;
     color: #ffffff !important;
 }
+
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline {
+    color: #BF322B; /* Text color inside the field */
+    border-color: #BF322B; /* Main border color */
+    stroke: #BF322B; /* Outline stroke color for the border */
+  }
+  

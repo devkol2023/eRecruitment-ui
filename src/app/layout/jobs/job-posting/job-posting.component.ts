@@ -46,10 +46,9 @@ ngOnInit(): void {
   
 }
 
-onCountryChange(event: any): void {
-  const selectedCountry = event.value;
+onCountryChange(selectedCountry: string): void {
   this.statesForSelectedCountry = this.states[selectedCountry] || [];
-  this.jobForm.patchValue({ state: '' });
+  this.jobForm.get('state')?.setValue('');
 }
 
 onSubmit(): void {

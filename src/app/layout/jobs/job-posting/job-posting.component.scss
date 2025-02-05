@@ -1,82 +1,32 @@
-.job-post-form {
-    max-width: 80%;
+.job-form-container {
+    max-width: 70%;
     margin: 20px auto;
     padding: 20px;
-    border: 1px solid #e0e0e0;
+    background: #ffffff;
     border-radius: 8px;
-    background-color: #fff;
-}
-
-.form-title {
-    font-size: 24px;
-    font-weight: bold;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+    color: #333;
+    text-align: center;
     margin-bottom: 20px;
-}
-
-.form-section {
-    margin-bottom: 20px;
-}
-
-/* Flexbox layout to ensure alignment */
-.form-row {
+  }
+  
+  .group-form-field {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Add space between the fields */
-}
-
-.form-row .form-section {
-    flex: 1 1 calc(50% - 20px); /* 50% width for each form section in a row */
-    box-sizing: border-box;
-}
-
-/* For full-width form sections */
-.form-row .form-section.full-width {
-    flex: 1 1 100%; /* Full-width field */
-}
-
-.styled-input {
-    padding: 10px;
-    font-size: 15px;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    outline: none;
-    font-weight: 300;
-    width: 100%; /* Ensures inputs take up full available width */
-    transition: border 0.3s ease-in-out;
-}
-
-.styled-input:focus {
-    border-color: #bf322b;
-    box-shadow: 0 0 5px rgba(191, 50, 43, 0.5);
-}
-
-/* Error Message Styling */
-.error-message {
-    color: red;
-    font-size: 12px;
-}
-
-/* Button Styling */
-.form-buttons {
-    text-align: right;
-}
-
-.btn-2 {
+    margin-bottom: 10px;
+    gap: 20px;
+  }
+  
+  .half-width {
+    flex: 1;
+  }
+  
+  .full-width {
     width: 100%;
-    background: #BF322B !important;
-    border-radius: 5px !important;
-    padding: 8px 15px !important;
-    color: #ffffff !important;
-    border: none !important;
-    font: M !important;
-    cursor: pointer !important;
-    transition: transform 0.3s ease-in-out, box-shadow 0.2s ease-in-out !important;
-    outline: none !important;
-}
+    margin-bottom: 10px;
+  }
 
-.btn-2:hover {
-    transform: rotateY(5deg) translateY(-1px) !important;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4) !important;
-    background-color: #aa2417 !important;
-    color: #ffffff !important;
-}
+  
