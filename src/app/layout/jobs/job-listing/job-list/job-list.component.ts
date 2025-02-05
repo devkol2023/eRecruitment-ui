@@ -15,23 +15,74 @@ export class JobListComponent {
       company: 'Ziggo',
       location: 'Athens, Greece',
       salary: '$3500 - $4000',
-      logo: 'https://via.placeholder.com/50',
+      logo: 'https://dummyimage.com/80x80/000/fff&text=Ziggo',
       type: 'Full Time',
       postedTime: '7 hours ago',
       experience: '3-5 Years',
-      category: 'Marketing' // Add the 'category' field
+      category: 'Marketing'
     },
     {
       title: 'Software Developer',
       company: 'TechCorp',
       location: 'London, UK',
       salary: '$4500 - $5000',
-      logo: 'https://via.placeholder.com/50',
+      logo: 'https://dummyimage.com/80x80/000/fff&text=TechCorp',
       type: 'Remote',
       postedTime: '2 days ago',
       experience: '5+ Years',
-      category: 'IT' // Add the 'category' field
+      category: 'IT'
+    },
+    {
+      title: 'Data Scientist',
+      company: 'DataCorp',
+      location: 'New York, USA',
+      salary: '$5000 - $7000',
+      logo: 'https://dummyimage.com/80x80/000/fff&text=DataCorp',
+      type: 'Hybrid',
+      postedTime: '1 day ago',
+      experience: '3+ Years',
+      category: 'Analytics'
+    },
+    {
+      title: 'UX Designer',
+      company: 'DesignHub',
+      location: 'Berlin, Germany',
+      salary: '$4000 - $5500',
+      logo: 'https://dummyimage.com/80x80/000/fff&text=DesignHub',
+      type: 'Freelance',
+      postedTime: '5 hours ago',
+      experience: '2-4 Years',
+      category: 'Design'
+    },
+    {
+      title: 'Product Manager',
+      company: 'Innovate Ltd',
+      location: 'San Francisco, USA',
+      salary: '$6000 - $8000',
+      logo: 'https://dummyimage.com/80x80/000/fff&text=Innovate',
+      type: 'Full Time',
+      postedTime: '3 days ago',
+      experience: '4+ Years',
+      category: 'Management'
+    },
+    {
+      title: 'Backend Developer',
+      company: 'CodeBase',
+      location: 'Tokyo, Japan',
+      salary: '$5500 - $6500',
+      logo: 'https://dummyimage.com/80x80/000/fff&text=CodeBase',
+      type: 'Part Time',
+      postedTime: '12 hours ago',
+      experience: '3+ Years',
+      category: 'Development'
     }
+  ];  
+
+  selectedSort = 'date'; // Default sort option
+  sortOptions = [
+    { value: 'date', label: 'Date' },
+    { value: 'salary', label: 'Salary' },
+    { value: 'title', label: 'Title' },
   ];
   
   filteredJobs = this.jobs;
@@ -46,5 +97,10 @@ export class JobListComponent {
         (this.filters.experience === '' || job.experience === this.filters.experience)
       );
     });
+  }
+
+  sortJobs() {
+    // Implement your sorting logic here based on `selectedSort`
+    console.log(`Sorting by ${this.selectedSort}`);
   }
 }

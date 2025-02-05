@@ -1,6 +1,9 @@
 <form [formGroup]="filterForm" (ngSubmit)="applyFilters()">
   <div class="filter-container">
-    <h4><mat-icon>filter_alt</mat-icon> Filter Jobs</h4>
+    <div class="filter-header">
+      <mat-icon>filter_alt</mat-icon>
+      <h4>Filter Jobs</h4>
+    </div>    
 
     <div class="filter-section">
       <h5>Job Category</h5>
@@ -51,12 +54,9 @@
       </mat-form-field>
     </div>
     <div class="filter-section">
-      <h5>Price</h5>
-      <mat-slider step="5" min="10" max="1000" (input)="updatePrice($event)">
-        <input matSliderThumb>
-      </mat-slider>
-      <p>{{ price }} USD</p>
-    </div>
+      <h5>Filter by Price (USD)</h5>
+      <ngx-slider [(value)]="value" [(highValue)]="highValue" [options]="options"></ngx-slider>
+    </div>    
 
     <button mat-raised-button color="primary" type="submit">Apply Filters</button>
   </div>

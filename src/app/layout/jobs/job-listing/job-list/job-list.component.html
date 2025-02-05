@@ -1,22 +1,36 @@
 <div class="job-list-container">
-    <header class="job-header">
-      <h4>{{ jobs.length }} Jobs Found</h4>
-    </header>
-  
-    <div class="job-item" *ngFor="let job of jobs">
-      <div class="job-logo">
-        <img [src]="job.logo" alt="{{ job.company }} Logo" />
+  <div class="job-list-header">
+    <h4>{{ jobs.length }} Jobs Found</h4>
+    <div class="custom-dropdown">
+      <label for="sortBy">Sort by:</label>
+      <select id="sortBy" [(ngModel)]="selectedSort" (change)="sortJobs()">
+        <option *ngFor="let option of sortOptions" [value]="option.value">
+          {{ option.label }}
+        </option>
+      </select>
+    </div>    
+  </div>  
+
+  <div class="job-item" *ngFor="let job of jobs">
+    <div class="job-logo">
+      <img [src]="job.logo" alt="{{ job.company }} Logo" />
+    </div>    
+    <div class="job-content">
+      <div class="job-header">
+        <h5>{{ job.title }}</h5>
       </div>
       <div class="job-details">
-        <h5>{{ job.title }}</h5>
-        <p>{{ job.company }}</p>
-        <p><mat-icon>location_on</mat-icon> {{ job.location }}</p>
-        <p>{{ job.salary }}</p>
-      </div>
-      <div class="job-meta">
-        <button mat-button color="primary">{{ job.type }}</button>
-        <p>{{ job.postedTime }}</p>
-      </div>
+        <p class="company-name">{{ job.company }}</p>
+        <div class="job-location">
+          <mat-icon>location_on</mat-icon> 
+          <span>{{ job.location }}</span>
+        </div>
+        <p class="job-salary">{{ job.salary }}</p>
+      </div>        
     </div>
-  </div>
-  
+    <div class="job-meta">
+      <button mat-button color="primary">{{ job.type }}</button>
+      <p>{{ job.postedTime }}</p>
+    </div>
+  </div>  
+</div>
