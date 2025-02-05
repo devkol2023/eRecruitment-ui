@@ -33,22 +33,30 @@
     flex: 1 1 100%; /* Full width field */
 }
 
-/* Ensure mat-form-field takes full width of its parent */
-.form-section mat-form-field {
-    width: 100%;
+/* Ensure the styled input takes full width of its parent */
+.styled-input {
+    padding: 10px;
+    font-size: 15px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    font-weight: 300;
+    width: 97%;
+    transition: border 0.3s ease-in-out;
 }
 
-.form-section span.error-required {
-    color: red;
-    font-weight: bold;
-    margin-left: 5px;
+.styled-input:focus {
+    border-color: #bf322b;
+    box-shadow: 0 0 5px rgba(191, 50, 43, 0.5);
 }
 
+/* Error Message */
 .error-message {
-    font-size: 12px;
     color: red;
+    font-size: 12px;
 }
 
 .form-buttons {
     text-align: right;
 }
+

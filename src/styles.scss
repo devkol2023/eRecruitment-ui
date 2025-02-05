@@ -2,3 +2,25 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+/* Custom Button Style */
+.btn {
+    width: auto;
+    background: #BF322B !important;
+    border-radius: 5px !important;
+    padding: 8px 15px !important;
+    color: #ffffff !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: transform 0.3s ease-in-out, box-shadow 0.2s ease-in-out !important;
+    outline: none !important;
+    font-size: 16px;
+}
+
+.btn:hover {
+    transform: rotateY(5deg) translateY(-1px) !important;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4) !important;
+    background-color: #aa2417 !important;
+    color: #ffffff !important;
+}
