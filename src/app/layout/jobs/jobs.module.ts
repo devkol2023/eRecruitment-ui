@@ -6,6 +6,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { JobListingComponent } from './job-listing/job-listing.component';
 import { JobFilterComponent } from './job-listing/job-filter/job-filter.component';
 import { JobListComponent } from './job-listing/job-list/job-list.component';
+import { JobPostingComponent } from './job-posting/job-posting.component';
 
 
 
@@ -14,7 +15,8 @@ import { JobListComponent } from './job-listing/job-list/job-list.component';
     JobsComponent,
     JobFilterComponent,
     JobListComponent,
-    JobListingComponent
+    JobListingComponent,
+    JobPostingComponent
   ],
   imports: [
     CommonModule,
