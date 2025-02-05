@@ -1,0 +1,91 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+  }
+  
+  .brand {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .brand-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #003366;
+    margin: 0;
+  }
+  
+  .tagline {
+    font-size: 12px;
+    color: #666666;
+    margin: 0;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-links li {
+    margin: 0 10px;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #003366;
+    font-size: 16px;
+    transition: color 0.3s;
+  }
+  
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: #ff007f;
+  }
+  
+  .auth-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .register-btn {
+    padding: 8px 15px;
+    background-color: #ff007f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .login-btn {
+    padding: 8px 15px;
+    background-color: transparent;
+    color: #ff007f;
+    border: 2px solid #ff007f;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .register-btn:hover,
+  .login-btn:hover {
+    opacity: 0.8;
+  }
+  

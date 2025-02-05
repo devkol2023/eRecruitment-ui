@@ -7,12 +7,11 @@ const routes: Routes = [
     path: '',
     component: LayoutComponent,
     children: [
-      { path: '', redirectTo: 'jobs', pathMatch: 'full' }, // Default redirect to jobs
-      { 
-        path: 'jobs', 
-        loadChildren: () => import('./jobs/jobs.module').then(m => m.JobsModule) 
-      },
-      { path: '**', redirectTo: 'jobs' } // Fallback for invalid routes
+      { path: '', redirectTo: 'job-dashboard', pathMatch: 'full' }, // Default inside layout
+      { path: 'jobs', loadChildren: () => import('./jobs/jobs.module').then(m => m.JobsModule) },
+      { path: '**', redirectTo: 'job-dashboard' }, // Default fallback route inside layout,
+      { path: 'job-dashboard', loadChildren: () => import('./job-dashboard/job-dashboard.module').then(m => m.JobDashboardModule) },
+
     ]
   }
 ];
