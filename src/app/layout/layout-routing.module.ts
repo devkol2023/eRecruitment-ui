@@ -9,7 +9,6 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'job-dashboard', pathMatch: 'full' }, // Default inside layout
       { path: 'jobs', loadChildren: () => import('./jobs/jobs.module').then(m => m.JobsModule) },
-      { path: '**', redirectTo: 'job-dashboard' }, // Default fallback route inside layout,
       { path: 'job-dashboard', loadChildren: () => import('./job-dashboard/job-dashboard.module').then(m => m.JobDashboardModule) },
 
     ]
