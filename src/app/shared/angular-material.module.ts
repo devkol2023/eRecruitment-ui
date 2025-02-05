@@ -27,6 +27,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatTreeModule } from '@angular/material/tree';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSliderModule } from "@angular/material/slider";
 
 @NgModule({
   declarations: [],
@@ -66,6 +67,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatTreeModule,
     FormsModule,
     ReactiveFormsModule,
+    MatSliderModule
   ],
   exports: [
     MatToolbarModule,
@@ -104,6 +106,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatTreeModule,
     FormsModule,
     ReactiveFormsModule,
+    MatSliderModule
   ],
 })
 export class AngularMaterialModule {}

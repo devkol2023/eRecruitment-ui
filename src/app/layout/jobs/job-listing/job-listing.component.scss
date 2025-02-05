@@ -1,0 +1,11 @@
+.job-listing-container {
+    display: flex;
+    gap: 20px;
+  }
+  app-job-filter {
+    width: 30%;
+  }
+  app-job-list {
+    width: 70%;
+  }
+  

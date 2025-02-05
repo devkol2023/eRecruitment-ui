@@ -1,0 +1,63 @@
+<form [formGroup]="filterForm" (ngSubmit)="applyFilters()">
+  <div class="filter-container">
+    <h4><mat-icon>filter_alt</mat-icon> Filter Jobs</h4>
+
+    <div class="filter-section">
+      <h5>Job Category</h5>
+      <mat-form-field appearance="fill">
+        <mat-label>All Category</mat-label>
+        <mat-select formControlName="category">
+          <mat-option value="all">All</mat-option>
+          <mat-option *ngFor="let category of categories" [value]="category">{{ category }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="filter-section">
+      <h5>Job Type</h5>
+      <div *ngFor="let type of jobTypes; let i = index">
+        <mat-checkbox [formControlName]="'jobType' + i">{{ type.name }}</mat-checkbox>
+      </div>
+    </div>
+
+    <div class="filter-section">
+      <h5>Job Location</h5>
+      <mat-form-field appearance="fill">
+        <mat-label>Anywhere</mat-label>
+        <mat-select formControlName="location">
+          <mat-option value="anywhere">Anywhere</mat-option>
+          <mat-option *ngFor="let location of locations" [value]="location">{{ location }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="filter-section">
+      <h5>Experience</h5>
+      <mat-form-field appearance="fill">
+        <mat-label>Years of Experience</mat-label>
+        <mat-select formControlName="experience">
+          <mat-option *ngFor="let exp of experienceOptions" [value]="exp">{{ exp }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="filter-section">
+      <h5>Posted Within</h5>
+      <mat-form-field appearance="fill">
+        <mat-label>Posted Within</mat-label>
+        <mat-select formControlName="postedWithin">
+          <mat-option *ngFor="let time of postedWithinOptions" [value]="time">{{ time }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="filter-section">
+      <h5>Price</h5>
+      <mat-slider step="5" min="10" max="1000" (input)="updatePrice($event)">
+        <input matSliderThumb>
+      </mat-slider>
+      <p>{{ price }} USD</p>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit">Apply Filters</button>
+  </div>
+</form>
