@@ -12,6 +12,7 @@ const routes: Routes = [
       { path: 'job-dashboard', loadChildren: () => import('./job-dashboard/job-dashboard.module').then(m => m.JobDashboardModule) },
       { path: 'candidate', loadChildren: () => import('./candidate/candidate.module').then(m => m.CandidateModule) },
       { path: 'hr', loadChildren: () => import('./hr-admin/hr-admin.module').then(m => m.HrAdminModule) },
+      { path: 'interview', loadChildren: () => import('./interview/interview.module').then(m => m.InterviewModule) },
     ]
   }
 ];

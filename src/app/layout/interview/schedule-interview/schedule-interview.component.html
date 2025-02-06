@@ -1,0 +1,68 @@
+<h2 class="title mt-0">Schedule Interview</h2>
+<div class="schedule-interview-container">
+    <form [formGroup]="interviewForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Candidate Name</mat-label>
+        <input matInput [value]="'John'" disabled />
+      </mat-form-field>
+  
+      <div class="group-form-field">
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>Interview Date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="date" />
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="interviewForm.get('date')?.hasError('required')">Date is required</mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>Interview Time</mat-label>
+          <input matInput type="time" formControlName="time" />
+          <mat-error *ngIf="interviewForm.get('time')?.hasError('required')">Time is required</mat-error>
+        </mat-form-field>
+      </div>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Interview Mode</mat-label>
+        <mat-select formControlName="mode">
+          <mat-option *ngFor="let mode of interviewModes" [value]="mode">
+            {{ mode }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="interviewForm.get('mode')?.hasError('required')">Mode is required</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width example-chip-list">
+        <mat-label>Panel Members</mat-label>
+        <mat-chip-grid #chipGrid aria-label="Panel member selection">
+          <mat-chip-row *ngFor="let member of selectedPanelMembers" (removed)="removePanelMember(member)">
+            {{ member }}
+            <button matChipRemove>
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip-row>
+        </mat-chip-grid>
+        <input
+          matInput
+          id="panelMemberInput"
+          placeholder="Add Panel Member"
+          [matChipInputFor]="chipGrid"
+          [matAutocomplete]="auto"
+          (input)="filterPanelMembers($event)"
+        />
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectPanelMember($event)">
+          <mat-option *ngFor="let member of filteredPanelMembers" [value]="member">{{ member }}</mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Notes</mat-label>
+        <textarea matInput formControlName="notes" placeholder="Add any additional notes (optional)"></textarea>
+      </mat-form-field>
+  
+      <div class="form-actions">
+        <button class="btn" type="submit">Schedule Interview</button>
+      </div>
+    </form>
+</div>
+  
