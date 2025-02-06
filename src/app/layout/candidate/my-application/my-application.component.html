@@ -1,3 +1,4 @@
+<h2 class="title mt-0">My Application</h2>
 <div class="filter-toggle">
     <button *ngFor="let filter of filters" class="toggle-btn" [class.active]="filter.active"
         (click)="onFilterChange(filter)" [style.marginRight]="filter.value === 'upcoming' ? '6px' : ''">
