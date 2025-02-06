@@ -9,6 +9,13 @@ import { Router } from '@angular/router';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-constructor(private router:Router){}
+  activeDropdown: string | null = null;
 
+  toggleDropdown(menu: string): void {
+    this.activeDropdown = this.activeDropdown === menu ? null : menu;
+  }
+
+  closeDropdown(): void {
+    this.activeDropdown = null;
+  }
 }

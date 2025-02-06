@@ -1,8 +1,8 @@
-<span class="title">Job Management</span>
+<span class="title">Post Job</span>
 <mat-accordion>
 
   <!-- Job Posting Form Panel -->
-  <mat-expansion-panel [(expanded)]="isJobPanelOpen">
+  <mat-expansion-panel [expanded]="true">
     <mat-expansion-panel-header class="header">
       <mat-panel-title>
         Post a New Job
@@ -204,7 +204,7 @@
   </mat-expansion-panel>
 
   <!-- Job Listings Panel -->
-  <mat-expansion-panel [expanded]="true">
+  <!-- <mat-expansion-panel [expanded]="true">
     <mat-expansion-panel-header class="header">
       <mat-panel-title>
         Job Listings
@@ -214,7 +214,7 @@
       <app-table [columns]="tableColumns" [data]="jobListings" [paginationConfig]="paginationConfig"
         (onItemsPerPageChange)="updateItemsPerPage($event)" (onEditAction)="onEdit($event)">
       </app-table>
-  </mat-expansion-panel>
+  </mat-expansion-panel> -->
 
 </mat-accordion>
   

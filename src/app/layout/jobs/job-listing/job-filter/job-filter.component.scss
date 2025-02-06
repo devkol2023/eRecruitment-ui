@@ -34,15 +34,9 @@
   width: 100%;
   margin-bottom: 15px;
 }
-button {
+
+.btn-div {
+  display: flex;
+  justify-content: center;
   margin-top: 15px;
-  background-color: #0984e3;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-button:hover {
-  background-color: #74b9ff;
 }

@@ -1,21 +1,39 @@
 <div class="navbar">
-    <div class="logo-container">
-      <img src="assets/logo.png" alt="Logo" class="logo" />
-      <div class="brand">
-        <h1 class="brand-name">Job Finder</h1>
-        <p class="tagline">Get your dream job</p>
-      </div>
-    </div>
-    <ul class="nav-links">
-      <li><a routerLink="/job-dashboard" routerLinkActive="active">Home</a></li>
-      <li><a routerLink="/jobs" routerLinkActive="active">Find a Jobs</a></li>
-      <li><a routerLink="/about" routerLinkActive="active">About</a></li>
-      <li><a routerLink="/page" routerLinkActive="active">Page</a></li>
-      <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
-    </ul>
-    <div class="auth-buttons">
-      <button class="btn" routerLink="/auth/register">Register</button>
-      <button class="login-btn" routerLink="/auth/login">Login</button>
+  <div class="logo-container">
+    <img src="assets/logo.png" alt="Logo" class="logo" />
+    <div class="brand">
+      <h1 class="brand-name">Job Finder</h1>
+      <p class="tagline">Get your dream job</p>
     </div>
   </div>
-  
+  <ul class="nav-links">
+    <li><a routerLink="/job-dashboard">Home</a></li>
+    <li class="dropdown">
+      <a routerLink="/jobs/find-jobs">Find Jobs</a>
+    </li>
+    <li class="dropdown">
+      <a (click)="toggleDropdown('candidate')">Candidate Management</a>
+      <ul class="dropdown-menu" [class.show]="activeDropdown === 'candidate'">
+        <li><a routerLink="/hr/candidate-management" (click)="closeDropdown()">Search Candidates</a></li>
+        <li><a routerLink="" (click)="closeDropdown()">Manage Profiles</a></li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <a (click)="toggleDropdown('job-post')">Job Post</a>
+      <ul class="dropdown-menu" [class.show]="activeDropdown === 'job-post'">
+        <li><a routerLink="/jobs/post-job" (click)="closeDropdown()">Post New Job</a></li>
+        <li><a routerLink="/hr/manage-jobs" (click)="closeDropdown()">Manage Job Postings</a></li>
+      </ul>
+    </li>
+    <li><a routerLink="/candidate/my-application">My Applications</a></li>
+    <li class="dropdown">
+      <a routerLink="/candidate/profile">Profile</a>
+    </li>
+    <li><a routerLink="/about">About</a></li>
+    <li><a routerLink="/contact">Contact</a></li>
+  </ul>
+  <div class="auth-buttons">
+    <button class="btn" routerLink="/auth/register">Register</button>
+    <button class="login-btn" routerLink="/auth/login">Login</button>
+  </div>
+</div>
