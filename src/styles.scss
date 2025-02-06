@@ -35,3 +35,18 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .cursor-pointer {
     cursor: pointer;
 }
+
+.group-form-field {
+    display: flex;
+    margin-bottom: 10px;
+    gap: 20px;
+  }
+  
+  .half-width {
+    flex: 1;
+  }
+  
+  .full-width {
+    width: 100%;
+    margin-bottom: 10px;
+  }

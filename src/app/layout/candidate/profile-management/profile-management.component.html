@@ -1,0 +1,111 @@
+<span class="title">Candidate Profile Management</span>
+<mat-accordion>
+
+  <!-- Job Posting Form Panel -->
+  <mat-expansion-panel expanded="true">
+    <mat-expansion-panel-header class="header">
+      <mat-panel-title>
+        Update Profile
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="profile-management">
+        <!-- Profile Update Form -->
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+            <div class="group-form-field">
+                <mat-form-field appearance="outline" class="half-width">
+                  <mat-label>Full Name</mat-label>
+                  <input matInput formControlName="fullName" />
+                  <mat-error *ngIf="profileForm.get('fullName')?.hasError('required')">
+                    Full Name is required
+                  </mat-error>
+                </mat-form-field>
+            
+                <mat-form-field appearance="outline" class="half-width">
+                  <mat-label>Email</mat-label>
+                  <input matInput formControlName="email" />
+                  <mat-error *ngIf="profileForm.get('email')?.hasError('required')">
+                    Email is required
+                  </mat-error>
+                  <mat-error *ngIf="profileForm.get('email')?.hasError('email')">
+                    Invalid email address
+                  </mat-error>
+                </mat-form-field>
+            
+                <mat-form-field appearance="outline" class="half-width">
+                  <mat-label>Phone</mat-label>
+                  <input matInput formControlName="phone" />
+                  <mat-error *ngIf="profileForm.get('phone')?.hasError('required')">
+                    Phone number is required
+                  </mat-error>
+                  <mat-error *ngIf="profileForm.get('phone')?.hasError('pattern')">
+                    Invalid phone number
+                  </mat-error>
+                </mat-form-field>
+            </div>
+    
+            <div class="group-form-field">
+                <mat-form-field appearance="outline" class="half-width">
+                  <mat-label>Skills</mat-label>
+                  <mat-select formControlName="skills" multiple>
+                    <mat-option *ngFor="let skill of skillsOptions" [value]="skill">
+                      {{ skill }}
+                    </mat-option>
+                    <mat-error *ngIf="profileForm.get('skills')?.hasError('required')">
+                      Skills are required
+                    </mat-error>
+                  </mat-select>
+                </mat-form-field>
+            
+                <mat-form-field appearance="outline" class="half-width">
+                  <mat-label>Experience</mat-label>
+                  <input matInput formControlName="experience" />
+                  <mat-error *ngIf="profileForm.get('experience')?.hasError('required')">
+                    Experience is required
+                  </mat-error>
+                </mat-form-field>
+            </div>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Address</mat-label>
+            <textarea matInput formControlName="address"></textarea>
+            <mat-error *ngIf="profileForm.get('address')?.hasError('required')">
+              Address is required
+            </mat-error>
+          </mat-form-field>
+      
+          <!-- Document Upload -->
+          <div class="document-upload">
+            <label for="fileUpload">Upload Documents:</label>
+            <input id="fileUpload" type="file" (change)="onFileUpload($event)" />
+            <ul>
+              <li *ngFor="let doc of uploadedDocuments">
+                {{ doc }}
+                <button mat-button color="warn" (click)="removeDocument(doc)">Remove</button>
+              </li>
+            </ul>
+          </div>
+      
+          <div class="form-actions">
+            <button class="btn" type="submit">Update Profile</button>
+          </div>
+        </form>
+      
+        <!-- Profile Summary -->
+        <div class="profile-summary" *ngIf="profile">
+          <h3>Profile Summary</h3>
+          <p><strong>Full Name:</strong> {{ profile.fullName }}</p>
+          <p><strong>Email:</strong> {{ profile.email }}</p>
+          <p><strong>Phone:</strong> {{ profile.phone }}</p>
+          <p><strong>Address:</strong> {{ profile.address }}</p>
+          <p><strong>Skills:</strong> {{ profile.skills }}</p>
+          <p><strong>Experience:</strong> {{ profile.experience }}</p>
+          <p><strong>Documents:</strong></p>
+          <ul>
+            <li *ngFor="let doc of profile.documents">{{ doc }}</li>
+          </ul>
+        </div>
+      </div>
+  </mat-expansion-panel>
+</mat-accordion>
+  

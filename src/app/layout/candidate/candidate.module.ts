@@ -4,13 +4,15 @@ import { CandidateComponent } from './candidate.component';
 import { CandidateRoutingModule } from './candidate-routing.module';
 import { MyApplicationComponent } from './my-application/my-application.component';
 import { SharedModule } from '../../shared/shared.module';
+import { ProfileManagementComponent } from './profile-management/profile-management.component';
 
 
 
 @NgModule({
   declarations: [
     CandidateComponent,
-    MyApplicationComponent
+    MyApplicationComponent,
+    ProfileManagementComponent
   ],
   imports: [
     CommonModule,

@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegistrationComponent {
   registrationForm: FormGroup;
-
+  candidateTypeOptions = ['Internal', 'External'];
   constructor(private fb: FormBuilder) {
     this.registrationForm = this.fb.group({
       fullName: ['', Validators.required],
@@ -22,6 +22,7 @@ export class RegistrationComponent {
       ],
       workStatus: ['', Validators.required],
       promotions: [false],
+      candidateType: ['', Validators.required]
     });
   }
 
@@ -29,7 +30,7 @@ export class RegistrationComponent {
     if (this.registrationForm.valid) {
       console.log(this.registrationForm.value);
     } else {
-      console.error('Form is invalid');
+      this.registrationForm.markAllAsTouched();
     }
   }
 }
