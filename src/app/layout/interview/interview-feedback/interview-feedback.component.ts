@@ -11,18 +11,20 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class InterviewFeedbackComponent {
   tableColumns = [
-    { key: 'candidateName', label: 'Candidate Name', width: '25%' },
-    { key: 'jobTitle', label: 'Job Title', width: '25%' },
+    { key: 'candidateName', label: 'Candidate Name', width: '20%' },
+    { key: 'jobTitle', label: 'Job Title', width: '20%' },
+    { key: 'skills', label: 'Skills', width: '20%' },
     { key: 'interviewDate', label: 'Date & Time', width: '20%' },
-    { key: 'status', label: 'Status', width: '15%' },
-    { key: 'actions', label: 'Actions', width: '15%', type: 'action', types: { joinInterview: true, feedback: true } }
+    { key: 'status', label: 'Status', width: '10%' },
+    { key: 'actions', label: 'Actions', width: '10%', type: 'action', types: { download: true, joinInterview: true, feedback: true } }
   ];
-
+  
   scheduledInterviews = [
     {
       id: 'I001',
       candidateName: 'John Doe',
       jobTitle: 'Software Engineer',
+      skills: 'JavaScript, TypeScript, Angular',
       interviewDate: '2024-02-15 at 10:00 AM',
       status: 'Completed'
     },
@@ -30,6 +32,7 @@ export class InterviewFeedbackComponent {
       id: 'I002',
       candidateName: 'Jane Smith',
       jobTitle: 'Data Analyst',
+      skills: 'Python, SQL, Tableau',
       interviewDate: '2024-02-20 at 2:00 PM',
       status: 'Ongoing'
     },
@@ -37,6 +40,7 @@ export class InterviewFeedbackComponent {
       id: 'I003',
       candidateName: 'Michael Brown',
       jobTitle: 'Marketing Specialist',
+      skills: 'SEO, Content Marketing, Google Analytics',
       interviewDate: '2024-02-25 at 1:00 PM',
       status: 'Upcoming'
     }
