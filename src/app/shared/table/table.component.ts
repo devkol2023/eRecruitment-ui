@@ -34,6 +34,7 @@ export class TableComponent implements OnInit, OnChanges {
   @Output() onDownloadButtonClick = new EventEmitter<any>();
   @Output() onCustomButtonClick = new EventEmitter<any>();
   @Output() onScheduleInterviewAction = new EventEmitter<any>();
+  @Output() onInterviewJoinAction = new EventEmitter<any>();
 
   searchQuery: string = '';
   sortedData: any[] = []; // Data after sorting
@@ -120,14 +121,17 @@ export class TableComponent implements OnInit, OnChanges {
   getStatusColor(status: string): string {
     switch (status.toLowerCase()) {
       case 'offer made':
+      case 'completed':
         return 'green';
       case 'shortlisted':
         return 'blue';
       case 'under review':
+      case 'ongoing':
         return '#EFA601';
       case 'rejected':
         return 'red';
       case 'interview scheduled':
+      case 'upcoming':
         return 'purple';
       default:
         return 'gray';
@@ -164,5 +168,9 @@ export class TableComponent implements OnInit, OnChanges {
 
   onScheduleInterview(candidate: any) {
     this.onScheduleInterviewAction.emit(candidate);
+  }
+
+  joinInterview(interview: any) {
+    this.onInterviewJoinAction.emit(interview);
   }
 }

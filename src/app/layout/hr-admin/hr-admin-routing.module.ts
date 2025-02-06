@@ -3,6 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { HrAdminComponent } from "./hr-admin.component";
 import { CandidateManagementComponent } from "./candidate-management/candidate-management.component";
 import { ManageJobComponent } from "./manage-job/manage-job.component";
+import { ScheduleInterviewComponent } from "./schedule-interview/schedule-interview.component";
 
 const routes: Routes = [
   {
@@ -10,7 +11,8 @@ const routes: Routes = [
     component: HrAdminComponent,
     children: [
         { path: 'candidate-management', component: CandidateManagementComponent},
-        { path: 'manage-jobs', component: ManageJobComponent}
+        { path: 'manage-jobs', component: ManageJobComponent},
+        { path: 'schedule-interview', component: ScheduleInterviewComponent}
     ]
   }
 ];

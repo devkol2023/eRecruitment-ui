@@ -78,7 +78,8 @@
                                         fill="#BF322B" />
                                 </svg>
                             </button>
-                            <button mat-icon-button *ngIf="col.types['feedback'] && !row.isUpcoming && !row.isFeedbackSent" class="btn-edit" (click)="onFeedback(row)">
+                            <button mat-icon-button *ngIf="col.types['feedback'] && row.status == 'Completed' && !row.isFeedbackSent" class="btn-edit"
+                                matTooltip="Send Feedback" (click)="onFeedback(row)">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                                     <g clip-path="url(#clip0_1322_2598)">
                                         <path
@@ -118,7 +119,12 @@
                             <button mat-icon-button *ngIf="col.types['schedule']" matTooltip="Schedule Interview"
                                 aria-label="Schedule Interview" (click)="onScheduleInterview(row)">
                                 <mat-icon>event</mat-icon>
-                              </button>
+                            </button>
+
+                            <button mat-icon-button *ngIf="col.types['joinInterview'] && row.status == 'Ongoing'" matTooltip="Join Interview"
+                                    (click)="joinInterview(row)">
+                                <mat-icon class="mat-icon-btn">video_call</mat-icon>
+                            </button>
                         </ng-container>
     
                         <!-- Default value for other columns -->

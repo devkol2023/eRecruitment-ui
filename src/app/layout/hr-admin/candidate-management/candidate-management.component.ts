@@ -170,6 +170,6 @@ export class CandidateManagementComponent {
   }
 
   onScheduleInterviewAction(candidate: any): void {
-    this.router.navigate(['/interview/schedule-interview']);
+    this.router.navigate(['/hr/schedule-interview']);
   }
 }

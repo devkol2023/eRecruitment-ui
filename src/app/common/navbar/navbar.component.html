@@ -7,9 +7,9 @@
     </div>
   </div>
   <ul class="nav-links">
-    <li><a routerLink="/job-dashboard">Home</a></li>
+    <li><a routerLink="/job-dashboard" (click)="closeDropdown()">Home</a></li>
     <li class="dropdown">
-      <a routerLink="/jobs/find-jobs">Find Jobs</a>
+      <a routerLink="/jobs/find-jobs" (click)="closeDropdown()">Find Jobs</a>
     </li>
     <li class="dropdown">
       <a (click)="toggleDropdown('candidate')">Candidate Management</a>
@@ -25,12 +25,12 @@
         <li><a routerLink="/hr/manage-jobs" (click)="closeDropdown()">Manage Job Postings</a></li>
       </ul>
     </li>
-    <li><a routerLink="/candidate/my-application">My Applications</a></li>
+    <li><a routerLink="/candidate/my-application" (click)="closeDropdown()">My Applications</a></li>
     <li class="dropdown">
-      <a routerLink="/candidate/profile">Profile</a>
+      <a routerLink="/candidate/profile" (click)="closeDropdown()">Profile</a>
     </li>
-    <li><a routerLink="/about">About</a></li>
-    <li><a routerLink="/contact">Contact</a></li>
+    <li><a routerLink="/about" (click)="closeDropdown()">About</a></li>
+    <li><a routerLink="/contact" (click)="closeDropdown()">Contact</a></li>
   </ul>
   <div class="auth-buttons">
     <button class="btn" routerLink="/auth/register">Register</button>
