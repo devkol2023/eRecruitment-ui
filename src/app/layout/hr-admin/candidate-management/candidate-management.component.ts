@@ -162,4 +162,9 @@ export class CandidateManagementComponent {
     this.paginationConfig.itemsPerPage = itemsPerPage;
     this.paginationConfig.currentPage = 1; // Reset to the first page
   }
+
+   // Handle Page Change
+   updatePage(page: number): void {
+    this.paginationConfig.currentPage = page;
+  }
 }

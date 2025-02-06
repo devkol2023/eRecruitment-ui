@@ -1,4 +1,4 @@
 <span class="title">Job Management</span>
 <app-table [columns]="tableColumns" [data]="jobListings" [paginationConfig]="paginationConfig"
-    (onItemsPerPageChange)="updateItemsPerPage($event)" (onEditAction)="onEdit($event)">
+    (onItemsPerPageChange)="updateItemsPerPage($event)" (onPageChange)="updatePage($event)" (onEditAction)="onEdit($event)">
 </app-table>

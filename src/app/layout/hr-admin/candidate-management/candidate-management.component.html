@@ -59,6 +59,6 @@
   
   <!-- Candidate Table -->
   <app-table [columns]="tableColumns" [data]="candidateData" [paginationConfig]="paginationConfig"
-    (onItemsPerPageChange)="updateItemsPerPage($event)" [searchRequired]="false">
+    (onItemsPerPageChange)="updateItemsPerPage($event)" (onPageChange)="updatePage($event)" [searchRequired]="false">
 </app-table>
   

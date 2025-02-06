@@ -74,6 +74,11 @@ export class ManageJobComponent {
     this.paginationConfig.currentPage = 1; // Reset to the first page
   }
 
+  // Handle Page Change
+  updatePage(page: number): void {
+    this.paginationConfig.currentPage = page;
+  }
+
   onEdit(job: any): void {
     this.router.navigate(['jobs/post-job']);
   }
