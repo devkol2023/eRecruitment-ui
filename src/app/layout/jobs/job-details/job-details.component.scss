@@ -1,0 +1,94 @@
+.job-details-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  .job-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .job-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .company-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+  }
+  
+  .job-info h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #333c6a;
+  }
+  
+  .job-info p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  .salary {
+    color: #ff007f;
+    font-weight: bold;
+  }
+  
+  .job-content {
+    display: flex;
+    gap: 30px;
+  }
+  
+  .job-description {
+    flex: 2;
+  }
+  
+  .job-overview {
+    flex: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  .job-overview h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333c6a;
+  }
+  
+  .job-overview p {
+    margin: 10px 0;
+    color: #555;
+  }
+  
+  .apply-now-btn {
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  .company-info {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  .company-info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .company-info p {
+    margin: 5px 0;
+  }
+  

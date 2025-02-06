@@ -15,7 +15,7 @@
     <div class="job-logo">
       <img [src]="job.logo" alt="{{ job.company }} Logo" />
     </div>    
-    <div class="job-content">
+    <div class="job-content cursor-pointer" (click)="jobClicked(job)">
       <div class="job-header">
         <h5>{{ job.title }}</h5>
       </div>
@@ -29,7 +29,7 @@
       </div>        
     </div>
     <div class="job-meta">
-      <button mat-button color="primary">{{ job.type }}</button>
+      <button color="primary">{{ job.type }}</button>
       <p>{{ job.postedTime }}</p>
     </div>
   </div>  

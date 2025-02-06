@@ -10,7 +10,8 @@ const routes: Routes = [
       { path: '', redirectTo: 'job-dashboard', pathMatch: 'full' }, // Default inside layout
       { path: 'jobs', loadChildren: () => import('./jobs/jobs.module').then(m => m.JobsModule) },
       { path: 'job-dashboard', loadChildren: () => import('./job-dashboard/job-dashboard.module').then(m => m.JobDashboardModule) },
-
+      { path: 'candidate', loadChildren: () => import('./candidate/candidate.module').then(m => m.CandidateModule) },
+      { path: 'hr', loadChildren: () => import('./hr-admin/hr-admin.module').then(m => m.HrAdminModule) },
     ]
   }
 ];

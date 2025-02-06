@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-job-list',
@@ -87,6 +88,8 @@ export class JobListComponent {
   
   filteredJobs = this.jobs;
 
+  constructor(private router: Router) { }
+
   ngOnChanges() {
     this.filteredJobs = this.jobs.filter(job => {
       // Apply filtering logic based on `filters`
@@ -102,5 +105,9 @@ export class JobListComponent {
   sortJobs() {
     // Implement your sorting logic here based on `selectedSort`
     console.log(`Sorting by ${this.selectedSort}`);
+  }
+
+  jobClicked(job: any): void {
+    this.router.navigateByUrl('/jobs/job-details');
   }
 }

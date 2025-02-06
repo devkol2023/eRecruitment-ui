@@ -1,0 +1,62 @@
+<div class="job-details-container">
+    <!-- Job Header -->
+    <div class="job-header">
+      <div class="job-info">
+        <img [src]="jobDetails.companyLogo" alt="Company Logo" class="company-logo" />
+        <div>
+          <h1>{{ jobDetails.title }}</h1>
+          <p>{{ jobDetails.company }}</p>
+          <p>
+            <mat-icon>location_on</mat-icon> {{ jobDetails.location }}
+            <span class="salary">{{ jobDetails.salary }}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Job Description and Overview -->
+    <div class="job-content">
+      <!-- Left Section -->
+      <div class="job-description">
+        <h2>Job Description</h2>
+        <p>{{ jobDetails.description }}</p>
+  
+        <h2>Required Knowledge, Skills, and Abilities</h2>
+        <ul>
+          <li *ngFor="let requirement of jobDetails.requirements">
+            {{ requirement }}
+          </li>
+        </ul>
+  
+        <h2>Education + Experience</h2>
+        <ul>
+          <li *ngFor="let education of jobDetails.education">
+            {{ education }}
+          </li>
+        </ul>
+      </div>
+  
+      <!-- Right Section -->
+      <div class="job-overview">
+        <h2>Job Overview</h2>
+        <p><strong>Posted date:</strong> {{ jobDetails.overview.postedDate }}</p>
+        <p><strong>Location:</strong> {{ jobDetails.overview.location }}</p>
+        <p><strong>Vacancy:</strong> {{ jobDetails.overview.vacancy }}</p>
+        <p><strong>Job nature:</strong> {{ jobDetails.overview.jobNature }}</p>
+        <p><strong>Salary:</strong> {{ jobDetails.overview.salary }}</p>
+        <p><strong>Application date:</strong> {{ jobDetails.overview.applicationDate }}</p>
+        <button class="btn apply-now-btn">
+          Apply Now
+        </button>
+      </div>
+    </div>
+  
+    <!-- Company Information -->
+    <div class="company-info">
+      <h2>Company Information</h2>
+      <p>{{ jobDetails.companyInfo.description }}</p>
+      <p><strong>Name:</strong> {{ jobDetails.companyInfo.name }}</p>
+      <p><strong>Web:</strong> {{ jobDetails.companyInfo.website }}</p>
+      <p><strong>Email:</strong> {{ jobDetails.companyInfo.email }}</p>
+    </div>
+  </div>  

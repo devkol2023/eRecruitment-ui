@@ -7,6 +7,7 @@ import { JobListingComponent } from './job-listing/job-listing.component';
 import { JobFilterComponent } from './job-listing/job-filter/job-filter.component';
 import { JobListComponent } from './job-listing/job-list/job-list.component';
 import { JobPostingComponent } from './job-posting/job-posting.component';
+import { JobDetailsComponent } from './job-details/job-details.component';
 
 
 
@@ -16,7 +17,8 @@ import { JobPostingComponent } from './job-posting/job-posting.component';
     JobFilterComponent,
     JobListComponent,
     JobListingComponent,
-    JobPostingComponent
+    JobPostingComponent,
+    JobDetailsComponent
   ],
   imports: [
     CommonModule,

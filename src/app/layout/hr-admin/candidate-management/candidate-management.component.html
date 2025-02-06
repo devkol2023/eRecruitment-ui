@@ -1,0 +1,64 @@
+<div class="filter-container">
+    <h2>Candidate Profile Search</h2>
+    
+    <!-- Search Filters -->
+    <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+      <div class="search-grid">
+        <!-- <mat-form-field appearance="outline">
+          <mat-label>Category</mat-label>
+          <mat-select formControlName="category">
+            <mat-option *ngFor="let category of categories" [value]="category">
+              {{ category }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field> -->
+
+        <mat-form-field appearance="outline">
+            <mat-label>Candidate Type</mat-label>
+            <mat-select formControlName="candidateType">
+              <mat-option *ngFor="let candidate of candidateTypeOptions" [value]="candidate">
+                {{ candidate }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Skills</mat-label>
+            <mat-select formControlName="skills" multiple>
+              <mat-option *ngFor="let skill of skillsOptions" [value]="skill">
+                {{ skill }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>Employment Type</mat-label>
+          <mat-select formControlName="employmentType">
+            <mat-option *ngFor="let type of employmentTypeOptions" [value]="type">
+              {{ type }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>Experience Level</mat-label>
+          <mat-select formControlName="experience">
+            <mat-option *ngFor="let exp of experienceLevels" [value]="exp">
+              {{ exp }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+  
+      <div class="button-group">
+        <button class="btn" type="submit">Search</button>
+        <button class="btn" type="button" (click)="onReset()">Reset</button>
+      </div>
+    </form>
+  </div>
+  
+  <!-- Candidate Table -->
+  <app-table [columns]="tableColumns" [data]="candidateData" [paginationConfig]="paginationConfig"
+    (onItemsPerPageChange)="updateItemsPerPage($event)" [searchRequired]="false">
+</app-table>
+  

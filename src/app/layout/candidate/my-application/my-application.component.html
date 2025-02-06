@@ -1,0 +1,12 @@
+<div class="filter-toggle">
+    <button *ngFor="let filter of filters" class="toggle-btn" [class.active]="filter.active"
+        (click)="onFilterChange(filter)" [style.marginRight]="filter.value === 'upcoming' ? '6px' : ''">
+        {{ filter.label }}
+    </button>
+</div>
+<div style="margin-top: -50px;">
+    <app-table [columns]="tableColumns" [data]="tableData" [paginationConfig]="paginationConfig"
+        (onPageChange)="updatePage($event)" (onSortChange)="handleSortChange($event)"
+        (onItemsPerPageChange)="updateItemsPerPage($event)">
+    </app-table>
+</div>

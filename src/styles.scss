@@ -20,7 +20,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .btn:hover {
-    transform: rotateY(5deg) translateY(-1px) !important;
+    // transform: rotateY(5deg) translateY(-1px) !important;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4) !important;
     background-color: #aa2417 !important;
     color: #ffffff !important;
@@ -32,3 +32,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     stroke: #BF322B; /* Outline stroke color for the border */
   }
   
+.cursor-pointer {
+    cursor: pointer;
+}
