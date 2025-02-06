@@ -3,14 +3,16 @@ import { CommonModule } from '@angular/common';
 import { InterviewComponent } from './interview.component';
 import { InterviewRoutingModule } from './interview-routing.module';
 import { SharedModule } from '../../shared/shared.module';
-import { ScheduleInterviewComponent } from './schedule-interview/schedule-interview.component';
+import { InterviewFeedbackComponent } from './interview-feedback/interview-feedback.component';
+import { InterviewFeedbackModalComponent } from './interview-feedback/interview-feedback-modal/interview-feedback-modal.component';
 
 
 
 @NgModule({
   declarations: [
     InterviewComponent,
-    ScheduleInterviewComponent
+    InterviewFeedbackComponent,
+    InterviewFeedbackModalComponent
   ],
   imports: [
     CommonModule,

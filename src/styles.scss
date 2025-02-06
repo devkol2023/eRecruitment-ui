@@ -73,3 +73,20 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     color: #000 !important;
     display: block;
   }
+
+  .modal-title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 0;
+    padding: 12px 10px;
+    border: none !important;
+    border-radius: 4px !important;
+    background: #BF322B !important;
+    color: white !important;
+    display: block;
+  }
+
+ .mat-mdc-dialog-surface {
+    border-radius: 0 !important;
+  }
+  
