@@ -104,7 +104,7 @@
                                     </defs>
                                   </svg>
                             </button>
-                            <button mat-icon-button *ngIf="col.types['download'] && !row.isUpcoming" class="btn-edit" (click)="downloadFile()">
+                            <button mat-icon-button *ngIf="col.types['download'] && !row.isUpcoming" matTooltip="Download" class="btn-edit" (click)="downloadFile()">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none">
                                     <path
                                         d="M10.7629 15.5712C10.9254 15.7338 11.1184 15.8628 11.3307 15.9508C11.5431 16.0388 11.7708 16.0841 12.0007 16.0841C12.2306 16.0841 12.4583 16.0388 12.6707 15.9508C12.883 15.8628 13.076 15.7338 13.2385 15.5712L15.1116 13.6981C15.212 13.587 15.2659 13.4416 15.2621 13.2919C15.2582 13.1422 15.197 12.9997 15.091 12.8939C14.985 12.7882 14.8424 12.7272 14.6927 12.7237C14.543 12.7202 14.3976 12.7743 14.2868 12.875L12.58 14.5824L12.584 5.58333C12.584 5.42862 12.5226 5.28025 12.4132 5.17085C12.3038 5.06146 12.1554 5 12.0007 5C11.846 5 11.6976 5.06146 11.5882 5.17085C11.4788 5.28025 11.4174 5.42862 11.4174 5.58333L11.4121 14.5713L9.71462 12.875C9.60516 12.7656 9.45674 12.7042 9.302 12.7043C9.14725 12.7043 8.99887 12.7658 8.88949 12.8753C8.78011 12.9847 8.7187 13.1332 8.71875 13.2879C8.7188 13.4427 8.78033 13.591 8.88978 13.7004L10.7629 15.5712Z"
@@ -114,6 +114,11 @@
                                         fill="#BF322B" />
                                 </svg>
                             </button>
+
+                            <button mat-icon-button *ngIf="col.types['schedule']" matTooltip="Schedule Interview"
+                                aria-label="Schedule Interview" (click)="onScheduleInterview(row)">
+                                <mat-icon>event</mat-icon>
+                              </button>
                         </ng-container>
     
                         <!-- Default value for other columns -->

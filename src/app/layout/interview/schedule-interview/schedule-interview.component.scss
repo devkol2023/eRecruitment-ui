@@ -1,0 +1,35 @@
+.schedule-interview-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+  
+    .group-form-field {
+      display: flex;
+      gap: 10px;
+  
+      .half-width {
+        flex: 1;
+      }
+    }
+  
+    .form-actions {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+  
+      button {
+        width: 100%;
+        max-width: 200px;
+      }
+    }
+  }
+  

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-candidate-management',
@@ -24,14 +25,14 @@ export class CandidateManagementComponent {
   ];  
 
   tableColumns = [
-    { key: 'candidateName', label: 'Candidate Name', width: '20%' },
+    { key: 'candidateName', label: 'Candidate Name', width: '18%' },
     { key: 'experience', label: 'Experience', width: '10%' },
     { key: 'skills', label: 'Skills', width: '20%' },
-    { key: 'jobLocation', label: 'Location', width: '15%' },
+    { key: 'jobLocation', label: 'Location', width: '12%' },
     { key: 'employmentType', label: 'Employment Type', width: '10%' },
     { key: 'candidateType', label: 'Candidate Type', width: '10%' },
     { key: 'lastLogin', label: 'Last Login', width: '10%' },
-    { key: 'action', label: 'Action', width: '10%', type: 'action', types: { download: true } },
+    { key: 'action', label: 'Action', width: '15%', type: 'action', types: { download: true, schedule: true } },
   ];
   
   storedAllCandidates = [
@@ -101,7 +102,7 @@ export class CandidateManagementComponent {
   // Filtered candidate list
   candidateData: any[] = [];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.searchForm = this.fb.group({
       skills: [[]],
       category: [''],
@@ -166,5 +167,9 @@ export class CandidateManagementComponent {
    // Handle Page Change
    updatePage(page: number): void {
     this.paginationConfig.currentPage = page;
+  }
+
+  onScheduleInterviewAction(candidate: any): void {
+    this.router.navigate(['/interview/schedule-interview']);
   }
 }

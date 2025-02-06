@@ -33,6 +33,7 @@ export class TableComponent implements OnInit, OnChanges {
   @Output() onFeedbackAction = new EventEmitter<any>();
   @Output() onDownloadButtonClick = new EventEmitter<any>();
   @Output() onCustomButtonClick = new EventEmitter<any>();
+  @Output() onScheduleInterviewAction = new EventEmitter<any>();
 
   searchQuery: string = '';
   sortedData: any[] = []; // Data after sorting
@@ -161,4 +162,7 @@ export class TableComponent implements OnInit, OnChanges {
     this.onDownloadButtonClick.emit(true);
   }
 
+  onScheduleInterview(candidate: any) {
+    this.onScheduleInterviewAction.emit(candidate);
+  }
 }
