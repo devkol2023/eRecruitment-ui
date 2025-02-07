@@ -1,0 +1,21 @@
+<div class="job-card" *ngFor="let job of jobs" (click)="selectCard()">
+    <div class="job-header">
+        <!-- [ngClass]="{'new': status === 'New', 'urgent': status === 'Urgently hiring'}" -->
+      <span class="job-status">{{ job.status }}</span>
+    </div>
+    <h2 class="job-title">{{ job.title }}</h2>
+    <p class="job-company">{{ job.company }}, {{ job.location }}</p>
+    <div class="job-response">
+      <span class="response-time">{{ job.responseTime }}</span>
+    </div>
+    <div class="job-salary">
+      <span>{{ job.salary }}</span>
+      <span class="job-type">{{ job.jobType }}</span>
+      <span class="job-shift">{{ job.shiftType }}</span>
+    </div>
+    <button class="apply-button">Easily apply</button>
+    <ul class="job-description">
+      <li *ngFor="let desc of job.description">{{ desc }}</li>
+    </ul>
+  </div>
+  

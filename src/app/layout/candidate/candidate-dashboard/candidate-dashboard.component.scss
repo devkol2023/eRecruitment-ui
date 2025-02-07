@@ -1,0 +1,13 @@
+.job-listing-container {
+    display: flex;
+    gap: 30px;
+    padding: 20px 7% 20px 7%;
+    background-color: #f5f5f5;
+  }
+  app-job-filter {
+    width: 25%;
+  }
+  app-job-list {
+    width: 75%;
+  }
+  
