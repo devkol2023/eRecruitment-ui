@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit, SimpleChanges, input } from '@angular/core';
 
 @Component({
   selector: 'app-job-details',
@@ -7,10 +7,14 @@ import { AfterViewInit, Component, Input } from '@angular/core';
   templateUrl: './job-details.component.html',
   styleUrl: './job-details.component.scss'
 })
-export class JobDetailsComponent implements AfterViewInit {
+export class JobDetailsComponent implements OnInit, AfterViewInit {
   @Input() from: string = '';
+  @Input()
+  set selectJob(value: any) {
+    this.processJobChange(value);
+  }
 
-  jobDetails = {
+  jobDetails: any = {
     title: 'Branch Manager',
     company: 'Bank of St. Vincent',
     location: 'Kingstown, St. Vincent',
@@ -55,6 +59,16 @@ export class JobDetailsComponent implements AfterViewInit {
     },
   };
 
+  ngOnInit(): void {
+ 
+  }
+
+  private processJobChange(job: any) {
+    if(this.from == 'candidate-dashboard') {
+      this.jobDetails = job;
+      console.log('Processing job:', job);
+    }
+  }
 
   ngAfterViewInit(): void {
     if(this.from == 'hr') {

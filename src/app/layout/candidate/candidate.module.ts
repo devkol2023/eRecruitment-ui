@@ -6,8 +6,8 @@ import { MyApplicationComponent } from './my-application/my-application.componen
 import { SharedModule } from '../../shared/shared.module';
 import { ProfileManagementComponent } from './profile-management/profile-management.component';
 import { CandidateDashboardComponent } from './candidate-dashboard/candidate-dashboard.component';
-import { JobDashboardModule } from '../job-dashboard/job-dashboard.module';
 import { JobsModule } from '../jobs/jobs.module';
+import { JobsListCardComponent } from './jobs-list-card/jobs-list-card.component';
 
 
 
@@ -16,13 +16,13 @@ import { JobsModule } from '../jobs/jobs.module';
     CandidateComponent,
     MyApplicationComponent,
     ProfileManagementComponent,
-    CandidateDashboardComponent
+    CandidateDashboardComponent,
+    JobsListCardComponent
   ],
   imports: [
     CommonModule,
     CandidateRoutingModule,
     SharedModule,
-    JobDashboardModule,
     JobsModule
   ]
 })
