@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TableComponent } from '../../../shared/table/table.component';
+import { CustomErrorStateMatcher } from '../../../shared/matcher/ErrorStateMatcher';
 
 @Component({
   selector: 'app-job-posting',
@@ -28,6 +29,7 @@ export class JobPostingComponent implements OnInit {
   candidateTypeOptions = ['Internal', 'External'];
 
   statesForSelectedCountry: string[] = [];
+  matcher = new CustomErrorStateMatcher();
 
   constructor(private fb: FormBuilder) {
     this.jobForm = this.fb.group({
