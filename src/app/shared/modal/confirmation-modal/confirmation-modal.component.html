@@ -1,0 +1,29 @@
+<div class="confirmation-overlay">
+    <div class="confirmation-box">
+      <!-- confirmation Header -->
+      <div class="confirmation-header">
+        <i class="material-icons confirmation-icon" [ngClass]="{ 'success-icon': data.successIcon, 'error-icon': !data.successIcon }">
+          {{ data.successIcon ? 'check_circle' : 'error_outline' }}
+        </i>
+        <h2 class="confirmation-title">{{ data.title }}</h2>
+      </div>
+  
+      <!-- confirmation Body -->
+      <div class="confirmation-body">
+        <p class="confirmation-message" [innerHtml]="data.message"></p>
+      </div>
+  
+      <!-- confirmation Footer (Dynamic Buttons) -->
+      <div class="confirmation-footer">
+        <div class="confirmation-footer">
+            <button 
+              *ngFor="let button of data.buttons" 
+              class="btn confirmation-btn" 
+              [ngClass]="button.style" 
+              (click)="closeModal(button.text)">
+              {{ button.text }}
+            </button>
+          </div>          
+    </div>
+  </div>
+  
