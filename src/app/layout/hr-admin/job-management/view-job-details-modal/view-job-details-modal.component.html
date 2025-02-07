@@ -1,0 +1,14 @@
+<div class="modal-header" style="height: 125px;">
+    <h2 class="modal-title mt-0">Job Details</h2>
+    <button mat-icon-button class="icon-red" (click)="dialogRef.close()">
+        <mat-icon>cancel</mat-icon>
+    </button>
+</div>
+<div mat-dialog-content>
+    <app-job-details [from]="'hr'"></app-job-details>
+</div>
+
+<div mat-dialog-actions>
+    <button mat-button (click)="dialogRef.close()">Cancel</button>
+    <!-- <button class="btn" style="margin-left: 15px;" (click)="onSubmit()">Submit</button> -->
+</div>

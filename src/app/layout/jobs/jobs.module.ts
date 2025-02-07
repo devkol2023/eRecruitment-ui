@@ -24,6 +24,7 @@ import { JobDetailsComponent } from './job-details/job-details.component';
     CommonModule,
     JobsRoutingModule,
     SharedModule,
-  ]
+  ],
+  exports: [JobDetailsComponent]
 })
 export class JobsModule { }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-job-details',
@@ -7,48 +7,70 @@ import { Component } from '@angular/core';
   templateUrl: './job-details.component.html',
   styleUrl: './job-details.component.scss'
 })
-export class JobDetailsComponent {
+export class JobDetailsComponent implements AfterViewInit {
+  @Input() from: string = '';
+
   jobDetails = {
-    title: 'Digital Marketer',
-    company: 'Creative Agency',
-    location: 'Athens, Greece',
-    salary: '$3500 - $4000',
-    companyLogo: 'assets/company-logo.png',
+    title: 'Branch Manager',
+    company: 'Bank of St. Vincent',
+    location: 'Kingstown, St. Vincent',
+    salary: '$5,500 - $7,000 per month',
+    companyLogo: 'assets/bank-logo.png',
     description: `
-      It is a long established fact that a reader will be distracted by the readable
-      content of a page when looking at its layout. The point of using Lorem Ipsum is
-      that it has a more-or-less normal distribution of letters, as opposed to using
-      Content here, making it look like readable.
+      The Bank of St. Vincent is seeking a highly motivated and experienced Branch Manager
+      to oversee the daily operations of the bank branch. The ideal candidate will be responsible
+      for driving business growth, ensuring operational efficiency, and providing excellent 
+      customer service.
     `,
     requirements: [
-      'System Software Development',
-      'Mobile Application in iOS/Android/Tizen or other platforms',
-      'Research and code, libraries, APIs, and frameworks',
-      'Strong knowledge on software development lifecycle',
-      'Strong problem-solving and debugging skills',
+      'Minimum of 5 years of experience in banking or financial management.',
+      'Proven leadership experience in branch operations.',
+      'Strong understanding of banking regulations and compliance.',
+      'Ability to analyze financial reports and implement growth strategies.',
+      'Excellent customer service and relationship management skills.',
     ],
     education: [
-      '3 or more years of professional design experience',
-      'Direct response email experience',
-      'E-commerce website design experience',
-      'Familiarity with mobile and web apps preferred',
+      'Bachelor’s degree in Finance, Business Administration, or related field.',
+      'Professional certifications (e.g., CFA, CPA) are a plus.',
+      'Strong knowledge of banking systems and financial analysis.',
+      'Experience with banking software and digital banking solutions.',
     ],
     overview: {
-      postedDate: '12 Aug 2019',
-      location: 'New York',
-      vacancy: '02',
-      jobNature: 'Full time',
-      salary: '$7,800 yearly',
-      applicationDate: '12 Sep 2020',
+      postedDate: '15 Feb 2025',
+      location: 'Kingstown, St. Vincent',
+      vacancy: '01',
+      jobNature: 'Full-time',
+      salary: '$5,500 - $7,000 per month',
+      applicationDeadline: '10 Mar 2025',
     },
     companyInfo: {
-      name: 'Colorlib',
-      website: 'colorlib.com',
-      email: 'test@gmail.com',
+      name: 'Bank of St. Vincent',
+      website: 'https://www.bosvg.com',
+      email: 'careers@bosvg.com',
       description: `
-        It is a long established fact that a reader will be distracted by the readable
-        content of a page when looking at its layout.
+        The Bank of St. Vincent is a leading financial institution committed to providing 
+        innovative banking solutions and excellent customer service. We aim to foster growth
+        and financial stability within the region through our dedicated team of professionals.
       `,
     },
   };
+
+
+  ngAfterViewInit(): void {
+    if(this.from == 'hr') {
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 1000);
+    }
+  }
+
+  goToWebsite(url: string): void {
+    window.open(url, "_blank");
+  }
+
+  
+  mailTo(url: string): void {
+    const mail = `mailto:${url}`
+    window.open(mail, "_blank");
+  }
 }

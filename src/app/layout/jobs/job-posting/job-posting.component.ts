@@ -11,22 +11,26 @@ import { CustomErrorStateMatcher } from '../../../shared/matcher/ErrorStateMatch
   styleUrl: './job-posting.component.scss'
 })
 export class JobPostingComponent implements OnInit {
-  @ViewChild(TableComponent) tableComponent!: TableComponent;
-
   jobForm: FormGroup;
   isEditMode = false;
   editingJobId: string | null = null;
   isJobPanelOpen = false;
-  categories = ['Web Designer', 'Software Developer', 'Data Analyst', 'Marketing'];
-  jobTypes = ['Full Time', 'Part Time', 'Contract', 'Remote'];
-  industries = ['Banking', 'IT', 'Healthcare', 'Education'];
-  countries = ['United States', 'United Kingdom', 'India', 'Canada'];
+
+  // Job Categories specific to Banking
+  categories = ['Branch Manager', 'Customer Service Representative', 'Loan Officer', 'Financial Analyst', 'IT Support Specialist'];
+  jobTypes = ['Full Time', 'Part Time', 'Contract', 'Internship'];
+  industries = ['Banking', 'Finance', 'IT', 'Customer Service'];
+  educationLevels = ['High School Diploma', 'Bachelor’s Degree', 'Master’s Degree', 'PhD'];
+  candidateTypeOptions = ['Internal', 'External'];
+
+  countries = ['United States', 'United Kingdom', 'India', 'Canada', 'St. Vincent'];
   states: any = {
     'United States': ['New York', 'California', 'Texas', 'Florida'],
-    India: ['Delhi', 'Maharashtra', 'Karnataka', 'Tamil Nadu'],
-    Canada: ['Ontario', 'Quebec', 'British Columbia', 'Alberta'],
+    'United Kingdom': ['London', 'Manchester', 'Birmingham'],
+    'India': ['Delhi', 'Maharashtra', 'Karnataka'],
+    'Canada': ['Ontario', 'Quebec', 'British Columbia'],
+    'St. Vincent': ['Kingstown', 'Georgetown', 'Barrouallie']
   };
-  candidateTypeOptions = ['Internal', 'External'];
 
   statesForSelectedCountry: string[] = [];
   matcher = new CustomErrorStateMatcher();
@@ -40,28 +44,27 @@ export class JobPostingComponent implements OnInit {
       salaryType: ['', Validators.required],
       salaryMin: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
       salaryMax: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
-      skills: ['', Validators.required],
-      qualifications: ['', Validators.required],
       experience: ['', Validators.required],
+      skills: ['', Validators.required],
+      education: ['', Validators.required],
       industry: ['', Validators.required],
-      address: ['', Validators.required],
+      location: ['', Validators.required],
       country: ['', Validators.required],
       state: ['', Validators.required],
       candidateType: ['', Validators.required]
     });
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   onCountryChange(selectedCountry: string): void {
     this.statesForSelectedCountry = this.states[selectedCountry] || [];
     this.jobForm.get('state')?.setValue('');
   }
+
   onSubmit(): void {
     if (this.jobForm.valid) {
-
+      console.log('Job Posted:', this.jobForm.value);
       this.jobForm.reset();
       this.jobForm.markAsPristine();
       this.jobForm.markAsUntouched();

@@ -1,223 +1,121 @@
-<span class="title">Post Job</span>
+<span class="title">Post a Job</span>
 <mat-accordion>
 
   <!-- Job Posting Form Panel -->
   <mat-expansion-panel [expanded]="true">
     <mat-expansion-panel-header class="header">
-      <mat-panel-title>
-        Post a New Job
-      </mat-panel-title>
+      <mat-panel-title>Post a New Job</mat-panel-title>
     </mat-expansion-panel-header>
 
     <div class="job-form-container">
-      <!-- <h2>Post a Job</h2> -->
       <form [formGroup]="jobForm" (ngSubmit)="onSubmit()">
+
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Job Title</mat-label>
-          <input matInput formControlName="jobTitle" placeholder="Enter job title" [errorStateMatcher]="matcher"/>
-          <mat-error *ngIf="jobForm.get('jobTitle')?.hasError('required') && jobForm.get('jobTitle')?.touched">
+          <input matInput formControlName="jobTitle" placeholder="Enter job title" />
+          <mat-error *ngIf="jobForm.get('jobTitle')?.invalid && jobForm.get('jobTitle')?.touched">
             Job Title is required
           </mat-error>
         </mat-form-field>
-    
+
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Job Description</mat-label>
-          <textarea
-            matInput
-            formControlName="jobDescription"
-            placeholder="Enter job description"
-            rows="2" [errorStateMatcher]="matcher"
-          ></textarea>
-          <mat-error *ngIf="jobForm.get('jobDescription')?.hasError('required') && jobForm.get('jobDescription')?.touched">
-            Job Description is required
-          </mat-error>
-          <mat-error *ngIf="jobForm.get('jobDescription')?.hasError('minlength') && jobForm.get('jobDescription')?.touched">
-            Description must be at least 10 characters
+          <textarea matInput formControlName="jobDescription" rows="3"></textarea>
+          <mat-error *ngIf="jobForm.get('jobDescription')?.invalid && jobForm.get('jobDescription')?.touched">
+            Job Description is required (min 10 characters)
           </mat-error>
         </mat-form-field>
-    
+
         <div class="group-form-field">
           <mat-form-field appearance="outline" class="half-width">
-            <mat-label>Industry</mat-label>
-            <mat-select formControlName="industry" [errorStateMatcher]="matcher">
-              <mat-option *ngFor="let industry of industries" [value]="industry">
-                {{ industry }}
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="category">
+              <mat-option *ngFor="let category of categories" [value]="category">
+                {{ category }}
               </mat-option>
             </mat-select>
-            <mat-error *ngIf="jobForm.get('industry')?.hasError('required') && jobForm.get('industry')?.touched">
-              Please select an industry
-            </mat-error>
-          </mat-form-field>
-
-            <mat-form-field appearance="outline" class="half-width">
-              <mat-label>Category</mat-label>
-              <mat-select formControlName="category" [errorStateMatcher]="matcher">
-                <mat-option *ngFor="let category of categories" [value]="category">
-                  {{ category }}
-                </mat-option>
-              </mat-select>
-              <mat-error *ngIf="jobForm.get('category')?.hasError('required') && jobForm.get('category')?.touched">
-                Please select a category
-              </mat-error>
-            </mat-form-field>
-        
-            <mat-form-field appearance="outline" class="half-width">
-              <mat-label>Job Type</mat-label>
-              <mat-select formControlName="jobType" [errorStateMatcher]="matcher">
-                <mat-option *ngFor="let jobType of jobTypes" [value]="jobType">
-                  {{ jobType }}
-                </mat-option>
-              </mat-select>
-              <mat-error *ngIf="jobForm.get('jobType')?.hasError('required') && jobForm.get('jobType')?.touched">
-                Please select a job type
-              </mat-error>
-            </mat-form-field>
-        </div>
-  
-  
-        <div class="group-form-field">
-          <mat-form-field appearance="outline" class="half-width">
-            <mat-label>Experience</mat-label>
-            <input
-              matInput
-              formControlName="experience"
-              placeholder="Enter required experience"
-              [errorStateMatcher]="matcher"
-            />
-            <mat-error *ngIf="jobForm.get('experience')?.hasError('required') && jobForm.get('experience')?.touched">
-              Experience is required
-            </mat-error>
           </mat-form-field>
 
           <mat-form-field appearance="outline" class="half-width">
-              <mat-label>Skills</mat-label>
-              <input matInput formControlName="skills" placeholder="Enter required skills" [errorStateMatcher]="matcher"/>
-              <mat-error *ngIf="jobForm.get('skills')?.hasError('required') && jobForm.get('skills')?.touched">
-                Skills are required
-              </mat-error>
-            </mat-form-field>
-        
-            <mat-form-field appearance="outline" class="half-width">
-              <mat-label>Qualifications</mat-label>
-              <input
-                matInput
-                formControlName="qualifications"
-                placeholder="Enter required qualifications"
-                [errorStateMatcher]="matcher"
-              />
-              <mat-error *ngIf="jobForm.get('qualifications')?.hasError('required') && jobForm.get('qualifications')?.touched">
-                Qualifications are required
-              </mat-error>
-            </mat-form-field>
+            <mat-label>Job Type</mat-label>
+            <mat-select formControlName="jobType">
+              <mat-option *ngFor="let jobType of jobTypes" [value]="jobType">
+                {{ jobType }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
         </div>
-    
+
         <div class="group-form-field">
           <mat-form-field appearance="outline" class="half-width">
-              <mat-label>Salary Type</mat-label>
-              <mat-select formControlName="salaryType" [errorStateMatcher]="matcher">
-                <mat-option value="Hourly">Hourly</mat-option>
-                <mat-option value="Monthly">Monthly</mat-option>
-                <mat-option value="Yearly">Yearly</mat-option>
-              </mat-select>
-              <mat-error *ngIf="jobForm.get('salaryType')?.hasError('required') && jobForm.get('salaryType')?.touched">
-                Please select a salary type
-              </mat-error>
+            <mat-label>Skills</mat-label>
+            <input matInput formControlName="skills" placeholder="Required skills" />
           </mat-form-field>
-  
+
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Education Level</mat-label>
+            <mat-select formControlName="education">
+              <mat-option *ngFor="let edu of educationLevels" [value]="edu">
+                {{ edu }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="group-form-field">
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Salary Type</mat-label>
+            <mat-select formControlName="salaryType">
+              <mat-option value="Hourly">Hourly</mat-option>
+              <mat-option value="Monthly">Monthly</mat-option>
+              <mat-option value="Yearly">Yearly</mat-option>
+            </mat-select>
+          </mat-form-field>
+
           <mat-form-field appearance="outline" class="half-width">
             <mat-label>Minimum Salary</mat-label>
-            <input matInput formControlName="salaryMin" placeholder="Enter min salary" [errorStateMatcher]="matcher"/>
-            <mat-error *ngIf="jobForm.get('salaryMin')?.hasError('required') && jobForm.get('salaryMin')?.touched">
-              Minimum salary is required
-            </mat-error>
-            <mat-error *ngIf="jobForm.get('salaryMin')?.hasError('pattern') && jobForm.get('salaryMin')?.touched">
-              Please enter a valid number
-            </mat-error>
+            <input matInput formControlName="salaryMin" />
           </mat-form-field>
-    
+
           <mat-form-field appearance="outline" class="half-width">
             <mat-label>Maximum Salary</mat-label>
-            <input matInput formControlName="salaryMax" placeholder="Enter max salary" [errorStateMatcher]="matcher"/>
-            <mat-error *ngIf="jobForm.get('salaryMax')?.hasError('required') && jobForm.get('salaryMax')?.touched">
-              Maximum salary is required
-            </mat-error>
-            <mat-error *ngIf="jobForm.get('salaryMax')?.hasError('pattern') && jobForm.get('salaryMax')?.touched">
-              Please enter a valid number
-            </mat-error>
+            <input matInput formControlName="salaryMax" />
           </mat-form-field>
         </div>
-    
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Address</mat-label>
-          <input matInput formControlName="address" placeholder="Enter job location" [errorStateMatcher]="matcher"/>
-          <mat-error *ngIf="jobForm.get('address')?.hasError('required') && jobForm.get('address')?.touched">
-            Address is required
-          </mat-error>
-        </mat-form-field>
-  
+
         <div class="group-form-field">
           <mat-form-field appearance="outline" class="half-width">
-              <mat-label>Country</mat-label>
-              <mat-select
-                formControlName="country"
-                (selectionChange)="onCountryChange($event.value)"
-                [errorStateMatcher]="matcher"
-              >
-                <mat-option *ngFor="let country of countries" [value]="country">
-                  {{ country }}
-                </mat-option>
-              </mat-select>
-              <mat-error *ngIf="jobForm.get('country')?.hasError('required') && jobForm.get('country')?.touched">
-                Please select a country
-              </mat-error>
-            </mat-form-field>
-        
-            <mat-form-field appearance="outline" class="half-width">
-              <mat-label>State</mat-label>
-              <mat-select formControlName="state" [errorStateMatcher]="matcher">
-                <mat-option *ngFor="let state of statesForSelectedCountry" [value]="state">
-                  {{ state }}
-                </mat-option>
-              </mat-select>
-              <mat-error *ngIf="jobForm.get('state')?.hasError('required') && jobForm.get('state')?.touched">
-                Please select a state
-              </mat-error>
-            </mat-form-field>
+            <mat-label>Country</mat-label>
+            <mat-select formControlName="country" (selectionChange)="onCountryChange($event.value)">
+              <mat-option *ngFor="let country of countries" [value]="country">
+                {{ country }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
 
-            <mat-form-field appearance="outline" class="half-width">
-              <mat-label>Candidate Type</mat-label>
-              <mat-select formControlName="candidateType" [errorStateMatcher]="matcher">
-                <mat-option *ngFor="let candidate of candidateTypeOptions" [value]="candidate">
-                  {{ candidate }}
-                </mat-option>
-              </mat-select>
-              <mat-error *ngIf="jobForm.get('candidateType')?.hasError('required') && jobForm.get('candidateType')?.touched">
-                Please select a Candidate Type
-              </mat-error>
-            </mat-form-field>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>State</mat-label>
+            <mat-select formControlName="state">
+              <mat-option *ngFor="let state of statesForSelectedCountry" [value]="state">
+                {{ state }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Candidate Type</mat-label>
+            <mat-select formControlName="candidateType">
+              <mat-option *ngFor="let type of candidateTypeOptions" [value]="type">
+                {{ type }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
         </div>
-    
         <div style="display: flex;justify-content: end;">
-          <button class="btn" type="submit">
-              Post Job
-            </button>
+          <button class="btn post-job-btn" type="submit">Post Job</button>
         </div>
+
       </form>
     </div>
   </mat-expansion-panel>
-
-  <!-- Job Listings Panel -->
-  <!-- <mat-expansion-panel [expanded]="true">
-    <mat-expansion-panel-header class="header">
-      <mat-panel-title>
-        Job Listings
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-
-      <app-table [columns]="tableColumns" [data]="jobListings" [paginationConfig]="paginationConfig"
-        (onItemsPerPageChange)="updateItemsPerPage($event)" (onEditAction)="onEdit($event)">
-      </app-table>
-  </mat-expansion-panel> -->
-
 </mat-accordion>
-  
