@@ -7,7 +7,7 @@
 
     <div class="filter-section mt-2">
       <h5>Job Category</h5>
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>All Category</mat-label>
         <mat-select formControlName="category">
           <mat-option value="all">All</mat-option>
@@ -17,15 +17,15 @@
     </div>
 
     <div class="filter-section">
-      <h5>Job Type</h5>
+      <h5 class="mt-0">Job Type</h5>
       <div *ngFor="let type of jobTypes; let i = index">
         <mat-checkbox [formControlName]="'jobType' + i">{{ type.name }}</mat-checkbox>
       </div>
     </div>
 
     <div class="filter-section">
-      <h5>Job Location</h5>
-      <mat-form-field appearance="fill">
+      <h5 style="margin-top: 10px;">Job Location</h5>
+      <mat-form-field appearance="outline">
         <mat-label>Anywhere</mat-label>
         <mat-select formControlName="location">
           <mat-option value="anywhere">Anywhere</mat-option>
@@ -35,8 +35,8 @@
     </div>
 
     <div class="filter-section">
-      <h5>Experience</h5>
-      <mat-form-field appearance="fill">
+      <h5 class="mt-0">Experience</h5>
+      <mat-form-field appearance="outline">
         <mat-label>Years of Experience</mat-label>
         <mat-select formControlName="experience">
           <mat-option *ngFor="let exp of experienceOptions" [value]="exp">{{ exp }}</mat-option>
@@ -45,8 +45,8 @@
     </div>
 
     <div class="filter-section">
-      <h5>Posted Within</h5>
-      <mat-form-field appearance="fill">
+      <h5 class="mt-0">Posted Within</h5>
+      <mat-form-field appearance="outline">
         <mat-label>Posted Within</mat-label>
         <mat-select formControlName="postedWithin">
           <mat-option *ngFor="let time of postedWithinOptions" [value]="time">{{ time }}</mat-option>
@@ -54,7 +54,7 @@
       </mat-form-field>
     </div>
     <div class="filter-section">
-      <h5>Filter by Price (USD)</h5>
+      <h5 class="mt-0">Filter by Salary (USD)</h5>
       <ngx-slider [(value)]="value" [(highValue)]="highValue" [options]="options"></ngx-slider>
     </div>    
     <div class="btn-div">
