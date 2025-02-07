@@ -1,6 +1,7 @@
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CustomErrorStateMatcher } from '../../../shared/matcher/ErrorStateMatcher';
 
 @Component({
   selector: 'app-schedule-interview',
@@ -18,7 +19,8 @@ export class ScheduleInterviewComponent implements OnInit {
   selectedPanelMembers: string[] = [];
 
   interviewModes = ['Online', 'Offline'];
-  separatorKeysCodes: number[] = [ENTER, COMMA];
+  isMemberSelected: boolean = true;
+  matcher = new CustomErrorStateMatcher();
 
   constructor(private fb: FormBuilder) {
     this.interviewForm = this.fb.group({
@@ -67,12 +69,14 @@ export class ScheduleInterviewComponent implements OnInit {
     }
     this.filterPanelMembers({target: {value: ''}});
     this.interviewForm.get('panelMembers')?.updateValueAndValidity();
+    this.isMemberSelected = true;
+    if (this.selectedPanelMembers.length === 0) {
+      this.isMemberSelected = false;
+    }
   }
 
   onSubmit(): void {
-    if (this.selectedPanelMembers.length === 0) {
-      this.interviewForm.get('panelMembers')?.setErrors({ required: true });
-    }
+    this.isMemberSelected = true;
     if (this.interviewForm.valid) {
       const formData = {
         ...this.interviewForm.getRawValue(),
@@ -81,8 +85,16 @@ export class ScheduleInterviewComponent implements OnInit {
       console.log('Interview Scheduled:', formData);
       alert('Interview Scheduled Successfully!');
       this.interviewForm.reset();
+      this.interviewForm.markAsPristine();
+      this.interviewForm.markAsUntouched();
+      this.interviewForm.updateValueAndValidity();
+      this.selectedPanelMembers = [];
+      this.filteredPanelMembers = [...this.panelMembersList];
     } else {
       this.interviewForm.markAllAsTouched();
+      if (this.selectedPanelMembers.length === 0) {
+        this.isMemberSelected = false;
+      }
     }
   }
 }
