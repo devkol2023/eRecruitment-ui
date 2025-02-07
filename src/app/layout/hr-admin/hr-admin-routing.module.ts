@@ -12,7 +12,8 @@ const routes: Routes = [
     children: [
         { path: 'candidate-management', component: CandidateManagementComponent},
         { path: 'manage-jobs', component: ManageJobComponent},
-        { path: 'schedule-interview', component: ScheduleInterviewComponent}
+        { path: 'schedule-interview', component: ScheduleInterviewComponent},
+        { path: 'job-management', loadChildren: () => import('./job-management/job-management.module').then(m => m.JobManagementModule) },
     ]
   }
 ];
