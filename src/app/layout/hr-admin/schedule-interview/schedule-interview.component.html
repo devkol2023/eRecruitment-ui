@@ -9,27 +9,27 @@
       <div class="group-form-field">
         <mat-form-field appearance="outline" class="half-width">
           <mat-label>Interview Date</mat-label>
-          <input matInput [matDatepicker]="picker" formControlName="date" />
+          <input matInput [matDatepicker]="picker" formControlName="date" [errorStateMatcher]="matcher"/>
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
-          <mat-error *ngIf="interviewForm.get('date')?.hasError('required')">Date is required</mat-error>
+          <mat-error *ngIf="interviewForm.get('date')?.touched && interviewForm.get('date')?.hasError('required')">Date is required</mat-error>
         </mat-form-field>
   
         <mat-form-field appearance="outline" class="half-width">
           <mat-label>Interview Time</mat-label>
-          <input matInput type="time" formControlName="time" />
-          <mat-error *ngIf="interviewForm.get('time')?.hasError('required')">Time is required</mat-error>
+          <input matInput type="time" formControlName="time" [errorStateMatcher]="matcher"/>
+          <mat-error *ngIf="interviewForm.get('time')?.touched && interviewForm.get('time')?.hasError('required')">Time is required</mat-error>
         </mat-form-field>
       </div>
   
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Interview Mode</mat-label>
-        <mat-select formControlName="mode">
+        <mat-select formControlName="mode" [errorStateMatcher]="matcher">
           <mat-option *ngFor="let mode of interviewModes" [value]="mode">
             {{ mode }}
           </mat-option>
         </mat-select>
-        <mat-error *ngIf="interviewForm.get('mode')?.hasError('required')">Mode is required</mat-error>
+        <mat-error *ngIf="interviewForm.get('mode')?.touched && interviewForm.get('mode')?.hasError('required')">Mode is required</mat-error>
       </mat-form-field>
   
       <mat-form-field appearance="outline" class="full-width example-chip-list">
@@ -53,7 +53,11 @@
         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectPanelMember($event)">
           <mat-option *ngFor="let member of filteredPanelMembers" [value]="member">{{ member }}</mat-option>
         </mat-autocomplete>
-    </mat-form-field>
+      </mat-form-field>
+      <!-- Error message -->
+      <small *ngIf="!isMemberSelected" class="panel-member-error">
+        At least one panel member must be selected.
+      </small>
   
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Notes</mat-label>
