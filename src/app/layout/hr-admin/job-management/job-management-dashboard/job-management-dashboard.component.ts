@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ViewJobDetailsModalComponent } from '../view-job-details-modal/view-job-details-modal.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-job-management-dashboard',
@@ -52,6 +55,8 @@ export class JobManagementDashboardComponent implements OnInit {
 
   filteredJobs = [...this.allJobs];
 
+  constructor(private dialog: MatDialog, private router: Router) { }
+
   ngOnInit(): void {
     this.onCategoryChange(this.selectedCategory);
   }
@@ -61,12 +66,16 @@ export class JobManagementDashboardComponent implements OnInit {
   }
 
   viewJobOverview(job: any): void {
-    console.log('Viewing Job Overview:', job);
-    // Open modal (to be implemented next step)
+    this.dialog.open(ViewJobDetailsModalComponent, {
+      width: '85%',
+      maxWidth: '100%',
+      height: '80%',
+      disableClose: true,
+      data: job
+    });
   }
 
   viewAppliedCandidates(job: any): void {
-    console.log('Viewing Applied Candidates:', job);
-    // Redirect to candidate table (to be implemented)
+    this.router.navigate(['/hr/job-management/applied-candidates'], { queryParams: { jobId: job.id } });
   }
 }

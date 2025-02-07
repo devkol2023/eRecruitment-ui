@@ -1,0 +1,57 @@
+<div class="modal-header">
+    <h2 class="modal-title mt-0">Candidate Details</h2>
+    <button mat-icon-button class="icon-red" (click)="close()">
+        <mat-icon>cancel</mat-icon>
+    </button>
+</div>
+<div mat-dialog-content class="candidate-details-container">
+    <!-- Candidate Profile Section -->
+    <div class="profile-section">
+      <mat-icon class="profile-icon">person</mat-icon>
+      <div>
+        <h3 class="candidate-name">{{ candidate.candidateName }}</h3>
+        <p class="text"><mat-icon class="icon">work</mat-icon> <strong>Applied For:</strong> {{ candidate.appliedFor }}</p>
+        <p class="text"><mat-icon class="icon">calendar_today</mat-icon> <strong>Experience:</strong> {{ candidate.experience }}</p>
+        <p class="text"><mat-icon class="icon">build</mat-icon> <strong>Skills:</strong> {{ candidate.skills }}</p>
+        <p class="text"><mat-icon class="icon">history</mat-icon> <strong>Last Login:</strong> {{ candidate.lastLogin }}</p>
+        <p class="text"><mat-icon class="icon">account_box</mat-icon> <strong>Candidate Type:</strong> {{ candidate.candidateType }}</p>
+        <p class="text"><mat-icon class="icon">attach_money</mat-icon> <strong>Current Salary:</strong> {{ candidate.currentSalary }}</p>
+        <p class="text"><mat-icon class="icon">money</mat-icon> <strong>Expected Salary:</strong> {{ candidate.expectedSalary }}</p>
+      </div>
+    </div>
+  
+    <!-- Uploaded Documents Section -->
+    <div class="documents-section">
+      <h3>Uploaded Documents</h3>
+      <table mat-table [dataSource]="candidate.uploadedDocuments" class="mat-elevation-z1">
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Document Name</th>
+          <td mat-cell *matCellDef="let doc" class="doc-cell">
+            <div class="doc-item">
+              <mat-icon>description</mat-icon>
+              <span>{{ doc.name }}</span>
+            </div>
+          </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let doc">
+            <button mat-icon-button class="btn-item" matTooltip="Download" (click)="downloadFile(doc.file)">
+              <mat-icon>download</mat-icon>
+            </button>
+            <!-- <button mat-icon-button class="btn-item" (click)="previewFile(doc.file)">
+              <mat-icon>visibility</mat-icon>
+            </button> -->
+          </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="['name', 'actions']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['name', 'actions'];"></tr>
+      </table>
+    </div>
+  </div>
+
+<div mat-dialog-actions style="padding: 8px;">
+    <button mat-button (click)="close()">Close</button>
+</div>

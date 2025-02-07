@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-job-details',
@@ -7,7 +7,9 @@ import { Component } from '@angular/core';
   templateUrl: './job-details.component.html',
   styleUrl: './job-details.component.scss'
 })
-export class JobDetailsComponent {
+export class JobDetailsComponent implements AfterViewInit {
+  @Input() from: string = '';
+
   jobDetails = {
     title: 'Branch Manager',
     company: 'Bank of St. Vincent',
@@ -43,7 +45,7 @@ export class JobDetailsComponent {
     },
     companyInfo: {
       name: 'Bank of St. Vincent',
-      website: 'www.bosvg.com',
+      website: 'https://www.bosvg.com',
       email: 'careers@bosvg.com',
       description: `
         The Bank of St. Vincent is a leading financial institution committed to providing 
@@ -51,5 +53,24 @@ export class JobDetailsComponent {
         and financial stability within the region through our dedicated team of professionals.
       `,
     },
-  };  
+  };
+
+
+  ngAfterViewInit(): void {
+    if(this.from == 'hr') {
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 1000);
+    }
+  }
+
+  goToWebsite(url: string): void {
+    window.open(url, "_blank");
+  }
+
+  
+  mailTo(url: string): void {
+    const mail = `mailto:${url}`
+    window.open(mail, "_blank");
+  }
 }

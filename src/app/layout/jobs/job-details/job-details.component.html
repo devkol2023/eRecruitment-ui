@@ -45,7 +45,7 @@
       <p><strong>Job Nature:</strong> {{ jobDetails.overview.jobNature }}</p>
       <p><strong>Salary:</strong> {{ jobDetails.overview.salary }}</p>
       <p><strong>Application Deadline:</strong> {{ jobDetails.overview.applicationDeadline }}</p>
-      <button class="apply-btn btn">Apply Now</button>
+      <button *ngIf="from != 'hr'" class="apply-btn btn">Apply Now</button>
     </div>
   </div>
 
@@ -54,7 +54,8 @@
     <h2>Company Information</h2>
     <p>{{ jobDetails.companyInfo.description }}</p>
     <p><strong>Name:</strong> {{ jobDetails.companyInfo.name }}</p>
-    <p><strong>Website:</strong> <a [href]="jobDetails.companyInfo.website" target="_blank">{{ jobDetails.companyInfo.website }}</a></p>
-    <p><strong>Email:</strong> <a href="mailto:{{ jobDetails.companyInfo.email }}">{{ jobDetails.companyInfo.email }}</a></p>
+    <p><strong>Website:</strong> <a class="link" (click)="goToWebsite(jobDetails.companyInfo.website)">{{ jobDetails.companyInfo.website }}</a></p>
+    <p><strong>Email:</strong> <a class="link">{{ jobDetails.companyInfo.email }}</a></p>
+    <!-- href="mailto:{{ jobDetails.companyInfo.email }}" -->
   </div>
 </div>

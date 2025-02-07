@@ -94,3 +94,61 @@ mat-form-field {
  .mat-mdc-dialog-surface {
     border-radius: 0 !important;
   }
+
+  .link {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    background: #BF322B !important;
+    overflow-x: hidden;
+  }
+
+  .icon-red {
+    color: white !important;
+    top: 3px;
+  }
+
+  .filter-toggle {
+    display: flex;
+    border: 1px solid #BF322B !important;
+    overflow: hidden;
+    margin-top: 5px;
+    margin-left: 20px;
+    width: 35%;
+  }
+  
+  .toggle-btn {
+    flex: 1;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    background-color: #fff;
+    color: #000;
+    transition: all 0.3s ease;
+    border: 1px solid #BF322B;
+  }
+  
+  .toggle-btn:last-child {
+    border-radius: 0 8px 8px 0;
+  }
+
+  .toggle-btn:first-child {
+    border-radius: 8px 0 0 8px;
+  }
+  
+  .toggle-btn.active {
+    background-color: #BF322B; /* Red background for active button */
+    color: #fff; /* White text for active button */
+  }
+  
+  .toggle-btn:hover:not(.toggle-btn.active) {
+    background-color: #FFE8E8;
+  }

@@ -1,4 +1,9 @@
-<h2 class="modal-title mt-0">Interview Feedback</h2>
+<div class="modal-header">
+  <h2 class="modal-title mt-0">Interview Feedback</h2>
+  <button mat-icon-button class="icon-red" (click)="dialogRef.close()">
+      <mat-icon>cancel</mat-icon>
+  </button>
+</div>
 <form [formGroup]="feedbackForm">
   <div mat-dialog-content>
     <mat-form-field class="full-width">

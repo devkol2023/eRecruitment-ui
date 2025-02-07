@@ -35,6 +35,7 @@ export class TableComponent implements OnInit, OnChanges {
   @Output() onCustomButtonClick = new EventEmitter<any>();
   @Output() onScheduleInterviewAction = new EventEmitter<any>();
   @Output() onInterviewJoinAction = new EventEmitter<any>();
+  @Output() viewDetails = new EventEmitter<any>();
 
   searchQuery: string = '';
   sortedData: any[] = []; // Data after sorting
@@ -172,5 +173,9 @@ export class TableComponent implements OnInit, OnChanges {
 
   joinInterview(interview: any) {
     this.onInterviewJoinAction.emit(interview);
+  }
+
+  viewCandidateDetails(data: any) {
+    this.viewDetails.emit(data);
   }
 }

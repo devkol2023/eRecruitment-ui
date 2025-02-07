@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { JobManagementComponent } from './job-management.component';
 import { JobManagementDashboardComponent } from './job-management-dashboard/job-management-dashboard.component';
+import { AppliedCandidatesComponent } from './applied-candidates/applied-candidates.component';
 
 const routes: Routes = [
   {
@@ -9,6 +10,7 @@ const routes: Routes = [
     component: JobManagementComponent,
     children: [
         { path: 'dashboard', component: JobManagementDashboardComponent},
+        { path: 'applied-candidates', component: AppliedCandidatesComponent},
     ]
   }
 ];

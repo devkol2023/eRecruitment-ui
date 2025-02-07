@@ -28,8 +28,14 @@
             <p><strong>Posted On:</strong> {{ job.postedDate }}</p>
           </mat-card-content>
           <mat-card-actions>
-            <button class="btn" (click)="viewJobOverview(job)">View Details</button>
-            <button class="btn" (click)="viewAppliedCandidates(job)">View Applied Candidates</button>
+            <button mat-raised-button class="btn" (click)="viewJobOverview(job)" style="width: 150px;">
+                <mat-icon>visibility</mat-icon> View Details
+              </button>
+              <button mat-raised-button class="btn" (click)="viewAppliedCandidates(job)" style="width: 160px;">
+                <mat-icon>people</mat-icon> View Applicants
+              </button>
+            <!-- <button class="btn" (click)="viewJobOverview(job)">View Details</button>
+            <button class="btn" (click)="viewAppliedCandidates(job)">View Applied Candidates</button> -->
           </mat-card-actions>
         </mat-card>
       </ng-container>

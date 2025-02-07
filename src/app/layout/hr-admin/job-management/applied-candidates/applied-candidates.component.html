@@ -1,0 +1,14 @@
+<h2 class="title mt-0">Applied Candidates</h2>
+<div class="filter-toggle">
+    <button *ngFor="let filter of filters" class="toggle-btn" [class.active]="filter.active"
+        (click)="applyFilter(filter)" [style.marginRight]="filter.value === 'upcoming' ? '6px' : ''">
+        {{ filter.label }}
+    </button>
+</div>
+<!-- Candidates Table -->
+<div style="margin-top: -50px;">
+    <app-table [columns]="tableColumns" [data]="appliedCandidates" [paginationConfig]="paginationConfig"
+        (onPageChange)="updatePage($event)" (onItemsPerPageChange)="updateItemsPerPage($event)"
+        (viewDetails)="viewDetails($event)">
+    </app-table>
+</div>
