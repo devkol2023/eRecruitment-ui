@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { CandidateDetailsModalComponent } from './candidate-details-modal/candidate-details-modal.component';
+import { messages } from '../../../../shared/constants/messages';
+import { MessageDialogService } from '../../../../shared/service/message-dialog.service';
 
 @Component({
   selector: 'app-applied-candidates',
@@ -30,8 +32,8 @@ export class AppliedCandidatesComponent implements OnInit {
     { key: 'lastLogin', label: 'Applied on', width: '10%' },
     { key: 'status', label: 'Application Status', width: '10%' },
     { 
-      key: 'actions', 
-      label: 'Actions', 
+      key: 'action', 
+      label: 'Action', 
       width: '23%', 
       type: 'action', 
       types: { viewDetails: true, shortlist: true, reject: true }
@@ -45,7 +47,7 @@ export class AppliedCandidatesComponent implements OnInit {
       appliedFor: 'Branch Manager',
       experience: '5 Years',
       skills: 'Leadership, Banking, Financial Analysis',
-      status: 'Under Review',
+      status: 'Applied',
       lastLogin: '02/05/2024',
       candidateType: 'External',
       currentSalary: '$70,000',
@@ -93,7 +95,7 @@ export class AppliedCandidatesComponent implements OnInit {
       appliedFor: 'HR Manager',
       experience: '8 Years',
       skills: 'Recruitment, Employee Relations, HR Policies',
-      status: 'Under Review',
+      status: 'Applied',
       lastLogin: '04/05/2024',
       candidateType: 'Internal',
       currentSalary: '$85,000',
@@ -109,7 +111,7 @@ export class AppliedCandidatesComponent implements OnInit {
       appliedFor: 'Software Developer',
       experience: '4 Years',
       skills: 'JavaScript, Angular, TypeScript, Node.js',
-      status: 'Shortlisted',
+      status: 'Applied',
       lastLogin: '02/05/2024',
       candidateType: 'External',
       currentSalary: '$60,000',
@@ -118,10 +120,26 @@ export class AppliedCandidatesComponent implements OnInit {
         { name: 'Resume', file: 'resume_robert_johnson.pdf' },
         { name: 'Programming Certification', file: 'robert_certification.pdf' }
       ]
+    },
+    {
+      id: 'C006',
+      candidateName: 'Sophia Miller',
+      appliedFor: 'Customer Service Representative',
+      experience: '2 Years',
+      skills: 'Communication, Problem Solving, Client Management',
+      status: 'Applied',
+      lastLogin: '05/05/2024',
+      candidateType: 'Internal',
+      currentSalary: '$40,000',
+      expectedSalary: '$50,000',
+      uploadedDocuments: [
+        { name: 'Resume', file: 'resume_sophia_miller.pdf' }
+      ]
     }
   ];
   
-  appliedCandidates = [...this.allCandidates];
+  
+  appliedCandidates: any[] = [];
 
   paginationConfig = {
     id: 'dynamic_table',
@@ -130,12 +148,14 @@ export class AppliedCandidatesComponent implements OnInit {
     totalItems: this.appliedCandidates.length, // Total number of items
   };
 
-  constructor(private route: ActivatedRoute, private dialog: MatDialog) {}
+  constructor(private route: ActivatedRoute, private dialog: MatDialog,
+    private dialogMessage: MessageDialogService
+  ) {}
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.jobId = params['jobId'];
-      // this.loadCandidates();
+      this.applyFilter({value: this.selectedFilter});
     });
   }
 
@@ -152,6 +172,20 @@ export class AppliedCandidatesComponent implements OnInit {
     } else {
       this.appliedCandidates = this.allCandidates.filter(c => c.status.toLowerCase() === this.selectedFilter);
     }
+    switch (this.selectedFilter) {
+      case 'applied':
+        this.tableColumns[6].types = { viewDetails: true, shortlist: true, reject: true };
+        break;
+      case 'shortlisted':
+        this.tableColumns[6].types = { viewDetails: true, reject: true , schedule: true} as any;
+        break;
+      case 'rejected':
+        this.tableColumns[6].types = { viewDetails: true } as any;
+        break;
+      default:
+        this.tableColumns[6].types = { viewDetails: true, reject: true } as any;
+        break;
+    }
   }
 
   viewDetails(candidate: any): void {
@@ -161,8 +195,40 @@ export class AppliedCandidatesComponent implements OnInit {
     });
   }
 
-  updateCandidateStatus(candidate: any, newStatus: string): void {
-    candidate.status = newStatus;
+  shortListAction(data: any): void {
+    this.dialogMessage.open({
+      title: messages.confirmation,
+      message: messages.shortlistCandidate,
+      successIcon: false,
+      buttons: [
+        { text: 'Yes', style: 'primary-btn' },
+        { text: 'No', style: 'secondary-btn' },
+      ]
+    }).subscribe((clickedButton: string) => {
+      if (clickedButton === 'Yes') {
+        const selectedIndex = this.allCandidates.findIndex(el => el.id == data.id);
+        this.allCandidates[selectedIndex].status = 'Shortlisted';
+        this.applyFilter({value: this.selectedFilter});
+      }
+    });
+  }
+
+  rejectAction(data: any): void {
+    this.dialogMessage.open({
+      title: messages.confirmation,
+      message: messages.rejectCandidate,
+      successIcon: false,
+      buttons: [
+        { text: 'Yes', style: 'primary-btn' },
+        { text: 'No', style: 'secondary-btn' },
+      ]
+    }).subscribe((clickedButton: string) => {
+      if (clickedButton === 'Yes') {
+        const selectedIndex = this.allCandidates.findIndex(el => el.id == data.id);
+        this.allCandidates[selectedIndex].status = 'Rejected';
+        this.applyFilter({value: this.selectedFilter});
+      }
+    });
   }
     
   // Handle Page Change

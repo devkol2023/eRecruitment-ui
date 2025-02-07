@@ -36,6 +36,8 @@ export class TableComponent implements OnInit, OnChanges {
   @Output() onScheduleInterviewAction = new EventEmitter<any>();
   @Output() onInterviewJoinAction = new EventEmitter<any>();
   @Output() viewDetails = new EventEmitter<any>();
+  @Output() shortListAction = new EventEmitter<any>();
+  @Output() rejectAction = new EventEmitter<any>();
 
   searchQuery: string = '';
   sortedData: any[] = []; // Data after sorting
@@ -123,6 +125,7 @@ export class TableComponent implements OnInit, OnChanges {
     switch (status.toLowerCase()) {
       case 'offer made':
       case 'completed':
+      case 'applied':
         return 'green';
       case 'shortlisted':
         return 'blue';
@@ -177,5 +180,13 @@ export class TableComponent implements OnInit, OnChanges {
 
   viewCandidateDetails(data: any) {
     this.viewDetails.emit(data);
+  }
+
+  shortList(data: any): void {
+    this.shortListAction.emit(data);
+  }
+
+  reject(data: any): void {
+    this.rejectAction.emit(data);
   }
 }
