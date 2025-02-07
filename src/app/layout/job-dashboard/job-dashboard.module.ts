@@ -7,12 +7,11 @@ import { JobSearchComponent } from './job-search/job-search.component';
 import { AngularMaterialModule } from '../../shared/angular-material.module';
 import { FeaturedJobsComponent } from './featured-jobs/featured-jobs.component';
 
-
 @NgModule({
   declarations: [
     JobDashboardComponent,
     JobSearchComponent,
-    FeaturedJobsComponent
+    FeaturedJobsComponent,
   ],
   imports: [
     CommonModule,

@@ -25,6 +25,10 @@ import { JobDetailsComponent } from './job-details/job-details.component';
     JobsRoutingModule,
     SharedModule,
   ],
-  exports: [JobDetailsComponent]
+  exports:[
+    JobListComponent,
+    JobDetailsComponent
+  ]
+  
 })
 export class JobsModule { }

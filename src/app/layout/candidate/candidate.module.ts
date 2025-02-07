@@ -5,6 +5,9 @@ import { CandidateRoutingModule } from './candidate-routing.module';
 import { MyApplicationComponent } from './my-application/my-application.component';
 import { SharedModule } from '../../shared/shared.module';
 import { ProfileManagementComponent } from './profile-management/profile-management.component';
+import { CandidateDashboardComponent } from './candidate-dashboard/candidate-dashboard.component';
+import { JobsModule } from '../jobs/jobs.module';
+import { JobsListCardComponent } from './jobs-list-card/jobs-list-card.component';
 
 
 
@@ -12,12 +15,15 @@ import { ProfileManagementComponent } from './profile-management/profile-managem
   declarations: [
     CandidateComponent,
     MyApplicationComponent,
-    ProfileManagementComponent
+    ProfileManagementComponent,
+    CandidateDashboardComponent,
+    JobsListCardComponent
   ],
   imports: [
     CommonModule,
     CandidateRoutingModule,
-    SharedModule
+    SharedModule,
+    JobsModule
   ]
 })
 export class CandidateModule { }

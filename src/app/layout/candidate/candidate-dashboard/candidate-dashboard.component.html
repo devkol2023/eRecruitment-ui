@@ -1,0 +1,8 @@
+<div class="job-listing-container">
+    <div class="left-container">
+        <app-jobs-list-card (selectedCard)="recieveJobData($event)"></app-jobs-list-card>
+    </div>
+    <div class="right-container" *ngIf="jobData">
+        <app-job-details [from]="'candidate-dashboard'" [selectJob]="jobData"></app-job-details>
+    </div>
+</div>
