@@ -14,7 +14,7 @@
       <form [formGroup]="jobForm" (ngSubmit)="onSubmit()">
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Job Title</mat-label>
-          <input matInput formControlName="jobTitle" placeholder="Enter job title" />
+          <input matInput formControlName="jobTitle" placeholder="Enter job title" [errorStateMatcher]="matcher"/>
           <mat-error *ngIf="jobForm.get('jobTitle')?.hasError('required') && jobForm.get('jobTitle')?.touched">
             Job Title is required
           </mat-error>
@@ -26,7 +26,7 @@
             matInput
             formControlName="jobDescription"
             placeholder="Enter job description"
-            rows="2"
+            rows="2" [errorStateMatcher]="matcher"
           ></textarea>
           <mat-error *ngIf="jobForm.get('jobDescription')?.hasError('required') && jobForm.get('jobDescription')?.touched">
             Job Description is required
@@ -39,7 +39,7 @@
         <div class="group-form-field">
           <mat-form-field appearance="outline" class="half-width">
             <mat-label>Industry</mat-label>
-            <mat-select formControlName="industry">
+            <mat-select formControlName="industry" [errorStateMatcher]="matcher">
               <mat-option *ngFor="let industry of industries" [value]="industry">
                 {{ industry }}
               </mat-option>
@@ -51,7 +51,7 @@
 
             <mat-form-field appearance="outline" class="half-width">
               <mat-label>Category</mat-label>
-              <mat-select formControlName="category">
+              <mat-select formControlName="category" [errorStateMatcher]="matcher">
                 <mat-option *ngFor="let category of categories" [value]="category">
                   {{ category }}
                 </mat-option>
@@ -63,7 +63,7 @@
         
             <mat-form-field appearance="outline" class="half-width">
               <mat-label>Job Type</mat-label>
-              <mat-select formControlName="jobType">
+              <mat-select formControlName="jobType" [errorStateMatcher]="matcher">
                 <mat-option *ngFor="let jobType of jobTypes" [value]="jobType">
                   {{ jobType }}
                 </mat-option>
@@ -82,6 +82,7 @@
               matInput
               formControlName="experience"
               placeholder="Enter required experience"
+              [errorStateMatcher]="matcher"
             />
             <mat-error *ngIf="jobForm.get('experience')?.hasError('required') && jobForm.get('experience')?.touched">
               Experience is required
@@ -90,7 +91,7 @@
 
           <mat-form-field appearance="outline" class="half-width">
               <mat-label>Skills</mat-label>
-              <input matInput formControlName="skills" placeholder="Enter required skills" />
+              <input matInput formControlName="skills" placeholder="Enter required skills" [errorStateMatcher]="matcher"/>
               <mat-error *ngIf="jobForm.get('skills')?.hasError('required') && jobForm.get('skills')?.touched">
                 Skills are required
               </mat-error>
@@ -102,6 +103,7 @@
                 matInput
                 formControlName="qualifications"
                 placeholder="Enter required qualifications"
+                [errorStateMatcher]="matcher"
               />
               <mat-error *ngIf="jobForm.get('qualifications')?.hasError('required') && jobForm.get('qualifications')?.touched">
                 Qualifications are required
@@ -112,7 +114,7 @@
         <div class="group-form-field">
           <mat-form-field appearance="outline" class="half-width">
               <mat-label>Salary Type</mat-label>
-              <mat-select formControlName="salaryType">
+              <mat-select formControlName="salaryType" [errorStateMatcher]="matcher">
                 <mat-option value="Hourly">Hourly</mat-option>
                 <mat-option value="Monthly">Monthly</mat-option>
                 <mat-option value="Yearly">Yearly</mat-option>
@@ -124,7 +126,7 @@
   
           <mat-form-field appearance="outline" class="half-width">
             <mat-label>Minimum Salary</mat-label>
-            <input matInput formControlName="salaryMin" placeholder="Enter min salary" />
+            <input matInput formControlName="salaryMin" placeholder="Enter min salary" [errorStateMatcher]="matcher"/>
             <mat-error *ngIf="jobForm.get('salaryMin')?.hasError('required') && jobForm.get('salaryMin')?.touched">
               Minimum salary is required
             </mat-error>
@@ -135,7 +137,7 @@
     
           <mat-form-field appearance="outline" class="half-width">
             <mat-label>Maximum Salary</mat-label>
-            <input matInput formControlName="salaryMax" placeholder="Enter max salary" />
+            <input matInput formControlName="salaryMax" placeholder="Enter max salary" [errorStateMatcher]="matcher"/>
             <mat-error *ngIf="jobForm.get('salaryMax')?.hasError('required') && jobForm.get('salaryMax')?.touched">
               Maximum salary is required
             </mat-error>
@@ -147,7 +149,7 @@
     
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Address</mat-label>
-          <input matInput formControlName="address" placeholder="Enter job location" />
+          <input matInput formControlName="address" placeholder="Enter job location" [errorStateMatcher]="matcher"/>
           <mat-error *ngIf="jobForm.get('address')?.hasError('required') && jobForm.get('address')?.touched">
             Address is required
           </mat-error>
@@ -159,6 +161,7 @@
               <mat-select
                 formControlName="country"
                 (selectionChange)="onCountryChange($event.value)"
+                [errorStateMatcher]="matcher"
               >
                 <mat-option *ngFor="let country of countries" [value]="country">
                   {{ country }}
@@ -171,7 +174,7 @@
         
             <mat-form-field appearance="outline" class="half-width">
               <mat-label>State</mat-label>
-              <mat-select formControlName="state">
+              <mat-select formControlName="state" [errorStateMatcher]="matcher">
                 <mat-option *ngFor="let state of statesForSelectedCountry" [value]="state">
                   {{ state }}
                 </mat-option>
@@ -183,7 +186,7 @@
 
             <mat-form-field appearance="outline" class="half-width">
               <mat-label>Candidate Type</mat-label>
-              <mat-select formControlName="candidateType">
+              <mat-select formControlName="candidateType" [errorStateMatcher]="matcher">
                 <mat-option *ngFor="let candidate of candidateTypeOptions" [value]="candidate">
                   {{ candidate }}
                 </mat-option>
