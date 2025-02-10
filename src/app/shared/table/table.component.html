@@ -23,7 +23,13 @@
         <tbody>
             <ng-container *ngIf="sortedData && sortedData.length > 0 ;else norecords">
                 <tr *ngFor="let row of sortedData | paginate: paginationConfig">
-                    <td style="border: 1px solid #e3e6ec !important" *ngFor="let col of columns">
+                    <td style="border: 1px solid #e3e6ec !important" [ngClass]="col.key == 'checkbox' ? 'checkbox-cell' : ''" *ngFor="let col of columns">
+
+                        <!-- Check if column is checkbox -->
+                        <ng-container *ngIf="col.key === 'checkbox'">
+                            <mat-checkbox [(ngModel)]="row.checked" (change)="onCheckboxChange(row, $event.checked)"></mat-checkbox>
+                        </ng-container>
+
                         <!-- Check if the column type is date -->
                         <span *ngIf="col.type === 'date'">{{ row[col.key] | date: 'dd/MM/yyyy' }}</span>
 
@@ -51,6 +57,11 @@
     
                         <!-- Check if the column type is action -->
                         <ng-container *ngIf="col.type === 'action'">
+                            <button mat-icon-button *ngIf="col.types['viewDetails']" class="btn-delete" matTooltip="View"
+                                (click)="viewCandidateDetails(row)">
+                                <mat-icon>visibility</mat-icon>
+                            </button>
+
                             <button mat-icon-button *ngIf="col.types['edit']" class="btn-edit" (click)="onEdit(row)">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                                     <g clip-path="url(#clip0_1318_2606)">
@@ -96,20 +107,11 @@
                                   </svg>
                             </button>
 
-                            <button mat-icon-button *ngIf="col.types['schedule']" matTooltip="Schedule Interview"
-                                aria-label="Schedule Interview" (click)="onScheduleInterview(row)">
-                                <mat-icon>event</mat-icon>
-                            </button>
-
                             <button mat-icon-button *ngIf="col.types['joinInterview'] && row.status == 'Ongoing'" matTooltip="Join Interview"
                                     (click)="joinInterview(row)">
                                 <mat-icon class="mat-icon-btn">video_call</mat-icon>
                             </button>
 
-                            <button mat-icon-button *ngIf="col.types['viewDetails']" class="btn-delete"
-                                matTooltip="View" (click)="viewCandidateDetails(row)">
-                                <mat-icon>visibility</mat-icon>
-                            </button>
                             <button mat-icon-button color="accent" *ngIf="col.types['shortlist']" class="btn-delete"
                                 matTooltip="Shortlist" (click)="shortList(row)">
                                 <mat-icon>check_circle</mat-icon>
@@ -117,6 +119,11 @@
                             <button mat-icon-button color="warn" *ngIf="col.types['reject']" class="btn-delete"
                                 matTooltip="Reject" (click)="reject(row)">
                                 <mat-icon>cancel</mat-icon>
+                            </button>
+
+                            <button mat-icon-button *ngIf="col.types['schedule']" matTooltip="Schedule Interview"
+                                aria-label="Schedule Interview" (click)="onScheduleInterview(row)">
+                                <mat-icon>event</mat-icon>
                             </button>
                             
                             <button mat-icon-button *ngIf="col.types['delete']" class="btn-delete" (click)="onDelete(row)">

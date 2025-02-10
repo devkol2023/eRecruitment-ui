@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CandidateDetailsModalComponent } from '../../../shared/modal/candidate-details-modal/candidate-details-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-candidate-management',
@@ -32,7 +34,7 @@ export class CandidateManagementComponent {
     { key: 'employmentType', label: 'Employment Type', width: '10%' },
     { key: 'candidateType', label: 'Candidate Type', width: '10%' },
     { key: 'lastLogin', label: 'Last Updated', width: '10%' },
-    { key: 'action', label: 'Action', width: '15%', type: 'action', types: { download: true, schedule: true } },
+    { key: 'action', label: 'Action', width: '15%', type: 'action', types: { viewDetails: true, schedule: true } },
   ];
   
   storedAllCandidates = [
@@ -102,7 +104,9 @@ export class CandidateManagementComponent {
   // Filtered candidate list
   candidateData: any[] = [];
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router,
+    private dialog: MatDialog
+  ) {
     this.searchForm = this.fb.group({
       skills: [[]],
       category: [''],
@@ -171,5 +175,12 @@ export class CandidateManagementComponent {
 
   onScheduleInterviewAction(candidate: any): void {
     this.router.navigate(['/hr/schedule-interview']);
+  }
+
+  viewDetails(candidate: any): void {
+    this.dialog.open(CandidateDetailsModalComponent, {
+      width: '60%',
+      data: candidate
+    });
   }
 }

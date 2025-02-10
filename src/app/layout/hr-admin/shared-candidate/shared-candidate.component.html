@@ -1,0 +1,8 @@
+<mat-tab-group class="custom-tab-group">
+    <mat-tab [label]="'Inbox'+'('+inboxData?.length+')'">
+        <app-inbox [inboxData]="inboxData"></app-inbox>
+    </mat-tab>
+    <mat-tab label="Sent (0)">
+       <app-sentbox></app-sentbox>
+    </mat-tab>
+</mat-tab-group>

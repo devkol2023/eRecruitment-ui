@@ -6,9 +6,13 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { TableComponent } from './table/table.component';
 import { ConfirmationModalComponent } from './modal/confirmation-modal/confirmation-modal.component';
+import { CandidateDetailsModalComponent } from './modal/candidate-details-modal/candidate-details-modal.component';
+import { ForwardCandidatesModalComponent } from './modal/forward-candidates-modal/forward-candidates-modal.component';
 
 @NgModule({
-  declarations: [TableComponent, ConfirmationModalComponent],
+  declarations: [TableComponent, ConfirmationModalComponent, CandidateDetailsModalComponent,
+    ForwardCandidatesModalComponent
+  ],
   imports: [
     CommonModule,
     AngularMaterialModule,
@@ -18,6 +22,8 @@ import { ConfirmationModalComponent } from './modal/confirmation-modal/confirmat
     NgxPaginationModule
   ],
   exports: [AngularMaterialModule, FormsModule, ReactiveFormsModule, NgxSliderModule,
-    TableComponent, NgxPaginationModule, ConfirmationModalComponent]
+    TableComponent, NgxPaginationModule, ConfirmationModalComponent, CandidateDetailsModalComponent,
+    ForwardCandidatesModalComponent
+  ]
 })
 export class SharedModule { }

@@ -5,10 +5,17 @@
         {{ filter.label }}
     </button>
 </div>
+
+<div *ngIf="checkedCandidates.length > 0" class="forward-btn-container">
+    <button class="btn" (click)="forwardCandidates()">Forward Selected Candidates</button>
+</div>
+
 <!-- Candidates Table -->
-<div style="margin-top: -50px;">
+<div [ngStyle]="{'margin-top': checkedCandidates.length > 0 ? '-50px' : '0px'}">
     <app-table [columns]="tableColumns" [data]="appliedCandidates" [paginationConfig]="paginationConfig"
         (onPageChange)="updatePage($event)" (onItemsPerPageChange)="updateItemsPerPage($event)"
-        (viewDetails)="viewDetails($event)" (shortListAction)="shortListAction($event)" (rejectAction)="rejectAction($event)">
+        (onScheduleInterviewAction)="onScheduleInterviewAction($event)"
+        (viewDetails)="viewDetails($event)" (shortListAction)="shortListAction($event)"
+        (rejectAction)="rejectAction($event)" (onCheckBoxAction)="onCheckBoxAction($event)">
     </app-table>
 </div>

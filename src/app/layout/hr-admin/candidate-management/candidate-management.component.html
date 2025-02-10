@@ -58,7 +58,8 @@
   </div>
   
   <!-- Candidate Table -->
-  <app-table [columns]="tableColumns" [data]="candidateData" [paginationConfig]="paginationConfig" (onScheduleInterviewAction)="onScheduleInterviewAction($event)"
+  <app-table [columns]="tableColumns" [data]="candidateData" [paginationConfig]="paginationConfig"
+    (onScheduleInterviewAction)="onScheduleInterviewAction($event)" (viewDetails)="viewDetails($event)"
     (onItemsPerPageChange)="updateItemsPerPage($event)" (onPageChange)="updatePage($event)" [searchRequired]="false">
 </app-table>
   
