@@ -17,4 +17,17 @@ export class ConfirmationModalComponent {
   closeModal(buttonText: string) {
     this.mdDialogRef.close(buttonText); // Pass clicked button text
   }
+
+  getIconType(iconType: string): string {
+    switch (iconType) {
+      case 'success':
+        return 'check_circle';
+      case 'error':
+        return 'error';
+      case 'warning':
+        return 'error_outline';
+      default:
+        return 'error_outline'; // Default icon if no valid type is given
+    }
+  }
 }

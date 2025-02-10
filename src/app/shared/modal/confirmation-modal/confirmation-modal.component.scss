@@ -45,10 +45,6 @@
     color: #4caf50; /* Success green */
   }
   
-  .error-icon {
-    color: #ffc107; /* Warning yellow */
-  }
-  
   .confirmation-title {
     font-size: 20px;
     font-weight: bold;
@@ -114,5 +110,18 @@
       transform: scale(1);
       opacity: 1;
     }
+  }
+  
+  .error-icon {
+    color: white; /* Red */
+  }
+  
+  .warning-icon {
+    color: #FF9800; /* Orange */
+  }
+  
+  .confirmation-icon {
+    font-size: 40px;
+    margin-right: 10px;
   }
   

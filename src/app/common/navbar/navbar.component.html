@@ -11,6 +11,8 @@
     <li *ngIf="!isLoggedIn || loggedInUser?.role === 'Candidate'" class="dropdown">
       <a routerLink="/jobs/find-jobs" (click)="closeDropdown()">Find Jobs</a>
     </li>
+
+    <!-- HR Menu -->
     <ng-container *ngIf="loggedInUser?.role === 'HR'">
       <li class="dropdown">
         <a (click)="toggleDropdown('candidate')">Candidate Management</a>
@@ -28,15 +30,24 @@
         </ul>
       </li>
     </ng-container>
+
+    <!-- Interviewer Menu -->
+    <ng-container *ngIf="loggedInUser?.role === 'Interviewer'">
+      <li><a routerLink="/interviewer/scheduled-interviews" (click)="closeDropdown()">Scheduled Interviews</a></li>
+    </ng-container>
+
+    <!-- Candidate Menu -->
     <ng-container *ngIf="loggedInUser?.role === 'Candidate'">
       <li><a routerLink="/candidate/my-application" (click)="closeDropdown()">My Applications</a></li>
       <li class="dropdown">
         <a routerLink="/candidate/profile" (click)="closeDropdown()">Profile</a>
       </li>
     </ng-container>
+
     <li><a routerLink="/about" (click)="closeDropdown()">About</a></li>
     <li><a routerLink="/contact" (click)="closeDropdown()">Contact</a></li>
   </ul>
+
   <div class="auth-buttons">
     <ng-container *ngIf="!isLoggedIn; else loggedInTemplate">
       <button class="btn" routerLink="/auth/register">Register</button>

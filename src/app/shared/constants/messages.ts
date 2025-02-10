@@ -1,5 +1,6 @@
 export const messages = {
     confirmation: 'Are you sure?',
+    invalidUserNameorPassword: 'Invalid username or password',
     shortlistCandidate: 'Do you want to shortlist this candidate?',
     rejectCandidate: 'Do you want to reject this candidate?',
     registredSuccessfully: 'Your registration has been successfully completed. <br > Application no - <b><NO></b>',

@@ -1,0 +1,7 @@
+<h2 class="title mt-0 mb-0">Scheduled Interviews</h2>
+<div class="feedback-container">
+    <app-table [columns]="tableColumns" [data]="scheduledInterviews" [paginationConfig]="paginationConfig"
+        (onFeedbackAction)="openFeedbackModal($event)" (onInterviewJoinAction)="joinInterview($event)"
+        (viewDetails)="viewDetails($event)">
+    </app-table>
+</div>

@@ -20,7 +20,7 @@ export class MessageDialogService {
       data: {
         title: options?.title || 'Error Occurred',
         message: options?.message || 'Something went wrong. Please try again.',
-        successIcon: options?.successIcon ?? false, // Default: error state (false)
+        iconType: options?.iconType ?? 'warning', // Default: error state (false)
         buttons: options?.buttons || [
           { text: 'OK', style: 'primary-btn' }
         ],
