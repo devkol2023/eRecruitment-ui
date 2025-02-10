@@ -1,0 +1,17 @@
+<div class="modal-header">
+    <h2 class="modal-title mt-0">Profile Update Reminder</h2>
+    <button mat-icon-button class="icon-red" (click)="close()">
+        <mat-icon>cancel</mat-icon>
+    </button>
+</div>
+<div mat-dialog-content class="profile-update-container">
+    <h3>Your profile has not been updated in the last 90 days!</h3>
+    <p class="message">We recommend you update your profile to ensure we have the most up-to-date information.</p>
+    <div class="modal-info">
+        <p>To continue receiving important notifications and offers, please update your profile.</p>
+    </div>
+</div>
+
+<div mat-dialog-actions style="padding: 8px;">
+    <button class="btn" (click)="close()">Close</button>
+</div>
