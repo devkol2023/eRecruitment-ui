@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../shared/service/auth.service';
 import { messages } from '../../shared/constants/messages';
 import { MessageDialogService } from '../../shared/service/message-dialog.service';
+import { ProfileUpdateReminderModalComponent } from '../../shared/modal/profile-update-reminder-modal/profile-update-reminder-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +26,8 @@ export class LoginComponent {
 
   constructor(private fb: FormBuilder, private router: Router,
     private authService: AuthService,
-    private dialogMessage: MessageDialogService
+    private dialogMessage: MessageDialogService,
+    private dialog: MatDialog
   ) {
     this.loginForm = this.fb.group({
       email: ['', Validators.required],
@@ -43,6 +46,7 @@ export class LoginComponent {
           this.router.navigate(['/hr/dashboard']);
         } else if (user.role == 'Candidate') {
           this.router.navigate(['/candidate/dashboard']);
+          this.openUpdateProfileModal();
         } else if (user.role == 'Interviewer') {
           this.router.navigate(['/interviewer/dashboard']);
         } else {
@@ -61,5 +65,14 @@ export class LoginComponent {
     } else {
       console.log('Form Invalid');
     }
+  }
+
+  openUpdateProfileModal(): void {
+    setTimeout(() => {
+      this.dialog.open(ProfileUpdateReminderModalComponent, {
+        width: '60%',
+        disableClose: true
+      });
+    }, 3000);
   }
 }
