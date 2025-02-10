@@ -1,0 +1,19 @@
+<h2 class="title mt-0 mb-0">Offer Management</h2>
+<div class="offer-management-container">
+
+    <!-- Status Filter -->
+    <div class="filter-container">
+        <button *ngFor="let filter of offerFilters" class="filter-btn" [class.active]="filter.active" (click)="applyFilter(filter)">
+            {{ filter.label }}
+        </button>
+    </div>
+
+    <!-- Offer Table -->
+     <div style="margin-top: -46px;">
+         <app-table [columns]="tableColumns" [data]="filteredOffers" [paginationConfig]="paginationConfig"
+             (onPageChange)="updatePage($event)" (onItemsPerPageChange)="updateItemsPerPage($event)"
+             (viewOfferAction)="viewOffer($event)" (resendOfferAction)="resendOffer($event)"
+             (withdrawOfferAction)="withdrawOffer($event)">
+         </app-table>
+     </div>
+</div>

@@ -1,0 +1,57 @@
+<h2 class="title mt-0 mb-0">Generate Offer Letter</h2>
+<mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header class="header">
+        <mat-panel-title>Generate Offer Letter</mat-panel-title>
+      </mat-expansion-panel-header>
+  
+      <div class="generate-offer-container">
+      
+          <form [formGroup]="offerForm" (ngSubmit)="onSubmit()">
+              <!-- Candidate Selection -->
+              <mat-form-field appearance="outline" class="full-width">
+                  <mat-label>Select Candidate</mat-label>
+                  <mat-select formControlName="candidate" [errorStateMatcher]="matcher">
+                      <mat-option *ngFor="let candidate of candidates" [value]="candidate.id">
+                          {{ candidate.name }} - {{ candidate.appliedFor }}
+                      </mat-option>
+                  </mat-select>
+              </mat-form-field>
+      
+              <!-- Job Position -->
+              <mat-form-field appearance="outline" class="full-width">
+                  <mat-label>Job Position</mat-label>
+                  <input matInput formControlName="jobPosition" readonly [errorStateMatcher]="matcher">
+              </mat-form-field>
+      
+              <div class="group-form-field">
+                  <!-- Salary -->
+                  <mat-form-field appearance="outline" class="half-width">
+                      <mat-label>Offered Salary</mat-label>
+                      <input matInput formControlName="salary" placeholder="Enter salary" [errorStateMatcher]="matcher">
+                  </mat-form-field>
+          
+                  <!-- Joining Date -->
+                  <mat-form-field appearance="outline" class="half-width">
+                      <mat-label>Joining Date</mat-label>
+                      <input matInput [matDatepicker]="picker" formControlName="joiningDate" [errorStateMatcher]="matcher">
+                      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+              </div>
+      
+              <!-- Offer Letter Upload -->
+              <div class="upload-section">
+                  <label>Upload Offer Letter (PDF)</label>
+                  <input type="file" (change)="onFileUpload($event)" />
+              </div>
+      
+              <!-- Submit Button -->
+              <div class="action-buttons">
+                  <button class="btn" type="submit">Generate & Send Offer</button>
+              </div>
+          </form>
+      </div>
+
+    </mat-expansion-panel>
+  </mat-accordion>

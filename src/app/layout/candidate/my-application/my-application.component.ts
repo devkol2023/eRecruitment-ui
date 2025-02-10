@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { OfferModalComponent } from '../../../shared/modal/offer-modal/offer-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-my-application',
@@ -7,14 +9,15 @@ import { Component } from '@angular/core';
   templateUrl: './my-application.component.html',
   styleUrl: './my-application.component.scss'
 })
-export class MyApplicationComponent {
+export class MyApplicationComponent implements OnInit {
   filters = [
-    { label: 'All', value: 'all', active: true },
+    // { label: 'All', value: 'all', active: true },
+    { label: 'Offer Released', value: 'offer-released', active: true },
     { label: 'Scheduled', value: 'scheduled', active: false },
     { label: 'Rejected', value: 'rejected', active: false },
     { label: 'Shortlisted', value: 'shortlisted', active: false },
   ];
-  selectedFilter: string = 'all';
+  selectedFilter: string = 'offer-released';
   tableColumns = [
     { key: 'applicationId', label: 'Application ID', width: '10%' },
     { key: 'jobTitle', label: 'Job Title', width: '22%' },
@@ -64,7 +67,7 @@ export class MyApplicationComponent {
       jobTitle: 'Customer Service Representative',
       companyName: 'Bank of St. Vincent',
       jobLocation: 'Calliaqua, St. Vincent',
-      status: 'Offer Made',
+      status: 'Offer Released',
       applicationDate: '25/01/2024',
       isWithdrawn: false,
     },
@@ -88,6 +91,12 @@ export class MyApplicationComponent {
     };
   
     storedAlltableData = this.tableData;
+
+    constructor(private dialog: MatDialog) { }
+
+    ngOnInit(): void {
+      this.onFilterChange({value: this.selectedFilter})
+    }
 
     handleSortChange(event: any): void {
       console.log('Sort Event:', event);
@@ -113,6 +122,7 @@ export class MyApplicationComponent {
   
     // Filtering logic
     getFilteredData() {
+      this.tableColumns[6].types = { viewOffer: false } as any;
       if (this.selectedFilter === 'scheduled') {
         return this.storedAlltableData.filter(
           (item) => item.status.toLowerCase() === 'interview scheduled'
@@ -125,7 +135,21 @@ export class MyApplicationComponent {
         return this.storedAlltableData.filter(
           (item) => item.status.toLowerCase() === 'shortlisted'
         );
+      }else if (this.selectedFilter === 'offer-released') {
+        this.tableColumns[6].types = { viewOffer: true } as any;
+        return this.storedAlltableData.filter(
+          (item) => item.status.toLowerCase() === 'offer released'
+        );
       }
       return this.storedAlltableData; // Show all applications
+    }
+
+    viewOffer(offer: any): void {
+      offer = {...offer, from: 'Candidate'}
+      this.dialog.open(OfferModalComponent, {
+        width: '60%',
+        disableClose: true,
+        data: offer
+      });
     }
 }

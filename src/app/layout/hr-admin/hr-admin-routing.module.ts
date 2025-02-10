@@ -17,6 +17,7 @@ const routes: Routes = [
         { path: 'schedule-interview', component: ScheduleInterviewComponent},
         { path: 'job-management', loadChildren: () => import('./job-management/job-management.module').then(m => m.JobManagementModule) },
         { path: 'shared-candidates', loadChildren: () => import('./shared-candidate/shared-candidate.module').then(m => m.SharedCandidateModule) },
+        { path: 'offer', loadChildren: () => import('./offer-management/offer-management.module').then(m => m.OfferManagementModule) },
     ]
   }
 ];
