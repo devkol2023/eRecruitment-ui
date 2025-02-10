@@ -1,0 +1,49 @@
+<div class="modal-header">
+    <h2 class="modal-title mt-0">Interview Feedback</h2>
+    <button mat-icon-button class="icon-red" (click)="dialogRef.close()">
+        <mat-icon>cancel</mat-icon>
+    </button>
+  </div>
+  <form [formGroup]="feedbackForm">
+    <div mat-dialog-content>
+      <mat-form-field class="full-width">
+        <mat-label>Candidate Name</mat-label>
+        <input matInput formControlName="candidateName" />
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Job Title</mat-label>
+        <input matInput formControlName="jobTitle" />
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Rating (1-5)</mat-label>
+        <mat-select formControlName="rating">
+          <mat-option *ngFor="let r of [1, 2, 3, 4, 5]" [value]="r">{{ r }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="feedbackForm.get('rating')?.hasError('required')">Rating is required</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Recommendation</mat-label>
+        <mat-select formControlName="recommendation">
+          <mat-option value="Shortlist">Shortlist</mat-option>
+          <mat-option value="Reject">Reject</mat-option>
+          <mat-option value="Hold">Hold</mat-option>
+        </mat-select>
+        <mat-error *ngIf="feedbackForm.get('recommendation')?.hasError('required')">Recommendation is required</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Feedback</mat-label>
+        <textarea matInput formControlName="feedback" rows="2"></textarea>
+        <mat-error *ngIf="feedbackForm.get('feedback')?.hasError('required')">Feedback is required</mat-error>
+      </mat-form-field>
+    </div>
+  
+    <div mat-dialog-actions>
+      <button mat-button (click)="dialogRef.close()">Cancel</button>
+      <button class="btn" style="margin-left: 15px;" (click)="onSubmit()">Submit</button>
+    </div>
+  </form>
+  

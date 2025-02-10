@@ -1,22 +1,23 @@
 import { Component } from '@angular/core';
-import { InterviewFeedbackModalComponent } from './interview-feedback-modal/interview-feedback-modal.component';
 import { MatDialog } from '@angular/material/dialog';
+import { InterviewFeedbackModalComponent } from '../interview-feedback-modal/interview-feedback-modal.component';
+import { CandidateDetailsModalComponent } from '../../../shared/modal/candidate-details-modal/candidate-details-modal.component';
 
 @Component({
-  selector: 'app-interview-feedback',
+  selector: 'app-scheduled-interviews',
   standalone: false,
   
-  templateUrl: './interview-feedback.component.html',
-  styleUrl: './interview-feedback.component.scss'
+  templateUrl: './scheduled-interviews.component.html',
+  styleUrl: './scheduled-interviews.component.scss'
 })
-export class InterviewFeedbackComponent {
+export class ScheduledInterviewsComponent {
   tableColumns = [
     { key: 'candidateName', label: 'Candidate Name', width: '20%' },
     { key: 'jobTitle', label: 'Job Title', width: '20%' },
     { key: 'skills', label: 'Skills', width: '20%' },
     { key: 'interviewDate', label: 'Date & Time', width: '20%' },
     { key: 'status', label: 'Status', width: '10%' },
-    { key: 'actions', label: 'Actions', width: '10%', type: 'action', types: { download: true, joinInterview: true, feedback: true } }
+    { key: 'actions', label: 'Actions', width: '10%', type: 'action', types: { viewDetails: true, joinInterview: true, feedback: true } }
   ];
   
   scheduledInterviews = [
@@ -70,6 +71,13 @@ export class InterviewFeedbackComponent {
       if (result) {
         alert(`Feedback submitted for ${interview.candidateName}`);
       }
+    });
+  }
+
+  viewDetails(candidate: any): void {
+    this.dialog.open(CandidateDetailsModalComponent, {
+      width: '60%',
+      data: candidate
     });
   }
 }

@@ -1,0 +1,5 @@
+<div class="feedback-container">
+    <app-table [columns]="tableColumns" [data]="scheduledInterviews" [paginationConfig]="paginationConfig"
+        (onFeedbackAction)="openFeedbackModal($event)" (viewDetails)="viewDetails($event)">
+    </app-table>
+</div>

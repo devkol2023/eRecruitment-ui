@@ -67,7 +67,7 @@ export class InboxComponent implements OnInit {
     this.dialogMessage.open({
       title: messages.confirmation,
       message: messages.shortlistCandidate,
-      successIcon: false,
+      iconType: 'warning',
       buttons: [
         { text: 'Yes', style: 'primary-btn' },
         { text: 'No', style: 'secondary-btn' },
@@ -85,7 +85,7 @@ export class InboxComponent implements OnInit {
     this.dialogMessage.open({
       title: messages.confirmation,
       message: messages.rejectCandidate,
-      successIcon: false,
+      iconType: 'warning',
       buttons: [
         { text: 'Yes', style: 'primary-btn' },
         { text: 'No', style: 'secondary-btn' },

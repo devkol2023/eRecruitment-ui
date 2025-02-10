@@ -2,8 +2,12 @@
     <div class="confirmation-box">
       <!-- confirmation Header -->
       <div class="confirmation-header">
-        <i class="material-icons confirmation-icon" [ngClass]="{ 'success-icon': data.successIcon, 'error-icon': !data.successIcon }">
-          {{ data.successIcon ? 'check_circle' : 'error_outline' }}
+        <i class="material-icons confirmation-icon" [ngClass]="{
+                  'success-icon': data.iconType === 'success',
+                  'error-icon': data.iconType === 'error',
+                  'warning-icon': data.iconType === 'warning'
+               }">
+          {{ getIconType(data.iconType) }}
         </i>
         <h2 class="confirmation-title">{{ data.title }}</h2>
       </div>

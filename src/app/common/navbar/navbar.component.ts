@@ -15,12 +15,11 @@ export class NavbarComponent implements OnInit {
   isLoggedIn: boolean = false;
   isNotificationOpen: boolean = false;
   notifications: string[] = [
-    'You have a new message from John Doe',
-    'Reminder: Complete your profile',
-    'System update scheduled for tomorrow',
-    'Your leave request has been approved',
-    'Meeting scheduled at 3 PM',
-    'System alert: Password expires in 5 days',
+    '📢 Your job application for "Branch Manager" is under review.',
+    '✅ Congratulations! You have been shortlisted for the "Loan Officer" position.',
+    '📅 Reminder: Your interview for "Financial Analyst" is scheduled for tomorrow at 3 PM.',
+    '⚠️ System Alert: Your resume is missing. Please upload it to complete your profile.',
+    '🎯 You have been forwarded for a special job opportunity.',
   ];
 
   constructor(private authService: AuthService,

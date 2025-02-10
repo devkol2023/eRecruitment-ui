@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../shared/service/auth.service';
+import { messages } from '../../shared/constants/messages';
+import { MessageDialogService } from '../../shared/service/message-dialog.service';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +23,8 @@ export class LoginComponent {
   ];
 
   constructor(private fb: FormBuilder, private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private dialogMessage: MessageDialogService
   ) {
     this.loginForm = this.fb.group({
       email: ['', Validators.required],
@@ -38,7 +41,14 @@ export class LoginComponent {
         this.authService.login(user);
         this.router.navigate(['/candidate/candidate-dashboard']); // Redirect to dashboard
       } else {
-        alert('Invalid username or password');
+        this.dialogMessage.open({
+          title: messages.errorOccured,
+          message: messages.invalidUserNameorPassword,
+          iconType: 'error',
+          buttons: [
+            { text: 'Ok', style: 'primary-btn' },
+          ]
+        })
       }
     } else {
       console.log('Form Invalid');
