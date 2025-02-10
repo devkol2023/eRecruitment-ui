@@ -1,8 +1,18 @@
-<div class="job-listing-container">
-    <div class="left-container">
-        <app-jobs-list-card (selectedCard)="recieveJobData($event)"></app-jobs-list-card>
-    </div>
-    <div class="right-container" *ngIf="jobData">
-        <app-job-details [from]="'candidate-dashboard'" [selectJob]="jobData"></app-job-details>
-    </div>
+<div>
+    <app-search-bar></app-search-bar>
 </div>
+<mat-tab-group animationDuration="300ms">
+    <mat-tab label="Jobs For You">
+            <div class="job-listing-container">
+            <div class="left-container">
+                <app-jobs-list-card (selectedCard)="recieveJobData($event)"></app-jobs-list-card>
+            </div>
+            <div class="right-container" *ngIf="jobData">
+                <app-job-details [from]="'candidate-dashboard'" [selectJob]="jobData"></app-job-details>
+            </div>
+        </div>
+        </mat-tab>
+        <mat-tab label="Recent Searches" >
+           
+        </mat-tab>
+    </mat-tab-group>

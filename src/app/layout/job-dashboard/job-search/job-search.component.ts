@@ -8,9 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './job-search.component.scss'
 })
 export class JobSearchComponent {
-  locations = [
-    { value: 'bd', label: 'Location BD' },
-    { value: 'us', label: 'Location US' },
-    { value: 'uk', label: 'Location UK' },
-  ];
+
 }

@@ -1,22 +1,7 @@
 <div class="hero-section">
     <div class="hero-content">
       <h1>Find the most exciting startup jobs</h1>
-      <div class="search-bar">
-        <mat-form-field appearance="outline" class="search-input-field">
-            <mat-label>Job Title or keyword</mat-label>
-            <input matInput placeholder="Enter job title or keyword" />
-          </mat-form-field>
-        <mat-form-field class="location-select" appearance="outline">
-            <mat-label>Location</mat-label>
-            <mat-select>
-                <mat-option *ngFor="let location of locations" [value]="location.value">
-                    {{ location.label }}
-                </mat-option>
-            </mat-select>
-          </mat-form-field>
-          
-        <button class="find-job-btn">Find Job</button>
-      </div>
+      <app-search-bar></app-search-bar>
     </div>
     <div class="hero-image">
       <img src="/images/h1_hero.jpg" alt="Professional" />

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-jobs-list-card',
@@ -7,7 +7,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   templateUrl: './jobs-list-card.component.html',
   styleUrl: './jobs-list-card.component.scss'
 })
-export class JobsListCardComponent {
+export class JobsListCardComponent implements OnInit {
   @Output() selectedCard = new EventEmitter<any>();
   selectedJob: any; 
 
@@ -101,6 +101,8 @@ export class JobsListCardComponent {
       },
     }
 
+  
+
     // ,{
     //   id: 1,
     //   status: ['New', 'Urgently hiring'],
@@ -133,6 +135,10 @@ export class JobsListCardComponent {
     // }
     
   ];
+
+  ngOnInit(): void {
+    this.selectCard(this.jobs[0]);
+  }
 
   selectCard(job: any){
     this.selectedJob = job;
