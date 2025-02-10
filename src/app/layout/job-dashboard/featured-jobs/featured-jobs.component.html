@@ -1,20 +1,31 @@
-<div class="categories-section">
-    <h2>Explore Our Popular Categories</h2>
-    <p class="description">Find the right category that matches your career goals.</p>
-    <div class="categories-list">
-      <div
-        class="category-item"
-        *ngFor="let category of categories"
-      >
-        <div class="icon-container">
-          <img src="/images/logo.png" [alt]="category.name" />
-        </div>
-        <h3>{{ category.name }}</h3>
-        <p class="count">Jobs: {{ category.count }}</p>
+<!-- Job Matching Wizard Section -->
+<div class="wizard-section">
+  <div class="wizard-card">
+      <h2>Find Your Perfect Job</h2>
+      <p>Answer a few quick questions and discover the best job opportunities tailored for you.</p>
+      <div style="display: flex;justify-content: center;">
+        <button class="wizard-button" routerLink="/job-dashboard/job-wizard">
+            <span>Start Job Matching</span>
+            <mat-icon class="arrow-icon">arrow_forward</mat-icon>
+        </button>
       </div>
-    </div>
-    <div class="action-container">
-      <button class="action-button">Discover All Categories</button>
+  </div>
+</div>
+
+
+<div class="categories-section">
+  <h2>Explore Our Job Categories</h2>
+  <p class="description">Find a category that aligns with your career aspirations.</p>
+  <div class="categories-list">
+    <div class="category-item" *ngFor="let category of categories" (click)="goToJobs(category)">
+      <div class="icon-container">
+        <img src="/images/logo.png" [alt]="category.name" />
+      </div>
+      <h3>{{ category.name }}</h3>
+      <p class="count">{{ category.count }} Jobs Available</p>
     </div>
   </div>
-  
+  <div class="action-container">
+    <button class="btn">Browse All Categories</button>
+  </div>
+</div>

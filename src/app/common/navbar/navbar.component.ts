@@ -62,4 +62,16 @@ export class NavbarComponent implements OnInit {
   markAsRead(notification: string): void  {
     this.notifications = this.notifications.filter((el: string) => el !== notification);
   }
+
+  homeClicked(): void {
+    if (this.loggedInUser?.role == 'HR') {
+
+    } else if (this.loggedInUser?.role == 'Candidate') {
+
+    } else if (this.loggedInUser?.role == 'Interviewer') {
+
+    } else {
+      this.router.navigate(['/job-dashboard']);
+    }
+  }
 }

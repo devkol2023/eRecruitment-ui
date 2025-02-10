@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-featured-jobs',
@@ -10,44 +11,60 @@ import { Component } from '@angular/core';
 export class FeaturedJobsComponent {
   categories = [
     {
-      name: 'Design & Creative',
-      count: 653,
-      icon: 'assets/icons/design-creative.svg',
-    },
-    {
-      name: 'Web Development',
-      count: 785,
-      icon: 'assets/icons/web-development.svg',
-    },
-    {
-      name: 'Marketing',
+      name: 'Retail Banking',
       count: 432,
-      icon: 'assets/icons/marketing.svg',
+      icon: 'assets/icons/retail-banking.svg',
     },
     {
-      name: 'Mobile Apps',
-      count: 189,
-      icon: 'assets/icons/mobile-apps.svg',
+      name: 'Corporate Banking',
+      count: 350,
+      icon: 'assets/icons/corporate-banking.svg',
     },
     {
-      name: 'Engineering',
-      count: 561,
-      icon: 'assets/icons/engineering.svg',
+      name: 'Finance & Accounting',
+      count: 567,
+      icon: 'assets/icons/finance-accounting.svg',
     },
     {
-      name: 'IT Support',
-      count: 320,
-      icon: 'assets/icons/it-support.svg',
+      name: 'Risk & Compliance',
+      count: 298,
+      icon: 'assets/icons/risk-compliance.svg',
     },
     {
-      name: 'Real Estate',
-      count: 278,
-      icon: 'assets/icons/real-estate.svg',
+      name: 'IT & Cybersecurity',
+      count: 421,
+      icon: 'assets/icons/it-cybersecurity.svg',
     },
     {
-      name: 'Content Writing',
-      count: 152,
-      icon: 'assets/icons/content-writing.svg',
+      name: 'Marketing & Communications',
+      count: 210,
+      icon: 'assets/icons/marketing-communications.svg',
     },
+    {
+      name: 'Human Resources',
+      count: 178,
+      icon: 'assets/icons/hr.svg',
+    },
+    {
+      name: 'Operations & Customer Service',
+      count: 312,
+      icon: 'assets/icons/customer-service.svg',
+    },
+    {
+      name: 'Investment & Wealth Management',
+      count: 125,
+      icon: 'assets/icons/investment-wealth.svg',
+    },
+    {
+      name: 'Legal & Compliance',
+      count: 150,
+      icon: 'assets/icons/legal-compliance.svg',
+    }
   ];
+
+  constructor(private router: Router) { }
+  
+  goToJobs(category: any): void {
+    this.router.navigate(['/jobs/find-jobs']);
+  }
 }

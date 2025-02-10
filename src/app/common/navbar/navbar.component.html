@@ -7,7 +7,7 @@
     </div>
   </div>
   <ul class="nav-links">
-    <li><a routerLink="/job-dashboard" (click)="closeDropdown()">Home</a></li>
+    <li><a (click)="closeDropdown(); homeClicked()">Home</a></li>
     <li *ngIf="!isLoggedIn || loggedInUser?.role === 'Candidate'" class="dropdown">
       <a routerLink="/jobs/find-jobs" (click)="closeDropdown()">Find Jobs</a>
     </li>
