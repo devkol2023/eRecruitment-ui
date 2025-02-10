@@ -62,6 +62,18 @@
                                 <mat-icon>visibility</mat-icon>
                             </button>
 
+                            <button mat-icon-button *ngIf="col.types['viewOffer']" class="btn-delete" (click)="viewOffer(row)" matTooltip="View Offer">
+                                <mat-icon>visibility</mat-icon>
+                            </button>
+                            <button mat-icon-button *ngIf="col.types['resendOffer'] && row.status != 'Rejected' && row.status != 'Withdrawn'"
+                                class="btn-delete" (click)="resendOffer(row)" matTooltip="Resend Offer">
+                                <mat-icon>send</mat-icon>
+                            </button>
+                            <button mat-icon-button *ngIf="col.types['withdrawOffer'] && row.status != 'Rejected' && row.status != 'Withdrawn'"
+                                class="btn-delete" (click)="withdrawOffer(row)" matTooltip="Withdraw Offer">
+                                <mat-icon>cancel</mat-icon>
+                            </button>
+
                             <button mat-icon-button *ngIf="col.types['edit']" class="btn-edit" (click)="onEdit(row)">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                                     <g clip-path="url(#clip0_1318_2606)">

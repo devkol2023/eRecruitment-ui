@@ -1,39 +1,41 @@
-<div class="login-container">
-    <h2 class="login-title">Login</h2>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <!-- Email -->
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Email ID / Username</mat-label>
-        <input matInput formControlName="email" placeholder="Enter Email ID / Username" autocomplete="off"/>
-        <mat-error *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
-          Email ID/Username cannot be left blank
-        </mat-error>
-      </mat-form-field>
-  
-      <!-- Password -->
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Password</mat-label>
-        <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" placeholder="Enter Password" autocomplete="off"/>
-        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
-            <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
-          </button>
-        <mat-error *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
-          Password cannot be left blank
-        </mat-error>
-      </mat-form-field>
-  
-      <!-- Forgot Password -->
-      <div class="forgot-password">
-        <a routerLink="/forgot-password">Forgot Password?</a>
-      </div>
-  
-      <!-- Login Button -->
-      <button type="submit" class="login-btn btn">
-        Login
-      </button>
-  
-      <!-- OTP Login -->
-      <p class="otp-login">Use OTP to Login</p>
-    </form>
-  </div>
+<div class="login-wrapper">
+  <div class="login-container">
+      <h2 class="login-title">Login</h2>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <!-- Email -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email ID / Username</mat-label>
+          <input matInput formControlName="email" placeholder="Enter Email ID / Username" autocomplete="off"/>
+          <mat-error *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
+            Email ID/Username cannot be left blank
+          </mat-error>
+        </mat-form-field>
+    
+        <!-- Password -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" placeholder="Enter Password" autocomplete="off"/>
+          <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
+              <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+          <mat-error *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+            Password cannot be left blank
+          </mat-error>
+        </mat-form-field>
+    
+        <!-- Forgot Password -->
+        <div class="forgot-password">
+          <a routerLink="/forgot-password">Forgot Password?</a>
+        </div>
+    
+        <!-- Login Button -->
+        <button type="submit" class="login-btn btn">
+          Login
+        </button>
+    
+        <!-- OTP Login -->
+        <p class="otp-login">Use OTP to Login</p>
+      </form>
+    </div>
+</div>
   

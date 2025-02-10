@@ -184,16 +184,16 @@ export class AppliedCandidatesComponent implements OnInit {
     }
     switch (this.selectedFilter) {
       case 'applied':
-        this.tableColumns[6].types = { viewDetails: true, shortlist: true, reject: true };
+        this.tableColumns[7].types = { viewDetails: true, shortlist: true, reject: true };
         break;
       case 'shortlisted':
-        this.tableColumns[6].types = { viewDetails: true, reject: true , schedule: true} as any;
+        this.tableColumns[7].types = { viewDetails: true, reject: true , schedule: true} as any;
         break;
       case 'rejected':
-        this.tableColumns[6].types = { viewDetails: true } as any;
+        this.tableColumns[7].types = { viewDetails: true } as any;
         break;
       default:
-        this.tableColumns[6].types = { viewDetails: true, reject: true } as any;
+        this.tableColumns[7].types = { viewDetails: true, reject: true } as any;
         break;
     }
   }

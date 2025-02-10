@@ -39,6 +39,7 @@ export class TableComponent implements OnInit, OnChanges {
   @Output() shortListAction = new EventEmitter<any>();
   @Output() rejectAction = new EventEmitter<any>();
   @Output() onCheckBoxAction = new EventEmitter<any>();
+  @Output() viewOfferAction = new EventEmitter<any>();
 
   searchQuery: string = '';
   sortedData: any[] = []; // Data after sorting
@@ -124,19 +125,25 @@ export class TableComponent implements OnInit, OnChanges {
 
   getStatusColor(status: string): string {
     switch (status.toLowerCase()) {
-      case 'offer made':
+      case 'offer released':
       case 'completed':
       case 'applied':
+      case 'open':
+      case 'accepted':
         return 'green';
       case 'shortlisted':
         return 'blue';
       case 'under review':
       case 'ongoing':
+      case 'pending':
         return '#EFA601';
       case 'rejected':
+      case 'closed':
         return 'red';
       case 'interview scheduled':
+      case 'scheduled':
       case 'upcoming':
+      case 'withdrawn':
         return 'purple';
       default:
         return 'gray';
@@ -194,5 +201,17 @@ export class TableComponent implements OnInit, OnChanges {
   onCheckboxChange(candidate: any, isChecked: boolean): void {
     candidate.checked = isChecked;
     this.onCheckBoxAction.emit(true);
+  }
+
+  viewOffer(data: any): void {
+    this.viewOfferAction.emit(data);
+  }
+
+  resendOffer(data: any): void {
+    
+  }
+
+  withdrawOffer(data: any): void {
+    
   }
 }

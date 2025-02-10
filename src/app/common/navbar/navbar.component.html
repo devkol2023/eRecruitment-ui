@@ -29,6 +29,13 @@
           <li><a routerLink="/hr/job-management/dashboard" (click)="closeDropdown()">Job Dashboard</a></li>
         </ul>
       </li>
+      <li class="dropdown">
+        <a (click)="toggleDropdown('offer-management')">Offer Management</a>
+        <ul class="dropdown-menu" [class.show]="activeDropdown === 'offer-management'">
+          <li><a routerLink="/hr/offer/generate-offer" (click)="closeDropdown()">Generate Offer</a></li>
+          <li><a routerLink="/hr/offer/view-sent-offer-list" (click)="closeDropdown()">View Sent Offer</a></li>
+        </ul>
+      </li>
     </ng-container>
 
     <!-- Interviewer Menu -->

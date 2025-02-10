@@ -1,6 +1,18 @@
+.login-wrapper {
+  background-image: url("/images/background-image.jpg"); /* Corrected Path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; /* Ensure it covers the full page */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .login-container {
     max-width: 400px;
     margin: 50px auto;
+    margin-top: 0;
     padding: 10px 30px 30px 30px;
     border-radius: 8px;
     background: white;

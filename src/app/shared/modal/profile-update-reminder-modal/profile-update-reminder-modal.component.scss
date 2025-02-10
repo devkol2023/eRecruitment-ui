@@ -1,0 +1,39 @@
+/* Profile Update Section */
+.profile-update-container {
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    text-align: center;
+}
+
+.profile-update-container h3 {
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.message {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Adjusting Modal Info Section */
+.modal-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    color: #EFA601;
+}
+
+/* Ensure that the icon is well aligned with the text */
+.modal-info p {
+    font-size: 16px;
+    color: #EFA601;
+    line-height: 1.5;
+}

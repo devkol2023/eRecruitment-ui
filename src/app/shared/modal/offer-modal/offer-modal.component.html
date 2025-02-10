@@ -1,0 +1,29 @@
+<div class="modal-header">
+    <h2 class="modal-title mt-0">Offer Details</h2>
+    <button mat-icon-button class="icon-red" (click)="close()">
+        <mat-icon>cancel</mat-icon>
+    </button>
+</div>
+<div mat-dialog-content class="candidate-details-container">
+    <h2>{{ selectedOffer.jobTitle }} - Offer Details</h2>
+    <p><strong>Salary:</strong> {{ selectedOffer.salary }}</p>
+    <p><strong>Joining Date:</strong> {{ selectedOffer.joiningDate }}</p>
+    <p><strong>Status:</strong> {{ selectedOffer.status }}</p>
+
+    <!-- New Section for Offer Letter Download -->
+    <div class="offer-letter-download">
+        <h3>Download Offer Letter</h3>
+        <p>Click the button below to download your official offer letter in PDF format.</p>
+        <button class="btn download-btn" (click)="downloadOfferLetter()">Download Offer Letter</button>
+    </div>
+</div>
+
+<div mat-dialog-actions style="padding: 8px;">
+    <ng-container *ngIf="data?.from == 'HR'; else candidate">
+        <button class="btn" (click)="close()">Close</button>
+    </ng-container>
+    <ng-template #candidate>
+        <button class="btn" style="margin-right: 10px;" (click)="acceptOffer()">Accept</button>
+        <button class="btn" (click)="rejectOffer()">Reject</button>
+    </ng-template>
+</div>

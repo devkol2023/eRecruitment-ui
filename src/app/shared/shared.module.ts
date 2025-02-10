@@ -9,10 +9,13 @@ import { ConfirmationModalComponent } from './modal/confirmation-modal/confirmat
 import { CandidateDetailsModalComponent } from './modal/candidate-details-modal/candidate-details-modal.component';
 import { ForwardCandidatesModalComponent } from './modal/forward-candidates-modal/forward-candidates-modal.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { OfferModalComponent } from './modal/offer-modal/offer-modal.component';
+import { ProfileUpdateReminderModalComponent } from './modal/profile-update-reminder-modal/profile-update-reminder-modal.component';
 
 @NgModule({
   declarations: [TableComponent, ConfirmationModalComponent, CandidateDetailsModalComponent,
-    ForwardCandidatesModalComponent, SearchBarComponent
+    ForwardCandidatesModalComponent, SearchBarComponent, OfferModalComponent,
+    ProfileUpdateReminderModalComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +27,8 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
   ],
   exports: [AngularMaterialModule, FormsModule, ReactiveFormsModule, NgxSliderModule,
     TableComponent, NgxPaginationModule, ConfirmationModalComponent, CandidateDetailsModalComponent,
-    ForwardCandidatesModalComponent, SearchBarComponent
+    ForwardCandidatesModalComponent, SearchBarComponent, OfferModalComponent,
+    ProfileUpdateReminderModalComponent
   ]
 })
 export class SharedModule { }

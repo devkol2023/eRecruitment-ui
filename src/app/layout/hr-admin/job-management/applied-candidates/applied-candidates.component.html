@@ -1,9 +1,11 @@
 <h2 class="title mt-0">Applied Candidates</h2>
-<div class="filter-toggle">
-    <button *ngFor="let filter of filters" class="toggle-btn" [class.active]="filter.active"
-        (click)="applyFilter(filter)" >
-        {{ filter.label }}
-    </button>
+<div class="filter-wrapper">
+    <div class="filter-container" style="padding-top: 5px;">
+        <button *ngFor="let filter of filters" class="filter-btn" [class.active]="filter.active"
+            (click)="applyFilter(filter)" >
+            {{ filter.label }}
+        </button>
+    </div>
 </div>
 
 <div *ngIf="checkedCandidates.length > 0" class="forward-btn-container">

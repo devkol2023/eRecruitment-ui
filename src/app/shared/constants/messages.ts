@@ -13,5 +13,7 @@ export const messages = {
     applyIncentiveError: 'There was an error during scheme application. Please try again.',
     feedbackSentMsg: 'Feedback submitted successfully.',
     invalidFileFormat: 'Invalid file format. Only PDF and JPG and PNG are allowed.',
-    fileSizeExceeds: 'File size exceeds 1.5 MB.'
+    fileSizeExceeds: 'File size exceeds 1.5 MB.',
+    offerGenerated: 'Offer Generated',
+    offerGeneratedBodyMsg: 'Offer Letter has been generated and sent to'
 }
