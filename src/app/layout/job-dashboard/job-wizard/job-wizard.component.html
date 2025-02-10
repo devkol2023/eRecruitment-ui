@@ -1,0 +1,63 @@
+<div *ngIf="!submitted" class="wizard-wrapper">
+    <div class="wizard-container">
+        <!-- Step Progress Indicator -->
+        <div class="progress-bar">
+            <div *ngFor="let step of wizardQuestions; let i = index" class="step" [class.active]="currentStep === i + 1">
+                {{ i + 1 }}
+            </div>
+        </div>
+    
+        <h2 class="wizard-title">Find Your Ideal Banking Job</h2>
+    
+        <form [formGroup]="eligibilityForm" (ngSubmit)="onSubmit()">
+            <div class="wizard-card">
+                <ng-container *ngFor="let step of wizardQuestions; let i = index">
+                    <fieldset *ngIf="currentStep === (i + 1)">
+                        <legend class="question-title">{{ step.questionDetails }}</legend>
+    
+                        <!-- Multiple Choice (Checkbox) -->
+                        <div *ngIf="step.questionType === 'MCQ'" class="option-list">
+                            <div *ngFor="let option of step.answersDetails" class="option-item">
+                                <mat-checkbox
+                                    [checked]="eligibilityForm.get(step.controlName)?.value?.includes(option.answerId)"
+                                    (change)="onCheckboxChange(step, step.controlName, option, $event.checked)">
+                                    {{ option.answerValue }}
+                                </mat-checkbox>
+                            </div>
+                        </div>
+    
+                        <!-- Single Choice (Radio) -->
+                        <div *ngIf="step.questionType === 'SCQ'" class="option-list">
+                            <mat-radio-group [formControlName]="step.controlName">
+                                <div *ngFor="let option of step.answersDetails" class="option-item">
+                                    <mat-radio-button [value]="option.answerId">{{ option.answerValue }}</mat-radio-button>
+                                </div>
+                            </mat-radio-group>
+                        </div>
+                    </fieldset>
+                </ng-container>
+            </div>
+    
+            <div class="button-group">
+                <button class="btn custom-btn" (click)="prevStep()" [disabled]="currentStep === 1">Previous</button>
+                <button class="btn custom-btn" (click)="nextStep()" *ngIf="currentStep < wizardQuestions.length"
+                    [disabled]="!isStepValid()">Next</button>
+                <button class="btn custom-btn" type="submit" *ngIf="currentStep === wizardQuestions.length"
+                    [disabled]="!isStepValid()">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+  
+  <div *ngIf="submitted">
+    <div class="job-listing-container">
+        <div class="left-container">
+            <app-jobs-list-card (selectedCard)="recieveJobData($event)"></app-jobs-list-card>
+        </div>
+        <div class="right-container" *ngIf="jobData">
+            <app-job-details [from]="'candidate-dashboard'" [selectJob]="jobData"></app-job-details>
+        </div>
+    </div>
+  </div>

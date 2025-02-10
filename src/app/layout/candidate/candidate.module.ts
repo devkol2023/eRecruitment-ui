@@ -24,6 +24,7 @@ import { JobsListCardComponent } from './jobs-list-card/jobs-list-card.component
     CandidateRoutingModule,
     SharedModule,
     JobsModule
-  ]
+  ],
+  exports: [CandidateDashboardComponent, JobsListCardComponent]
 })
 export class CandidateModule { }
