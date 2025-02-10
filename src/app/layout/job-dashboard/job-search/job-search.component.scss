@@ -16,47 +16,10 @@
     margin-bottom: 20px;
   }
   
-  .search-bar {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .search-input {
-    padding: 10px 15px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    flex: 2;
-  }
-  
-  .location-select {
-    padding: 10px 15px;
-    font-size: 1rem;
-    flex: 1;
-  }
-  
-  .find-job-btn {
-    padding: 10px 20px;
-    margin-bottom: 20px;
-    font-size: 1rem;
-    background-color: #ff007f;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .find-job-btn:hover {
-    opacity: 0.9;
-  }
-  
   .hero-image img {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
   }
-  .location-select {
-    width: 200px; /* Adjust as needed */
-  }
+
   
