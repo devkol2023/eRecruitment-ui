@@ -127,6 +127,7 @@ export class TableComponent implements OnInit, OnChanges {
       case 'offer made':
       case 'completed':
       case 'applied':
+      case 'open':
         return 'green';
       case 'shortlisted':
         return 'blue';
@@ -134,8 +135,10 @@ export class TableComponent implements OnInit, OnChanges {
       case 'ongoing':
         return '#EFA601';
       case 'rejected':
+      case 'closed':
         return 'red';
       case 'interview scheduled':
+      case 'scheduled':
       case 'upcoming':
         return 'purple';
       default:

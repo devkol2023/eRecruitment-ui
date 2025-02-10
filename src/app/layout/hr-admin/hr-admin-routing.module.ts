@@ -4,12 +4,14 @@ import { HrAdminComponent } from "./hr-admin.component";
 import { CandidateManagementComponent } from "./candidate-management/candidate-management.component";
 import { ManageJobComponent } from "./manage-job/manage-job.component";
 import { ScheduleInterviewComponent } from "./schedule-interview/schedule-interview.component";
+import { HrDashboardComponent } from "./hr-dashboard/hr-dashboard.component";
 
 const routes: Routes = [
   {
     path: '',
     component: HrAdminComponent,
     children: [
+        { path: 'dashboard', component: HrDashboardComponent},
         { path: 'candidate-management', component: CandidateManagementComponent},
         { path: 'manage-jobs', component: ManageJobComponent},
         { path: 'schedule-interview', component: ScheduleInterviewComponent},

@@ -6,6 +6,7 @@ import { HrAdminRoutingModule } from './hr-admin-routing.module';
 import { SharedModule } from '../../shared/shared.module';
 import { ManageJobComponent } from './manage-job/manage-job.component';
 import { ScheduleInterviewComponent } from './schedule-interview/schedule-interview.component';
+import { HrDashboardComponent } from './hr-dashboard/hr-dashboard.component';
 
 
 
@@ -14,7 +15,8 @@ import { ScheduleInterviewComponent } from './schedule-interview/schedule-interv
     CandidateManagementComponent,
     HrAdminComponent,
     ManageJobComponent,
-    ScheduleInterviewComponent
+    ScheduleInterviewComponent,
+    HrDashboardComponent
   ],
   imports: [
     CommonModule,

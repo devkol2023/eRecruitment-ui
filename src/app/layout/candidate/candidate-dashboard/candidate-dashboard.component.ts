@@ -11,7 +11,6 @@ export class CandidateDashboardComponent {
 jobData:any;
 
   recieveJobData(event:any){
-    console.log(event);
     this.jobData = event;
   }
 }

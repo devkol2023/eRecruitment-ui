@@ -1,0 +1,33 @@
+<div class="dashboard-container">
+    <!-- Dashboard Header -->
+    <div class="dashboard-header">
+        <h2>Interviewer Dashboard</h2>
+        <button class="btn">Refresh Data</button>
+    </div>
+
+    <!-- Dashboard Metrics -->
+    <div class="dashboard-metrics">
+        <div class="metric-card">
+            <h3>Total Scheduled Interviews</h3>
+            <p><strong>{{ totalScheduled }}</strong></p>
+        </div>
+        <div class="metric-card">
+            <h3>Pending Assessments</h3>
+            <p><strong>{{ pendingAssessments.length }}</strong></p>
+        </div>
+        <div class="metric-card">
+            <h3>Feedback Pending</h3>
+            <p><strong>{{ feedbackPending.length }}</strong></p>
+        </div>
+        <div class="metric-card">
+            <h3>Completed Interviews</h3>
+            <p><strong>{{ completedInterviews.length }}</strong></p>
+        </div>
+    </div>
+    
+    <!-- Upcoming Interviews Table -->
+    <div class="section-title">Upcoming Interviews</div>
+    <app-table [columns]="tableColumns" [data]="upcomingInterviews" [paginationConfig]="paginationConfig"
+        (onItemsPerPageChange)="updateItemsPerPage($event)" (onPageChange)="updatePage($event)" [searchRequired]="false">
+    </app-table>
+</div>

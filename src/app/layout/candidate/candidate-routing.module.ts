@@ -12,7 +12,7 @@ const routes: Routes = [
     children: [
         { path: 'my-application', component: MyApplicationComponent},
         { path: 'profile', component: ProfileManagementComponent},
-        { path: 'candidate-dashboard', component: CandidateDashboardComponent}
+        { path: 'dashboard', component: CandidateDashboardComponent}
     ]
   }
 ];

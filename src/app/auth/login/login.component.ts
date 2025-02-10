@@ -39,7 +39,15 @@ export class LoginComponent {
   
       if (user) {
         this.authService.login(user);
-        this.router.navigate(['/candidate/candidate-dashboard']); // Redirect to dashboard
+        if (user.role == 'HR') {
+          this.router.navigate(['/hr/dashboard']);
+        } else if (user.role == 'Candidate') {
+          this.router.navigate(['/candidate/dashboard']);
+        } else if (user.role == 'Interviewer') {
+          this.router.navigate(['/interviewer/dashboard']);
+        } else {
+          this.router.navigate(['/job-dashboard']);
+        }
       } else {
         this.dialogMessage.open({
           title: messages.errorOccured,

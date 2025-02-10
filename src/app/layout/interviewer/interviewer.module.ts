@@ -5,6 +5,7 @@ import { InterviewerRoutingModule } from './interviewer-routing.module';
 import { SharedModule } from '../../shared/shared.module';
 import { ScheduledInterviewsComponent } from './scheduled-interviews/scheduled-interviews.component';
 import { InterviewFeedbackModalComponent } from './interview-feedback-modal/interview-feedback-modal.component';
+import { InterviewerDashboardComponent } from './interviewer-dashboard/interviewer-dashboard.component';
 
 
 
@@ -12,7 +13,8 @@ import { InterviewFeedbackModalComponent } from './interview-feedback-modal/inte
   declarations: [
     InterviewerComponent,
     ScheduledInterviewsComponent,
-    InterviewFeedbackModalComponent
+    InterviewFeedbackModalComponent,
+    InterviewerDashboardComponent
   ],
   imports: [
     CommonModule,

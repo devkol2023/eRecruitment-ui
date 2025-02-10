@@ -65,11 +65,11 @@ export class NavbarComponent implements OnInit {
 
   homeClicked(): void {
     if (this.loggedInUser?.role == 'HR') {
-
+      this.router.navigate(['/hr/dashboard']);
     } else if (this.loggedInUser?.role == 'Candidate') {
-
+      this.router.navigate(['/candidate/dashboard']);
     } else if (this.loggedInUser?.role == 'Interviewer') {
-
+      this.router.navigate(['/interviewer/dashboard']);
     } else {
       this.router.navigate(['/job-dashboard']);
     }
