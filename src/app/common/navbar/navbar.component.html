@@ -1,6 +1,6 @@
 <div class="navbar">
   <div class="logo-container">
-    <img src="assets/logo.png" alt="Logo" class="logo" />
+    <img src="/images/logo.png" alt="Logo" class="logo" />
     <div class="brand">
       <h1 class="brand-name">Job Finder</h1>
       <p class="tagline">Get your dream job</p>
@@ -8,33 +8,66 @@
   </div>
   <ul class="nav-links">
     <li><a routerLink="/job-dashboard" (click)="closeDropdown()">Home</a></li>
-    <li class="dropdown">
+    <li *ngIf="!isLoggedIn || loggedInUser?.role === 'Candidate'" class="dropdown">
       <a routerLink="/jobs/find-jobs" (click)="closeDropdown()">Find Jobs</a>
     </li>
-    <li class="dropdown">
-      <a (click)="toggleDropdown('candidate')">Candidate Management</a>
-      <ul class="dropdown-menu" [class.show]="activeDropdown === 'candidate'">
-        <li><a routerLink="/hr/candidate-management" (click)="closeDropdown()">Search Candidates</a></li>
-        <li><a routerLink="/hr/shared-candidates" (click)="closeDropdown()">Shared Candidates</a></li>
-      </ul>
-    </li>
-    <li class="dropdown">
-      <a (click)="toggleDropdown('job-post')">Job Post</a>
-      <ul class="dropdown-menu" [class.show]="activeDropdown === 'job-post'">
-        <li><a routerLink="/jobs/post-job" (click)="closeDropdown()">Post New Job</a></li>
-        <li><a routerLink="/hr/manage-jobs" (click)="closeDropdown()">Manage Job Postings</a></li>
-        <li><a routerLink="/hr/job-management/dashboard" (click)="closeDropdown()">Job Dashboard</a></li>
-      </ul>
-    </li>
-    <li><a routerLink="/candidate/my-application" (click)="closeDropdown()">My Applications</a></li>
-    <li class="dropdown">
-      <a routerLink="/candidate/profile" (click)="closeDropdown()">Profile</a>
-    </li>
+    <ng-container *ngIf="loggedInUser?.role === 'HR'">
+      <li class="dropdown">
+        <a (click)="toggleDropdown('candidate')">Candidate Management</a>
+        <ul class="dropdown-menu" [class.show]="activeDropdown === 'candidate'">
+          <li><a routerLink="/hr/candidate-management" (click)="closeDropdown()">Search Candidates</a></li>
+          <li><a routerLink="/hr/shared-candidates" (click)="closeDropdown()">Shared Candidates</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a (click)="toggleDropdown('job-post')">Job Post</a>
+        <ul class="dropdown-menu" [class.show]="activeDropdown === 'job-post'">
+          <li><a routerLink="/jobs/post-job" (click)="closeDropdown()">Post New Job</a></li>
+          <li><a routerLink="/hr/manage-jobs" (click)="closeDropdown()">Manage Job Postings</a></li>
+          <li><a routerLink="/hr/job-management/dashboard" (click)="closeDropdown()">Job Dashboard</a></li>
+        </ul>
+      </li>
+    </ng-container>
+    <ng-container *ngIf="loggedInUser?.role === 'Candidate'">
+      <li><a routerLink="/candidate/my-application" (click)="closeDropdown()">My Applications</a></li>
+      <li class="dropdown">
+        <a routerLink="/candidate/profile" (click)="closeDropdown()">Profile</a>
+      </li>
+    </ng-container>
     <li><a routerLink="/about" (click)="closeDropdown()">About</a></li>
     <li><a routerLink="/contact" (click)="closeDropdown()">Contact</a></li>
   </ul>
   <div class="auth-buttons">
-    <button class="btn" routerLink="/auth/register">Register</button>
-    <button class="login-btn" routerLink="/auth/login">Login</button>
+    <ng-container *ngIf="!isLoggedIn; else loggedInTemplate">
+      <button class="btn" routerLink="/auth/register">Register</button>
+      <button class="login-btn" routerLink="/auth/login">Login</button>
+    </ng-container>
+
+    <ng-template #loggedInTemplate>
+      <div class="logged-in-actions">
+        <button class="notification-bell" (click)="toggleNotificationPanel()">
+          <i class="fa fa-bell"></i>
+          <span class="badge">{{notifications.length}}</span>
+        </button>
+        <div class="notification-drawer" *ngIf="isNotificationOpen">
+          <div class="drawer-header">Notifications</div>
+          <ul class="notification-list">
+            <li *ngFor="let notification of notifications" class="notification-item">
+              <span class="notification-text">{{ notification }}</span>
+              <mat-icon class="icon-check-circle" matTooltip="Mark as read" (click)="markAsRead(notification)">check_circle</mat-icon>
+            </li>
+            <li *ngIf="!notifications?.length" class="notification-item">
+              <span class="notification-text" style="justify-content: center;">No notification found</span>
+            </li>
+          </ul>
+          <div>
+            <button class="btn mt-2" *ngIf="notifications?.length" style="margin-bottom: 10px; margin-left: 93px;" (click)="goToViewAll()">View More</button>
+          </div>
+        </div>
+        <button class="btn" (click)="onLogout()" matTooltip="Logout">
+          <mat-icon>logout</mat-icon>
+        </button>
+      </div>
+    </ng-template>
   </div>
 </div>

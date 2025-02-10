@@ -20,7 +20,7 @@ export class InboxComponent implements OnInit {
     { key: 'experience', label: 'Experience', width: '12%' },
     { key: 'skills', label: 'Skills', width: '20%' },
     { key: 'lastLogin', label: 'Applied on', width: '10%' },
-    { key: 'status', label: 'Application Status', width: '10%' },
+    { key: 'status', label: 'Status', width: '10%' },
     { 
       key: 'action', 
       label: 'Action', 
