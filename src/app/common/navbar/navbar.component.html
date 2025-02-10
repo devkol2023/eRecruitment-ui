@@ -15,7 +15,7 @@
       <a (click)="toggleDropdown('candidate')">Candidate Management</a>
       <ul class="dropdown-menu" [class.show]="activeDropdown === 'candidate'">
         <li><a routerLink="/hr/candidate-management" (click)="closeDropdown()">Search Candidates</a></li>
-        <li><a routerLink="" (click)="closeDropdown()">Manage Profiles</a></li>
+        <li><a routerLink="/hr/shared-candidates" (click)="closeDropdown()">Shared Candidates</a></li>
       </ul>
     </li>
     <li class="dropdown">
@@ -23,6 +23,7 @@
       <ul class="dropdown-menu" [class.show]="activeDropdown === 'job-post'">
         <li><a routerLink="/jobs/post-job" (click)="closeDropdown()">Post New Job</a></li>
         <li><a routerLink="/hr/manage-jobs" (click)="closeDropdown()">Manage Job Postings</a></li>
+        <li><a routerLink="/hr/job-management/dashboard" (click)="closeDropdown()">Job Dashboard</a></li>
       </ul>
     </li>
     <li><a routerLink="/candidate/my-application" (click)="closeDropdown()">My Applications</a></li>

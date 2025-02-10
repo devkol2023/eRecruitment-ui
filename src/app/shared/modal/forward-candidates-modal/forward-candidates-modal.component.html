@@ -1,0 +1,34 @@
+<div class="modal-header">
+    <h2 class="modal-title mt-0">Candidate Details</h2>
+    <button mat-icon-button class="icon-red" (click)="close()">
+        <mat-icon>cancel</mat-icon>
+    </button>
+</div>
+<div mat-dialog-content class="candidate-details-container">
+    <form [formGroup]="forwardForm">
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Forward To</mat-label>
+            <mat-select formControlName="forwardedTo">
+              <mat-option *ngFor="let user of usersList" [value]="user.name">
+                {{ user.name }} ({{ user.role }}, {{ user.department }})
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="forwardForm.get('forwardedTo')?.hasError('required')">
+              Please select a user to forward to
+            </mat-error>
+          </mat-form-field>          
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Comments</mat-label>
+            <textarea matInput formControlName="comments" rows="3"></textarea>
+            <mat-error *ngIf="forwardForm.get('comments')?.hasError('required')">
+                Please provide comments
+            </mat-error>
+        </mat-form-field>
+    </form>
+</div>
+
+<div mat-dialog-actions style="padding: 8px;">
+    <button mat-button (click)="close()">Close</button>
+    <button mat-raised-button class="btn" (click)="submit()">Forward</button>
+</div>

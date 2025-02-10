@@ -8,7 +8,6 @@ import { SharedModule } from '../../../shared/shared.module';
 import { ViewJobDetailsModalComponent } from './view-job-details-modal/view-job-details-modal.component';
 import { JobsModule } from '../../jobs/jobs.module';
 import { AppliedCandidatesComponent } from './applied-candidates/applied-candidates.component';
-import { CandidateDetailsModalComponent } from './applied-candidates/candidate-details-modal/candidate-details-modal.component';
 
 
 @NgModule({
@@ -16,8 +15,7 @@ import { CandidateDetailsModalComponent } from './applied-candidates/candidate-d
     JobManagementComponent,
     JobManagementDashboardComponent,
     ViewJobDetailsModalComponent,
-    AppliedCandidatesComponent,
-    CandidateDetailsModalComponent
+    AppliedCandidatesComponent
   ],
   imports: [
     CommonModule,

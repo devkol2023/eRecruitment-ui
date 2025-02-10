@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
-import { CandidateDetailsModalComponent } from './candidate-details-modal/candidate-details-modal.component';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CandidateDetailsModalComponent } from '../../../../shared/modal/candidate-details-modal/candidate-details-modal.component';
 import { messages } from '../../../../shared/constants/messages';
 import { MessageDialogService } from '../../../../shared/service/message-dialog.service';
+import { ForwardCandidatesModalComponent } from '../../../../shared/modal/forward-candidates-modal/forward-candidates-modal.component';
 
 @Component({
   selector: 'app-applied-candidates',
@@ -25,9 +26,10 @@ export class AppliedCandidatesComponent implements OnInit {
   ];
 
   tableColumns = [
+    { key: 'checkbox', label: '#', width: '2%' },
     { key: 'candidateName', label: 'Candidate Name', width: '20%' },
     { key: 'appliedFor', label: 'Applied For', width: '15%' },
-    { key: 'experience', label: 'Experience', width: '12%' },
+    { key: 'experience', label: 'Experience', width: '10%' },
     { key: 'skills', label: 'Skills', width: '20%' },
     { key: 'lastLogin', label: 'Applied on', width: '10%' },
     { key: 'status', label: 'Application Status', width: '10%' },
@@ -52,6 +54,7 @@ export class AppliedCandidatesComponent implements OnInit {
       candidateType: 'External',
       currentSalary: '$70,000',
       expectedSalary: '$90,000',
+      checked: false,
       uploadedDocuments: [
         { name: 'Resume', file: 'resume_john_doe.pdf' },
         { name: 'ID Proof', file: 'john_doe_id.pdf' },
@@ -69,6 +72,7 @@ export class AppliedCandidatesComponent implements OnInit {
       candidateType: 'Internal',
       currentSalary: '$50,000',
       expectedSalary: '$65,000',
+      checked: false,
       uploadedDocuments: [
         { name: 'Resume', file: 'resume_jane_smith.pdf' },
         { name: 'ID Proof', file: 'jane_smith_id.pdf' }
@@ -85,6 +89,7 @@ export class AppliedCandidatesComponent implements OnInit {
       candidateType: 'External',
       currentSalary: '$80,000',
       expectedSalary: '$95,000',
+      checked: false,
       uploadedDocuments: [
         { name: 'Resume', file: 'resume_michael_brown.pdf' }
       ]
@@ -100,6 +105,7 @@ export class AppliedCandidatesComponent implements OnInit {
       candidateType: 'Internal',
       currentSalary: '$85,000',
       expectedSalary: '$100,000',
+      checked: false,
       uploadedDocuments: [
         { name: 'Resume', file: 'resume_emily_davis.pdf' },
         { name: 'ID Proof', file: 'emily_davis_id.pdf' }
@@ -116,6 +122,7 @@ export class AppliedCandidatesComponent implements OnInit {
       candidateType: 'External',
       currentSalary: '$60,000',
       expectedSalary: '$80,000',
+      checked: false,
       uploadedDocuments: [
         { name: 'Resume', file: 'resume_robert_johnson.pdf' },
         { name: 'Programming Certification', file: 'robert_certification.pdf' }
@@ -132,6 +139,7 @@ export class AppliedCandidatesComponent implements OnInit {
       candidateType: 'Internal',
       currentSalary: '$40,000',
       expectedSalary: '$50,000',
+      checked: false,
       uploadedDocuments: [
         { name: 'Resume', file: 'resume_sophia_miller.pdf' }
       ]
@@ -140,6 +148,7 @@ export class AppliedCandidatesComponent implements OnInit {
   
   
   appliedCandidates: any[] = [];
+  checkedCandidates: any[] = [];
 
   paginationConfig = {
     id: 'dynamic_table',
@@ -149,7 +158,8 @@ export class AppliedCandidatesComponent implements OnInit {
   };
 
   constructor(private route: ActivatedRoute, private dialog: MatDialog,
-    private dialogMessage: MessageDialogService
+    private dialogMessage: MessageDialogService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -242,5 +252,29 @@ export class AppliedCandidatesComponent implements OnInit {
     console.log('Items Per Page Changed:', itemsPerPage);
     this.paginationConfig.itemsPerPage = itemsPerPage;
     this.paginationConfig.currentPage = 1; // Reset to the first page
+  }
+
+  onCheckBoxAction(event: any): void {
+    this.checkedCandidates = this.appliedCandidates.filter(candidate => candidate.checked);
+  }
+
+  forwardCandidates(): void {
+    const dialogRef = this.dialog.open(ForwardCandidatesModalComponent, {
+      width: '60%',
+      data: this.checkedCandidates
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.appliedCandidates.forEach(candidate => {
+          candidate.checked = false;
+        });
+        this.checkedCandidates = [];
+      }
+    });
+  }
+
+  onScheduleInterviewAction(data: any): void {
+    this.router.navigateByUrl('hr/schedule-interview');
   }
 }

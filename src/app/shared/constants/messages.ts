@@ -1,7 +1,7 @@
 export const messages = {
     confirmation: 'Are you sure?',
-    shortlistCandidate: 'Do you really want to shortlist this candidate?',
-    rejectCandidate: 'Do you really want to reject this candidate?',
+    shortlistCandidate: 'Do you want to shortlist this candidate?',
+    rejectCandidate: 'Do you want to reject this candidate?',
     registredSuccessfully: 'Your registration has been successfully completed. <br > Application no - <b><NO></b>',
     closeButton: 'Close',
     applicationSent: 'Application submitted',

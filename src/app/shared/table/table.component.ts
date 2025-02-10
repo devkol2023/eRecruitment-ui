@@ -38,6 +38,7 @@ export class TableComponent implements OnInit, OnChanges {
   @Output() viewDetails = new EventEmitter<any>();
   @Output() shortListAction = new EventEmitter<any>();
   @Output() rejectAction = new EventEmitter<any>();
+  @Output() onCheckBoxAction = new EventEmitter<any>();
 
   searchQuery: string = '';
   sortedData: any[] = []; // Data after sorting
@@ -188,5 +189,10 @@ export class TableComponent implements OnInit, OnChanges {
 
   reject(data: any): void {
     this.rejectAction.emit(data);
+  }
+
+  onCheckboxChange(candidate: any, isChecked: boolean): void {
+    candidate.checked = isChecked;
+    this.onCheckBoxAction.emit(true);
   }
 }

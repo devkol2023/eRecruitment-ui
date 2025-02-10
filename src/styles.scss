@@ -152,3 +152,28 @@ mat-form-field {
   .toggle-btn:hover:not(.toggle-btn.active) {
     background-color: #FFE8E8;
   }
+
+  /* Custom Tab Group Styling */
+  .custom-tab-group {
+    background-color: white;
+    border-radius: 5px;
+    margin: 10px;
+  }
+
+  .custom-tab-group .mat-tab-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    background-color: white;
+    padding: 12px 20px;
+    text-transform: capitalize;
+  }
+
+  .mdc-tab-indicator--active {
+    background-color: #BF322B !important;
+    color: white !important;
+    border-radius: 5px 5px 0 0;
+  }
+  .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
+    color: #f1f1f1 !important;
+  }
