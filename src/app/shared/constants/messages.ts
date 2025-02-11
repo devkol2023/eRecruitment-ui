@@ -5,7 +5,7 @@ export const messages = {
     rejectCandidate: 'Do you want to reject this candidate?',
     registredSuccessfully: 'Your registration has been successfully completed. <br > Application no - <b><NO></b>',
     closeButton: 'Close',
-    applicationSent: 'Application submitted',
+    profileUpdatedheader: 'Profile updated',
     applicationSubmittedSuccessfully: 'Your application has been successfully updated.',
     errorOccured: 'Error Occured!',
     applicationError: `We're sorry, something went wrong. Please try again later.`,
@@ -15,5 +15,7 @@ export const messages = {
     invalidFileFormat: 'Invalid file format. Only PDF and JPG and PNG are allowed.',
     fileSizeExceeds: 'File size exceeds 1.5 MB.',
     offerGenerated: 'Offer Generated',
-    offerGeneratedBodyMsg: 'Offer Letter has been generated and sent to'
+    offerGeneratedBodyMsg: 'Offer Letter has been generated and sent to',
+    profileUpdated: 'Profile updated successfully.',
+    succussed: 'Success!'
 }

@@ -1,0 +1,18 @@
+<section class="home-hero" [style.backgroundImage]="'url(' + backgroundImage + ')'">
+    <div class="banner-container">
+      
+      <!-- Left Section: Welcome Message -->
+      <div class="welcome-text">
+        <h2 class="mb-0">Welcome, <span class="user-name">{{ userInfo.name }}</span></h2>
+        <p class="user-role"> {{ userInfo.role }} - {{ userInfo.department }}</p>
+      </div>
+  
+      <!-- Right Section: Last Login -->
+      <div class="last-login">
+        <mat-icon>event</mat-icon>
+        <span>Last login {{ userInfo.lastLogin | date: 'dd/MM/yyyy hh:mm a (zzz)' }}</span>
+      </div>
+  
+    </div>
+  </section>
+  
