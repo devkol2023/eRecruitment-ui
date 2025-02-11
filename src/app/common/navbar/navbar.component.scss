@@ -240,10 +240,12 @@
   background-size: cover;
   border: none;
   cursor: pointer;
-  width: 35px;
-  height: 35px;
+  width: 34px;
+  height: 33px;
   display: inline-block;
-  border-radius: 50%; /* Makes the image round */
+  border-radius: 50%;
+  margin-top: -6px;
+  margin-left: 5px;
 }
 
 .drawer {
