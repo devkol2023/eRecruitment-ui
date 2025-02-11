@@ -8,6 +8,7 @@
 <div>
     <app-table [columns]="tableColumns" [data]="tableData" [paginationConfig]="paginationConfig"
         (onPageChange)="updatePage($event)" (onSortChange)="handleSortChange($event)"
-        (onItemsPerPageChange)="updateItemsPerPage($event)" (viewOfferAction)="viewOffer($event)">
+        (onItemsPerPageChange)="updateItemsPerPage($event)" (viewOfferAction)="viewOffer($event)"
+        (viewDetails)="viewDetails($event)">
     </app-table>
 </div>
