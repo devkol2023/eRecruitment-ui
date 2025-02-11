@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OfferModalComponent } from '../../../shared/modal/offer-modal/offer-modal.component';
+import { OfferDetailsModalComponent } from '../../../shared/modal/offer-details-modal/offer-details-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
@@ -146,7 +146,7 @@ export class MyApplicationComponent implements OnInit {
 
     viewOffer(offer: any): void {
       offer = {...offer, from: 'Candidate'}
-      this.dialog.open(OfferModalComponent, {
+      this.dialog.open(OfferDetailsModalComponent, {
         width: '60%',
         disableClose: true,
         data: offer

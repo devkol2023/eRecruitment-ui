@@ -9,13 +9,14 @@ import { ConfirmationModalComponent } from './modal/confirmation-modal/confirmat
 import { CandidateDetailsModalComponent } from './modal/candidate-details-modal/candidate-details-modal.component';
 import { ForwardCandidatesModalComponent } from './modal/forward-candidates-modal/forward-candidates-modal.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
-import { OfferModalComponent } from './modal/offer-modal/offer-modal.component';
+import { OfferDetailsModalComponent } from './modal/offer-details-modal/offer-details-modal.component';
 import { ProfileUpdateReminderModalComponent } from './modal/profile-update-reminder-modal/profile-update-reminder-modal.component';
+import { NewJobOfferReceivedModalComponent } from './modal/new-job-offer-received-modal/new-job-offer-received-modal.component';
 
 @NgModule({
   declarations: [TableComponent, ConfirmationModalComponent, CandidateDetailsModalComponent,
-    ForwardCandidatesModalComponent, SearchBarComponent, OfferModalComponent,
-    ProfileUpdateReminderModalComponent
+    ForwardCandidatesModalComponent, SearchBarComponent, OfferDetailsModalComponent,
+    ProfileUpdateReminderModalComponent, NewJobOfferReceivedModalComponent
   ],
   imports: [
     CommonModule,
@@ -27,8 +28,8 @@ import { ProfileUpdateReminderModalComponent } from './modal/profile-update-remi
   ],
   exports: [AngularMaterialModule, FormsModule, ReactiveFormsModule, NgxSliderModule,
     TableComponent, NgxPaginationModule, ConfirmationModalComponent, CandidateDetailsModalComponent,
-    ForwardCandidatesModalComponent, SearchBarComponent, OfferModalComponent,
-    ProfileUpdateReminderModalComponent
+    ForwardCandidatesModalComponent, SearchBarComponent, OfferDetailsModalComponent,
+    ProfileUpdateReminderModalComponent, NewJobOfferReceivedModalComponent
   ]
 })
 export class SharedModule { }
