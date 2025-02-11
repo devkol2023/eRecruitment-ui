@@ -1,91 +1,82 @@
-.profile-management {
-    max-width: 95%;
-    margin: 20px auto;
-  
-    .full-width {
-      width: 100%;
-      margin-bottom: 16px;
-    }
-  
-    .form-actions {
-      display: flex;
-      justify-content: flex-end;
-    }
-  
-    .profile-summary {
-      margin-top: 32px;
-      padding: 16px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      background-color: #f9f9f9;
-    }
+
+/* Expansion Panels */
+mat-expansion-panel {
+  margin-bottom: 5px;
+  // background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mat-expansion-panel-spacing {
+  margin: 7px 0;
+}
+
+/* Form Fields */
+mat-form-field {
+  width: 100%;
+}
+
+/* File Upload Section */
+.upload-section {
+  display: flex;
+  gap: 12px;
+  margin-top: 5px;
+  font-size: 14px;
+
+  input {
+    padding: 8px;
+    // border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
   }
-  
-  .document-upload {
-    margin: 16px 0;
-  
-    label {
-      display: block;
-      font-size: 16px;
-      font-weight: bold;
-      color: #333;
-      margin-bottom: 8px;
-    }
-  
-    #fileUpload {
-      display: inline-block;
-      padding: 8px 16px;
-      font-size: 14px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-bottom: 16px;
-  
-      &:hover {
-        border-color: #007bff;
-      }
-    }
-  
-    ul {
-      display: flex;
-      flex-wrap: wrap; /* Allows wrapping to the next row */
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-  
-      li {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: calc(50%); /* Two items per row with spacing */
-        margin: 8px;
-        padding: 8px 12px;
-        border: 1px solid #e0e0e0;
-        border-radius: 4px;
-        background-color: #f9f9f9;
-  
-        &:hover {
-          background-color: #f1f1f1;
-        }
-  
-        button {
-          font-size: 14px;
-          color: #d32f2f;
-          background-color: transparent;
-          border: none;
-          cursor: pointer;
-  
-          &:hover {
-            color: #b71c1c;
-          }
-        }
-      }
-    }
-  }  
-  
-  .header {
-    background: #bf322b1a !important;
-    height: 40px !important;
-    font-size: 17px;
-    font-weight: 600;
+
+  .uploaded-file {
+    font-weight: bold;
+    color: #2e7d32;
   }
+}
+
+/* Delete Icon */
+mat-icon {
+  cursor: pointer;
+  color: #d32f2f;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: end;
+  padding: 25px;
+}
+.header {
+  background: #bf322b1a !important;
+  height: 40px !important;
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.profile-photo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.profile-photo-preview img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+}
+
+.upload-btn {
+  font-size: 14px;
+  font-weight: bold;
+  background: #1976d2;
+  color: white;
+}
+
+.upload-btn:hover {
+  background: #1565c0;
+}

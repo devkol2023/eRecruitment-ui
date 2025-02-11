@@ -19,7 +19,7 @@
   <div class="categories-list">
     <div class="category-item" *ngFor="let category of categories" (click)="goToJobs(category)">
       <div class="icon-container">
-        <img src="/images/logo.png" [alt]="category.name" />
+        <img src="/images/logo.jpg" [alt]="category.name" />
       </div>
       <h3>{{ category.name }}</h3>
       <p class="count">{{ category.count }} Jobs Available</p>

@@ -18,6 +18,8 @@ import { NewJobOfferReceivedModalComponent } from '../../shared/modal/new-job-of
 export class LoginComponent {
   loginForm: FormGroup;
   hidePassword = true;
+  isOtpLogin = false;
+  isOtpSent = false;
 
   users = [
     { username: 'candidate', password: '12345', role: 'Candidate' },
@@ -32,8 +34,39 @@ export class LoginComponent {
   ) {
     this.loginForm = this.fb.group({
       email: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      mobileNumber: ['', [Validators.pattern('^[0-9]{10}$')]], // Optional validation
+      otp: ['']
     });
+  }
+
+  toggleLoginMethod() {
+    this.isOtpLogin = !this.isOtpLogin;
+    if (this.isOtpLogin) {
+      // Switching to OTP login: Reset password fields
+      this.loginForm.get('password')?.clearValidators();
+      this.loginForm.get('password')?.updateValueAndValidity();
+
+      this.loginForm.get('otp')?.setValidators([Validators.required]);
+      this.loginForm.get('mobileNumber')?.setValidators([Validators.required, Validators.pattern('^[0-9]{10}$')]);
+    } else {
+      // Switching to Password login: Reset OTP fields
+      this.loginForm.get('otp')?.clearValidators();
+      this.loginForm.get('otp')?.updateValueAndValidity();
+
+      this.loginForm.get('mobileNumber')?.clearValidators();
+      this.loginForm.get('mobileNumber')?.updateValueAndValidity();
+
+      this.loginForm.get('password')?.setValidators([Validators.required]);
+    }
+  }
+
+  sendOtp() {
+    if (this.loginForm.get('mobileNumber')?.invalid) {
+      this.loginForm.get('mobileNumber')?.markAsTouched();
+      return;
+    }
+    this.isOtpSent = true;
   }
 
   onSubmit() {

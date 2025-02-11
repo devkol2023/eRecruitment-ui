@@ -2,7 +2,7 @@
   <!-- Job Header -->
   <div class="job-header">
     <div class="job-info">
-      <img src="/images/logo-black.jpg" alt="Company Logo" class="company-logo" />
+      <img src="/images/logo.jpg" alt="Company Logo" class="company-logo" />
       <div>
         <h1>{{ jobDetails.title }}</h1>
         <p class="company-name">{{ jobDetails.company }}</p>
@@ -45,7 +45,7 @@
       <p><strong>Job Nature:</strong> {{ jobDetails.overview.jobNature }}</p>
       <p><strong>Salary:</strong> {{ jobDetails.overview.salary }}</p>
       <p><strong>Application Deadline:</strong> {{ jobDetails.overview.applicationDeadline }}</p>
-      <button *ngIf="from != 'hr'" class="apply-btn btn">Apply Now</button>
+      <button *ngIf="from != 'hr'" (click)="applyNow()" class="apply-btn btn">Apply Now</button>
     </div>
   </div>
 

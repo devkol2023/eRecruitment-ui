@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { messages } from '../../../shared/constants/messages';
+import { MessageDialogService } from '../../../shared/service/message-dialog.service';
 
 @Component({
   selector: 'app-profile-management',
@@ -9,65 +11,141 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrl: './profile-management.component.scss'
 })
 export class ProfileManagementComponent implements OnInit {
-  profileForm: FormGroup;
-  profile: any = null; // Store candidate profile
-  uploadedDocuments: string[] = []; // Store uploaded document names
+  profileForm!: FormGroup;
+  uploadedDocuments: { [key: string]: { [index: number]: string } } = {
+    education: {},
+    experience: {},
+    skills: {},
+    cv: {},
+  };
+  profilePhoto: string | null = null;
+  constructor(private fb: FormBuilder, private dialogMessage: MessageDialogService) {}
 
-  skillsOptions = [
-    'JavaScript', 'Angular', 'React', 'Node.js', 'TypeScript', 'Vue.js', 'Python', 
-    'Django', 'Java', 'Spring Boot', 'AWS', 'Machine Learning', 'Data Science', 
-    'Flutter', 'Dart', 'Firebase', 'Android', 'Tailwind CSS'
-  ];  
-
-  constructor(private fb: FormBuilder) {
+  ngOnInit(): void {
     this.profileForm = this.fb.group({
       fullName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
-      address: ['', Validators.required],
-      skills: ['', Validators.required],
-      experience: ['', Validators.required],
-      resume: [null], // For document upload
+      education: this.fb.array([]),
+      experience: this.fb.array([]),
+      skills: this.fb.array([]),
+      cv: [null]
     });
-  }
 
-  ngOnInit(): void {
     // Mock existing profile data
-    this.profile = {
+    const profileData = {
       fullName: 'John Doe',
       email: 'john.doe@example.com',
-      phone: '1234567890',
-      // address: '123 Main Street, New York',
-      // skills: 'Angular, JavaScript, TypeScript',
-      // experience: '3+ Years',
-      // documents: ['resume.pdf', 'certificate.pdf'],
+      phone: '1234567890'
     };
+    this.profileForm.patchValue(profileData);
+    this.profileForm.get('email')?.disable();
 
-    // Pre-fill form with existing profile data
-    this.profileForm.patchValue(this.profile);
-    // this.uploadedDocuments = [...this.profile.documents];
+    this.addEducation();
+    this.addExperience();
+    this.addSkill();
   }
 
-  // Update profile
+  get educationControls() {
+    return this.profileForm.get('education') as FormArray;
+  }
+
+  get experienceControls() {
+    return this.profileForm.get('experience') as FormArray;
+  }
+
+  get skillsControls() {
+    return this.profileForm.get('skills') as FormArray;
+  }
+
+  addEducation() {
+    this.educationControls.push(
+      this.fb.group({
+        degree: ['', Validators.required],
+        institute: ['', Validators.required],
+        yearOfCompletion: ['', Validators.required]
+      })
+    );
+  }
+
+  removeEducation(index: number) {
+    this.educationControls.removeAt(index);
+    delete this.uploadedDocuments['education'][index];
+  }
+
+  addExperience() {
+    this.experienceControls.push(
+      this.fb.group({
+        company: [''],
+        designation: [''],
+        years: ['']
+      })
+    );
+  }
+
+  removeExperience(index: number) {
+    this.experienceControls.removeAt(index);
+    delete this.uploadedDocuments['experience'][index];
+  }
+
+  addSkill() {
+    this.skillsControls.push(
+      this.fb.group({
+        skillName: ['', Validators.required],
+        experienceYears: ['', Validators.required],
+        lastUsedYear: ['', Validators.required]
+      })
+    );
+  }
+
+  removeSkill(index: number) {
+    this.skillsControls.removeAt(index);
+    delete this.uploadedDocuments['skills'][index];
+  }
+
+  onFileUpload(event: any, category: string, index?: number) {
+    const file = event.target.files[0];
+    if (file) {
+      if (index !== undefined) {
+        this.uploadedDocuments[category][index] = file;
+      } else {
+        this.uploadedDocuments[category] = { 0: file };
+      }
+    }
+  }
+
+  triggerProfilePhotoUpload() {
+    const fileInput = document.getElementById('profilePhotoInput') as HTMLInputElement;
+    if (fileInput) {
+      fileInput.click();
+    }
+  }
+
+  onProfilePhotoUpload(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.profilePhoto = e.target.result; // Convert to Base64 URL for preview
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
   onSubmit(): void {
     if (this.profileForm.valid) {
-      this.profile = { ...this.profileForm.value, documents: this.uploadedDocuments };
-      // alert('Profile updated successfully!');
+      console.log('Profile Updated:', this.profileForm.value);
+      console.log('Uploaded Files:', this.uploadedDocuments);
+      this.dialogMessage.open({
+        title: messages.succussed,
+        message: messages.profileUpdated,
+        iconType: 'success',
+        buttons: [
+          { text: 'Ok', style: 'primary-btn' },
+        ]
+      });
     } else {
       this.profileForm.markAllAsTouched();
     }
-  }
-
-  // Handle document upload
-  onFileUpload(event: any): void {
-    const file = event.target.files[0];
-    if (file) {
-      this.uploadedDocuments.push(file.name);
-    }
-  }
-
-  // Remove uploaded document
-  removeDocument(docName: string): void {
-    this.uploadedDocuments = this.uploadedDocuments.filter(doc => doc !== docName);
   }
 }

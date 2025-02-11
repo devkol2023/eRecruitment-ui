@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../shared/service/auth.service';
 
@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
   activeDropdown: string | null = null;
   loggedInUser: any = null;
   isLoggedIn: boolean = false;
+  isProfileDropdownOpen = false;
   isNotificationOpen: boolean = false;
   notifications: string[] = [
     '📢 Your job application for "Branch Manager" is under review.',
@@ -46,11 +47,19 @@ export class NavbarComponent implements OnInit {
 
   onLogout() {
     this.authService.logout();
+    this.isNotificationOpen = false;
+    this.isProfileDropdownOpen = false;
     this.router.navigate(['/job-dashboard']);
   }
 
   toggleNotificationPanel(): void {
     this.isNotificationOpen = !this.isNotificationOpen;
+    this.isProfileDropdownOpen = false;
+  }
+
+  toggleProfileDropdown() {
+    this.isProfileDropdownOpen = !this.isProfileDropdownOpen;
+    this.isNotificationOpen = false; // Close notifications when opening profile dropdown
   }
 
   goToViewAll() {
@@ -73,5 +82,11 @@ export class NavbarComponent implements OnInit {
     } else {
       this.router.navigate(['/job-dashboard']);
     }
+  }
+
+  updateProfile(): void {
+    this.router.navigate(['/candidate/profile']);
+    this.isNotificationOpen = false;
+    this.isProfileDropdownOpen = false;
   }
 }

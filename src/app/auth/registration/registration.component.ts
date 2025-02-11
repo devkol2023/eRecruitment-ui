@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { confirmPasswordValidator } from '../../shared/matcher/ConfirmPasswordValidator';
 
 @Component({
   selector: 'app-registration',
@@ -16,6 +17,7 @@ export class RegistrationComponent {
       fullName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', confirmPasswordValidator],
       mobileNumber: [
         '',
         [Validators.required, Validators.pattern('^[0-9]{10}$')],

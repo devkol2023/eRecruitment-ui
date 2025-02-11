@@ -12,11 +12,13 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { OfferDetailsModalComponent } from './modal/offer-details-modal/offer-details-modal.component';
 import { ProfileUpdateReminderModalComponent } from './modal/profile-update-reminder-modal/profile-update-reminder-modal.component';
 import { NewJobOfferReceivedModalComponent } from './modal/new-job-offer-received-modal/new-job-offer-received-modal.component';
+import { HomeBannerComponent } from '../common/home-banner/home-banner.component';
 
 @NgModule({
   declarations: [TableComponent, ConfirmationModalComponent, CandidateDetailsModalComponent,
     ForwardCandidatesModalComponent, SearchBarComponent, OfferDetailsModalComponent,
-    ProfileUpdateReminderModalComponent, NewJobOfferReceivedModalComponent
+    ProfileUpdateReminderModalComponent, NewJobOfferReceivedModalComponent,
+    HomeBannerComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +31,8 @@ import { NewJobOfferReceivedModalComponent } from './modal/new-job-offer-receive
   exports: [AngularMaterialModule, FormsModule, ReactiveFormsModule, NgxSliderModule,
     TableComponent, NgxPaginationModule, ConfirmationModalComponent, CandidateDetailsModalComponent,
     ForwardCandidatesModalComponent, SearchBarComponent, OfferDetailsModalComponent,
-    ProfileUpdateReminderModalComponent, NewJobOfferReceivedModalComponent
+    ProfileUpdateReminderModalComponent, NewJobOfferReceivedModalComponent,
+    HomeBannerComponent
   ]
 })
 export class SharedModule { }

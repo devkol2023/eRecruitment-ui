@@ -17,7 +17,7 @@ export class JobsListCardComponent implements OnInit {
       company: 'Bank of St. Vincent',
       location: 'Kingstown, St. Vincent',
       salary: '$5,500 - $7,000 per month',
-      companyLogo: 'assets/bank-logo.png',
+      companyLogo: 'assets/bank-logo.jpg',
       description: `
         The Bank of St. Vincent is seeking a highly motivated and experienced Branch Manager
         to oversee the daily operations of the bank branch. The ideal candidate will be responsible
@@ -61,7 +61,7 @@ export class JobsListCardComponent implements OnInit {
       company: 'Bank of St. Vincent',
       location: 'Jamaica, St. Vincent',
       salary: '$5,500 - $7,000 per month',
-      companyLogo: 'assets/bank-logo.png',
+      companyLogo: 'assets/bank-logo.jpg',
       description: `
         The Bank of St. Vincent is seeking a highly motivated and experienced Branch Manager
         to oversee the daily operations of the bank branch. The ideal candidate will be responsible
