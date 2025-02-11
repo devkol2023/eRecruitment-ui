@@ -5,7 +5,7 @@
         {{ filter.label }}
     </button>
 </div>
-<div style="margin-top: -50px;">
+<div>
     <app-table [columns]="tableColumns" [data]="tableData" [paginationConfig]="paginationConfig"
         (onPageChange)="updatePage($event)" (onSortChange)="handleSortChange($event)"
         (onItemsPerPageChange)="updateItemsPerPage($event)" (viewOfferAction)="viewOffer($event)">

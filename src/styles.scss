@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; background: #ededed;}
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; padding-top: 60px; }
 
 mat-form-field {
   --mat-form-field-container-height: 45px;
@@ -192,6 +192,7 @@ mat-form-field {
     display: flex;
     gap: 10px;
     margin-left: 15px;
+    margin-bottom: 10px;
 }
 
 .filter-btn {

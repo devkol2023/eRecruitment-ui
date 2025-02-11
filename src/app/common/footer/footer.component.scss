@@ -1,0 +1,182 @@
+.top-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 8px 20px;
+    border-bottom:  1.5px solid #BF322B;
+  }
+  
+  .top-navbar-left {
+    display: flex;
+    align-items: center;
+    margin-left: 80px;
+  }
+  
+  .govt-logo {
+    height: 55px;
+    margin-right: 20px;
+  }
+  
+  .department-name {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .dept-name-upper {
+    color: rgb(0, 0, 0);
+    font-weight: 650;
+    font-size: 14px;
+  }
+  
+  .dept-name-middle {
+    color: black;
+    font-weight: 650;
+    font-size: 14px;
+  }
+
+  .dept-name-lower {
+    color: rgb(75, 75, 75);
+    font-size: 13px;
+  }
+  
+  
+  .top-navbar-right {
+    display: flex;
+    // align-items: center;
+
+    justify-content: right;
+    margin-right: 100px;
+
+  }
+  
+  .followus{
+    margin-top: -24px;
+    margin-right: 35px;
+    font-weight: bold;
+  }
+
+  
+  
+  .nav-button {
+    background: #BF322B;
+    border-radius: 5px;
+    padding: 8px 15px;
+    color: #FFFFFF;
+    border: none;
+    margin-right: 20px;
+    font: M;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  .nav-button:hover {
+    transform: rotateY(5deg) translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+    font: M;
+  }
+  
+  .user-icon {
+    vertical-align: middle;
+    color: white;
+  }
+  
+  @media (max-width: 850px) {
+    .top-navbar {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .top-navbar-center,
+    .top-navbar-right {
+      width: 100%;
+      text-align: center;
+      margin-top: 10px;
+    }
+  
+    .portal-name {
+      font-size: 1.2em;
+    }
+  
+    .department-name {
+      font-size: 0.9em;
+    }
+  
+    .top-navbar-right {
+      justify-content: center;
+    }
+  }
+  
+
+  .footer {
+    background-color: #b22b27; /* Red Background */
+    color: white;
+    padding: 20px 40px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    // position: fixed; /* Makes the footer fixed */
+    bottom: 0; /* Positions it at the bottom of the viewport */
+    left: 0; /* Aligns it to the left edge */
+    width: 100%; /* Ensures it spans the full width of the viewport */
+    height: 50px;
+    z-index: 1000; 
+  }
+  
+  .footer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .footer-logo img {
+    height: 60px;
+  }
+  
+  .footer-title h2 {
+    font-size: 18px;
+    margin: 0;
+    text-transform: uppercase;
+  }
+  
+  .footer-title p {
+    font-size: 14px;
+    margin: 5px 0 0 0;
+  }
+  
+  .footer-icons a {
+   
+    font-size: 20px;
+    margin: 0 5px;
+    text-decoration: none;
+  }
+  
+  .footer-links {
+    margin: 15px 0;
+    font-size: 14px;
+  }
+  
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 5px;
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-info {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  
+  .footer-info a {
+    color: #EFA601; /* Gold for the link */
+    text-decoration: none;
+  }
+  
+  .footer-info a:hover {
+    text-decoration: underline;
+  }
+  
