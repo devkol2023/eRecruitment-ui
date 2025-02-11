@@ -1,3 +1,16 @@
-<app-navbar></app-navbar>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+<div class="page-container">
+    <app-navbar></app-navbar>
+    <div class="main-content">
+      <a id="top"></a>
+      <router-outlet></router-outlet>
+      <!-- <button #chatbotButton 
+        class="chatbot-button" 
+        (mousedown)="startDraggingButton($event)" (click)="toggleChatbot()">
+        <img src="/images/chat-bot.gif" alt="Chat Icon" class="chat-icon" />
+      </button> -->
+    <!-- <div class="chatbot-container" *ngIf="isChatbotVisible">
+        <app-chatbot (isChatbot)="recievedValue($event)"></app-chatbot>
+      </div>
+    </div> -->
+    <app-footer></app-footer>
+  </div>

@@ -36,6 +36,15 @@ export class MyApplicationComponent implements OnInit {
   
   tableData = [
     {
+      applicationId: 'BOSVG-A004',
+      jobTitle: 'Customer Service Representative',
+      companyName: 'Bank of St. Vincent',
+      jobLocation: 'Calliaqua, St. Vincent',
+      status: 'Offer Released',
+      applicationDate: '25/01/2024',
+      isWithdrawn: false,
+    },
+    {
       applicationId: 'BOSVG-A001',
       jobTitle: 'Branch Manager',
       companyName: 'Bank of St. Vincent',
@@ -60,15 +69,6 @@ export class MyApplicationComponent implements OnInit {
       jobLocation: 'Georgetown, St. Vincent',
       status: 'Rejected',
       applicationDate: '29/01/2024',
-      isWithdrawn: false,
-    },
-    {
-      applicationId: 'BOSVG-A004',
-      jobTitle: 'Customer Service Representative',
-      companyName: 'Bank of St. Vincent',
-      jobLocation: 'Calliaqua, St. Vincent',
-      status: 'Offer Released',
-      applicationDate: '25/01/2024',
       isWithdrawn: false,
     },
     {
