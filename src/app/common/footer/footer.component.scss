@@ -48,6 +48,7 @@
 
     justify-content: right;
     margin-right: 100px;
+    margin-top: 5px;
 
   }
   
@@ -111,15 +112,16 @@
   .footer {
     background-color: #b22b27; /* Red Background */
     color: white;
-    padding: 20px 40px;
+    padding: 13px 40px;
     font-family: Arial, sans-serif;
     text-align: center;
     // position: fixed; /* Makes the footer fixed */
-    bottom: 0; /* Positions it at the bottom of the viewport */
+    bottom: -13px; /* Positions it at the bottom of the viewport */
     left: 0; /* Aligns it to the left edge */
     width: 100%; /* Ensures it spans the full width of the viewport */
-    height: 50px;
-    z-index: 1000; 
+    height: 25px;
+    z-index: 1000;
+    position: fixed;
   }
   
   .footer-header {
@@ -180,3 +182,6 @@
     text-decoration: underline;
   }
   
+  .txt {
+    font-size: 15px;
+  }
