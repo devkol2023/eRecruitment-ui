@@ -1,0 +1,37 @@
+<div class="modal-header">
+    <h2 class="modal-title mt-0">Apply for {{ data?.title }}</h2>
+    <button mat-icon-button class="icon-red" (click)="close()">
+        <mat-icon>cancel</mat-icon>
+    </button>
+</div>
+<div class="modal-content" mat-dialog-content>
+    <form [formGroup]="applyForm" (ngSubmit)="submitApplication()">
+        <!-- Upload CV -->
+        <div class="form-group upload-section">
+            <label class="form-label">Upload CV</label>
+            <input type="file" (change)="onCVUpload($event)" class="file-input" />
+            <span *ngIf="uploadedCV" class="uploaded-file">{{ uploadedCV }}</span>
+            <span *ngIf="!uploadedCV && isSubmitAttempted" class="error">CV is required. Please upload your resume before submitting.</span>
+        </div>
+        <!-- Cover Letter (Optional) -->
+        <div class="form-group">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Cover Letter (Optional)</mat-label>
+                <textarea matInput formControlName="coverLetter"></textarea>
+            </mat-form-field>
+        </div>
+        <!-- Compact Consent Checkbox -->
+        <div class="form-group consent-checkbox">
+            <mat-checkbox formControlName="profileConsent">
+                I confirm that my profile, including personal details, experience, and documents, is accurate and updated. 
+                <br />
+                If not, <a (click)="goToProfileUpdate()" class="update-link">click here to update before applying</a>.
+            </mat-checkbox>
+        </div>
+    </form>
+</div>
+
+<div mat-dialog-actions style="padding: 8px;">
+    <button class="btn" style="margin-right: 10px;" [disabled]="!applyForm.valid" (click)="submitApplication()">Apply Now</button>
+    <button class="btn" (click)="close()">Cancel</button>
+</div>

@@ -12,70 +12,70 @@ export class JobListComponent {
   @Input() filters: any;
   jobs = [
     {
-      title: 'Digital Marketer',
-      company: 'Ziggo',
-      location: 'Athens, Greece',
-      salary: '$3500 - $4000',
-      logo: 'https://dummyimage.com/80x80/000/fff&text=Ziggo',
+      title: 'Financial Analyst',
+      company: 'Bank of St. Vincent',
+      location: 'Kingstown, St. Vincent',
+      salary: '$4000 - $5000',
+      logo: 'https://dummyimage.com/80x80/004080/fff&text=BoSV',
       type: 'Full Time',
-      postedTime: '7 hours ago',
-      experience: '3-5 Years',
-      category: 'Marketing'
-    },
-    {
-      title: 'Software Developer',
-      company: 'TechCorp',
-      location: 'London, UK',
-      salary: '$4500 - $5000',
-      logo: 'https://dummyimage.com/80x80/000/fff&text=TechCorp',
-      type: 'Remote',
-      postedTime: '2 days ago',
-      experience: '5+ Years',
-      category: 'IT'
-    },
-    {
-      title: 'Data Scientist',
-      company: 'DataCorp',
-      location: 'New York, USA',
-      salary: '$5000 - $7000',
-      logo: 'https://dummyimage.com/80x80/000/fff&text=DataCorp',
-      type: 'Hybrid',
       postedTime: '1 day ago',
-      experience: '3+ Years',
-      category: 'Analytics'
+      experience: '3-5 Years',
+      category: 'Finance & Investment'
     },
     {
-      title: 'UX Designer',
-      company: 'DesignHub',
-      location: 'Berlin, Germany',
-      salary: '$4000 - $5500',
-      logo: 'https://dummyimage.com/80x80/000/fff&text=DesignHub',
-      type: 'Freelance',
+      title: 'Loan Officer',
+      company: 'Bank of St. Vincent',
+      location: 'Kingstown, St. Vincent',
+      salary: '$3500 - $4500',
+      logo: 'https://dummyimage.com/80x80/004080/fff&text=BoSV',
+      type: 'Full Time',
+      postedTime: '2 days ago',
+      experience: '2+ Years',
+      category: 'Lending & Credit'
+    },
+    {
+      title: 'Cybersecurity Analyst',
+      company: 'Bank of St. Vincent',
+      location: 'Remote',
+      salary: '$5000 - $6500',
+      logo: 'https://dummyimage.com/80x80/004080/fff&text=BoSV',
+      type: 'Remote',
       postedTime: '5 hours ago',
-      experience: '2-4 Years',
-      category: 'Design'
+      experience: '5+ Years',
+      category: 'IT Security'
     },
     {
-      title: 'Product Manager',
-      company: 'Innovate Ltd',
-      location: 'San Francisco, USA',
-      salary: '$6000 - $8000',
-      logo: 'https://dummyimage.com/80x80/000/fff&text=Innovate',
+      title: 'Customer Service Representative',
+      company: 'Bank of St. Vincent',
+      location: 'Call Center - Kingstown, St. Vincent',
+      salary: '$2500 - $3500',
+      logo: 'https://dummyimage.com/80x80/004080/fff&text=BoSV',
+      type: 'Full Time',
+      postedTime: '12 hours ago',
+      experience: '1-3 Years',
+      category: 'Customer Service'
+    },
+    {
+      title: 'Branch Manager',
+      company: 'Bank of St. Vincent',
+      location: 'Bequia Branch, St. Vincent',
+      salary: '$7000 - $9000',
+      logo: 'https://dummyimage.com/80x80/004080/fff&text=BoSV',
       type: 'Full Time',
       postedTime: '3 days ago',
-      experience: '4+ Years',
+      experience: '7+ Years',
       category: 'Management'
     },
     {
-      title: 'Backend Developer',
-      company: 'CodeBase',
-      location: 'Tokyo, Japan',
-      salary: '$5500 - $6500',
-      logo: 'https://dummyimage.com/80x80/000/fff&text=CodeBase',
-      type: 'Part Time',
-      postedTime: '12 hours ago',
+      title: 'Compliance Officer',
+      company: 'Bank of St. Vincent',
+      location: 'Kingstown, St. Vincent',
+      salary: '$4500 - $6000',
+      logo: 'https://dummyimage.com/80x80/004080/fff&text=BoSV',
+      type: 'Hybrid',
+      postedTime: '6 hours ago',
       experience: '3+ Years',
-      category: 'Development'
+      category: 'Risk & Compliance'
     }
   ];  
 

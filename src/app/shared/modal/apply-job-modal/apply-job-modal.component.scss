@@ -1,0 +1,67 @@
+.modal-content {
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  
+  /* === Form Groups === */
+  .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  /* === File Upload Section === */
+  .upload-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .file-input {
+    font-size: 14px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .uploaded-file {
+    font-size: 14px;
+    color: #2e7d32; /* Green for uploaded file */
+    font-weight: bold;
+    margin-top: 5px;
+  }
+  
+  /* === Cover Letter Field === */
+  .full-width {
+    width: 100%;
+  }
+  
+  /* === Consent Checkbox === */
+/* === Consent Checkbox === */
+.consent-checkbox {
+    font-size: 14px;
+    margin-top: 15px;
+    line-height: 1.5;
+    color: #333;
+  }
+  
+  /* Update Profile Link */
+  .update-link {
+    color: #1976d2;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 5px;
+  }
+  
+  .update-link:hover {
+    text-decoration: underline;
+  }
+  

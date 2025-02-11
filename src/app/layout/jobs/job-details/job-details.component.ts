@@ -1,6 +1,8 @@
 import { AfterViewInit, Component, Input, OnInit, SimpleChanges, input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../shared/service/auth.service';
+import { ApplyJobModalComponent } from '../../../shared/modal/apply-job-modal/apply-job-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-job-details',
@@ -62,9 +64,11 @@ export class JobDetailsComponent implements OnInit, AfterViewInit {
   };
 
   isLoggedIn: boolean = false;
+  jobApplied: boolean = false;
 
   constructor(private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -76,7 +80,7 @@ export class JobDetailsComponent implements OnInit, AfterViewInit {
   private processJobChange(job: any) {
     if(this.from == 'candidate-dashboard') {
       this.jobDetails = job;
-      console.log('Processing job:', job);
+      this.jobApplied = false;
     }
   }
 
@@ -103,5 +107,16 @@ export class JobDetailsComponent implements OnInit, AfterViewInit {
       this.router.navigate(['auth/login']);
       return;
     }
+    const dialogRef = this.dialog.open(ApplyJobModalComponent, {
+      width: '70%',
+      data: this.jobDetails,
+      disableClose: true
+    });
+
+    dialogRef.afterClosed().subscribe(resp => {
+      if(resp) {
+        this.jobApplied = true;
+      }
+    })
   }
 }
