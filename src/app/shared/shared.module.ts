@@ -14,12 +14,13 @@ import { ProfileUpdateReminderModalComponent } from './modal/profile-update-remi
 import { NewJobOfferReceivedModalComponent } from './modal/new-job-offer-received-modal/new-job-offer-received-modal.component';
 import { HomeBannerComponent } from '../common/home-banner/home-banner.component';
 import { ApplyJobModalComponent } from './modal/apply-job-modal/apply-job-modal.component';
+import { InterviewDetailsModalComponent } from './modal/interview-details-modal/interview-details-modal.component';
 
 @NgModule({
   declarations: [TableComponent, ConfirmationModalComponent, CandidateDetailsModalComponent,
     ForwardCandidatesModalComponent, SearchBarComponent, OfferDetailsModalComponent,
     ProfileUpdateReminderModalComponent, NewJobOfferReceivedModalComponent,
-    HomeBannerComponent, ApplyJobModalComponent
+    HomeBannerComponent, ApplyJobModalComponent, InterviewDetailsModalComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +34,7 @@ import { ApplyJobModalComponent } from './modal/apply-job-modal/apply-job-modal.
     TableComponent, NgxPaginationModule, ConfirmationModalComponent, CandidateDetailsModalComponent,
     ForwardCandidatesModalComponent, SearchBarComponent, OfferDetailsModalComponent,
     ProfileUpdateReminderModalComponent, NewJobOfferReceivedModalComponent,
-    HomeBannerComponent, ApplyJobModalComponent
+    HomeBannerComponent, ApplyJobModalComponent, InterviewDetailsModalComponent
   ]
 })
 export class SharedModule { }

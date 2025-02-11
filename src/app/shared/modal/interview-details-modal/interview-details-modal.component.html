@@ -1,0 +1,38 @@
+<div class="modal-header">
+    <h2 class="modal-title mt-0">Interview Details</h2>
+    <button mat-icon-button class="icon-red" (click)="close()">
+        <mat-icon>cancel</mat-icon>
+    </button>
+</div>
+<div mat-dialog-content class="offer-received-container">
+        <h3>Congratulations! You have been invited for an interview!</h3>
+        <p>We are pleased to inform you that you have been selected to proceed to the interview stage for the position you applied for.</p>
+        <div class="modal-info">
+            <table style="width: 100%; margin-top: 20px; margin-bottom: 20px;">
+                <tbody>
+                    <tr>
+                        <td><strong>Interview Date:</strong></td>
+                        <td>27/05/2025</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Time:</strong></td>
+                        <td>12:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Location:</strong></td>
+                        <td>Bank</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Interviewer:</strong></td>
+                        <td>Michael Jordan</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>Please prepare the documents mentioned in the job description and bring them to the interview. We look forward to meeting you and discussing your application in more detail.</p>
+    </div>
+
+<div mat-dialog-actions style="padding: 8px;">
+    <!-- <button class="btn" style="margin-right: 10px;" (click)="viewOffer()">Join</button> -->
+    <button class="btn" (click)="close()">Close</button>
+</div>
