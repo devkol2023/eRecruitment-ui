@@ -12,11 +12,12 @@
   /* Toolbar: Align Search Bar Right */
   .toolbar {
     display: flex;
-    justify-content: flex-end; /* Align search bar to the right */
-    margin-bottom: 15px;
+    justify-content: space-between; /* Align search bar to the right */
+    margin-bottom: 10px;
   }
   
   .search-bar {
+    align-self: flex-end;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -25,7 +26,7 @@
   .search-bar label {
     font-weight: bold;
     font-size: 14px;
-    color: #555;
+    color: #000000;
   }
   
   .search-bar input {
@@ -37,6 +38,35 @@
   }
   
   .search-bar input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+  }
+
+    
+  /* Items per Page Selector */
+  .page-size-selector {
+    align-self: flex-start; 
+    // align-items: center;
+    // gap: 8px;
+    // margin-bottom: 10px;
+  }
+  
+  .page-size-selector label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #000000;
+  }
+  
+  .page-size-selector select {
+    padding: 6px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .page-size-selector select:focus {
     outline: none;
     border-color: #007bff;
     box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
@@ -70,40 +100,13 @@
   .table tbody td {
     padding: 12px;
     border-bottom: 1px solid #e2e2e2;
-    color: #555;
+    color: #000000;
   }
   
   .table tbody td:first-child {
     font-weight: bold;
   }
-  
-  /* Items per Page Selector */
-  .page-size-selector {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 10px;
-  }
-  
-  .page-size-selector label {
-    font-size: 14px;
-    font-weight: bold;
-    color: #555;
-  }
-  
-  .page-size-selector select {
-    padding: 6px 12px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    transition: border-color 0.3s ease;
-  }
-  
-  .page-size-selector select:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
-  }
+
   
   /* Pagination Controls */
   .pagination-container {

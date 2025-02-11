@@ -1,7 +1,14 @@
 <div class="tableDataList">
     <!-- Search Bar -->
-    <div *ngIf="searchRequired" class="toolbar">
-        <div class="search-bar">
+    <div class="toolbar">
+        <div class="page-size-selector">
+            <label for="itemsPerPage">Items per page:</label>
+            <select id="itemsPerPage" [(ngModel)]="paginationConfig.itemsPerPage"
+                (change)="handleItemsPerPageChange($event)">
+                <option *ngFor="let size of pageSizes" [value]="size">{{ size }}</option>
+            </select>
+        </div>
+        <div  *ngIf="searchRequired" class="search-bar">
             <label for="search">Search:</label>
             <input id="search" type="text" [(ngModel)]="searchQuery" (keyup)="handleSearch(searchQuery)" />
         </div>
@@ -168,13 +175,7 @@
 
     <!-- Pagination and Page Size Selector -->
     <div *ngIf="sortedData && sortedData.length > 0" class="pagination-container">
-        <div class="page-size-selector">
-            <label for="itemsPerPage">Items per page:</label>
-            <select id="itemsPerPage" [(ngModel)]="paginationConfig.itemsPerPage"
-                (change)="handleItemsPerPageChange($event)">
-                <option *ngFor="let size of pageSizes" [value]="size">{{ size }}</option>
-            </select>
-        </div>
+    
         <!-- [itemsPerPage]="paginationConfig.itemsPerPage" -->
         <!-- [totalItems]="paginationConfig.totalItems" -->
         <pagination-controls [id]="paginationConfig.id" (pageChange)="handlePageChange($event)"></pagination-controls>
