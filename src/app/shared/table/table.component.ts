@@ -48,12 +48,14 @@ export class TableComponent implements OnInit, OnChanges {
   toggleValue = false; // Initial toggle state
   
   pageSizes = [5, 10, 20, 50];
-  
+  firstItemIndex: number = 0;
+  lastItemIndex: number = 0;
+  totalItems: number = 0;
+
   ngOnInit(): void {
-    // Initialize sortedData with the original data
     this.sortedData = [...this.data];
-    // Save a copy of the original data
     this.originalTableData = [...this.data];
+    this.updatePaginationInfo();
   }
   ngOnChanges(changes: SimpleChanges): void {
     // Save a copy of the original data
@@ -86,12 +88,23 @@ export class TableComponent implements OnInit, OnChanges {
   }
 
   handlePageChange(page: number): void {
+    this.paginationConfig.currentPage = page;
+    this.updatePaginationInfo();
     this.onPageChange.emit(page);
   }
 
+
   handleItemsPerPageChange(event: Event): void {
     const newSize = (event.target as HTMLSelectElement).value;
-    this.onItemsPerPageChange.emit(parseInt(newSize, 10));
+    this.paginationConfig.itemsPerPage = parseInt(newSize, 10);
+    this.updatePaginationInfo();
+    this.onItemsPerPageChange.emit(this.paginationConfig.itemsPerPage);
+  }
+
+  updatePaginationInfo(): void {
+    this.totalItems = this.sortedData.length;
+    this.firstItemIndex = (this.paginationConfig.currentPage - 1) * this.paginationConfig.itemsPerPage;
+    this.lastItemIndex = Math.min(this.firstItemIndex + this.paginationConfig.itemsPerPage, this.totalItems);
   }
 
   sortTable(columnKey: string): void {
