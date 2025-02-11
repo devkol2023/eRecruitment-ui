@@ -45,7 +45,9 @@
       <p><strong>Job Nature:</strong> {{ jobDetails.overview.jobNature }}</p>
       <p><strong>Salary:</strong> {{ jobDetails.overview.salary }}</p>
       <p><strong>Application Deadline:</strong> {{ jobDetails.overview.applicationDeadline }}</p>
-      <button *ngIf="from != 'hr'" (click)="applyNow()" class="apply-btn btn">Apply Now</button>
+      <button *ngIf="from != 'hr'" [disabled]="jobApplied" (click)="applyNow()" class="apply-btn btn">
+        {{ jobApplied ? 'Applied' : 'Apply Now'}}
+      </button>
     </div>
   </div>
 

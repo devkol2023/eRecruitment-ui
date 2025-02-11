@@ -40,6 +40,16 @@ mat-form-field {
     background-color: #aa2417 !important;
     color: #ffffff !important;
 }
+/* Disabled Button */
+.btn:disabled,
+.btn.disabled {
+  background: #cccccc !important;
+  color: #666666 !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+  transform: none !important;
+  opacity: 0.6;
+}
 
 ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline {
     color: #BF322B; /* Text color inside the field */
@@ -196,4 +206,11 @@ mat-form-field {
 .filter-btn.active, .filter-btn:hover {
     background-color: #bf322b;
     color: white;
+}
+
+.error {
+  display: inline-block;
+  margin-left: 20px;
+  color: #ba1a1a;
+  margin-top: 3px;
 }
