@@ -6,6 +6,7 @@ import { messages } from '../../shared/constants/messages';
 import { MessageDialogService } from '../../shared/service/message-dialog.service';
 import { ProfileUpdateReminderModalComponent } from '../../shared/modal/profile-update-reminder-modal/profile-update-reminder-modal.component';
 import { MatDialog } from '@angular/material/dialog';
+import { NewJobOfferReceivedModalComponent } from '../../shared/modal/new-job-offer-received-modal/new-job-offer-received-modal.component';
 
 @Component({
   selector: 'app-login',
@@ -69,10 +70,16 @@ export class LoginComponent {
 
   openUpdateProfileModal(): void {
     setTimeout(() => {
-      this.dialog.open(ProfileUpdateReminderModalComponent, {
+      const dialogRef = this.dialog.open(ProfileUpdateReminderModalComponent, {
         width: '60%',
         disableClose: true
       });
+      dialogRef.afterClosed().subscribe(resp => {
+        // this.dialog.open(NewJobOfferReceivedModalComponent, {
+        //   width: '60%',
+        //   disableClose: true,
+        // });
+      })
     }, 3000);
   }
 }

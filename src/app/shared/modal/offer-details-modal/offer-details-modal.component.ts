@@ -5,14 +5,14 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   selector: 'app-offer-modal',
   standalone: false,
   
-  templateUrl: './offer-modal.component.html',
-  styleUrl: './offer-modal.component.scss'
+  templateUrl: './offer-details-modal.component.html',
+  styleUrl: './offer-details-modal.component.scss'
 })
-export class OfferModalComponent {
+export class OfferDetailsModalComponent {
   selectedOffer = { jobTitle: 'Branch Manager', salary: '$80,000', joiningDate: '2024-06-01', status: 'Pending' };
 
   constructor(
-    public dialogRef: MatDialogRef<OfferModalComponent>,
+    public dialogRef: MatDialogRef<OfferDetailsModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 

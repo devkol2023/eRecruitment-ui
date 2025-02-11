@@ -1,0 +1,18 @@
+<div class="modal-header">
+    <h2 class="modal-title mt-0">New Job Offer Received</h2>
+    <button mat-icon-button class="icon-red" (click)="close()">
+        <mat-icon>cancel</mat-icon>
+    </button>
+</div>
+<div mat-dialog-content class="offer-received-container">
+    <h3>Congratulations! You have received a new offer!</h3>
+    <p>You have been selected for a job offer. Please go to your application to view and accept the offer.</p>
+    <div class="modal-info">
+        <p>Click below to view your offer and take the next steps!</p>
+    </div>
+</div>
+
+<div mat-dialog-actions style="padding: 8px;">
+    <button class="btn" style="margin-right: 10px;" (click)="viewOffer()">View Offer</button>
+    <button class="btn" (click)="close()">Remind Me Later</button>
+</div>
