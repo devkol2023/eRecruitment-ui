@@ -1,4 +1,6 @@
 import { AfterViewInit, Component, Input, OnInit, SimpleChanges, input } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../../shared/service/auth.service';
 
 @Component({
   selector: 'app-job-details',
@@ -19,7 +21,7 @@ export class JobDetailsComponent implements OnInit, AfterViewInit {
     company: 'Bank of St. Vincent',
     location: 'Kingstown, St. Vincent',
     salary: '$5,500 - $7,000 per month',
-    companyLogo: 'assets/bank-logo.png',
+    companyLogo: 'assets/bank-logo.jpg',
     description: `
       The Bank of St. Vincent is seeking a highly motivated and experienced Branch Manager
       to oversee the daily operations of the bank branch. The ideal candidate will be responsible
@@ -59,8 +61,16 @@ export class JobDetailsComponent implements OnInit, AfterViewInit {
     },
   };
 
+  isLoggedIn: boolean = false;
+
+  constructor(private router: Router,
+    private authService: AuthService
+  ) { }
+
   ngOnInit(): void {
- 
+    this.authService.isLoggedIn().subscribe(status => {
+      this.isLoggedIn = status;
+    });
   }
 
   private processJobChange(job: any) {
@@ -86,5 +96,12 @@ export class JobDetailsComponent implements OnInit, AfterViewInit {
   mailTo(url: string): void {
     const mail = `mailto:${url}`
     window.open(mail, "_blank");
+  }
+  
+  applyNow(): void {
+    if(!this.isLoggedIn) {
+      this.router.navigate(['auth/login']);
+      return;
+    }
   }
 }

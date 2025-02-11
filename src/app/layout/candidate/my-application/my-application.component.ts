@@ -11,13 +11,13 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class MyApplicationComponent implements OnInit {
   filters = [
-    // { label: 'All', value: 'all', active: true },
+    { label: 'Applied', value: 'applied', active: true },
     { label: 'Offer Released', value: 'offer-released', active: true },
     { label: 'Scheduled', value: 'scheduled', active: false },
     { label: 'Rejected', value: 'rejected', active: false },
     { label: 'Shortlisted', value: 'shortlisted', active: false },
   ];
-  selectedFilter: string = 'offer-released';
+  selectedFilter: string = 'applied';
   tableColumns = [
     { key: 'applicationId', label: 'Application ID', width: '10%' },
     { key: 'jobTitle', label: 'Job Title', width: '22%' },
