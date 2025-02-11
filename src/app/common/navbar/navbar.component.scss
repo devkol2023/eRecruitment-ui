@@ -234,17 +234,17 @@
   border-radius: 5px;
 }
 
-/* Profile Icon */
+
 .profile-icon {
-  background: none;
+  background: url('/images/profile-photo.jpg') no-repeat center center;
+  background-size: cover;
   border: none;
   cursor: pointer;
-  font-size: 35px;
-  mat-icon {
-    font-size: 35px;
-    height: 35px;
-    width: 35px;
-  }
+  width: 35px;
+  height: 35px;
+  display: inline-block;
+  border-radius: 50%; /* Makes the image round */
+  margin-left: 15px; /* Adds spacing between the bell icon and the profile image */
 }
 
 .drawer {
@@ -261,6 +261,7 @@
 .user-info {
   display: flex;
   align-items: center;
+  gap: 15px;
 }
 
 .user-info i {
