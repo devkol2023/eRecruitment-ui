@@ -31,7 +31,7 @@
         <img [src]="profilePhoto" alt="Profile Photo" />
       </div>
       
-      <input type="file" id="profilePhotoInput" (change)="onProfilePhotoUpload($event)" accept="image/*" hidden/>
+      <input class="upload-input" type="file" id="profilePhotoInput" (change)="onProfilePhotoUpload($event)" accept="image/*" hidden/>
       <button mat-flat-button class="upload-btn" (click)="triggerProfilePhotoUpload()">
         {{ profilePhoto ? 'Change Profile Photo' : 'Upload Profile Photo'}}
       </button>
@@ -62,7 +62,7 @@
 
           <!-- Upload Educational Documents -->
           <div class="upload-section">
-            <input type="file" (change)="onFileUpload($event, 'education', i)" />
+            <input class="upload-input" type="file" (change)="onFileUpload($event, 'education', i)" />
           </div>
 
           <button mat-icon-button color="warn" (click)="removeEducation(i)" matTooltip="Delete">
@@ -97,7 +97,7 @@
 
           <!-- Upload Experience Documents -->
           <div class="upload-section">
-            <input type="file" (change)="onFileUpload($event, 'experience', i)" />
+            <input class="upload-input" type="file" (change)="onFileUpload($event, 'experience', i)" />
           </div>
 
           <button mat-icon-button color="warn" (click)="removeExperience(i)" matTooltip="Delete">
@@ -132,7 +132,7 @@
 
           <!-- Upload Skill Certification -->
           <div class="upload-section">
-            <input type="file" (change)="onFileUpload($event, 'skills', i)" />
+            <input class="upload-input" type="file" (change)="onFileUpload($event, 'skills', i)" />
           </div>
 
           <button mat-icon-button (click)="removeSkill(i)" matTooltip="Delete">
