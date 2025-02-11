@@ -209,7 +209,7 @@ export class AppliedCandidatesComponent implements OnInit {
     this.dialogMessage.open({
       title: messages.confirmation,
       message: messages.shortlistCandidate,
-      iconType: 'waring',
+      iconType: 'warning',
       buttons: [
         { text: 'Yes', style: 'primary-btn' },
         { text: 'No', style: 'secondary-btn' },

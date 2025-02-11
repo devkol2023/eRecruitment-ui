@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
@@ -9,13 +9,16 @@ import { Router } from '@angular/router';
   templateUrl: './interview-details-modal.component.html',
   styleUrl: './interview-details-modal.component.scss'
 })
-export class InterviewDetailsModalComponent {
+export class InterviewDetailsModalComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<InterviewDetailsModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private router: Router
   ) { }
+
+  ngOnInit(): void {
+  }
 
   viewOffer(): void {
     this.close();

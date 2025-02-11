@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OfferDetailsModalComponent } from '../../../shared/modal/offer-details-modal/offer-details-modal.component';
 import { MatDialog } from '@angular/material/dialog';
+import { InterviewDetailsModalComponent } from '../../../shared/modal/interview-details-modal/interview-details-modal.component';
 
 @Component({
   selector: 'app-my-application',
@@ -18,19 +19,19 @@ export class MyApplicationComponent implements OnInit {
     { label: 'Shortlisted', value: 'shortlisted', active: false },
   ];
   selectedFilter: string = 'applied';
-  tableColumns = [
+  tableColumns: any[] = [
     { key: 'applicationId', label: 'Application ID', width: '10%' },
     { key: 'jobTitle', label: 'Job Title', width: '22%' },
     { key: 'companyName', label: 'Company Name', width: '20%' },
     { key: 'jobLocation', label: 'Location', width: '18%' },
     { key: 'status', label: 'Status', width: '15%' },
     { key: 'applicationDate', label: 'Application Date', width: '10%' },
-    { 
-      key: 'actions', 
+    {
+      key: 'customActions', 
       label: 'Actions', 
       width: '10%', 
       type: 'action', 
-      types: { withdraw: true} 
+      types: {} 
     },
   ];
   
@@ -43,6 +44,7 @@ export class MyApplicationComponent implements OnInit {
       status: 'Offer Released',
       applicationDate: '25/01/2024',
       isWithdrawn: false,
+      actions: { viewOffer: true }
     },
     {
       applicationId: 'BOSVG-A001',
@@ -52,6 +54,7 @@ export class MyApplicationComponent implements OnInit {
       status: 'Under Review',
       applicationDate: '05/02/2024',
       isWithdrawn: false,
+      actions: {}
     },
     {
       applicationId: 'BOSVG-A002',
@@ -70,6 +73,7 @@ export class MyApplicationComponent implements OnInit {
       status: 'Rejected',
       applicationDate: '29/01/2024',
       isWithdrawn: false,
+      actions: { viewDetails: false }
     },
     {
       applicationId: 'BOSVG-A005',
@@ -79,6 +83,7 @@ export class MyApplicationComponent implements OnInit {
       status: 'Interview Scheduled',
       applicationDate: '20/01/2024',
       isWithdrawn: false,
+      actions: { viewDetails: true }
     },
   ];
 
@@ -136,7 +141,6 @@ export class MyApplicationComponent implements OnInit {
           (item) => item.status.toLowerCase() === 'shortlisted'
         );
       }else if (this.selectedFilter === 'offer-released') {
-        this.tableColumns[6].types = { viewOffer: true } as any;
         return this.storedAlltableData.filter(
           (item) => item.status.toLowerCase() === 'offer released'
         );
@@ -150,6 +154,14 @@ export class MyApplicationComponent implements OnInit {
         width: '60%',
         disableClose: true,
         data: offer
+      });
+    }
+
+    viewDetails(data: any): void {
+      this.dialog.open(InterviewDetailsModalComponent, {
+        width: '60%',
+        data: data,
+        disableClose: true
       });
     }
 }

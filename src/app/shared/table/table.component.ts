@@ -55,11 +55,11 @@ export class TableComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.sortedData = [...this.data];
     this.originalTableData = [...this.data];
-    this.updatePaginationInfo();
   }
   ngOnChanges(changes: SimpleChanges): void {
     // Save a copy of the original data
     this.sortedData = this.originalTableData = [...this.data];
+    this.updatePaginationInfo();
   }
 
   handleSearch(query: string): void {
