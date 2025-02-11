@@ -219,3 +219,8 @@ mat-form-field {
 .upload-input {
   border: 1px solid #ccc;
 }
+
+.cdk-overlay-pane.mat-mdc-dialog-panel {
+  max-width: var(--mat-dialog-container-max-width, 800px) !important;
+  min-width: var(--mat-dialog-container-min-width, 400px) !important;
+}

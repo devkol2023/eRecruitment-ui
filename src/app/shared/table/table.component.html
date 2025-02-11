@@ -64,12 +64,12 @@
     
                         <!-- Check if the column type is action -->
                         <ng-container *ngIf="col.type === 'action'">
-                            <button mat-icon-button *ngIf="col.types['viewDetails']" class="btn-delete" matTooltip="View"
+                            <button mat-icon-button *ngIf="col.types['viewDetails'] || row?.actions?.viewDetails" class="btn-delete" matTooltip="View"
                                 (click)="viewCandidateDetails(row)">
                                 <mat-icon>visibility</mat-icon>
                             </button>
 
-                            <button mat-icon-button *ngIf="col.types['viewOffer']" class="btn-delete" (click)="viewOffer(row)" matTooltip="View Offer">
+                            <button mat-icon-button *ngIf="col.types['viewOffer'] || row?.actions?.viewOffer" class="btn-delete" (click)="viewOffer(row)" matTooltip="View Offer">
                                 <mat-icon>visibility</mat-icon>
                             </button>
                             <button mat-icon-button *ngIf="col.types['resendOffer'] && row.status != 'Rejected' && row.status != 'Withdrawn'"
