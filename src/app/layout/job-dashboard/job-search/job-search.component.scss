@@ -1,25 +1,54 @@
 .hero-section {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 50px;
-    background-color: #f0f4ff;
-  }
-  
-  .hero-content {
-    max-width: 50%;
-  }
-  
-  .hero-content h1 {
-    font-size: 3rem;
-    color: #333c6a;
-    margin-bottom: 20px;
-  }
-  
-  .hero-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
+  display: flex;
+  flex-direction: column; /* Stacks content vertically */
+  align-items: center; /* Center-aligns the content */
+  justify-content: center; /* Vertically centers in the viewport */
+  padding: 100px 50px; /* Adequate padding */
+  background-color: #f0f4ff; /* Soft blue background */
+  background-image: url('/images/banks.jpg'); /* Replace 'path_to_your_image.jpg' with the actual path to your image */
+  background-size: cover; /* Covers the entire section, might crop the image depending on the aspect ratio */
+  background-position: center;
+  height: 20vh;
+}
+
+.hero-content {
+  width: 100%; /* Full width */
+  max-width: 1200px; /* Maximum width for content alignment */
+  text-align: center; /* Center-align text */
+}
+
+.hero-content h1 {
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, .9);
+  font-size: 4rem; /* Larger font for impact */
+  color: #fff; /* Darker blue for readability */
+  margin-bottom: 30px; /* Increased space below the header */
+  font-weight: 700; /* Bold font weight */
+}
+
+.hero-content p {
+  font-size: 1.5rem; /* Larger paragraph font size for better readability */
+  color: #ffffff; /* Subdued color for secondary text */
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, .9);
+  margin-bottom: 30px; /* Space before search bar */
+}
+
+/* Adjustments for the app-search-bar */
+app-search-bar {
+  width: 100%; /* Ensures the search bar fills the allocated space */
+  max-width: 800px; /* Optional: Limit the width of the search bar for aesthetics */
+}
+
+/* Responsive adjustments */
+@media (max-width: 960px) {
+  .hero-section {
+    padding: 50px 20px; /* Reduced padding on smaller screens */
   }
 
-  
+  .hero-content h1 {
+    font-size: 3rem; /* Adjust font size for smaller screens */
+  }
+
+  .hero-content p {
+    font-size: 1.2rem; /* Smaller paragraph text on mobile devices */
+  }
+}
