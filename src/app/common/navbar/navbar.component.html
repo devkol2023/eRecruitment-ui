@@ -32,10 +32,8 @@
       <li class="dropdown">
         <a (click)="toggleDropdown('offer-management')">Offer Management</a>
         <ul class="dropdown-menu" [class.show]="activeDropdown === 'offer-management'">
-          <!-- routerLink="/hr/offer/generate-offer"
-          routerLink="/hr/offer/view-sent-offer-list" -->
-          <li><a (click)="closeDropdown()">Generate Offer</a></li>
-          <li><a (click)="closeDropdown()">View Sent Offer</a></li>
+          <li><a routerLink="/hr/offer/generate-offer" (click)="closeDropdown()">Generate Offer</a></li>
+          <li><a routerLink="/hr/offer/view-sent-offer-list" (click)="closeDropdown()">View Sent Offer</a></li>
         </ul>
       </li>
     </ng-container>
