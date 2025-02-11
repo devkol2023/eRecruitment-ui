@@ -25,15 +25,17 @@
         <a (click)="toggleDropdown('job-post')">Job Post</a>
         <ul class="dropdown-menu" [class.show]="activeDropdown === 'job-post'">
           <li><a routerLink="/jobs/post-job" (click)="closeDropdown()">Post New Job</a></li>
-          <li><a routerLink="/hr/manage-jobs" (click)="closeDropdown()">Manage Job Postings</a></li>
-          <li><a routerLink="/hr/job-management/dashboard" (click)="closeDropdown()">Job Dashboard</a></li>
+          <!-- <li><a routerLink="/hr/manage-jobs" (click)="closeDropdown()">Manage Job Postings</a></li> -->
+          <li><a routerLink="/hr/job-management/dashboard" (click)="closeDropdown()">Manage Jobs</a></li>
         </ul>
       </li>
       <li class="dropdown">
         <a (click)="toggleDropdown('offer-management')">Offer Management</a>
         <ul class="dropdown-menu" [class.show]="activeDropdown === 'offer-management'">
-          <li><a routerLink="/hr/offer/generate-offer" (click)="closeDropdown()">Generate Offer</a></li>
-          <li><a routerLink="/hr/offer/view-sent-offer-list" (click)="closeDropdown()">View Sent Offer</a></li>
+          <!-- routerLink="/hr/offer/generate-offer"
+          routerLink="/hr/offer/view-sent-offer-list" -->
+          <li><a (click)="closeDropdown()">Generate Offer</a></li>
+          <li><a (click)="closeDropdown()">View Sent Offer</a></li>
         </ul>
       </li>
     </ng-container>
