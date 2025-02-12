@@ -33,7 +33,7 @@ export class CandidateManagementComponent {
     { key: 'jobLocation', label: 'Location', width: '12%' },
     { key: 'employmentType', label: 'Employment Type', width: '10%' },
     { key: 'candidateType', label: 'Candidate Type', width: '10%' },
-    { key: 'lastLogin', label: 'Last Updated', width: '10%' },
+    { key: 'lastLogin', label: 'Profile Last Updated', width: '10%' },
     { key: 'action', label: 'Action', width: '15%', type: 'action', types: { viewDetails: true, schedule: true } },
   ];
   

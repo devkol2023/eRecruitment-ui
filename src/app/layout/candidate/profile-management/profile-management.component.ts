@@ -17,6 +17,7 @@ export class ProfileManagementComponent implements OnInit {
     education: {},
     experience: {},
     skills: {},
+    certification: {},
     cv: {},
   };
   profilePhoto: string | null = null;
@@ -40,12 +41,19 @@ export class ProfileManagementComponent implements OnInit {
       fullName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+      fatherName: ['', [Validators.required]],
+      motherName: ['', [Validators.required]],
+      highestQualification: ['', Validators.required],
+      workStatus: ['', Validators.required],
+      passportNumber: [''],
+      drivingLicenseNumber: [''],
       country: ['', Validators.required],
       state: ['', Validators.required],
       address: ['', Validators.required],
       education: this.fb.array([]),
       experience: this.fb.array([]),
       skills: this.fb.array([]),
+      certification: this.fb.array([]),
       cv: [null]
     });
 
@@ -53,7 +61,8 @@ export class ProfileManagementComponent implements OnInit {
     const profileData = {
       fullName: 'John Doe',
       email: 'john.doe@example.com',
-      phone: '1234567890'
+      phone: '1234567890',
+      workStatus: 'experienced'
     };
     this.profileForm.patchValue(profileData);
     this.profileForm.get('email')?.disable();
@@ -61,6 +70,7 @@ export class ProfileManagementComponent implements OnInit {
     this.addEducation();
     this.addExperience();
     this.addSkill();
+    this.addCertification();
   }
 
   get educationControls() {
@@ -73,6 +83,10 @@ export class ProfileManagementComponent implements OnInit {
 
   get skillsControls() {
     return this.profileForm.get('skills') as FormArray;
+  }
+
+  get certificationControls() {
+    return this.profileForm.get('certification') as FormArray;
   }
 
   addEducation() {
@@ -119,6 +133,21 @@ export class ProfileManagementComponent implements OnInit {
   removeSkill(index: number) {
     this.skillsControls.removeAt(index);
     delete this.uploadedDocuments['skills'][index];
+  }
+
+  addCertification(): void {
+    this.certificationControls.push(
+      this.fb.group({
+        certificationName: [''],
+        certificationYear: [''],
+        certificationValidUpto: ['']
+      })
+    );
+  }
+
+  removeCertification(index: number) {
+    this.certificationControls.removeAt(index);
+    delete this.uploadedDocuments['certification'][index];
   }
 
   onFileUpload(event: any, category: string, index?: number) {

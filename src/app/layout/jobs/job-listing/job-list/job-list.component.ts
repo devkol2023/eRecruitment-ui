@@ -13,7 +13,7 @@ export class JobListComponent {
   jobs = [
     {
       title: 'Financial Analyst',
-      company: 'Bank of St. Vincent',
+      company: 'Bank of St. Vincent and Grenadines',
       location: 'Kingstown, St. Vincent',
       salary: '$4000 - $5000',
       logo: 'https://dummyimage.com/80x80/004080/fff&text=BoSV',
@@ -24,7 +24,7 @@ export class JobListComponent {
     },
     {
       title: 'Loan Officer',
-      company: 'Bank of St. Vincent',
+      company: 'Bank of St. Vincent and Grenadines',
       location: 'Kingstown, St. Vincent',
       salary: '$3500 - $4500',
       logo: 'https://dummyimage.com/80x80/004080/fff&text=BoSV',
@@ -35,7 +35,7 @@ export class JobListComponent {
     },
     {
       title: 'Cybersecurity Analyst',
-      company: 'Bank of St. Vincent',
+      company: 'Bank of St. Vincent and Grenadines',
       location: 'Remote',
       salary: '$5000 - $6500',
       logo: 'https://dummyimage.com/80x80/004080/fff&text=BoSV',
@@ -46,7 +46,7 @@ export class JobListComponent {
     },
     {
       title: 'Customer Service Representative',
-      company: 'Bank of St. Vincent',
+      company: 'Bank of St. Vincent and Grenadines',
       location: 'Call Center - Kingstown, St. Vincent',
       salary: '$2500 - $3500',
       logo: 'https://dummyimage.com/80x80/004080/fff&text=BoSV',
@@ -57,7 +57,7 @@ export class JobListComponent {
     },
     {
       title: 'Branch Manager',
-      company: 'Bank of St. Vincent',
+      company: 'Bank of St. Vincent and Grenadines',
       location: 'Bequia Branch, St. Vincent',
       salary: '$7000 - $9000',
       logo: 'https://dummyimage.com/80x80/004080/fff&text=BoSV',
@@ -68,7 +68,7 @@ export class JobListComponent {
     },
     {
       title: 'Compliance Officer',
-      company: 'Bank of St. Vincent',
+      company: 'Bank of St. Vincent and Grenadines',
       location: 'Kingstown, St. Vincent',
       salary: '$4500 - $6000',
       logo: 'https://dummyimage.com/80x80/004080/fff&text=BoSV',
