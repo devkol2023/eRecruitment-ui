@@ -98,7 +98,7 @@
             </div>
           </div>
           <hr />
-          <button class="dropdown-item" (click)="updateProfile()">
+          <button *ngIf="loggedInUser?.role === 'Candidate'" class="dropdown-item" (click)="updateProfile()">
             <i class="fa-solid fa-user"></i> &nbsp; Update Profile
           </button>
           <button class="dropdown-item" (click)="onLogout()">

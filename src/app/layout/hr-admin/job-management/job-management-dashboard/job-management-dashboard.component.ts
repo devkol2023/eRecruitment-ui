@@ -68,8 +68,7 @@ export class JobManagementDashboardComponent implements OnInit {
   viewJobOverview(job: any): void {
     this.dialog.open(ViewJobDetailsModalComponent, {
       width: '85%',
-      maxWidth: '100%',
-      height: '80%',
+      // height: '85%',
       disableClose: true,
       data: job
     });
