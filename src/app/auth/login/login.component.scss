@@ -91,8 +91,8 @@
   
     .otp-btn {
       width: 50%;
-      background-color: #007bff;
-      color: white;
+      background-color: #ffd633;
+      color: #000000;
       border: none;
       padding: 10px;
       border-radius: 5px;
@@ -102,6 +102,7 @@
   
     .otp-btn:disabled {
       background-color: #ccc;
+      color: white;
       cursor: not-allowed;
     }
   }
