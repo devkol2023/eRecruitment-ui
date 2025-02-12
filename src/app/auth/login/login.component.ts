@@ -105,7 +105,7 @@ export class LoginComponent {
   openUpdateProfileModal(): void {
     setTimeout(() => {
       const dialogRef = this.dialog.open(ProfileUpdateReminderModalComponent, {
-        width: '60%',
+        width: '50%',
         disableClose: true
       });
       dialogRef.afterClosed().subscribe(resp => {
