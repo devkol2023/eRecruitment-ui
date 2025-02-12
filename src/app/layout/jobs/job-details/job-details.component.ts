@@ -108,7 +108,7 @@ export class JobDetailsComponent implements OnInit, AfterViewInit {
       return;
     }
     const dialogRef = this.dialog.open(ApplyJobModalComponent, {
-      width: '70%',
+      width: '55%',
       data: this.jobDetails,
       disableClose: true
     });
