@@ -14,7 +14,7 @@ export class AuthService {
 
   // Load user from localStorage when app starts
   private loadUserFromLocalStorage() {
-    const storedUser = localStorage.getItem('loggedInUser');
+    const storedUser = sessionStorage.getItem('loggedInUser');
     if (storedUser) {
       const user = JSON.parse(storedUser);
       this.userSubject.next(user);
@@ -24,14 +24,14 @@ export class AuthService {
 
   // Login user and store in localStorage
   login(user: any): void {
-    localStorage.setItem('loggedInUser', JSON.stringify(user));
+    sessionStorage.setItem('loggedInUser', JSON.stringify(user));
     this.userSubject.next(user);
     this.isLoggedInSubject.next(true);
   }
 
   // Logout user and remove from localStorage
   logout(): void {
-    localStorage.removeItem('loggedInUser');
+    sessionStorage.removeItem('loggedInUser');
     this.userSubject.next(null);
     this.isLoggedInSubject.next(false);
   }

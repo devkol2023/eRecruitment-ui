@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { messages } from '../../../shared/constants/messages';
 import { MessageDialogService } from '../../../shared/service/message-dialog.service';
+import { CustomErrorStateMatcher } from '../../../shared/matcher/ErrorStateMatcher';
 
 @Component({
   selector: 'app-profile-management',
@@ -19,6 +20,18 @@ export class ProfileManagementComponent implements OnInit {
     cv: {},
   };
   profilePhoto: string | null = null;
+
+  matcher = new CustomErrorStateMatcher();
+  statesForSelectedCountry: string[] = [];
+  countries = ['United States', 'United Kingdom', 'India', 'Canada', 'St. Vincent'];
+  states: any = {
+    'United States': ['New York', 'California', 'Texas', 'Florida'],
+    'United Kingdom': ['London', 'Manchester', 'Birmingham'],
+    'India': ['Delhi', 'Maharashtra', 'Karnataka'],
+    'Canada': ['Ontario', 'Quebec', 'British Columbia'],
+    'St. Vincent': ['Kingstown', 'Georgetown', 'Barrouallie']
+  };
+
   constructor(private fb: FormBuilder, private dialogMessage: MessageDialogService) {}
 
   ngOnInit(): void {
@@ -26,6 +39,9 @@ export class ProfileManagementComponent implements OnInit {
       fullName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+      country: ['', Validators.required],
+      state: ['', Validators.required],
+      address: ['', Validators.required],
       education: this.fb.array([]),
       experience: this.fb.array([]),
       skills: this.fb.array([]),
@@ -78,7 +94,8 @@ export class ProfileManagementComponent implements OnInit {
       this.fb.group({
         company: [''],
         designation: [''],
-        years: ['']
+        years: [''],
+        leavingYear: ['']
       })
     );
   }
@@ -132,6 +149,24 @@ export class ProfileManagementComponent implements OnInit {
     }
   }
 
+  onCountryChange(selectedCountry: string): void {
+    this.statesForSelectedCountry = this.states[selectedCountry] || [];
+    this.profileForm.get('state')?.setValue('');
+  }
+
+  markFormArrayAsTouched(formArrayName: string) {
+    const formArray = this.profileForm.get(formArrayName) as FormArray;
+    formArray.controls.forEach(control => {
+      if (control instanceof FormGroup) {
+        for (const key in control.controls) {
+          control.controls[key].markAsTouched();
+        }
+      } else {
+        control.markAsTouched();
+      }
+    });
+  }
+
   onSubmit(): void {
     if (this.profileForm.valid) {
       console.log('Profile Updated:', this.profileForm.value);
@@ -146,6 +181,8 @@ export class ProfileManagementComponent implements OnInit {
       });
     } else {
       this.profileForm.markAllAsTouched();
+      this.markFormArrayAsTouched('education');
+      this.markFormArrayAsTouched('skills');
     }
   }
 }
