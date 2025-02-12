@@ -20,6 +20,8 @@ export class HrDashboardComponent {
   successfulHires = 3;
   totalUsers = 50;
 
+  years = ['Previous Year','Current Year'];
+
   tableColumns = [
     { key: 'jobTitle', label: 'Job Title', width: '25%' },
     { key: 'department', label: 'Department', width: '15%' },
