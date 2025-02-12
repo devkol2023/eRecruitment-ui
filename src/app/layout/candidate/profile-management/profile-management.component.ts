@@ -20,6 +20,7 @@ export class ProfileManagementComponent implements OnInit {
     cv: {},
   };
   profilePhoto: string | null = null;
+  candidateId: any = null;
 
   matcher = new CustomErrorStateMatcher();
   statesForSelectedCountry: string[] = [];
@@ -146,6 +147,23 @@ export class ProfileManagementComponent implements OnInit {
         this.profilePhoto = e.target.result; // Convert to Base64 URL for preview
       };
       reader.readAsDataURL(file);
+    }
+  }
+
+  triggerIdUpload() {
+    const fileInput = document.getElementById('idInput') as HTMLInputElement;
+    if (fileInput) {
+      fileInput.click();
+    }
+  }
+
+  
+  onIdUpload(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      if (file) {
+        this.candidateId = file;
+      }
     }
   }
 

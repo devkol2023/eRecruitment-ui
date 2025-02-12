@@ -8,19 +8,34 @@
       <mat-expansion-panel-header class="header">
         <mat-panel-title> Personal Information </mat-panel-title>
       </mat-expansion-panel-header>
-
-      <!-- Profile Photo Upload -->
-      <div class="profile-photo-container">
-        <div class="profile-photo-preview" *ngIf="profilePhoto">
-          <img [src]="profilePhoto" alt="Profile Photo" />
+      
+      <!-- Profile and ID Document Uploads in a Row -->
+      <div class="photo-upload-row">
+        <!-- Profile Photo Section -->
+        <div class="photo-upload-section">
+          <div *ngIf="profilePhoto" class="photo-preview">
+            <img [src]="profilePhoto" alt="Profile Photo" />
+          </div>
+          <input type="file" id="profilePhotoInput" (change)="onProfilePhotoUpload($event)" accept="image/*" hidden>
+          <button type="button" class="btn" (click)="triggerProfilePhotoUpload()">
+            {{ profilePhoto ? 'Change' : 'Upload' }} Profile Photo
+          </button>
         </div>
-        
-        <input class="upload-input" type="file" id="profilePhotoInput" (change)="onProfilePhotoUpload($event)" accept="image/*" hidden/>
-        <button mat-flat-button class="upload-btn" type="button" (click)="triggerProfilePhotoUpload()">
-          {{ profilePhoto ? 'Change Profile Photo' : 'Upload Profile Photo'}}
-        </button>
+      
+        <!-- ID Document Section -->
+        <div class="document-upload-section">
+          <div *ngIf="candidateId" class="document-preview">
+            <mat-icon>attach_file</mat-icon>
+            <span [matTooltip]="candidateId?.name">{{ candidateId?.name }}</span>
+            <div class="tooltip">{{ candidateId?.name }}</div>
+          </div>
+          <input type="file" id="idInput" (change)="onIdUpload($event)" accept=".pdf,.doc,.docx" hidden>
+          <button type="button" class="btn" (click)="triggerIdUpload()">
+            {{ candidateId ? 'Change' : 'Upload' }} ID Document
+          </button>
+        </div>
       </div>
-
+      
       <div class="group-form-field">
         <mat-form-field appearance="outline" class="half-width">
           <mat-label>Full Name</mat-label>
