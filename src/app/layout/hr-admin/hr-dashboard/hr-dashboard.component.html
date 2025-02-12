@@ -3,8 +3,22 @@
     <!-- Dashboard Header -->
     <div class="dashboard-header">
       <h2>HR Dashboard</h2>
+
+ 
+      <mat-form-field style="margin-top: 25px;
+      width: 50%;" appearance="outline" class="full-width">
+        <mat-label>Year</mat-label>
+        <mat-select formControlName="candidateType">
+          <mat-option *ngFor="let year of years" [value]="year">
+            {{ year }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+ 
+
       <button class="btn">Refresh Data</button>
     </div>
+
   
     <!-- Dashboard Metrics -->
     <div class="dashboard-metrics">
@@ -58,6 +72,15 @@
     <!-- Recent Jobs & Applications -->
     <div class="recent-jobs">
       <h3 class="section-title">Recent Job Postings</h3>
+      <mat-form-field style="margin-top: 25px; margin-left: 15%;
+      width: 50%;" appearance="outline" class="full-width">
+        <mat-label>Year</mat-label>
+        <mat-select formControlName="candidateType">
+          <mat-option *ngFor="let year of years" [value]="year">
+            {{ year }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
       <app-table [columns]="tableColumns" [data]="recentJobPosts" [paginationConfig]="paginationConfig"
         (onItemsPerPageChange)="updateItemsPerPage($event)" (onPageChange)="updatePage($event)" [searchRequired]="false"></app-table>
     </div>
