@@ -13,7 +13,9 @@ import { AuthService } from '../../shared/service/auth.service';
 export class NavbarComponent implements OnInit {
   activeDropdown: string | null = null;
   loggedInUser: any = null;
+  userName!:string;
   isLoggedIn: boolean = false;
+  roleDesc!:string;
   isProfileDropdownOpen = false;
   isNotificationOpen: boolean = false;
   notifications: string[] = [
@@ -40,6 +42,15 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.authService.getUser().subscribe((user:any) => {
       this.loggedInUser = user;
+      if(this.loggedInUser.role == 'hr'){
+        this.roleDesc = 'Recruiting Lead'
+        this.userName = 'Micheal Jordan'
+      }
+      else{
+        this.roleDesc = 'Banking & Finance'
+        this.userName = 'LeBron James'
+      } 
+
     });
 
     this.authService.isLoggedIn().subscribe((status:any) => {
