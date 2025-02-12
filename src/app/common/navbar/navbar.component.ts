@@ -2,6 +2,7 @@ import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../shared/service/auth.service';
 
+
 @Component({
   selector: 'app-navbar',
   standalone: false,
@@ -37,11 +38,11 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authService.getUser().subscribe(user => {
+    this.authService.getUser().subscribe((user:any) => {
       this.loggedInUser = user;
     });
 
-    this.authService.isLoggedIn().subscribe(status => {
+    this.authService.isLoggedIn().subscribe((status:any) => {
       this.isLoggedIn = status;
     });
   }
