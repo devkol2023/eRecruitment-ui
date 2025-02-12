@@ -1,0 +1,13 @@
+<div class="job-panel">
+    <div class="header">
+        <h2>Recent Jobs</h2>
+        <input type="text" placeholder="Search jobs..." [(ngModel)]="searchQuery">
+    </div>
+    <div class="jobs-list">
+        <div *ngFor="let job of filteredJobs" class="job">
+            <h3>{{ job.title }} {{ job.location }}</h3>
+            <p>{{ job.description }}</p>
+            <span class="new">New!</span>
+        </div>
+    </div>
+</div>

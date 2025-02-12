@@ -8,6 +8,7 @@ import { ProfileManagementComponent } from './profile-management/profile-managem
 import { CandidateDashboardComponent } from './candidate-dashboard/candidate-dashboard.component';
 import { JobsModule } from '../jobs/jobs.module';
 import { JobsListCardComponent } from './jobs-list-card/jobs-list-card.component';
+import { RecentJobSearchComponent } from './recent-job-search/recent-job-search.component';
 
 
 
@@ -17,7 +18,8 @@ import { JobsListCardComponent } from './jobs-list-card/jobs-list-card.component
     MyApplicationComponent,
     ProfileManagementComponent,
     CandidateDashboardComponent,
-    JobsListCardComponent
+    JobsListCardComponent,
+    RecentJobSearchComponent
   ],
   imports: [
     CommonModule,

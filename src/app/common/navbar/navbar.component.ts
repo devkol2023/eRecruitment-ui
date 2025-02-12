@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../shared/service/auth.service';
 
@@ -24,8 +24,17 @@ export class NavbarComponent implements OnInit {
   ];
 
   constructor(private authService: AuthService,
-    private router: Router
+    private router: Router, private eRef : ElementRef
   ) { }
+
+  @HostListener('document:click', ['$event'])
+  clickOutside(event: Event): void {
+    if (!this.eRef.nativeElement.contains(event.target)) {
+      this.isNotificationOpen = false;
+      this.isProfileDropdownOpen = false;
+      this.closeDropdown();
+    }
+  }
 
   ngOnInit(): void {
     this.authService.getUser().subscribe(user => {
