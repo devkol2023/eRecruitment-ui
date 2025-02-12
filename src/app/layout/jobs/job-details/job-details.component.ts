@@ -47,6 +47,7 @@ export class JobDetailsComponent implements OnInit, AfterViewInit {
       postedDate: '15 Feb 2025',
       location: 'Kingstown, St. Vincent',
       vacancy: '01',
+      jobRefNo: 'BM-2024-02',
       jobNature: 'Full-time',
       salary: '$5,500 - $7,000 per month',
       applicationDeadline: '10 Mar 2025',

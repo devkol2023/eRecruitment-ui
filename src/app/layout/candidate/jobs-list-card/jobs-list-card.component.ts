@@ -13,127 +13,130 @@ export class JobsListCardComponent implements OnInit {
 
   public jobs: any[] = [
     {
-      title: 'Branch Manager',
+      title: 'Financial Analyst',
       company: 'Bank of St. Vincent and Grenadines',
       location: 'Kingstown, St. Vincent',
-      salary: '$5,500 - $7,000 per month',
+      salary: '$4,000 - $5,500 per month',
       companyLogo: 'assets/bank-logo.jpg',
       description: `
-        The Bank of St. Vincent and Grenadines is seeking a highly motivated and experienced Branch Manager
-        to oversee the daily operations of the bank branch. The ideal candidate will be responsible
-        for driving business growth, ensuring operational efficiency, and providing excellent 
-        customer service.
+        The Bank of St. Vincent and Grenadines is seeking a detail-oriented and analytical Financial Analyst
+        to support our financial planning and decision-making processes. The successful candidate will 
+        analyze financial data, create financial models for decision support, and provide recommendations 
+        to improve financial performance.
       `,
       requirements: [
-        'Minimum of 5 years of experience in banking or financial management.',
-        'Proven leadership experience in branch operations.',
-        'Strong understanding of banking regulations and compliance.',
-        'Ability to analyze financial reports and implement growth strategies.',
-        'Excellent customer service and relationship management skills.',
+        'Minimum of 3 years of experience in financial analysis or a related field.',
+        'Strong analytical and data gathering skills.',
+        'Proficiency in spreadsheets, databases, MS Office, and financial software applications.',
+        'Hands-on experience with statistical analysis and statistical packages.',
+        'Outstanding presentation, reporting, and communication skills.'
       ],
       education: [
-        'Bachelor’s degree in Finance, Business Administration, or related field.',
-        'Professional certifications (e.g., CFA, CPA) are a plus.',
-        'Strong knowledge of banking systems and financial analysis.',
-        'Experience with banking software and digital banking solutions.',
+        'Bachelor’s degree in Finance, Economics, or related field.',
+        'Professional certifications such as CFA or Certified Financial Analyst are preferred.'
       ],
       overview: {
-        postedDate: '15 Feb 2025',
+        postedDate: '01 Mar 2025',
         location: 'Kingstown, St. Vincent',
         vacancy: '01',
+        jobRefNo: 'FA-2025-01',
         jobNature: 'Full-time',
-        salary: '$5,500 - $7,000 per month',
-        applicationDeadline: '10 Mar 2025',
+        salary: '$4,000 - $5,500 per month',
+        applicationDeadline: '30 Mar 2025',
       },
       companyInfo: {
         name: 'Bank of St. Vincent and Grenadines',
         website: 'https://www.bosvg.com',
         email: 'careers@bosvg.com',
         description: `
-          The Bank of St. Vincent and Grenadines is a leading financial institution committed to providing 
-          innovative banking solutions and excellent customer service. We aim to foster growth
-          and financial stability within the region through our dedicated team of professionals.
+          Join our team to help shape the financial strategies that will boost our bank's growth 
+          and ensure our financial strength in the competitive market.
         `,
       },
     },
     {
-      title: 'Bank Manager',
+      title: 'Loan Officer',
       company: 'Bank of St. Vincent and Grenadines',
-      location: 'Jamaica, St. Vincent',
-      salary: '$5,500 - $7,000 per month',
+      location: 'Bequia, St. Vincent',
+      salary: '$3,000 - $4,500 per month',
       companyLogo: 'assets/bank-logo.jpg',
       description: `
-        The Bank of St. Vincent and Grenadines is seeking a highly motivated and experienced Branch Manager
-        to oversee the daily operations of the bank branch. The ideal candidate will be responsible
-        for driving business growth, ensuring operational efficiency, and providing excellent 
-        customer service.
+        The Bank of St. Vincent and Grenadines is looking for a knowledgeable Loan Officer to evaluate, 
+        authorize, or recommend approval of loan applications for people and businesses. The ideal 
+        candidate will help customers by determining appropriate loans, assessing creditworthiness, 
+        and following up on their loan process.
       `,
       requirements: [
-        'Minimum of 5 years of experience in banking or financial management.',
-        'Proven leadership experience in branch operations.',
-        'Strong understanding of banking regulations and compliance.',
-        'Ability to analyze financial reports and implement growth strategies.',
-        'Excellent customer service and relationship management skills.',
+        'Proven work experience as a Loan Officer.',
+        'Familiarity with computers and banking applications/software.',
+        'Solid understanding of direct/indirect lending products and practices.',
+        'Excellent communication and interpersonal skills.',
+        'Ability to work in a goal-oriented environment.'
       ],
       education: [
-        'Bachelor’s degree in Finance, Business Administration, or related field.',
-        'Professional certifications (e.g., CFA, CPA) are a plus.',
-        'Strong knowledge of banking systems and financial analysis.',
-        'Experience with banking software and digital banking solutions.',
+        'Bachelor’s degree in Finance, Economics, or a related field.',
+        'Previous experience in a banking environment preferred.'
       ],
       overview: {
-        postedDate: '15 Feb 2025',
-        location: 'Kingstown, St. Vincent',
-        vacancy: '01',
+        postedDate: '20 Feb 2025',
+        location: 'Bequia, St. Vincent',
+        vacancy: '02',
+        jobRefNo: 'LO-2025-02',
         jobNature: 'Full-time',
-        salary: '$5,500 - $7,000 per month',
-        applicationDeadline: '10 Mar 2025',
+        salary: '$3,000 - $4,500 per month',
+        applicationDeadline: '15 Apr 2025',
       },
       companyInfo: {
         name: 'Bank of St. Vincent and Grenadines',
         website: 'https://www.bosvg.com',
         email: 'careers@bosvg.com',
         description: `
-          The Bank of St. Vincent and Grenadines is a leading financial institution committed to providing 
-          innovative banking solutions and excellent customer service. We aim to foster growth
-          and financial stability within the region through our dedicated team of professionals.
+          Our team provides financial services with a personal touch, empowering our clients 
+          to achieve their financial goals with innovative loan products.
         `,
       },
-    }
-
-  
-
-    // ,{
-    //   id: 1,
-    //   status: ['New', 'Urgently hiring'],
-    //   title: 'Front End Developer',
-    //   company: 'Code Cloud Web',
-    //   location: 'Kolkata, West Bengal',
-    //   responseTime: 'Typically responds within 1 day',
-    //   salary: '₹2,06,368.89 - ₹2,50,000.00 a year',
-    //   jobType: 'Full-time',
-    //   shiftType: 'Day shift',
-    //   description: [
-    //     'Develop & Design: Create stunning websites using HTML/CSS and WordPress/Elementor.',
-    //     'Innovate with AI: Utilize your knowledge of AI prompt engineering to deliver desired outputs and enhance user...'
-    //   ]
-    // },
-    // {
-    //   id: 2,
-    //   status: ['New', 'Urgently hiring'],
-    //   title: 'Back End Developer',
-    //   company: 'Code Cloud Web',
-    //   location: 'Kolkata, West Bengal',
-    //   responseTime: 'Typically responds within 1 day',
-    //   salary: '₹2,06,368.89 - ₹2,50,000.00 a year',
-    //   jobType: 'Full-time',
-    //   shiftType: 'Day shift',
-    //   description: [
-    //     'Develop & Design: Create stunning websites using HTML/CSS and WordPress/Elementor.',
-    //     'Innovate with AI: Utilize your knowledge of AI prompt engineering to deliver desired outputs and enhance user...'
-    //   ]
-    // }
-    
+    },
+    {
+      title: 'IT Support Specialist',
+      company: 'Bank of St. Vincent and Grenadines',
+      location: 'Kingstown, St. Vincent',
+      salary: '$3,500 - $4,800 per month',
+      companyLogo: 'assets/bank-logo.jpg',
+      description: `
+        The Bank of St. Vincent and Grenadines invites applications for an IT Support Specialist
+        to manage our banking network infrastructure, provide technical support, and ensure the 
+        security of data, network access, and backup systems.
+      `,
+      requirements: [
+        'Strong experience in the administration and performance tuning of computer hardware.',
+        'Experience with virtualization and containerization (e.g., VMware, Virtual Box).',
+        'Experience with monitoring systems and IT security practices.',
+        'Excellent problem-solving skills and thorough knowledge of network administration.',
+        'Experience with data center management and data governance.'
+      ],
+      education: [
+        'Bachelor’s degree in Computer Science, Information Technology, System Administration, or a similar field.',
+        'Relevant certifications (e.g., CompTIA A+, Microsoft Certified IT Professional) will be an advantage.'
+      ],
+      overview: {
+        postedDate: '10 Mar 2025',
+        location: 'Kingstown, St. Vincent',
+        vacancy: '01',
+        jobRefNo: 'ITS-2025-03',
+        jobNature: 'Full-time',
+        salary: '$3,500 - $4,800 per month',
+        applicationDeadline: '25 Apr 2025',
+      },
+      companyInfo: {
+        name: 'Bank of St. Vincent and Grenadines',
+        website: 'https://www.bosvg.com',
+        email: 'careers@bosvg.com',
+        description: `
+          We provide cutting-edge technological support to ensure our banking operations run smoothly 
+          and securely, supporting the financial needs of our community.
+        `,
+      },
+    }        
   ];
 
   ngOnInit(): void {
