@@ -21,11 +21,11 @@ export class MyApplicationComponent implements OnInit {
   selectedFilter: string = 'applied';
   tableColumns: any[] = [
     { key: 'applicationId', label: 'Application ID', width: '10%' },
+    { key: 'jobRefNo', label: 'Job Ref No', width: '15%' },
     { key: 'jobTitle', label: 'Job Title', width: '22%' },
-    { key: 'companyName', label: 'Company Name', width: '20%' },
     { key: 'jobLocation', label: 'Location', width: '18%' },
-    { key: 'status', label: 'Status', width: '15%' },
     { key: 'applicationDate', label: 'Application Date', width: '10%' },
+    { key: 'status', label: 'Status', width: '15%' },
     {
       key: 'customActions', 
       label: 'Actions', 
@@ -39,51 +39,56 @@ export class MyApplicationComponent implements OnInit {
     {
       applicationId: 'BOSVG-A004',
       jobTitle: 'Customer Service Representative',
-      companyName: 'Bank of St. Vincent',
+      companyName: 'Bank of St. Vincent and Grenadines',
       jobLocation: 'Calliaqua, St. Vincent',
       status: 'Offer Released',
       applicationDate: '25/01/2024',
       isWithdrawn: false,
-      actions: { viewOffer: true }
+      actions: { viewOffer: true },
+      jobRefNo: 'CSR-2024-01'  // Example reference number
     },
     {
       applicationId: 'BOSVG-A001',
       jobTitle: 'Branch Manager',
-      companyName: 'Bank of St. Vincent',
+      companyName: 'Bank of St. Vincent and Grenadines',
       jobLocation: 'Kingstown, St. Vincent',
       status: 'Under Review',
       applicationDate: '05/02/2024',
       isWithdrawn: false,
-      actions: {}
+      actions: {},
+      jobRefNo: 'BM-2024-02'  // Example reference number
     },
     {
       applicationId: 'BOSVG-A002',
       jobTitle: 'Loan Officer',
-      companyName: 'Bank of St. Vincent',
+      companyName: 'Bank of St. Vincent and Grenadines',
       jobLocation: 'Bequia, St. Vincent',
       status: 'Shortlisted',
       applicationDate: '02/02/2024',
       isWithdrawn: false,
+      jobRefNo: 'LO-2024-03'  // Example reference number
     },
     {
       applicationId: 'BOSVG-A003',
       jobTitle: 'Financial Analyst',
-      companyName: 'Bank of St. Vincent',
+      companyName: 'Bank of St. Vincent and Grenadines',
       jobLocation: 'Georgetown, St. Vincent',
       status: 'Rejected',
       applicationDate: '29/01/2024',
       isWithdrawn: false,
-      actions: { viewDetails: false }
+      actions: { viewDetails: false },
+      jobRefNo: 'FA-2024-04'  // Example reference number
     },
     {
       applicationId: 'BOSVG-A005',
       jobTitle: 'IT Support Specialist',
-      companyName: 'Bank of St. Vincent',
+      companyName: 'Bank of St. Vincent and Grenadines',
       jobLocation: 'Kingstown, St. Vincent',
       status: 'Interview Scheduled',
       applicationDate: '20/01/2024',
       isWithdrawn: false,
-      actions: { viewDetails: true }
+      actions: { viewDetails: true },
+      jobRefNo: 'ITS-2024-05'  // Example reference number
     },
   ];
 

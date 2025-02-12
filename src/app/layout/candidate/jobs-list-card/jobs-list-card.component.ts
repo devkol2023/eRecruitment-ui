@@ -14,12 +14,12 @@ export class JobsListCardComponent implements OnInit {
   public jobs: any[] = [
     {
       title: 'Branch Manager',
-      company: 'Bank of St. Vincent',
+      company: 'Bank of St. Vincent and Grenadines',
       location: 'Kingstown, St. Vincent',
       salary: '$5,500 - $7,000 per month',
       companyLogo: 'assets/bank-logo.jpg',
       description: `
-        The Bank of St. Vincent is seeking a highly motivated and experienced Branch Manager
+        The Bank of St. Vincent and Grenadines is seeking a highly motivated and experienced Branch Manager
         to oversee the daily operations of the bank branch. The ideal candidate will be responsible
         for driving business growth, ensuring operational efficiency, and providing excellent 
         customer service.
@@ -46,11 +46,11 @@ export class JobsListCardComponent implements OnInit {
         applicationDeadline: '10 Mar 2025',
       },
       companyInfo: {
-        name: 'Bank of St. Vincent',
+        name: 'Bank of St. Vincent and Grenadines',
         website: 'https://www.bosvg.com',
         email: 'careers@bosvg.com',
         description: `
-          The Bank of St. Vincent is a leading financial institution committed to providing 
+          The Bank of St. Vincent and Grenadines is a leading financial institution committed to providing 
           innovative banking solutions and excellent customer service. We aim to foster growth
           and financial stability within the region through our dedicated team of professionals.
         `,
@@ -58,12 +58,12 @@ export class JobsListCardComponent implements OnInit {
     },
     {
       title: 'Bank Manager',
-      company: 'Bank of St. Vincent',
+      company: 'Bank of St. Vincent and Grenadines',
       location: 'Jamaica, St. Vincent',
       salary: '$5,500 - $7,000 per month',
       companyLogo: 'assets/bank-logo.jpg',
       description: `
-        The Bank of St. Vincent is seeking a highly motivated and experienced Branch Manager
+        The Bank of St. Vincent and Grenadines is seeking a highly motivated and experienced Branch Manager
         to oversee the daily operations of the bank branch. The ideal candidate will be responsible
         for driving business growth, ensuring operational efficiency, and providing excellent 
         customer service.
@@ -90,11 +90,11 @@ export class JobsListCardComponent implements OnInit {
         applicationDeadline: '10 Mar 2025',
       },
       companyInfo: {
-        name: 'Bank of St. Vincent',
+        name: 'Bank of St. Vincent and Grenadines',
         website: 'https://www.bosvg.com',
         email: 'careers@bosvg.com',
         description: `
-          The Bank of St. Vincent is a leading financial institution committed to providing 
+          The Bank of St. Vincent and Grenadines is a leading financial institution committed to providing 
           innovative banking solutions and excellent customer service. We aim to foster growth
           and financial stability within the region through our dedicated team of professionals.
         `,
