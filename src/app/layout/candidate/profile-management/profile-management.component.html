@@ -8,89 +8,138 @@
       <mat-expansion-panel-header class="header">
         <mat-panel-title> Personal Information </mat-panel-title>
       </mat-expansion-panel-header>
-      
-      <!-- Profile and ID Document Uploads in a Row -->
-      <div class="photo-upload-row">
-        <!-- Profile Photo Section -->
-        <div class="photo-upload-section">
-          <div *ngIf="profilePhoto" class="photo-preview">
-            <img [src]="profilePhoto" alt="Profile Photo" />
+      <div style="display: flex;">
+        <div style="width: 85%;">
+          <div class="group-form-field">
+            <mat-form-field appearance="outline" class="half-width">
+              <mat-label>Full Name</mat-label>
+              <input matInput formControlName="fullName" />
+              <mat-error *ngIf="profileForm.get('fullName')?.invalid && profileForm.get('fullName')?.touched">
+                Name is required
+              </mat-error>
+            </mat-form-field>
+    
+            <mat-form-field appearance="outline" class="half-width">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email"/>
+            </mat-form-field>
+    
+            <mat-form-field appearance="outline" class="half-width">
+              <mat-label>Phone</mat-label>
+              <input matInput formControlName="phone" />
+              <mat-error *ngIf="profileForm.get('phone')?.invalid && profileForm.get('phone')?.touched">
+                Phone No is required
+              </mat-error>
+            </mat-form-field>
           </div>
-          <input type="file" id="profilePhotoInput" (change)="onProfilePhotoUpload($event)" accept="image/*" hidden>
-          <button type="button" class="btn" (click)="triggerProfilePhotoUpload()">
-            {{ profilePhoto ? 'Change' : 'Upload' }} Profile Photo
-          </button>
-        </div>
-      
-        <!-- ID Document Section -->
-        <div class="document-upload-section">
-          <div *ngIf="candidateId" class="document-preview">
-            <mat-icon>attach_file</mat-icon>
-            <span [matTooltip]="candidateId?.name">{{ candidateId?.name }}</span>
-            <div class="tooltip">{{ candidateId?.name }}</div>
+    
+          <div class="group-form-field">
+            <mat-form-field appearance="outline" class="half-width">
+              <mat-label>Father's Name</mat-label>
+              <input matInput formControlName="fatherName" />
+              <mat-error *ngIf="profileForm.get('fatherName')?.invalid && profileForm.get('fatherName')?.touched">
+                Father's Name is required
+              </mat-error>
+            </mat-form-field>
+    
+            <mat-form-field appearance="outline" class="half-width">
+              <mat-label>Mother's Name</mat-label>
+              <input matInput formControlName="motherName" />
+              <mat-error *ngIf="profileForm.get('motherName')?.invalid && profileForm.get('motherName')?.touched">
+                Mother's Name is required
+              </mat-error>
+            </mat-form-field>
+    
+            <mat-form-field appearance="outline" class="half-width">
+              <mat-label>Highest Qualification</mat-label>
+              <mat-select formControlName="highestQualification">
+                <mat-option value="high_school">High School Diploma</mat-option>
+                <mat-option value="associate_business_finance">Associate's Degree in Business or Finance</mat-option>
+                <mat-option value="bachelor_business_admin">Bachelor's Degree in Business Administration</mat-option>
+                <mat-option value="bachelor_finance">Bachelor's Degree in Finance</mat-option>
+                <mat-option value="bachelor_economics">Bachelor's Degree in Economics</mat-option>
+                <mat-option value="mba">Master's Degree in Business Administration (MBA)</mat-option>
+                <mat-option value="master_finance">Master's Degree in Finance</mat-option>
+                <mat-option value="cfa">Chartered Financial Analyst (CFA) Certification</mat-option>
+                <mat-option value="cpa">Certified Public Accountant (CPA)</mat-option>
+              </mat-select>
+              <mat-error *ngIf="profileForm.get('highestQualification')?.invalid && profileForm.get('highestQualification')?.touched">
+                Highest Qualification is required
+              </mat-error>
+            </mat-form-field>
           </div>
-          <input type="file" id="idInput" (change)="onIdUpload($event)" accept=".pdf,.doc,.docx" hidden>
-          <button type="button" class="btn" (click)="triggerIdUpload()">
-            {{ candidateId ? 'Change' : 'Upload' }} ID Document
-          </button>
+    
+          <div class="group-form-field">
+            <mat-form-field appearance="outline" class="half-width">
+              <mat-label>Work Status</mat-label>
+              <mat-select formControlName="workStatus">
+                <mat-option value="experienced">Experienced Professional</mat-option>
+                <mat-option value="fresher">Fresher</mat-option>
+              </mat-select>
+              <mat-error *ngIf="profileForm.get('workStatus')?.invalid && profileForm.get('workStatus')?.touched">
+                Work Status is required
+              </mat-error>
+            </mat-form-field>
+    
+            <mat-form-field appearance="outline" class="half-width">
+              <mat-label>Passport Number</mat-label>
+              <input matInput formControlName="passportNumber" />
+            </mat-form-field>
+    
+            <mat-form-field appearance="outline" class="half-width">
+              <mat-label>Driving License Number</mat-label>
+              <input matInput formControlName="drivingLicenseNumber" />
+            </mat-form-field>
+          </div>
+    
+          <div class="group-form-field">
+            <mat-form-field appearance="outline" class="half-width">
+              <mat-label>Country</mat-label>
+              <mat-select formControlName="country" (selectionChange)="onCountryChange($event.value)">
+                <mat-option *ngFor="let country of countries" [value]="country">
+                  {{ country }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="profileForm.get('country')?.invalid && profileForm.get('country')?.touched">
+                Country is required
+              </mat-error>
+            </mat-form-field>
+    
+            <mat-form-field appearance="outline" class="half-width">
+              <mat-label>State</mat-label>
+              <mat-select formControlName="state">
+                <mat-option *ngFor="let state of statesForSelectedCountry" [value]="state">
+                  {{ state }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="profileForm.get('state')?.invalid && profileForm.get('state')?.touched">
+                State is required
+              </mat-error>
+            </mat-form-field>
+    
+            <mat-form-field appearance="outline" class="half-width">
+              <mat-label>Address</mat-label>
+              <input matInput formControlName="address" />
+              <mat-error *ngIf="profileForm.get('address')?.invalid && profileForm.get('address')?.touched">
+                Address is required
+              </mat-error>
+            </mat-form-field>
+          </div>
         </div>
-      </div>
-      
-      <div class="group-form-field">
-        <mat-form-field appearance="outline" class="half-width">
-          <mat-label>Full Name</mat-label>
-          <input matInput formControlName="fullName" />
-          <mat-error *ngIf="profileForm.get('fullName')?.invalid && profileForm.get('fullName')?.touched">
-            Name is required
-          </mat-error>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline" class="half-width">
-          <mat-label>Email</mat-label>
-          <input matInput formControlName="email"/>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline" class="half-width">
-          <mat-label>Phone</mat-label>
-          <input matInput formControlName="phone" />
-          <mat-error *ngIf="profileForm.get('phone')?.invalid && profileForm.get('phone')?.touched">
-            Phone No is required
-          </mat-error>
-        </mat-form-field>
-      </div>
-
-      <div class="group-form-field">
-        <mat-form-field appearance="outline" class="half-width">
-          <mat-label>Country</mat-label>
-          <mat-select formControlName="country" (selectionChange)="onCountryChange($event.value)">
-            <mat-option *ngFor="let country of countries" [value]="country">
-              {{ country }}
-            </mat-option>
-          </mat-select>
-          <mat-error *ngIf="profileForm.get('country')?.invalid && profileForm.get('country')?.touched">
-            Country is required
-          </mat-error>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline" class="half-width">
-          <mat-label>State</mat-label>
-          <mat-select formControlName="state">
-            <mat-option *ngFor="let state of statesForSelectedCountry" [value]="state">
-              {{ state }}
-            </mat-option>
-          </mat-select>
-          <mat-error *ngIf="profileForm.get('state')?.invalid && profileForm.get('state')?.touched">
-            State is required
-          </mat-error>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline" class="half-width">
-          <mat-label>Address</mat-label>
-          <input matInput formControlName="address" />
-          <mat-error *ngIf="profileForm.get('address')?.invalid && profileForm.get('address')?.touched">
-            Address is required
-          </mat-error>
-        </mat-form-field>
+  
+        <div style="width: 13%;">
+          <div class="photo-upload-row" style="width: 100%;">
+            <div class="photo-upload-section" style="width: 100%;">
+              <div class="photo-preview" style="width: 100%;">
+                <img [src]="profilePhoto" alt="Profile Photo" />
+              </div>
+              <input type="file" id="profilePhotoInput" (change)="onProfilePhotoUpload($event)" accept="image/*" hidden>
+              <button type="button" class="btn" (click)="triggerProfilePhotoUpload()">
+                {{ profilePhoto ? 'Change' : 'Upload' }} Photo
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </mat-expansion-panel>
 
@@ -135,7 +184,7 @@
           </button>
         </div>
       </div>
-      <button mat-flat-button class="btn" (click)="addEducation()">+ Add Education</button>
+      <button mat-flat-button class="btn" type="button" (click)="addEducation()">+ Add Education</button>
     </mat-expansion-panel>
 
     <!-- Dynamic Experience Section -->
@@ -179,7 +228,7 @@
           </button>
         </div>
       </div>
-      <button mat-flat-button class="btn" (click)="addExperience()">+ Add Experience</button>
+      <button mat-flat-button class="btn" type="button" (click)="addExperience()">+ Add Experience</button>
     </mat-expansion-panel>
 
     <!-- Skills Section -->
@@ -223,7 +272,42 @@
           </button>
         </div>
       </div>
-      <button mat-flat-button class="btn" (click)="addSkill()">+ Add Skill</button>
+      <button mat-flat-button class="btn" type="button" (click)="addSkill()">+ Add Skill</button>
+    </mat-expansion-panel>
+
+    <!-- Dynamic Experience Section -->
+    <mat-expansion-panel expanded="true">
+      <mat-expansion-panel-header class="header">
+        <mat-panel-title>Certification</mat-panel-title>
+      </mat-expansion-panel-header>
+      <div formArrayName="certification">
+        <div *ngFor="let exp of certificationControls.controls; let i = index" [formGroupName]="i" class="group-form-field">
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Certification Name</mat-label>
+            <input matInput formControlName="certificationName" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Certification Year</mat-label>
+            <input matInput type="number" formControlName="certificationYear" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Valid Upto Year</mat-label>
+            <input matInput type="number" formControlName="certificationValidUpto" />
+          </mat-form-field>
+
+          <!-- Upload Experience Documents -->
+          <div class="upload-section">
+            <input class="upload-input" type="file" (change)="onFileUpload($event, 'certification', i)" />
+          </div>
+
+          <button mat-icon-button color="warn" (click)="removeCertification(i)" matTooltip="Delete">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+      <button mat-flat-button class="btn" type="button" (click)="addCertification()">+ Add Certification</button>
     </mat-expansion-panel>
 
     <!-- Upload CV -->
@@ -233,6 +317,16 @@
       </mat-expansion-panel-header>
       <div class="upload-section">
         <input class="upload-input" type="file" (change)="onFileUpload($event, 'cv')" />
+      </div>
+    </mat-expansion-panel>
+
+    <!-- Upload ID -->
+    <mat-expansion-panel expanded="true">
+      <mat-expansion-panel-header class="header">
+        <mat-panel-title> Upload ID </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="upload-section">
+        <input class="upload-input" type="file" id="idInput" (change)="onIdUpload($event)" accept=".pdf,.doc,.docx"/>
       </div>
 
       <div class="form-actions">
