@@ -20,6 +20,7 @@ export class LoginComponent {
   hidePassword = true;
   isOtpLogin = false;
   isOtpSent = false;
+  showResetForm = false;
 
   users = [
     { username: 'candidate', password: '12345', role: 'Candidate' },
