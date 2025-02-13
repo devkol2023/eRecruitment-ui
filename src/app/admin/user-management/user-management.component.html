@@ -1,0 +1,140 @@
+<div class="page-container">
+
+        <div class="scheme-configuration-card registration-card">
+            <div class="scheme-configuration-title registration-title">
+                User Management
+            </div>
+            <div>
+                <div class="Udyam-check">
+                    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                        <mat-accordion multi style="text-align: left;">
+                            <mat-expansion-panel [expanded]="true">
+                                <mat-expansion-panel-header class="panel-header">
+                                    <mat-panel-title class="title-color">User Details</mat-panel-title>
+                                </mat-expansion-panel-header>
+
+                                <div class="container">    
+                                    <!-- Title -->
+                                    <div class="registration-item">
+                                        <label>Title <span class="red-asterisk">*</span></label>
+                                        <select formControlName="title" class="form-control">
+                                            <option value="" disabled selected>Select Title</option>
+                                            <option *ngFor="let title of titles" [value]="title">{{ title }}</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- First Name -->
+                                    <div class="registration-item">
+                                        <label>First Name <span class="red-asterisk">*</span></label>
+                                        <input formControlName="firstName" type="text" placeholder="Enter First Name" />
+                                    </div>
+
+                                    <!-- Middle Name -->
+                                    <div class="registration-item">
+                                        <label>Middle Name</label>
+                                        <input formControlName="middleName" type="text" placeholder="Enter Middle Name" />
+                                    </div>
+
+                                    <!-- Last Name -->
+                                    <div class="registration-item">
+                                        <label>Last Name <span class="red-asterisk">*</span></label>
+                                        <input formControlName="lastName" type="text" placeholder="Enter Last Name" />
+                                    </div>
+
+                                    <!-- Email -->
+                                    <div class="registration-item">
+                                        <label>Email ID <span class="red-asterisk">*</span></label>
+                                        <input formControlName="email" type="email" placeholder="Enter Email" />
+                                    </div>
+
+                                    <!-- Mobile Number -->
+                                    <div class="registration-item">
+                                        <label>Mobile Number <span class="red-asterisk">*</span></label>
+                                        <input formControlName="mobileNumber" type="text" placeholder="Enter Mobile Number" />
+                                    </div>
+                                </div>
+                                <hr>
+                                <div formArrayName="userEntries">
+                                    <div class="container2" *ngFor="let entry of userEntries.controls; let i = index" [formGroupName]="i">
+                                     
+                                            <!-- Role -->
+                                            <div class="registration-item2">
+                                                <label>Role <span class="red-asterisk">*</span></label>
+                                                <select formControlName="role" class="form-control">
+                                                    <option value="" disabled selected>Select Role</option>
+                                                    <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+                                                </select>
+                                            </div>
+        
+                                            <!-- Geographical Location -->
+                                            <div class="registration-item2">
+                                                <label>Geographical Location<span class="red-asterisk">*</span></label>
+                                                <select id="option" formControlName="geograph" class="form-control">
+                                                    <option value="">--Select--</option>
+                                                    <option value="State">State</option>
+                                                    <option value="Central">Central</option>
+                                                </select>
+                                            </div>
+        
+                                            <!-- District (Only If "State" is selected) -->
+                                            <div class="registration-item2" *ngIf="userEntries.controls[i].get('geograph')?.value == 'State'">
+                                                <label>District <span class="red-asterisk">*</span></label>
+                                                <select formControlName="district" class="form-control">
+                                                    <option value="" disabled>Select District</option>
+                                                    <option *ngFor="let dist of districtList" [value]="dist.districtId">{{ dist.districtName }}</option>
+                                                </select>
+                                            </div>
+        
+                                            <!-- Start Date -->
+                                            <div class="registration-item2">
+                                                <label>Start Date <span class="red-asterisk">*</span></label>
+                                                <input type="date" formControlName="startDate" class="form-control" />
+                                            </div>
+        
+                                            <!-- End Date -->
+                                            <div class="registration-item2">
+                                                <label>End Date <span class="red-asterisk">*</span></label>
+                                                <input type="date" formControlName="endDate" class="form-control" />
+                                            </div>
+        
+                                            <button class="btn-delete mt-4" mat-icon-button matTooltip="Delete" (click)="removeRow(i)" *ngIf="userEntries.length > 1">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                                    <path
+                                                        d="M12.2493 2.33333H10.441C10.3056 1.67499 9.94741 1.08345 9.42675 0.658419C8.90608 0.233386 8.2548 0.000848473 7.58268 0L6.41602 0C5.7439 0.000848473 5.09262 0.233386 4.57195 0.658419C4.05129 1.08345 3.69307 1.67499 3.55768 2.33333H1.74935C1.59464 2.33333 1.44627 2.39479 1.33687 2.50419C1.22747 2.61358 1.16602 2.76196 1.16602 2.91667C1.16602 3.07138 1.22747 3.21975 1.33687 3.32915C1.44627 3.43854 1.59464 3.5 1.74935 3.5H2.33268V11.0833C2.33361 11.8566 2.6412 12.5979 3.18798 13.1447C3.73476 13.6915 4.47609 13.9991 5.24935 14H8.74935C9.52261 13.9991 10.2639 13.6915 10.8107 13.1447C11.3575 12.5979 11.6651 11.8566 11.666 11.0833V3.5H12.2493C12.4041 3.5 12.5524 3.43854 12.6618 3.32915C12.7712 3.21975 12.8327 3.07138 12.8327 2.91667C12.8327 2.76196 12.7712 2.61358 12.6618 2.50419C12.5524 2.39479 12.4041 2.33333 12.2493 2.33333ZM6.41602 1.16667H7.58268C7.94451 1.16711 8.29734 1.27947 8.59279 1.48834C8.88824 1.69721 9.11184 1.99237 9.23293 2.33333H4.76577C4.88686 1.99237 5.11046 1.69721 5.40591 1.48834C5.70136 1.27947 6.05419 1.16711 6.41602 1.16667ZM10.4993 11.0833C10.4993 11.5475 10.315 11.9926 9.98679 12.3208C9.6586 12.649 9.21348 12.8333 8.74935 12.8333H5.24935C4.78522 12.8333 4.3401 12.649 4.01191 12.3208C3.68372 11.9926 3.49935 11.5475 3.49935 11.0833V3.5H10.4993V11.0833Z"
+                                                        fill="#BF322B" />
+                                                    <path
+                                                        d="M5.83333 10.5007C5.98804 10.5007 6.13642 10.4392 6.24581 10.3298C6.35521 10.2204 6.41667 10.072 6.41667 9.91732V6.41732C6.41667 6.26261 6.35521 6.11424 6.24581 6.00484C6.13642 5.89544 5.98804 5.83398 5.83333 5.83398C5.67862 5.83398 5.53025 5.89544 5.42085 6.00484C5.31146 6.11424 5.25 6.26261 5.25 6.41732V9.91732C5.25 10.072 5.31146 10.2204 5.42085 10.3298C5.53025 10.4392 5.67862 10.5007 5.83333 10.5007Z"
+                                                        fill="#BF322B" />
+                                                    <path
+                                                        d="M8.16732 10.5007C8.32203 10.5007 8.4704 10.4392 8.5798 10.3298C8.68919 10.2204 8.75065 10.072 8.75065 9.91732V6.41732C8.75065 6.26261 8.68919 6.11424 8.5798 6.00484C8.4704 5.89544 8.32203 5.83398 8.16732 5.83398C8.01261 5.83398 7.86424 5.89544 7.75484 6.00484C7.64544 6.11424 7.58398 6.26261 7.58398 6.41732V9.91732C7.58398 10.072 7.64544 10.2204 7.75484 10.3298C7.86424 10.4392 8.01261 10.5007 8.16732 10.5007Z"
+                                                        fill="#BF322B" />
+                                                </svg></button>
+                                      
+                                    </div>
+                                </div>
+                            <button class="btn" type="button" (click)="addNewRow()">Add New Role</button>
+
+                                <!-- Buttons -->
+                                <div style="float: right; margin-top: 50px; display: flex; gap: 15px;">
+                                    <button class="btn" type="submit">Save</button>
+                                    <button class="btn" type="button" (click)="userForm.reset()">Reset</button>
+                                </div>
+
+                            </mat-expansion-panel>
+                        </mat-accordion>
+
+                        <!-- Table Data -->
+                        <div >
+                            <app-table [columns]="tableColumns" [data]="tableData" 
+                                [paginationConfig]="paginationConfig"
+                                (onPageChange)="updatePage($event)" 
+                                (onSortChange)="handleSortChange($event)"
+                                (onItemsPerPageChange)="updateItemsPerPage($event)">
+                            </app-table>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+</div>
