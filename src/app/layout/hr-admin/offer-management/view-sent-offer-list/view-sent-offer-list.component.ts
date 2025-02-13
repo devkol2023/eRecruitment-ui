@@ -21,9 +21,10 @@ export class ViewSentOfferListComponent {
 
   // Table Columns
   tableColumns = [
-    { key: 'candidateName', label: 'Candidate Name', width: '30%' },
-    { key: 'jobTitle', label: 'Job Title', width: '25%' },
-    { key: 'offerDate', label: 'Offer Date', width: '15%' },
+    { key: 'candidateName', label: 'Candidate Name', width: '20%' },
+    { key: 'jobRefNo', label: 'Job Ref No', width: '15%' },
+    { key: 'jobTitle', label: 'Job Title', width: '20%' },
+    { key: 'offerDate', label: 'Offer Date', width: '10%' },
     { key: 'status', label: 'Status', width: '15%' },
     { key: 'actions', label: 'Actions', width: '15%', type: 'action', types: { viewOffer: true, resendOffer: true, withdrawOffer: true } }
   ];
@@ -34,6 +35,7 @@ export class ViewSentOfferListComponent {
       id: 'O001',
       candidateName: 'John Doe',
       jobTitle: 'Branch Manager',
+      jobRefNo: 'BM2024-101', // New field
       offerDate: '02/05/2024',
       status: 'Pending'
     },
@@ -41,6 +43,7 @@ export class ViewSentOfferListComponent {
       id: 'O002',
       candidateName: 'Jane Smith',
       jobTitle: 'Loan Officer',
+      jobRefNo: 'LO2024-102', // New field
       offerDate: '01/05/2024',
       status: 'Accepted'
     },
@@ -48,6 +51,7 @@ export class ViewSentOfferListComponent {
       id: 'O003',
       candidateName: 'Michael Brown',
       jobTitle: 'Financial Analyst',
+      jobRefNo: 'FA2024-103', // New field
       offerDate: '03/05/2024',
       status: 'Rejected'
     },
@@ -55,6 +59,7 @@ export class ViewSentOfferListComponent {
       id: 'O004',
       candidateName: 'Emily Davis',
       jobTitle: 'HR Manager',
+      jobRefNo: 'HR2024-104', // New field
       offerDate: '04/05/2024',
       status: 'Withdrawn'
     },
@@ -62,10 +67,12 @@ export class ViewSentOfferListComponent {
       id: 'O005',
       candidateName: 'Robert Johnson',
       jobTitle: 'Software Developer',
+      jobRefNo: 'SD2024-105', // New field
       offerDate: '02/05/2024',
       status: 'Pending'
     }
-  ];
+];
+
 
   filteredOffers = [...this.allOffers];
 

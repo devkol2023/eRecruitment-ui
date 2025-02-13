@@ -23,7 +23,8 @@ export class HrDashboardComponent {
   years = ['Current Year', 'Previous Year'];
 
   tableColumns = [
-    { key: 'jobTitle', label: 'Job Title', width: '25%' },
+    { key: 'jobRefNo', label: 'Job Ref No', width: '10%' },
+    { key: 'jobTitle', label: 'Job Title', width: '20%' },
     { key: 'department', label: 'Department', width: '15%' },
     { key: 'jobLocation', label: 'Location', width: '15%' },
     { key: 'employmentType', label: 'Employment Type', width: '10%' },
@@ -41,6 +42,7 @@ export class HrDashboardComponent {
       vacancies: '2',
       postedDate: '10/02/2024',
       status: 'Open',
+      jobRefNo: 'BM2024-001' 
     },
     {
       jobTitle: 'Loan Officer',
@@ -50,6 +52,7 @@ export class HrDashboardComponent {
       vacancies: '3',
       postedDate: '09/02/2024',
       status: 'Open',
+      jobRefNo: 'LO2024-002'
     },
     {
       jobTitle: 'Accountant',
@@ -59,6 +62,7 @@ export class HrDashboardComponent {
       vacancies: '1',
       postedDate: '08/02/2024',
       status: 'Closed',
+      jobRefNo: 'AC2024-003'
     }
   ];
 

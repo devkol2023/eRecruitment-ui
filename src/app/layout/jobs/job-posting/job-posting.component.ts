@@ -5,6 +5,8 @@ import { CustomErrorStateMatcher } from '../../../shared/matcher/ErrorStateMatch
 import { ViewJobDetailsModalComponent } from '../../hr-admin/job-management/view-job-details-modal/view-job-details-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { messages } from '../../../shared/constants/messages';
+import { MessageDialogService } from '../../../shared/service/message-dialog.service';
 
 @Component({
   selector: 'app-job-posting',
@@ -40,7 +42,7 @@ export class JobPostingComponent implements OnInit {
   jobId: string = '';
 
   constructor(private fb: FormBuilder, private dialog: MatDialog,
-    private route: ActivatedRoute
+    private route: ActivatedRoute, private dialogMessage: MessageDialogService
   ) {
     this.jobForm = this.fb.group({
       jobTitle: ['', Validators.required],
@@ -152,6 +154,14 @@ export class JobPostingComponent implements OnInit {
   onSubmit(): void {
     if (this.jobForm.valid) {
       const transformedData = this.transformData(this.jobForm.value);
+      this.dialogMessage.open({
+        title: messages.succussed,
+        message: messages.jobPostedSuccessfully,
+        iconType: 'success',
+        buttons: [
+          { text: 'Ok', style: 'primary-btn' }
+        ]
+      })
       this.jobForm.reset();
       this.jobForm.markAsPristine();
       this.jobForm.markAsUntouched();

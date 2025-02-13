@@ -1,6 +1,6 @@
 <app-home-banner></app-home-banner>
 <div>
-    <app-search-bar></app-search-bar>
+    <app-search-bar (customEvent)="navigateSearch($event)"></app-search-bar>
 </div>
 <mat-tab-group animationDuration="300ms">
     <mat-tab label="Jobs For You">

@@ -19,12 +19,12 @@ export class CandidateDetailsModalComponent {
   }
 
   downloadFile(fileName: string): void {
-    alert('Downloading: ' + fileName); 
+    // alert('Downloading: ' + fileName); 
     // Implement actual file download logic if needed
   }
 
   previewFile(fileName: string): void {
-    alert('Opening preview for: ' + fileName); 
+    // alert('Opening preview for: ' + fileName); 
     // Implement actual file preview logic (PDF viewer, Image viewer, etc.)
   }
 }

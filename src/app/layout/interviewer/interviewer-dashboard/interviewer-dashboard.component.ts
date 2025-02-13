@@ -14,15 +14,16 @@ export class InterviewerDashboardComponent implements OnInit {
   // Table Columns
   tableColumns = [
     { key: 'candidateName', label: 'Candidate Name', width: '25%' },
-    { key: 'jobTitle', label: 'Job Title', width: '30%' },
+    { key: 'jobRefNo', label: 'Job Ref No', width: '15%' },
+    { key: 'jobTitle', label: 'Job Title', width: '25%' },
     { key: 'interviewDate', label: 'Date & Time', width: '20%' },
     { key: 'status', label: 'Status', width: '20%' },
     // { key: 'actions', label: 'Actions', width: '20%', type: 'action', types: { join: true, feedback: true } }
   ];
 
   upcomingInterviews = [
-    { candidateName: 'John Doe', jobTitle: 'Branch Manager', interviewDate: '2024-03-10 10:00 AM', status: 'Scheduled' },
-    { candidateName: 'Jane Smith', jobTitle: 'Loan Officer', interviewDate: '2024-03-12 02:00 PM', status: 'Scheduled' }
+    { candidateName: 'John Doe', jobTitle: 'Branch Manager', interviewDate: '2024-03-10 10:00 AM', status: 'Scheduled', jobRefNo: 'BM2024-001', },
+    { candidateName: 'Jane Smith', jobTitle: 'Loan Officer', interviewDate: '2024-03-12 02:00 PM', status: 'Scheduled', jobRefNo: 'LO2024-002', }
   ];
 
   pendingAssessments = [

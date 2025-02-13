@@ -19,5 +19,6 @@ export const messages = {
     offerGeneratedBodyMsg: 'Offer Letter has been generated and sent to',
     profileUpdated: 'Profile updated successfully.',
     succussed: 'Success!',
-    jobAppliedSuccessfully: 'Your application has been submitted successfully. <br /> Reference No: <b>(number)</b>'
+    jobAppliedSuccessfully: 'Your application has been submitted successfully. <br /> Reference No: <b>(number)</b>',
+    jobPostedSuccessfully: 'Job posted successfully.'
 }

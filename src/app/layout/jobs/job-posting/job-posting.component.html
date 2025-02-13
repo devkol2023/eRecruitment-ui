@@ -12,7 +12,7 @@
 
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Job Title</mat-label>
-          <input matInput formControlName="jobTitle" placeholder="Enter job title" />
+          <input matInput formControlName="jobTitle" placeholder="Enter job title" [errorStateMatcher]="matcher"/>
           <mat-error *ngIf="jobForm.get('jobTitle')?.invalid && jobForm.get('jobTitle')?.touched">
             Job Title is required
           </mat-error>
@@ -20,7 +20,7 @@
 
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Job Description</mat-label>
-          <textarea matInput formControlName="jobDescription" rows="3"></textarea>
+          <textarea matInput formControlName="jobDescription" rows="3" [errorStateMatcher]="matcher"></textarea>
           <mat-error *ngIf="jobForm.get('jobDescription')?.invalid && jobForm.get('jobDescription')?.touched">
             Job Description is required (min 10 characters)
           </mat-error>
@@ -29,7 +29,7 @@
         <div class="group-form-field">
           <mat-form-field appearance="outline" class="half-width">
             <mat-label>Category</mat-label>
-            <mat-select formControlName="category">
+            <mat-select formControlName="category" [errorStateMatcher]="matcher">
               <mat-option *ngFor="let category of categories" [value]="category">
                 {{ category }}
               </mat-option>
@@ -39,7 +39,7 @@
 
           <mat-form-field appearance="outline" class="half-width">
             <mat-label>Job Type</mat-label>
-            <mat-select formControlName="jobType">
+            <mat-select formControlName="jobType" [errorStateMatcher]="matcher">
               <mat-option *ngFor="let jobType of jobTypes" [value]="jobType">
                 {{ jobType }}
               </mat-option>
@@ -49,7 +49,7 @@
 
           <mat-form-field appearance="outline" class="half-width">
             <mat-label>Vacancy</mat-label>
-            <input matInput type="number" formControlName="vacancy" placeholder="Required vacancy" />
+            <input matInput type="number" formControlName="vacancy" placeholder="Required vacancy" [errorStateMatcher]="matcher"/>
             <mat-error *ngIf="jobForm.get('vacancy')?.touched && jobForm.get('vacancy')?.hasError('required')">Vacancy is required</mat-error>
           </mat-form-field>
         </div>
@@ -57,19 +57,19 @@
         <div class="group-form-field">
           <mat-form-field appearance="outline" class="half-width">
             <mat-label>Minimum Salary</mat-label>
-            <input matInput formControlName="salaryMin" />
+            <input matInput formControlName="salaryMin" [errorStateMatcher]="matcher"/>
             <mat-error *ngIf="jobForm.get('salaryMin')?.touched && jobForm.get('salaryMin')?.hasError('required')">Minimum Salary is required</mat-error>
           </mat-form-field>
 
           <mat-form-field appearance="outline" class="half-width">
             <mat-label>Maximum Salary</mat-label>
-            <input matInput formControlName="salaryMax" />
+            <input matInput formControlName="salaryMax" [errorStateMatcher]="matcher"/>
             <mat-error *ngIf="jobForm.get('salaryMax')?.touched && jobForm.get('salaryMax')?.hasError('required')">Maximum Salary is required</mat-error>
           </mat-form-field>
 
           <mat-form-field appearance="outline" class="half-width">
             <mat-label>Candidate Type</mat-label>
-            <mat-select formControlName="candidateType">
+            <mat-select formControlName="candidateType" [errorStateMatcher]="matcher">
               <mat-option *ngFor="let type of candidateTypeOptions" [value]="type">
                 {{ type }}
               </mat-option>
@@ -81,7 +81,7 @@
         <div class="group-form-field">
           <mat-form-field appearance="outline" class="half-width">
             <mat-label>Country</mat-label>
-            <mat-select formControlName="country" (selectionChange)="onCountryChange($event.value)">
+            <mat-select formControlName="country" (selectionChange)="onCountryChange($event.value)" [errorStateMatcher]="matcher">
               <mat-option *ngFor="let country of countries" [value]="country">
                 {{ country }}
               </mat-option>
@@ -91,7 +91,7 @@
 
           <mat-form-field appearance="outline" class="half-width">
             <mat-label>State</mat-label>
-            <mat-select formControlName="state">
+            <mat-select formControlName="state" [errorStateMatcher]="matcher">
               <mat-option *ngFor="let state of statesForSelectedCountry" [value]="state">
                 {{ state }}
               </mat-option>
@@ -101,7 +101,7 @@
 
           <mat-form-field appearance="outline" class="half-width">
             <mat-label>City</mat-label>
-            <input matInput formControlName="city" />
+            <input matInput formControlName="city" [errorStateMatcher]="matcher"/>
             <mat-error *ngIf="jobForm.get('city')?.touched && jobForm.get('city')?.hasError('required')">City is required</mat-error>
           </mat-form-field>
         </div>
@@ -109,7 +109,7 @@
         <div class="group-form-field">
           <mat-form-field appearance="outline" class="half-width">
             <mat-label>Posting Date</mat-label>
-            <input matInput [matDatepicker]="picker" formControlName="postingDate" [errorStateMatcher]="matcher"/>
+            <input matInput [matDatepicker]="picker" formControlName="postingDate" [errorStateMatcher]="matcher" [errorStateMatcher]="matcher"/>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
             <mat-error *ngIf="jobForm.get('postingDate')?.touched && jobForm.get('postingDate')?.hasError('required')">Posting Date is required</mat-error>
@@ -125,7 +125,7 @@
 
           <mat-form-field appearance="outline" class="half-width">
             <mat-label>Job Ref No</mat-label>
-            <input matInput formControlName="jobRefNo" />
+            <input matInput formControlName="jobRefNo" [errorStateMatcher]="matcher"/>
             <mat-error *ngIf="jobForm.get('jobRefNo')?.touched && jobForm.get('jobRefNo')?.hasError('required')">Job Ref No is required</mat-error>
           </mat-form-field>
         </div>
@@ -141,7 +141,7 @@
         <div *ngFor="let skill of skillsControls.controls; let i = index" [formGroupName]="i" class="group-form-field">
           <mat-form-field appearance="outline" class="half-width" [style.margin-top]="i == 0 ? '10px' : ''">
             <mat-label>Knowledge/Skills/Abilities Details</mat-label>
-            <input matInput formControlName="skillsDetails" />
+            <input matInput formControlName="skillsDetails" [errorStateMatcher]="matcher"/>
             <mat-error *ngIf="skill.get('skillsDetails')?.touched && skill.get('skillsDetails')?.hasError('required')">Knowledge/Skills/Abilities Details is required</mat-error>
           </mat-form-field>
           <button mat-icon-button color="warn" type="button" (click)="removeSkill(i)" matTooltip="Delete" [style.margin-top]="i == 0 ? '10px' : ''">
@@ -161,7 +161,7 @@
           <div *ngFor="let exp of experienceControls.controls; let i = index" [formGroupName]="i" class="group-form-field">
             <mat-form-field appearance="outline" class="half-width" [style.margin-top]="i == 0 ? '10px' : ''">
               <mat-label>Education/Experience Details</mat-label>
-              <input matInput formControlName="expDetails" />
+              <input matInput formControlName="expDetails" [errorStateMatcher]="matcher"/>
               <mat-error *ngIf="exp.get('expDetails')?.touched && exp.get('expDetails')?.hasError('required')">Education/Experience Details is required</mat-error>
             </mat-form-field>
             <button mat-icon-button color="warn" type="button" (click)="removeExperience(i)" matTooltip="Delete" [style.margin-top]="i == 0 ? '10px' : ''">
