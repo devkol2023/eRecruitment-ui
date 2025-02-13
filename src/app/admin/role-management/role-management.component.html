@@ -1,0 +1,80 @@
+<div class="page-container">
+  
+        <div class="scheme-configuration-card registration-card">
+          <div class="scheme-configuration-title registration-title">
+              Role Management
+            </div>
+           
+                <div class="Udyam-check">
+                    <form [formGroup]="userForm">
+                        <mat-accordion multi style="text-align: left;">
+                            <mat-expansion-panel [expanded]="true" disabled>
+                                <mat-expansion-panel-header class="panel-header">
+                                    <!-- <mat-panel-title class="title-color">User Details</mat-panel-title> -->
+                                </mat-expansion-panel-header>
+                                <div class="container">    
+
+                                    <!-- Full Name -->
+                                    <div class="registration-item">
+                                        <label>Role Name<span class="red-asterisk">*</span></label>
+                                        <input formControlName="fullName" type="text" placeholder="Enter Role Name (e.g., Manager, Supervisor)" />
+                                        <div class="error-message" *ngIf="userForm.get('fullName')?.touched && userForm.get('fullName')?.invalid">
+                                            <small *ngIf="userForm.get('fullName')?.hasError('required')">Role Name is required.</small>
+                                        </div>
+                                    </div>
+                              
+                                    <!-- <div class="registration-item">
+                                        <label>Email ID <span class="red-asterisk">*</span></label>
+                                        <input formControlName="email" type="email" placeholder="Enter Official Email" />
+                                        <div class="error-message" *ngIf="userForm.get('email')?.touched && userForm.get('email')?.invalid">
+                                            <small *ngIf="userForm.get('email')?.hasError('required')">Email is required.</small>
+                                            <small *ngIf="userForm.get('email')?.hasError('email')">Enter a valid email address.</small>
+                                        </div>
+                                    </div>
+                                    
+                                 
+                                    <div class="registration-item">
+                                        <label>Mobile Number <span class="red-asterisk">*</span></label>
+                                        <input formControlName="mobileNumber" type="text" placeholder="Enter Mobile Number (10 digits)" />
+                                        <div class="error-message" *ngIf="userForm.get('mobileNumber')?.touched && userForm.get('mobileNumber')?.invalid">
+                                            <small *ngIf="userForm.get('mobileNumber')?.hasError('required')">Mobile number is required.</small>
+                                            <small *ngIf="userForm.get('mobileNumber')?.hasError('pattern')">Enter a valid 10-digit mobile number.</small>
+                                        </div>
+                                    </div> -->
+                                    
+                                    <!-- Role Name -->
+                                    <div class="registration-item">
+                                        <label>Role Description <span class="red-asterisk">*</span></label>
+                                        <textarea formControlName="roleName" type="text" placeholder="Enter Description"></textarea>
+                                        <div class="error-message" *ngIf="userForm.get('roleName')?.touched && userForm.get('roleName')?.invalid">
+                                            <small *ngIf="userForm.get('roleName')?.hasError('required')">Role Description is required.</small>
+                                        </div>
+                                    </div>
+                                    
+                                
+                                </div>
+                                
+                                 
+                                   <div style="float: right; margin-top: 10px; display: flex; gap: 15px;">
+                                        <button class="btn" type="submit">Save</button>
+                                        <button class="btn" type="button" (click)="userForm.reset()">Reset</button>
+                                   </div>
+                     
+                            </mat-expansion-panel>
+                        </mat-accordion>
+
+                        <div style="margin-top: -60px;">
+                            <app-table [columns]="tableColumns" [data]="tableData" [paginationConfig]="paginationConfig"
+                                (onPageChange)="updatePage($event)" (onSortChange)="handleSortChange($event)"
+                                (onItemsPerPageChange)="updateItemsPerPage($event)">
+                            </app-table>
+                        </div>
+                    </form>
+                </div>
+            
+        </div>
+
+</div>
+
+  
+

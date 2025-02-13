@@ -52,6 +52,20 @@
       </li> -->
     </ng-container>
 
+    <!-- Admin Menu -->
+    <ng-container *ngIf="loggedInUser?.role === 'Admin'">
+      <li><a routerLink="/admin/user-management" (click)="closeDropdown()">User Management</a></li>
+    </ng-container>
+    <ng-container *ngIf="loggedInUser?.role === 'Admin'">
+      <li><a routerLink="/admin/role-management" (click)="closeDropdown()">Role Management</a></li>
+    </ng-container>
+    <ng-container *ngIf="loggedInUser?.role === 'Admin'">
+      <li><a routerLink="/admin/notification-management" (click)="closeDropdown()">notification Management</a></li>
+    </ng-container>
+    <ng-container *ngIf="loggedInUser?.role === 'Admin'">
+      <li><a routerLink="/admin/system-parameters" (click)="closeDropdown()">System Parameters</a></li>
+    </ng-container>
+
     <li><a routerLink="/about" (click)="closeDropdown()">About</a></li>
     <li><a routerLink="/contact" (click)="closeDropdown()">Contact</a></li>
   </ul>

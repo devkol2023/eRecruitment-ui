@@ -1,0 +1,175 @@
+.page-container {
+    background-color: #e0e0e0;
+    min-height: 50vh;
+    height: auto;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .scheme-configuration-card {
+    width: 100%;
+    min-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .scheme-configuration-title {
+    font-size: 23px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 10px 0;
+    border: 2px solid #bf322b;
+    border-radius: 5px;
+    background: #bf322b;
+    color: white;
+  }
+  
+  .mat-accordion {
+    text-align: left;
+  }
+  
+  .panel-header {
+    background: #e86153;
+    height: 40px !important;
+    color: white;
+  }
+  
+  .panel {
+    margin-top: 3px;
+  }
+  
+  .title-color {
+    color: black !important;
+  }
+  
+  .registration-form {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    // max-width: 600px;
+    margin: auto;
+  }
+  
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding-top: 10px;
+  }
+  
+  .registration-item {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .registration-item label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .registration-item .red-asterisk {
+    color: red;
+    margin-left: 4px;
+  }
+  
+  .registration-item input,
+  .registration-item select,
+  .registration-item textarea {
+    padding: 10px;
+    font-size: 14px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .registration-item input:focus,
+  .registration-item select:focus,
+  .registration-item textarea:focus {
+    border-color: #bf322b;
+    box-shadow: 0 0 5px rgba(191, 50, 43, 0.5);
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 16px;
+    margin-top: 5px;
+  }
+  
+  .final-button {
+    text-align: end;
+    padding: 10px 0 0 0;
+  }
+  
+  
+  
+  
+  /* Style for the container */
+  .container2 {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    gap: 10px; /* Reduce the space between items */
+    justify-content: center; /* Center horizontally */
+  }
+  
+  /* Style for individual registration items */
+  .registration-item2 {
+    display: flex;
+    flex-direction: column; /* Labels above inputs/selects */
+    flex: 1 1 180px; /* Adjust min-width for tighter layout */
+    margin-bottom: 5px; /* Reduce the bottom margin */
+  }
+  
+  /* Style for labels */
+  .registration-item2 label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 3px; /* Reduce space below label */
+    color: #333;
+  }
+  
+  /* Style for inputs and selects */
+  .registration-item2 .form-control {
+    padding: 6px 8px; /* Reduce padding for tighter input boxes */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%; /* Full width for better alignment */
+    box-sizing: border-box;
+  }
+  .registration-item2 .red-asterisk {
+    color: red;
+    margin-left: 4px;
+  }
+  .registration-item2 input,
+  .registration-item2 select,
+  .registration-item2 textarea {
+    padding: 10px;
+    font-size: 14px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .registration-item2 input:focus,
+  .registration-item2 select:focus,
+  .registration-item2 textarea:focus {
+    border-color: #bf322b;
+    box-shadow: 0 0 5px rgba(191, 50, 43, 0.5);
+  }
+  /* Adjust for screens smaller than 768px */
+  @media (max-width: 768px) {
+    .container2 {
+      flex-direction: column; /* Stack items vertically on smaller screens */
+    }
+    .registration-item2 {
+      flex: 1 1 100%; /* Full width for smaller screens */
+    }
+  }
+  

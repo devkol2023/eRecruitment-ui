@@ -26,6 +26,7 @@ export class LoginComponent {
     { username: 'candidate', password: '12345', role: 'Candidate' },
     { username: 'hr', password: '12345', role: 'HR' },
     { username: 'interviewer', password: '12345', role: 'Interviewer' },
+    { username: 'admin', password: '12345', role: 'Admin' },
   ];
 
   constructor(private fb: FormBuilder, private router: Router,
