@@ -110,4 +110,10 @@ export class NavbarComponent implements OnInit {
     this.isNotificationOpen = false;
     this.isProfileDropdownOpen = false;
   }
+
+  changePassword(): void {
+    this.isNotificationOpen = false;
+    this.isProfileDropdownOpen = false;
+    this.router.navigate(['/auth/change-password']);
+  }
 }
