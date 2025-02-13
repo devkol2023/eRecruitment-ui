@@ -11,16 +11,14 @@
                     <mat-expansion-panel-header class="panel-header">
                       <mat-panel-title class="title-color">Create Notification</mat-panel-title>
                     </mat-expansion-panel-header>
-                    <div class="container">
-                        
-                      <div class="registration-item">
-                        <label>Title<span class="red-asterisk">*</span></label>
-                        <input type="text" formControlName="title" placeholder="Enter Notification Title" />
-                        <small class="error-message"
-                          *ngIf="notificationForm.get('title')?.touched && notificationForm.get('title')?.invalid">
-                          Title is required.
-                        </small>
-                      </div>
+                    <div class="group-form-field" style="margin-top: 20px;">                    
+                        <mat-form-field appearance="outline" class="half-width">
+                            <mat-label>Title</mat-label>
+                            <input matInput formControlName="title" />
+                            <mat-error  *ngIf="notificationForm.get('title')?.invalid && notificationForm.get('title')?.touched">
+                                Title is required
+                            </mat-error>
+                        </mat-form-field>
 
                       <mat-form-field appearance="outline" class="half-width">
                         <mat-label>Send Date</mat-label>
@@ -33,44 +31,32 @@
 
                       <mat-form-field appearance="outline" class="half-width">
                         <mat-label>End Date</mat-label>
-                        <input matInput [matDatepicker]="picker" formControlName="endDateTime" [errorStateMatcher]="matcher"/>
-                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                        <mat-datepicker #picker></mat-datepicker>
+                        <input matInput [matDatepicker]="picker2" formControlName="endDateTime" [errorStateMatcher]="matcher"/>
+                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
                         <mat-error *ngIf="notificationForm.get('endDateTime')?.invalid && notificationForm.get('endDateTime')?.touched">End Date is required</mat-error>
                       </mat-form-field>
+                </div>
+                      
+                      <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Message</mat-label>
+                        <textarea matInput formControlName="message" rows="3" [errorStateMatcher]="matcher"></textarea>
+                        <mat-error *ngIf="notificationForm.get('message')?.invalid && notificationForm.get('message')?.touched">
+                            Message is required.
+                        </mat-error>
+                      </mat-form-field>
 
-                      <div class="registration-item message-item">
-                        <label>Message<span class="red-asterisk">*</span></label>
-                        <textarea formControlName="message" placeholder="Enter Notification Message"></textarea>
-                        <small class="error-message"
-                          *ngIf="notificationForm.get('message')?.touched && notificationForm.get('message')?.invalid">
-                          Message is required.
-                        </small>
-                      </div>
                       <div class="registration-item audience-item">
                         <label>Audience<span class="red-asterisk">*</span></label>
                         <div>
-                          <label>
-                            <input type="checkbox" formControlName="allAudience" (change)="onAudienceChange('all')" />
-                            <span>All Users</span>
-                          </label>
-                          <label>
-                            <input type="checkbox" formControlName="deptAudience" [disabled]="notificationForm.get('allAudience')?.value"
-                              (change)="onAudienceChange('dept')" />
-                            <span>Dept Users</span>
-                          </label>
-                          <label>
-                            <input type="checkbox" formControlName="msmeAudience" [disabled]="notificationForm.get('allAudience')?.value"
-                              (change)="onAudienceChange('msme')" />
-                            <span>MSME Users</span>
-                          </label>
+                            <mat-checkbox *ngFor="let fileType of audienceType" [value]="fileType" formControlName="fileTypes">{{ fileType }}</mat-checkbox>
                         </div>
                         <small class="error-message"
-                          *ngIf="!notificationForm.get('allAudience')?.value && !notificationForm.get('deptAudience')?.value && !notificationForm.get('msmeAudience')?.value">
+                          *ngIf="!notificationForm.get('fileTypes')?.value">
                           At least one audience must be selected.
                         </small>
                       </div>
-                    </div>
+                
                     <div class="final-button">
                       <button class="btn" type="button" (click)="addNotification()">Add Notification</button>
                     </div>

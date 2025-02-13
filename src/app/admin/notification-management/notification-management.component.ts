@@ -23,36 +23,39 @@ export class NotificationManagementComponent implements OnInit {
     { key: 'endDateTime', label: 'End Date', width: '15%' },
     { key: '', label: 'Actions', width: '10%', type: 'action', types: { edit: true, delete: true } },
   ];
+  audienceType: string[] = ['HR Manager','Recruiter','Interviewer','Talent Acquisition Specialist'];
+
   tableData: any[] = [
     {
-      title:'Buyer Seller Meet',
-      message:'',
-      audience:'MSME Users',
-      sendDateTime:'01/26/2025',
-      endDateTime:'04/26/2025',
+      title: 'New Credit Facility Launch',
+      message: 'We are excited to announce the launch of our new credit facility aimed at supporting small and medium enterprises (SMEs) in St. Vincent.',
+      audience: 'SME Clients',
+      sendDateTime: '02/01/2025',
+      endDateTime: '05/01/2025',
     },
     {
-      title:'Update land availability for Agri processing unit',
-      message:'',
-      audience:'MSME Users',
-      sendDateTime:'01/26/2025',
-      endDateTime:'04/26/2025',
+      title: 'Annual General Meeting',
+      message: 'Join us for our Annual General Meeting to review the past year’s achievements and discuss future plans. All shareholders are invited.',
+      audience: 'Shareholders',
+      sendDateTime: '03/15/2025',
+      endDateTime: '03/15/2025',
     },
     {
-      title:'Upcoming training on Packaging',
-      message:'',
-      audience:'MSME Users',
-      sendDateTime:'01/26/2025',
-      endDateTime:'04/26/2025',
+      title: 'Financial Literacy Workshop',
+      message: 'Sign up for our upcoming workshop on financial literacy, designed to help you manage your finances better. Open to all our clients.',
+      audience: 'Bank Clients',
+      sendDateTime: '03/01/2025',
+      endDateTime: '04/01/2025',
     },
     {
-      title:'Government signed an MoU',
-      message:'Government signed an MoU with the Credit Guarantee Fund Trust for Micro and Small Enterprises (CGFTMSE) to strengthen the credit delivery system for MSME borrowers',
-      audience:'MSME Users',
-      sendDateTime:'01/26/2025',
-      endDateTime:'04/26/2025',
+      title: 'New Branch Opening',
+      message: 'We are pleased to announce the opening of our new branch in Kingstown. Visit us for all your banking needs, including loans, savings accounts, and more.',
+      audience: 'Local Residents',
+      sendDateTime: '04/10/2025',
+      endDateTime: '04/10/2026',
     }
   ];
+  
 
   paginationConfig = {
     id: 'dynamic_table',
@@ -69,9 +72,7 @@ export class NotificationManagementComponent implements OnInit {
       message: ['', Validators.required],
       sendDateTime: ['', Validators.required],
       endDateTime: [''],
-      allAudience: [true],
-      deptAudience: [false],
-      msmeAudience: [false],
+      fileTypes:['']
     });
     this.onAudienceChange('all');
   }
