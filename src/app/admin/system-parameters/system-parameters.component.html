@@ -1,1 +1,104 @@
-<p>system-parameters works!</p>
+<div class="page-container">
+
+        <div class="scheme-configuration-card registration-card">
+          <div class="scheme-configuration-title registration-title">
+            System Parameters
+            </div>
+           
+                <div class="Udyam-check">
+                    <form [formGroup]="systemParamsForm">
+                        <mat-accordion multi style="text-align: left;">
+                            <mat-expansion-panel [expanded]="true" disabled>
+                                <mat-expansion-panel-header class="panel-header">
+                                    <!-- <mat-panel-title>System Parameters</mat-panel-title> -->
+                                </mat-expansion-panel-header>
+                    
+                                <div class="container">
+                                    <!-- Document Upload Size -->
+                                    <div class="registration-item">
+                                        <label>Document Upload Size (MB)<span class="red-asterisk">*</span></label>
+                                        <input class="form-control" formControlName="documentUploadSize" type="number" placeholder="2 MB" />
+                                        <div class="error-message" *ngIf="systemParamsForm.get('documentUploadSize')?.touched && systemParamsForm.get('documentUploadSize')?.invalid">
+                                            <small *ngIf="systemParamsForm.get('documentUploadSize')?.hasError('required')">This field is required.</small>
+                                        </div>
+                                    </div>
+                    
+                                    <!-- Password Expire Time -->
+                                    <div class="registration-item">
+                                        <label>Password Expire Time (Days)<span class="red-asterisk">*</span></label>
+                                        <input class="form-control" formControlName="passwordExpireTime" type="number" placeholder="120 Days" />
+                                        <div class="error-message" *ngIf="systemParamsForm.get('passwordExpireTime')?.touched && systemParamsForm.get('passwordExpireTime')?.invalid">
+                                            <small *ngIf="systemParamsForm.get('passwordExpireTime')?.hasError('required')">This field is required.</small>
+                                        </div>
+                                    </div>
+                    
+                                    <!-- Email Notification Applicable -->
+                                    <div class="registration-item">
+                                        <label>Email Notification Applicable<span class="red-asterisk">*</span></label>
+                                        <mat-radio-group class="form-control" formControlName="emailNotification">
+                                            <mat-radio-button value="yes">Yes</mat-radio-button>
+                                            <mat-radio-button value="no">No</mat-radio-button>
+                                        </mat-radio-group>
+                                    </div>
+                    
+                                    <!-- System Notification Applicable -->
+                                    <div class="registration-item">
+                                        <label>System Notification Applicable<span class="red-asterisk">*</span></label>
+                                        <mat-radio-group formControlName="systemNotification" class="form-control">
+                                            <mat-radio-button value="yes">Yes</mat-radio-button>
+                                            <mat-radio-button value="no">No</mat-radio-button>
+                                        </mat-radio-group>
+                                    </div>
+                    
+                                    <!-- File Types for eFile System -->
+                                    <div class="registration-item">
+                                        <label>File Types for MSME System<span class="red-asterisk">*</span></label>
+                                        <div class="checkbox-group">
+                                            <mat-checkbox *ngFor="let fileType of fileTypes" [value]="fileType" formControlName="fileTypes">{{ fileType }}</mat-checkbox>
+                                        </div>
+                                    </div>
+                    
+                                    <!-- Invalid Login Attempt Count -->
+                                    <div class="registration-item">
+                                        <label>Invalid Login Attempt Count<span class="red-asterisk">*</span></label>
+                                        <input class="form-control" formControlName="invalidLoginAttempts" type="number" placeholder="5" />
+                                        <div class="error-message" *ngIf="systemParamsForm.get('invalidLoginAttempts')?.touched && systemParamsForm.get('invalidLoginAttempts')?.invalid">
+                                            <small *ngIf="systemParamsForm.get('invalidLoginAttempts')?.hasError('required')">This field is required.</small>
+                                        </div>
+                                    </div>
+                    
+                                    <!-- Enable Two-Factor Authentication -->
+                                    <div class="registration-item">
+                                        <label>Enable Two-Factor Authentication<span class="red-asterisk">*</span></label>
+                                        <mat-radio-group class="form-control" formControlName="twoFactorAuth">
+                                            <mat-radio-button value="yes">Yes</mat-radio-button>
+                                            <mat-radio-button value="no">No</mat-radio-button>
+                                        </mat-radio-group>
+                                    </div>
+                    
+                                    <!-- Auto-Deletion of Archived Documents -->
+                                    <!-- <div class="registration-item">
+                                        <label>Auto-Deletion of Archived Documents (Days)<span class="red-asterisk">*</span></label>
+                                        <input class="form-control" formControlName="autoDeletionDays" type="number" placeholder="Enter number of days" />
+                                        <div class="error-message" *ngIf="systemParamsForm.get('autoDeletionDays')?.touched && systemParamsForm.get('autoDeletionDays')?.invalid">
+                                            <small *ngIf="systemParamsForm.get('autoDeletionDays')?.hasError('required')">This field is required.</small>
+                                        </div>
+                                    </div>
+                     -->
+                                </div>
+                    
+                                <div style="float: right; margin-top: 10px; display: flex; gap: 15px;">
+                                    <button class="btn" type="submit">Save</button>
+                                    <button class="btn" type="button" (click)="systemParamsForm.reset()">Reset</button>
+                                </div>
+                            </mat-expansion-panel>
+                        </mat-accordion>
+                    </form>
+                    
+                </div>
+            
+        </div>
+    </div>
+
+  
+

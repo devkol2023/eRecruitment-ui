@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CustomErrorStateMatcher } from '../../shared/matcher/ErrorStateMatcher';
 
 @Component({
   selector: 'app-user-management',
@@ -11,7 +12,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class UserManagementComponent implements OnInit {
   userForm!: FormGroup;
   titles: string[] = ['Mr.', 'Ms.', 'Mrs.', 'Dr.', 'Prof.'];
-  roles: string[] = ['DCIC', 'DCI', 'DEPTCI'];
+  roles: string[] = ['HR Manager', 'Interviewer', 'Recruiter','Talent Acquisition Specialist'];
   usersDetails: any[] = [];
   districtList:any[]=[];
   tableColumns = [
@@ -29,7 +30,20 @@ export class UserManagementComponent implements OnInit {
   ];
   
   districts: string[] = [];
-  tableData: any[] = [];
+  tableData: any[] = [
+    {
+      name:'Micheal Jordan', roleName: 'HR Manager', userName: 'hrmanager@jobportal.com' , mobileNo: '1234567890' , verified: '', toggle: ''
+    },
+    {
+      name:'Kobe Bryant', roleName: 'Interviewer', userName: 'interviewer@jobportal.com' , mobileNo: '1234567890' , verified: '', toggle: ''
+    },
+    {
+      name:'Kevin Durant', roleName: 'Recruiter', userName: 'recruiter@jobportal.com' , mobileNo: '1234567890' , verified: '', toggle: ''
+    },
+    {
+      name:"Shaquille O'Neal", roleName: 'Talent Acquisition Specialist', userName: 'talent@jobportal.com' , mobileNo: '1234567890' , verified: '', toggle: ''
+    }
+  ];
 
   paginationConfig = {
     id: 'dynamic_table',
@@ -37,6 +51,7 @@ export class UserManagementComponent implements OnInit {
     currentPage: 1,
     totalItems: this.tableData.length,
   };
+  matcher = new CustomErrorStateMatcher();
 
   constructor(private fb: FormBuilder) {}
 
@@ -48,11 +63,7 @@ export class UserManagementComponent implements OnInit {
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       mobileNumber: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
-      // role: ['', Validators.required],
-      // geograph: ['', Validators.required],  // State or Central
-      // district: [''], // District selection
-      // startDate: ['', Validators.required],
-      // endDate: ['', Validators.required],
+
       userEntries: this.fb.array([this.createUserEntry()])
     });
 
@@ -80,8 +91,8 @@ export class UserManagementComponent implements OnInit {
   createUserEntry(): FormGroup {
     return this.fb.group({
       role: ['', Validators.required],
-      geograph: ['', Validators.required], // State or Central
-      district: [''], // District selection
+      // geograph: ['', Validators.required], 
+      // district: [''], 
       startDate: ['', Validators.required],
       endDate: ['', Validators.required]
     });
@@ -132,7 +143,7 @@ export class UserManagementComponent implements OnInit {
   updateDistricts(stateName: string) {
     const selectedState = this.states.find(state => state.name === stateName);
     this.districts = selectedState ? selectedState.districts : [];
-    this.userForm.get('district')?.setValue(''); // Reset district selection
+    this.userForm.get('district')?.setValue(''); 
   }
 
   updatePage(page: number): void {
