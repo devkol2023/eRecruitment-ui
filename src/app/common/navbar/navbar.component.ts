@@ -42,7 +42,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.authService.getUser().subscribe((user:any) => {
       this.loggedInUser = user;
-      if(this.loggedInUser.role == 'hr'){
+      if(this.loggedInUser?.role == 'HR'){
         this.roleDesc = 'Recruiting Lead'
         this.userName = 'Micheal Jordan'
       }

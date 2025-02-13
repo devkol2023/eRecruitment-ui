@@ -20,7 +20,7 @@ export class HrDashboardComponent {
   successfulHires = 3;
   totalUsers = 50;
 
-  years = ['Previous Year','Current Year'];
+  years = ['Current Year', 'Previous Year'];
 
   tableColumns = [
     { key: 'jobTitle', label: 'Job Title', width: '25%' },

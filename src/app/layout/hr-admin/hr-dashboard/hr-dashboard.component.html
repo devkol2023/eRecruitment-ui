@@ -7,8 +7,8 @@
  
       <mat-form-field style="margin-top: 25px;
       width: 50%;" appearance="outline" class="full-width">
-        <mat-label>Year</mat-label>
-        <mat-select formControlName="candidateType">
+        <mat-label>Select Data Period</mat-label>
+        <mat-select value="Current Year">
           <mat-option *ngFor="let year of years" [value]="year">
             {{ year }}
           </mat-option>
@@ -74,11 +74,11 @@
       <h3 class="section-title">Recent Job Postings</h3>
       <mat-form-field style="margin-top: 25px; margin-left: 15%;
       width: 50%;" appearance="outline" class="full-width">
-        <mat-label>Year</mat-label>
-        <mat-select formControlName="candidateType">
-          <mat-option *ngFor="let year of years" [value]="year">
-            {{ year }}
-          </mat-option>
+        <mat-label>Select Data Period</mat-label>
+        <mat-select value="thismonth">
+          <mat-option value="thismonth">This Month</mat-option>
+          <mat-option value="thismonth">Last Month</mat-option>
+          <mat-option value="thismonth">Last 6 Months</mat-option>
         </mat-select>
       </mat-form-field>
       <app-table [columns]="tableColumns" [data]="recentJobPosts" [paginationConfig]="paginationConfig"
