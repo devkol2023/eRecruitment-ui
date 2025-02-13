@@ -22,6 +22,14 @@ export class HomeBannerComponent implements OnInit {
   ngOnInit(): void {
     this.authService.getUser().subscribe(user => {
       this.userInfo.role = user?.role;
+      if(this.userInfo?.role == 'HR'){
+        this.userInfo.department = 'Recruiting Lead'
+        this.userInfo.name = 'Micheal Jordan'
+      }
+      else{
+        this.userInfo.department = 'Banking & Finance'
+        this.userInfo.name = 'LeBron James'
+      } 
     });
   }
 }
