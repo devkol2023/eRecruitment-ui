@@ -79,7 +79,7 @@ export class JobDetailsComponent implements OnInit, AfterViewInit {
   }
 
   private processJobChange(job: any) {
-    if(this.from == 'candidate-dashboard') {
+    if(this.from == 'candidate-dashboard' || job) {
       this.jobDetails = job;
       this.jobApplied = false;
     }

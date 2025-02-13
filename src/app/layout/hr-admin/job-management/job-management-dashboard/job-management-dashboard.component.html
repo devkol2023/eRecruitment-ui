@@ -22,20 +22,28 @@
             <mat-card-subtitle>{{ job.department }}</mat-card-subtitle>
           </mat-card-header>
           <mat-card-content>
-            <p>{{ job.description }}</p>
-            <p><strong>Type:</strong> {{ job.type }}</p>
-            <p><strong>Location:</strong> {{ job.location }}</p>
-            <p><strong>Posted On:</strong> {{ job.postedDate }}</p>
+            <p matTooltip="{{ job.description }}" class="desc-txt">
+              {{ job.description }}
+            </p>                       
+            <p><strong>Type:</strong> {{ job.overview?.jobNature }}</p>
+            <!-- <p><strong>Location:</strong> {{ job.location }}</p> -->
+            <p><strong>Posted On:</strong> {{ job.overview?.postedDate }}</p>
+            <p><strong>Application Deadline:</strong> {{ job.overview?.applicationDeadline }}</p>
+            <p><strong>Job Ref No:</strong> {{ job.overview?.jobRefNo }}</p>
           </mat-card-content>
           <mat-card-actions>
-            <button mat-raised-button class="btn" (click)="viewJobOverview(job)" style="width: 150px;">
-                <mat-icon>visibility</mat-icon> View Details
+            <button mat-raised-button class="btn" (click)="viewJobOverview(job)">
+                <mat-icon>visibility</mat-icon> View Job
               </button>
-              <button mat-raised-button class="btn" (click)="viewAppliedCandidates(job)" style="width: 160px;">
+              <button mat-raised-button class="btn" (click)="editJob(job)">
+                <mat-icon>edit</mat-icon> Edit Job
+              </button>
+              <button mat-raised-button class="btn" *ngIf="selectedCategory == 'ongoing'" (click)="markAsComplete(job)">
+                <mat-icon>check_circle</mat-icon> Mark as Complete
+              </button>
+              <button mat-raised-button class="btn" (click)="viewAppliedCandidates(job)">
                 <mat-icon>people</mat-icon> View Applicants
               </button>
-            <!-- <button class="btn" (click)="viewJobOverview(job)">View Details</button>
-            <button class="btn" (click)="viewAppliedCandidates(job)">View Applied Candidates</button> -->
           </mat-card-actions>
         </mat-card>
       </ng-container>

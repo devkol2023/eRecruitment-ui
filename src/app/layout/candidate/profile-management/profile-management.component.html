@@ -179,7 +179,7 @@
             <input class="upload-input" type="file" (change)="onFileUpload($event, 'education', i)" />
           </div>
 
-          <button mat-icon-button color="warn" (click)="removeEducation(i)" matTooltip="Delete">
+          <button mat-icon-button color="warn" type="button" (click)="removeEducation(i)" matTooltip="Delete">
             <mat-icon>delete</mat-icon>
           </button>
         </div>
@@ -223,7 +223,7 @@
             <input class="upload-input" type="file" (change)="onFileUpload($event, 'experience', i)" />
           </div>
 
-          <button mat-icon-button color="warn" (click)="removeExperience(i)" matTooltip="Delete">
+          <button mat-icon-button color="warn" type="button" (click)="removeExperience(i)" matTooltip="Delete">
             <mat-icon>delete</mat-icon>
           </button>
         </div>
@@ -267,7 +267,7 @@
             <input class="upload-input" type="file" (change)="onFileUpload($event, 'skills', i)" />
           </div>
 
-          <button mat-icon-button (click)="removeSkill(i)" matTooltip="Delete">
+          <button mat-icon-button type="button" (click)="removeSkill(i)" matTooltip="Delete">
             <mat-icon>delete</mat-icon>
           </button>
         </div>
@@ -302,12 +302,45 @@
             <input class="upload-input" type="file" (change)="onFileUpload($event, 'certification', i)" />
           </div>
 
-          <button mat-icon-button color="warn" (click)="removeCertification(i)" matTooltip="Delete">
+          <button mat-icon-button color="warn" type="button" (click)="removeCertification(i)" matTooltip="Delete">
             <mat-icon>delete</mat-icon>
           </button>
         </div>
       </div>
       <button mat-flat-button class="btn" type="button" (click)="addCertification()">+ Add Certification</button>
+    </mat-expansion-panel>
+
+    <!-- Job Details with salary -->
+    <mat-expansion-panel expanded="true">
+      <mat-expansion-panel-header class="header">
+        <mat-panel-title> Salary </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="group-form-field">
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>Preferred Job Type</mat-label>
+            <mat-select formControlName="jobType">
+              <mat-option *ngFor="let jobType of jobTypes" [value]="jobType">
+                {{ jobType }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="profileForm.get('jobType')?.invalid && profileForm.get('jobType')?.touched">
+              Job Type is required
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>Current Salary</mat-label>
+          <input matInput formControlName="currentSalary"/>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>Expected Salary</mat-label>
+          <input matInput formControlName="expectedSalary" />
+          <mat-error *ngIf="profileForm.get('expectedSalary')?.invalid && profileForm.get('expectedSalary')?.touched">
+            Expected Salary is required
+          </mat-error>
+        </mat-form-field>
+      </div>
     </mat-expansion-panel>
 
     <!-- Upload CV -->

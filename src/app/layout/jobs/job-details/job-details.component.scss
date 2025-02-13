@@ -135,3 +135,18 @@
   font-size: 1rem;
   margin: 5px 0;
 }
+
+.requirement-item {
+  display: flex;
+  align-items: center; /* Aligns items vertically in the center */
+  margin-bottom: 8px; /* Adds space between items, adjust as needed */
+}
+
+.check-icon {
+  margin-right: 8px; /* Adds space between the icon and the text, adjust as needed */
+  color: green; /* Optional: changes the color of the icon */
+}
+
+.requirement-text {
+  flex: 1; /* Ensures the text takes up the rest of the space */
+}

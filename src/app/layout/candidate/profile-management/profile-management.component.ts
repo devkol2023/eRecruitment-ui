@@ -25,6 +25,7 @@ export class ProfileManagementComponent implements OnInit {
 
   matcher = new CustomErrorStateMatcher();
   statesForSelectedCountry: string[] = [];
+  jobTypes = ['Full Time', 'Part Time', 'Contract', 'Internship'];
   countries = ['United States', 'United Kingdom', 'India', 'Canada', 'St. Vincent'];
   states: any = {
     'United States': ['New York', 'California', 'Texas', 'Florida'],
@@ -50,6 +51,9 @@ export class ProfileManagementComponent implements OnInit {
       country: ['', Validators.required],
       state: ['', Validators.required],
       address: ['', Validators.required],
+      jobType: ['', Validators.required],
+      currentSalary: [''],
+      expectedSalary: ['', Validators.required],
       education: this.fb.array([]),
       experience: this.fb.array([]),
       skills: this.fb.array([]),

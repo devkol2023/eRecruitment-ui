@@ -12,10 +12,11 @@ import { CandidateDetailsModalComponent } from '../../../../shared/modal/candida
 })
 export class CompletedInterviewsComponent {
   tableColumns = [
-    { key: 'candidateName', label: 'Candidate Name', width: '20%' },
-    { key: 'jobTitle', label: 'Job Title', width: '20%' },
+    { key: 'candidateName', label: 'Candidate Name', width: '15%' },
+    { key: 'jobRefNo', label: 'Job Ref No', width: '12%' },
+    { key: 'jobTitle', label: 'Job Title', width: '15%' },
     { key: 'skills', label: 'Skills', width: '20%' },
-    { key: 'interviewDate', label: 'Date & Time', width: '20%' },
+    { key: 'interviewDate', label: 'Date & Time', width: '15%' },
     { key: 'status', label: 'Status', width: '10%' },
     { key: 'actions', label: 'Actions', width: '10%', type: 'action', types: { viewDetails: true, feedback: true } }
   ];
@@ -27,7 +28,8 @@ export class CompletedInterviewsComponent {
       jobTitle: 'Software Engineer',
       skills: 'JavaScript, TypeScript, Angular',
       interviewDate: '2024-02-15 at 10:00 AM',
-      status: 'Completed'
+      status: 'Completed',
+      jobRefNo: 'SE2024-101',
     },
     {
       id: 'I002',
@@ -35,7 +37,8 @@ export class CompletedInterviewsComponent {
       jobTitle: 'Data Analyst',
       skills: 'Python, SQL, Tableau',
       interviewDate: '2024-02-20 at 2:00 PM',
-      status: 'Completed'
+      status: 'Completed',
+      jobRefNo: 'DA2024-102',
     },
     {
       id: 'I003',
@@ -43,7 +46,8 @@ export class CompletedInterviewsComponent {
       jobTitle: 'Marketing Specialist',
       skills: 'SEO, Content Marketing, Google Analytics',
       interviewDate: '2024-02-25 at 1:00 PM',
-      status: 'Completed'
+      status: 'Completed',
+      jobRefNo: 'MS2024-103',
     }
   ];
 
@@ -58,7 +62,7 @@ export class CompletedInterviewsComponent {
 
   openFeedbackModal(interview: any): void {
     const dialogRef = this.dialog.open(InterviewFeedbackModalComponent, {
-      // width: '500px',
+      width: '50%',
       data: interview,
       disableClose: true
     });
@@ -72,7 +76,7 @@ export class CompletedInterviewsComponent {
 
   viewDetails(candidate: any): void {
     this.dialog.open(CandidateDetailsModalComponent, {
-      width: '60%',
+      width: '50%',
       data: candidate
     });
   }

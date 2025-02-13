@@ -23,15 +23,17 @@
 
       <h2>Required Knowledge, Skills, and Abilities</h2>
       <ul>
-        <li *ngFor="let requirement of jobDetails.requirements">
-          <mat-icon class="check-icon">check_circle</mat-icon> {{ requirement }}
+        <li *ngFor="let requirement of jobDetails.requirements" class="requirement-item">
+          <mat-icon class="check-icon">check_circle</mat-icon> 
+          <span class="requirement-text">{{ requirement }}</span>
         </li>
       </ul>
 
       <h2>Education + Experience</h2>
       <ul>
-        <li *ngFor="let education of jobDetails.education">
-          <mat-icon class="check-icon">check_circle</mat-icon> {{ education }}
+        <li *ngFor="let education of jobDetails.education" class="requirement-item">
+          <mat-icon class="check-icon">check_circle</mat-icon>
+          <span class="requirement-text">{{ education }}</span>
         </li>
       </ul>
     </div>

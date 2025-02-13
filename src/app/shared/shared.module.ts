@@ -15,12 +15,15 @@ import { NewJobOfferReceivedModalComponent } from './modal/new-job-offer-receive
 import { HomeBannerComponent } from '../common/home-banner/home-banner.component';
 import { ApplyJobModalComponent } from './modal/apply-job-modal/apply-job-modal.component';
 import { InterviewDetailsModalComponent } from './modal/interview-details-modal/interview-details-modal.component';
+import { ViewJobDetailsModalComponent } from '../layout/hr-admin/job-management/view-job-details-modal/view-job-details-modal.component';
+import { JobDetailsComponent } from '../layout/jobs/job-details/job-details.component';
 
 @NgModule({
   declarations: [TableComponent, ConfirmationModalComponent, CandidateDetailsModalComponent,
     ForwardCandidatesModalComponent, SearchBarComponent, OfferDetailsModalComponent,
     ProfileUpdateReminderModalComponent, NewJobOfferReceivedModalComponent,
-    HomeBannerComponent, ApplyJobModalComponent, InterviewDetailsModalComponent
+    HomeBannerComponent, ApplyJobModalComponent, InterviewDetailsModalComponent,
+    ViewJobDetailsModalComponent, JobDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +37,8 @@ import { InterviewDetailsModalComponent } from './modal/interview-details-modal/
     TableComponent, NgxPaginationModule, ConfirmationModalComponent, CandidateDetailsModalComponent,
     ForwardCandidatesModalComponent, SearchBarComponent, OfferDetailsModalComponent,
     ProfileUpdateReminderModalComponent, NewJobOfferReceivedModalComponent,
-    HomeBannerComponent, ApplyJobModalComponent, InterviewDetailsModalComponent
+    HomeBannerComponent, ApplyJobModalComponent, InterviewDetailsModalComponent,
+    ViewJobDetailsModalComponent, JobDetailsComponent
   ]
 })
 export class SharedModule { }

@@ -9,7 +9,7 @@
     </div>
 
     <!-- Offer Table -->
-     <div style="margin-top: -46px;">
+     <div>
          <app-table [columns]="tableColumns" [data]="filteredOffers" [paginationConfig]="paginationConfig"
              (onPageChange)="updatePage($event)" (onItemsPerPageChange)="updateItemsPerPage($event)"
              (viewOfferAction)="viewOffer($event)" (resendOfferAction)="resendOffer($event)"

@@ -3,6 +3,7 @@ export const messages = {
     invalidUserNameorPassword: 'Invalid username or password',
     shortlistCandidate: 'Do you want to shortlist this candidate?',
     rejectCandidate: 'Do you want to reject this candidate?',
+    markAsCompleteJob: 'Do you want to mark as complete this job?',
     registredSuccessfully: 'Your registration has been successfully completed. <br > Application no - <b><NO></b>',
     closeButton: 'Close',
     profileUpdatedheader: 'Profile updated',
@@ -18,5 +19,6 @@ export const messages = {
     offerGeneratedBodyMsg: 'Offer Letter has been generated and sent to',
     profileUpdated: 'Profile updated successfully.',
     succussed: 'Success!',
-    jobAppliedSuccessfully: 'Your application has been submitted successfully. <br /> Reference No: <b>(number)</b>'
+    jobAppliedSuccessfully: 'Your application has been submitted successfully. <br /> Reference No: <b>(number)</b>',
+    jobPostedSuccessfully: 'Job posted successfully.'
 }
