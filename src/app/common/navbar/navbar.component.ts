@@ -46,6 +46,10 @@ export class NavbarComponent implements OnInit {
         this.roleDesc = 'Recruiting Lead'
         this.userName = 'Micheal Jordan'
       }
+      else if(this.loggedInUser?.role == 'Admin'){
+        this.roleDesc = 'Administration'
+        this.userName = 'Admin'
+      }
       else{
         this.roleDesc = 'Banking & Finance'
         this.userName = 'LeBron James'
