@@ -85,6 +85,8 @@ export class LoginComponent {
           this.openUpdateProfileModal();
         } else if (user.role == 'Interviewer') {
           this.router.navigate(['/interviewer/dashboard']);
+        } else if (user.role == 'Admin') {
+          this.router.navigate(['/admin/dashboard']);
         } else {
           this.router.navigate(['/job-dashboard']);
         }

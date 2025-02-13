@@ -8,6 +8,7 @@ import { SharedModule } from '../shared/shared.module';
 import { RoleManagementComponent } from './role-management/role-management.component';
 import { SystemParametersComponent } from './system-parameters/system-parameters.component';
 import { NotificationManagementComponent } from './notification-management/notification-management.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { NotificationManagementComponent } from './notification-management/notif
     UserManagementComponent,
     RoleManagementComponent,
     SystemParametersComponent,
-    NotificationManagementComponent
+    NotificationManagementComponent,
+    AdminDashboardComponent
   ],
   imports: [
     CommonModule,

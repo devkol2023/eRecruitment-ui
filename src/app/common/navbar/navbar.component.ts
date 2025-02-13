@@ -58,6 +58,27 @@ export class NavbarComponent implements OnInit {
     });
   }
 
+  setUserDetails(): void {
+    switch (this.loggedInUser?.role) {
+      case 'HR':
+        this.roleDesc = 'Recruiting Lead';
+        this.userName = 'Michael Jordan';
+        break;
+      case 'Admin':
+        this.roleDesc = 'System Administrator';
+        this.userName = 'Michael Bryant';
+        break;
+      case 'Interviewer':
+        this.roleDesc = 'Talent Assessor';
+        this.userName = 'Kobe Bryant';
+        break;
+      default:
+        this.roleDesc = 'Banking & Finance';
+        this.userName = 'LeBron James';
+        break;
+    }
+  }
+
   toggleDropdown(menu: string): void {
     this.activeDropdown = this.activeDropdown === menu ? null : menu;
   }
@@ -100,6 +121,8 @@ export class NavbarComponent implements OnInit {
       this.router.navigate(['/candidate/dashboard']);
     } else if (this.loggedInUser?.role == 'Interviewer') {
       this.router.navigate(['/interviewer/dashboard']);
+    } else if (this.loggedInUser?.role == 'Admin') {
+      this.router.navigate(['/admin/dashboard']);
     } else {
       this.router.navigate(['/job-dashboard']);
     }

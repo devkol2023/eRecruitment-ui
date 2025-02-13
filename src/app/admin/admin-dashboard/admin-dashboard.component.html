@@ -1,0 +1,31 @@
+<app-home-banner></app-home-banner>
+<div class="dashboard-container">
+    <!-- System Health and Status -->
+    <div class="metric-card">
+      <h3>System Health</h3>
+      <p>Uptime: <strong>{{ systemUptime }}</strong></p>
+      <p>Last Downtime: <strong>{{ lastSystemDowntime }}</strong></p>
+    </div>
+  
+    <!-- User and Role Management -->
+    <div class="metric-card">
+      <h3>User & Role Management</h3>
+      <p>Total Users: <strong>{{ totalUsers }}</strong></p>
+      <p>Total Roles: <strong>{{ totalRoles }}</strong></p>
+    </div>
+  
+    <!-- Support and Resolution Metrics -->
+    <div class="metric-card">
+      <h3>HR Support Tickets</h3>
+      <p>Open Tickets: <strong>{{ openHRTickets }}</strong></p>
+      <p>Resolved Tickets: <strong>{{ resolvedHRTickets }}</strong></p>
+    </div>
+  
+    <!-- Security and Compliance -->
+    <div class="metric-card">
+      <h3>Security & Compliance</h3>
+      <p>Security Incidents: <strong>{{ securityIncidents }}</strong></p>
+      <p>Compliance Status: <strong>{{ complianceStatus }}</strong></p>
+    </div>
+  </div>
+  

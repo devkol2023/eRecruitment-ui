@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CustomErrorStateMatcher } from '../../shared/matcher/ErrorStateMatcher';
 
 @Component({
   selector: 'app-role-management',
@@ -13,41 +14,39 @@ export class RoleManagementComponent implements OnInit{
   titles: string[] = ['Mr.', 'Ms.', 'Mrs.', 'Dr.', 'Prof.']; 
   roles: string[] = ['Admin', 'Manager', 'User'];
   tableColumns = [
-    { key: 'roleName', label: 'Role Name', width: '10%' },
-    // { key: 'email', label: 'Email', width: '10%' },
-    // { key: 'mobile', label: 'Mobile', width: '10%' },
-    { key: 'roleDesc', label: 'Role Description', width: '20%' },
-    { key: 'toggle', label: 'Action', width: '10%' },
+    { key: 'roleName', label: 'Role Name', width: '20%' },
+    { key: 'email', label: 'Email', width: '20%' },
+    { key: 'roleDesc', label: 'Role Description', width: '40%' },
+    { key: 'toggle', label: 'Status', width: '10%' },
     // { key: 'action', label: 'Action', width: '10%' },
+  ];
+
+  tableData = [
+    {
+      roleName: 'HR Manager',
+      email: 'hrmanager@jobportal.com',
+      roleDesc: 'Responsible for overseeing recruitment, compliance, and workforce management.',
+      toggle: true,
+    },
+    {
+      roleName: 'Recruiter',
+      email: 'recruiter@jobportal.com',
+      roleDesc: 'Engages with potential candidates, screens applications, and schedules interviews.',
+      toggle: true,
+    },
+    {
+      roleName: 'Interviewer',
+      email: 'interviewer@jobportal.com',
+      roleDesc: 'Conducts interviews and assesses candidate skills and fit for various roles.',
+      toggle: true,
+    },
+    {
+      roleName: 'Talent Acquisition Specialist',
+      email: 'talent@jobportal.com',
+      roleDesc: 'Focuses on strategic aspects of finding, attracting, and hiring top talent to meet the organization’s needs.',
+      toggle: true,
+    }
   ];  
-
-tableData = [
-  {
-    roleName: 'DCIC',
-    // email: 'pynshngainnongsiej@gmail.com',
-    // mobile: '9012345667',
-    roleDesc: 'District Commerce and Industries Centre',
-    toggle: true,
-    // action: ''
-  },
-  {
-    roleName: 'DCI',
-    // email: 'pynshngainnongsiej@gmail.com',
-    // mobile: '9012345667',
-    roleDesc: 'Directorate of Commerce and Industries',
-    toggle: true,
-    // action: ''
-  },
-  {
-    roleName: 'DEPTCI',
-    // email: 'pynshngainnongsiej@gmail.com',
-    // mobile: '9012345667',
-    roleDesc: 'Department of Commerce and Industries',
-    toggle: true,
-    // action: ''
-  },
-
-];
 
 paginationConfig = {
   id: 'dynamic_table',
@@ -55,6 +54,8 @@ paginationConfig = {
   currentPage: 1, // Start on the first page
   totalItems: this.tableData.length, // Total number of items
 };
+  matcher = new CustomErrorStateMatcher();
+
   constructor(private fb:FormBuilder){}
   
 ngOnInit(): void {

@@ -5,6 +5,7 @@ import { UserManagementComponent } from './user-management/user-management.compo
 import { RoleManagementComponent } from './role-management/role-management.component';
 import { SystemParametersComponent } from './system-parameters/system-parameters.component';
 import { NotificationManagementComponent } from './notification-management/notification-management.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 const routes: Routes = [{ path: '', component: AdminComponent },
 {
@@ -22,6 +23,10 @@ const routes: Routes = [{ path: '', component: AdminComponent },
 {
   path: 'notification-management',
   component: NotificationManagementComponent
+},
+{
+  path: 'dashboard',
+  component: AdminDashboardComponent
 },
 ];
 
