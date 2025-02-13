@@ -1,1 +1,95 @@
-<p>notification-management works!</p>
+<div class="page-container">
+  
+        <div class="notification-management-card registration-card">
+            <div class="notification-management-title registration-title">
+                Notification Management
+            </div>
+            <form [formGroup]="notificationForm" class="registration-form" (ngSubmit)="onSubmit()">
+                <mat-accordion multi class="mat-accordion">
+                  <!-- Create Notification -->
+                  <mat-expansion-panel [expanded]="true" class="panel">
+                    <mat-expansion-panel-header class="panel-header">
+                      <mat-panel-title class="title-color">Create Notification</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="container">
+                        
+                      <div class="registration-item">
+                        <label>Title<span class="red-asterisk">*</span></label>
+                        <input type="text" formControlName="title" placeholder="Enter Notification Title" />
+                        <small class="error-message"
+                          *ngIf="notificationForm.get('title')?.touched && notificationForm.get('title')?.invalid">
+                          Title is required.
+                        </small>
+                      </div>
+
+                      <mat-form-field appearance="outline" class="half-width">
+                        <mat-label>Send Date</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="sendDateTime" [errorStateMatcher]="matcher"/>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error *ngIf="notificationForm.get('sendDateTime')?.invalid && notificationForm.get('sendDateTime')?.touched">Send Date is required</mat-error>
+                      </mat-form-field>
+
+
+                      <mat-form-field appearance="outline" class="half-width">
+                        <mat-label>End Date</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="endDateTime" [errorStateMatcher]="matcher"/>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error *ngIf="notificationForm.get('endDateTime')?.invalid && notificationForm.get('endDateTime')?.touched">End Date is required</mat-error>
+                      </mat-form-field>
+
+                      <div class="registration-item message-item">
+                        <label>Message<span class="red-asterisk">*</span></label>
+                        <textarea formControlName="message" placeholder="Enter Notification Message"></textarea>
+                        <small class="error-message"
+                          *ngIf="notificationForm.get('message')?.touched && notificationForm.get('message')?.invalid">
+                          Message is required.
+                        </small>
+                      </div>
+                      <div class="registration-item audience-item">
+                        <label>Audience<span class="red-asterisk">*</span></label>
+                        <div>
+                          <label>
+                            <input type="checkbox" formControlName="allAudience" (change)="onAudienceChange('all')" />
+                            <span>All Users</span>
+                          </label>
+                          <label>
+                            <input type="checkbox" formControlName="deptAudience" [disabled]="notificationForm.get('allAudience')?.value"
+                              (change)="onAudienceChange('dept')" />
+                            <span>Dept Users</span>
+                          </label>
+                          <label>
+                            <input type="checkbox" formControlName="msmeAudience" [disabled]="notificationForm.get('allAudience')?.value"
+                              (change)="onAudienceChange('msme')" />
+                            <span>MSME Users</span>
+                          </label>
+                        </div>
+                        <small class="error-message"
+                          *ngIf="!notificationForm.get('allAudience')?.value && !notificationForm.get('deptAudience')?.value && !notificationForm.get('msmeAudience')?.value">
+                          At least one audience must be selected.
+                        </small>
+                      </div>
+                    </div>
+                    <div class="final-button">
+                      <button class="btn" type="button" (click)="addNotification()">Add Notification</button>
+                    </div>
+                  </mat-expansion-panel>
+                </mat-accordion>
+              
+                <h4 style="padding: 10px; font-weight: 600;">Existing Notifications</h4>
+                <app-table
+                  [columns]="tableColumns"
+                  [data]="tableData"
+                  [paginationConfig]="paginationConfig"
+                  (onPageChange)="updatePage($event)"
+                  (onItemsPerPageChange)="updateItemsPerPage($event)"
+                  (onEditAction)="editNotification($event)"
+                  (onDeleteAction)="deleteNotification($event)"
+                >
+                </app-table>
+              </form>
+              
+        </div>
+ 
+</div>

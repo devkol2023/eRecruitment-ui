@@ -1,0 +1,146 @@
+.page-container {
+    background-color: #e0e0e0;
+    min-height: 50vh;
+    height: auto;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .notification-management-card {
+    width: 100%;
+    min-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .notification-management-title {
+    font-size: 23px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 10px 0;
+    border: 2px solid #bf322b;
+    border-radius: 5px;
+    background: #bf322b;
+    color: white;
+  }
+
+  .mat-accordion {
+    text-align: left;
+  }
+  
+  .panel-header {
+    background: #e86153;
+    height: 40px !important;
+    color: white;
+  }
+  
+  .panel {
+    margin-top: 3px;
+  }
+  
+  .title-color {
+    color: black !important;
+  }
+
+  .registration-form {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    // max-width: 600px;
+    margin: auto;
+  }
+  
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding-top: 10px;
+  }
+
+  /* Audience spans the full row */
+  .container .audience-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .container .audience-item div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .container .audience-item label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  .container .audience-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    vertical-align: middle;
+  }  
+
+  /* Message spans the full row */
+  .container .message-item {
+    grid-column: span 3; /* Span all 3 columns */
+  }
+  
+  .registration-item {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .registration-item label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .registration-item .red-asterisk {
+    color: red;
+    margin-left: 4px;
+  }
+  
+  .registration-item input,
+  .registration-item select,
+  .registration-item textarea {
+    padding: 10px;
+    font-size: 14px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    height: 47px;
+  }
+
+  .registration-item textarea {
+    height: 70px;
+  }
+  
+  .registration-item input:focus,
+  .registration-item select:focus,
+  .registration-item textarea:focus {
+    border-color: #bf322b;
+    box-shadow: 0 0 5px rgba(191, 50, 43, 0.5);
+  }
+
+  .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  .final-button {
+    text-align: end;
+    padding: 10px 0 0 0;
+  }

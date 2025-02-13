@@ -1,0 +1,59 @@
+.about-container {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-top: 10px;
+}
+
+.about-container section {
+    padding: 10px 40px;
+    border-bottom: 1px solid #eee;
+}
+
+.about-container h1 {
+    color: #003366;
+    font-size: 24px;
+}
+
+.about-container h2 {
+    color: #005492;
+    font-size: 20px;
+}
+
+.about-container p {
+    font-size: 16px;
+    color: #666;
+}
+
+.about-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-container li {
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.8;
+}
+
+.about-container li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #0077CC; /* A nice blue that matches the bank's theme */
+}
+
+a {
+    color: #0077CC;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+section:last-child {
+    border-bottom: none;
+}
