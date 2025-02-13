@@ -61,8 +61,21 @@
   
     mat-card-actions {
       display: flex;
-      justify-content: space-between;
+      justify-content: end;
       padding: 15px;
+    }
+
+    mat-card-actions .btn {
+      margin-right: 5px; /* Half the desired spacing on the right */
+      margin-left: 5px; /* Half the desired spacing on the left */
+    }
+    
+    mat-card-actions .btn:first-child {
+      margin-left: 0; /* Remove left margin for the first button */
+    }
+    
+    mat-card-actions .btn:last-child {
+      margin-right: 0; /* Remove right margin for the last button */
     }
   }
   

@@ -60,6 +60,7 @@
   <!-- Candidate Table -->
   <app-table [columns]="tableColumns" [data]="candidateData" [paginationConfig]="paginationConfig"
     (onScheduleInterviewAction)="onScheduleInterviewAction($event)" (viewDetails)="viewDetails($event)"
-    (onItemsPerPageChange)="updateItemsPerPage($event)" (onPageChange)="updatePage($event)" [searchRequired]="false">
+    (onItemsPerPageChange)="updateItemsPerPage($event)" (shortListAction)="shortListAction($event)"
+    (onPageChange)="updatePage($event)" [searchRequired]="false">
 </app-table>
   

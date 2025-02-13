@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ViewJobDetailsModalComponent } from '../view-job-details-modal/view-job-details-modal.component';
 import { Router } from '@angular/router';
+import { messages } from '../../../../shared/constants/messages';
+import { MessageDialogService } from '../../../../shared/service/message-dialog.service';
 
 @Component({
   selector: 'app-job-management-dashboard',
@@ -55,7 +57,9 @@ export class JobManagementDashboardComponent implements OnInit {
 
   filteredJobs = [...this.allJobs];
 
-  constructor(private dialog: MatDialog, private router: Router) { }
+  constructor(private dialog: MatDialog, private router: Router,
+    private dialogMessage: MessageDialogService
+  ) { }
 
   ngOnInit(): void {
     this.onCategoryChange(this.selectedCategory);
@@ -71,6 +75,27 @@ export class JobManagementDashboardComponent implements OnInit {
       // height: '85%',
       disableClose: true,
       data: job
+    });
+  }
+  
+
+  editJob(job: any): void {
+    this.router.navigate(['/jobs/post-job'], { queryParams: { jobId: job.id } });  
+  }
+
+  markAsComplete(job: any): void {
+    this.dialogMessage.open({
+      title: messages.confirmation,
+      message: messages.markAsCompleteJob,
+      iconType: 'warning',
+      buttons: [
+        { text: 'Yes', style: 'primary-btn' },
+        { text: 'No', style: 'secondary-btn' },
+      ]
+    }).subscribe((clickedButton: string) => {
+      if (clickedButton === 'Yes') {
+        this.filteredJobs = this.filteredJobs.filter(el => el.id != job.id)
+      }
     });
   }
 

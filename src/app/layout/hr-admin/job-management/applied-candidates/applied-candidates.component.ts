@@ -200,7 +200,7 @@ export class AppliedCandidatesComponent implements OnInit {
 
   viewDetails(candidate: any): void {
     this.dialog.open(CandidateDetailsModalComponent, {
-      width: '60%',
+      width: '50%',
       data: candidate
     });
   }

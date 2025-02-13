@@ -179,7 +179,7 @@
             <input class="upload-input" type="file" (change)="onFileUpload($event, 'education', i)" />
           </div>
 
-          <button mat-icon-button color="warn" (click)="removeEducation(i)" matTooltip="Delete">
+          <button mat-icon-button color="warn" type="button" (click)="removeEducation(i)" matTooltip="Delete">
             <mat-icon>delete</mat-icon>
           </button>
         </div>
@@ -223,7 +223,7 @@
             <input class="upload-input" type="file" (change)="onFileUpload($event, 'experience', i)" />
           </div>
 
-          <button mat-icon-button color="warn" (click)="removeExperience(i)" matTooltip="Delete">
+          <button mat-icon-button color="warn" type="button" (click)="removeExperience(i)" matTooltip="Delete">
             <mat-icon>delete</mat-icon>
           </button>
         </div>
@@ -267,7 +267,7 @@
             <input class="upload-input" type="file" (change)="onFileUpload($event, 'skills', i)" />
           </div>
 
-          <button mat-icon-button (click)="removeSkill(i)" matTooltip="Delete">
+          <button mat-icon-button type="button" (click)="removeSkill(i)" matTooltip="Delete">
             <mat-icon>delete</mat-icon>
           </button>
         </div>
@@ -302,7 +302,7 @@
             <input class="upload-input" type="file" (change)="onFileUpload($event, 'certification', i)" />
           </div>
 
-          <button mat-icon-button color="warn" (click)="removeCertification(i)" matTooltip="Delete">
+          <button mat-icon-button color="warn" type="button" (click)="removeCertification(i)" matTooltip="Delete">
             <mat-icon>delete</mat-icon>
           </button>
         </div>
