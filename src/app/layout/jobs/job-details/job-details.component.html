@@ -60,7 +60,7 @@
     <p>{{ jobDetails.companyInfo.description }}</p>
     <p><strong>Name:</strong> {{ jobDetails.companyInfo.name }}</p>
     <p><strong>Website:</strong> <a class="link" (click)="goToWebsite(jobDetails.companyInfo.website)">{{ jobDetails.companyInfo.website }}</a></p>
-    <p><strong>Email:</strong> <a class="link">{{ jobDetails.companyInfo.email }}</a></p>
+    <p><strong>Email:</strong> <a class="link" [href]="'mailto:' + jobDetails.companyInfo.email">{{ jobDetails.companyInfo.email }}</a></p>
     <!-- href="mailto:{{ jobDetails.companyInfo.email }}" -->
   </div>
 </div>

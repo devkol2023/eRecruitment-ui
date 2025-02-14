@@ -1,5 +1,7 @@
+<h2 class="title mb-2 mt-0">Shared Candidate</h2>
 <mat-tab-group class="custom-tab-group">
-    <mat-tab [label]="'Inbox'+'('+inboxData.length+')'">
+    <!-- '+'('+inboxData.length+')' -->
+    <mat-tab [label]="'Inbox (0)'">
         <app-inbox [inboxData]="inboxData"></app-inbox>
     </mat-tab>
     <mat-tab label="Sent (0)">
