@@ -31,6 +31,20 @@
         </mat-select>
         <mat-error *ngIf="interviewForm.get('mode')?.touched && interviewForm.get('mode')?.hasError('required')">Mode is required</mat-error>
       </mat-form-field>
+
+            <!-- Conditionally rendered input field for 'Online' mode -->
+      <mat-form-field appearance="outline" class="full-width" *ngIf="interviewForm?.get('mode')?.value === 'Online'">
+        <mat-label>Meeting Link</mat-label>
+        <input matInput formControlName="meetingLink">
+        <mat-error *ngIf="interviewForm.get('meetingLink')?.invalid">Link is required</mat-error>
+      </mat-form-field>
+
+      <!-- Conditionally rendered text area for 'Offline' mode -->
+      <mat-form-field appearance="outline" class="full-width" *ngIf="interviewForm?.get('mode')?.value === 'Offline'">
+        <mat-label>Venue Details</mat-label>
+        <textarea matInput formControlName="venueDetails"></textarea>
+        <mat-error *ngIf="interviewForm.get('venueDetails')?.invalid">Details are required</mat-error>
+      </mat-form-field>
   
       <mat-form-field appearance="outline" class="full-width example-chip-list">
         <mat-label>Panel Members</mat-label>

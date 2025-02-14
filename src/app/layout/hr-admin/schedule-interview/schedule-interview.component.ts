@@ -29,7 +29,9 @@ export class ScheduleInterviewComponent implements OnInit {
       time: ['', Validators.required],
       mode: ['', Validators.required],
       panelMembers: [[], Validators.required],
-      notes: ['']
+      notes: [''],
+      meetingLink: [''],
+      venueDetails: ['']
     });
   }
 
@@ -41,7 +43,20 @@ export class ScheduleInterviewComponent implements OnInit {
     // }
 
     this.filteredPanelMembers = this.panelMembersList;
+
+    this.interviewForm?.get('mode')?.valueChanges.subscribe(mode => {
+      if (mode === 'Online') {
+        this.interviewForm?.get('meetingLink')?.setValidators([Validators.required]);
+        this.interviewForm?.get('venueDetails')?.clearValidators();
+      } else {
+        this.interviewForm?.get('venueDetails')?.setValidators([Validators.required]);
+        this.interviewForm?.get('meetingLink')?.clearValidators();
+      }
+      this.interviewForm?.get('meetingLink')?.updateValueAndValidity();
+      this.interviewForm?.get('venueDetails')?.updateValueAndValidity();
+    });
   }
+  
 
   filterPanelMembers(event: any): void {
     const query = event?.target?.value.toLowerCase();
