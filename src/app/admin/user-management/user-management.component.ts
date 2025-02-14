@@ -20,8 +20,8 @@ export class UserManagementComponent implements OnInit {
     { key: 'roleName', label: 'Role', width: '20%' },
     { key: 'userName', label: 'User Name', width: '20%' },
     { key: 'mobileNo', label: 'Mobile', width: '10%' },
-    { key: 'verified', label: 'Status', width: '12%' },
-    { key: 'toggle', label: 'Action', width: '8%' },
+    // { key: 'verified', label: 'Status', width: '12%' },
+    { key: 'toggle', label: 'Status', width: '8%' },
   ];
 
   states = [
@@ -32,16 +32,16 @@ export class UserManagementComponent implements OnInit {
   districts: string[] = [];
   tableData: any[] = [
     {
-      name:'Micheal Jordan', roleName: 'HR Manager', userName: 'hrmanager@jobportal.com' , mobileNo: '1234567890' , verified: '', toggle: ''
+      name:'Micheal Jordan', roleName: 'HR Manager', userName: 'hrmanager@jobportal.com' , mobileNo: '1234567890' , verified: '', toggle: true
     },
     {
-      name:'Kobe Bryant', roleName: 'Interviewer', userName: 'interviewer@jobportal.com' , mobileNo: '1234567890' , verified: '', toggle: ''
+      name:'Kobe Bryant', roleName: 'Interviewer', userName: 'interviewer@jobportal.com' , mobileNo: '1234567890' , verified: '', toggle: true
     },
     {
-      name:'Kevin Durant', roleName: 'Recruiter', userName: 'recruiter@jobportal.com' , mobileNo: '1234567890' , verified: '', toggle: ''
+      name:'Kevin Durant', roleName: 'Recruiter', userName: 'recruiter@jobportal.com' , mobileNo: '1234567890' , verified: '', toggle: true
     },
     {
-      name:"Shaquille O'Neal", roleName: 'Talent Acquisition Specialist', userName: 'talent@jobportal.com' , mobileNo: '1234567890' , verified: '', toggle: ''
+      name:"Shaquille O'Neal", roleName: 'Talent Acquisition Specialist', userName: 'talent@jobportal.com' , mobileNo: '1234567890' , verified: '', toggle: true
     }
   ];
 
