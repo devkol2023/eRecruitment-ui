@@ -1,0 +1,164 @@
+.calendar-container {
+    padding: 20px;
+  }
+  
+  .fc {
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .fc-toolbar-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .fc-daygrid-day-number {
+    color: #0078d4; /* Matches Teams' blue color */
+    font-weight: bold;
+  }
+  
+  .fc-event {
+    background-color: #0078d4 !important; /* Teams-style blue events */
+    border: none !important;
+    color: white !important;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+/* Popup Modal */
+.popup-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-modal-content {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  width: 550px;
+  max-width: 90%;
+  padding: 20px;
+  animation: slide-down 0.3s ease-out;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 15px;
+  margin: -20px -20px 0px -20px;
+  padding: 7px;
+  border-radius: 5px;
+}
+
+.popup-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: white;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close-button:hover {
+  color: rgb(165, 165, 165);
+}
+
+.popup-body {
+  margin-bottom: 15px;
+}
+
+.popup-row {
+  margin: 8px 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.popup-label {
+  font-weight: bold;
+  color: #444;
+}
+
+.attendees-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.attendee {
+  background: #f0f0f0;
+  border-radius: 15px;
+  padding: 5px 10px;
+  font-size: 12px;
+  color: #333;
+}
+
+.popup-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.location-link {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.location-link:hover {
+  text-decoration: underline;
+}
+
+.details-link {
+  text-decoration: none;
+}
+
+.details-link:hover {
+  text-decoration: underline;
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.fc-event-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.fc-event-description {
+  font-size: 12px;
+  color: #666;
+}
+
+.fc-daygrid-event {
+  max-height: 2em;
+  line-height: 1.2em;
+}

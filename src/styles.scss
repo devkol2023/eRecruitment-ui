@@ -224,3 +224,26 @@ mat-form-field {
   max-width: var(--mat-dialog-container-max-width, 1100px) !important;
   min-width: var(--mat-dialog-container-min-width, 400px) !important;
 }
+
+
+// calender css
+
+.mat-calendar-content {
+  width: 130% ;
+  margin-left: -45px;
+}
+
+.mat-calendar-header {
+  width: 130%;
+  margin-left: -45px;
+}
+
+.mat-calendar-body-today {
+  border-color: #BF322B !important;
+  background: #BF322B;
+  color: white !important;
+}
+
+.mat-calendar-body-today:hover {
+  color: black !important;
+}

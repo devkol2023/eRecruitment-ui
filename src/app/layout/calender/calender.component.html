@@ -1,0 +1,67 @@
+<div class="calendar-container">
+    <!-- <full-calendar
+      #calendar
+      [plugins]="calendarPlugins"
+      [options]="calendarOptions"
+      [headerToolbar]="headerToolbar"
+      [initialView]="'dayGridMonth'"
+      [editable]="true"
+      [droppable]="true"
+      [selectable]="true"
+      [eventContent]="renderEventContent"
+      [eventClick]="handleEventClick.bind(this)"
+      (eventDrop)="handleEventDrop($event)"
+      (eventResize)="handleEventResize($event)"
+    ></full-calendar> -->
+
+    <full-calendar [options]="calendarOptions"></full-calendar>
+  </div>
+
+<!-- Popup Modal -->
+<div class="popup-modal" *ngIf="showPopup">
+  <div class="popup-modal-content">
+    <!-- Header -->
+    <div class="popup-header bg-red">
+      <h3>{{ popupTitle }}</h3>
+      <button class="close-button" (click)="closePopup()">&times;</button>
+    </div>
+
+    <!-- Body -->
+    <div class="popup-body">
+      <div class="popup-row">
+        <span class="popup-label">Date:</span>
+        <span>{{ popupDate }}</span>
+      </div>
+      <div class="popup-row">
+        <span class="popup-label">Time:</span>
+        <span>{{ popupTime }}</span>
+      </div>
+      <div *ngIf="popupLocation" class="popup-row">
+        <span class="popup-label">Location:</span>
+        <span>{{ popupLocation }}</span>
+      </div>
+      <div *ngIf="popupOrganizer" class="popup-row">
+        <span class="popup-label">Organizer:</span>
+        <span>{{ popupOrganizer }}</span>
+      </div>
+      <div *ngIf="popupCategory" class="popup-row">
+        <span class="popup-label">Category:</span>
+        <span>{{ popupCategory }}</span>
+      </div>
+      <div *ngIf="popupDescription" class="popup-row">
+        <span class="popup-label">Description:</span>
+        <span>{{ popupDescription }}</span>
+      </div>
+      <div *ngIf="popupAttendees?.length" class="popup-row">
+        <span class="popup-label">Attendees:</span>
+        <div class="attendees-list">
+          <span *ngFor="let attendee of popupAttendees" class="attendee">
+            {{ attendee }}
+          </span>
+        </div>
+      </div>
+    </div>
+<!-- <button *ngIf="isPrevious" class="btn" (click)="openFeedback()">Feedback</button> -->
+
+</div>
+</div>

@@ -13,6 +13,8 @@ const routes: Routes = [
       { path: 'candidate', loadChildren: () => import('./candidate/candidate.module').then(m => m.CandidateModule) },
       { path: 'hr', loadChildren: () => import('./hr-admin/hr-admin.module').then(m => m.HrAdminModule) },
       { path: 'interviewer', loadChildren: () => import('./interviewer/interviewer.module').then(m => m.InterviewerModule) },
+      { path: 'calender', loadChildren: () => import('./calender/calender.module').then(m => m.CalenderModule) },
+
     ]
   }
 ];

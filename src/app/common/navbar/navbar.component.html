@@ -36,6 +36,11 @@
           <li><a routerLink="/hr/offer/view-sent-offer-list" (click)="closeDropdown()">View Sent Offer</a></li>
         </ul>
       </li>
+      <li class="dropdown"><a routerLink="/calender" (click)="closeDropdown()">Calender</a></li>
+      
+    </ng-container>
+
+    <ng-container *ngIf="loggedInUser?.role === 'Interviewer' && loggedInUser?.role === 'HR'">
     </ng-container>
 
     <!-- Interviewer Menu -->
