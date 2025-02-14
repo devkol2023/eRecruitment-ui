@@ -26,7 +26,6 @@
         <a (click)="toggleDropdown('job-post')">Job Post</a>
         <ul class="dropdown-menu" [class.show]="activeDropdown === 'job-post'">
           <li><a routerLink="/jobs/post-job" (click)="closeDropdown()">Post New Job</a></li>
-          <!-- <li><a routerLink="/hr/manage-jobs" (click)="closeDropdown()">Manage Job Postings</a></li> -->
           <li><a routerLink="/hr/job-management/dashboard" (click)="closeDropdown()">Manage Jobs</a></li>
         </ul>
       </li>
@@ -47,24 +46,32 @@
     <!-- Candidate Menu -->
     <ng-container *ngIf="loggedInUser?.role === 'Candidate'">
       <li><a routerLink="/candidate/my-application" (click)="closeDropdown()">My Applications</a></li>
-      <!-- <li class="dropdown">
-        <a routerLink="/candidate/profile" (click)="closeDropdown()">Profile</a>
-      </li> -->
     </ng-container>
 
     <!-- Admin Menu -->
     <ng-container *ngIf="loggedInUser?.role === 'Admin'">
+      <li class="dropdown">
+        <a (click)="toggleDropdown('admin-management')">Admin Management</a>
+        <ul class="dropdown-menu" [class.show]="activeDropdown === 'admin-management'">
+          <li><a routerLink="/admin/user-management" (click)="closeDropdown()">User Management</a></li>
+          <li><a routerLink="/admin/role-management" (click)="closeDropdown()">Role Management</a></li>
+          <li><a routerLink="/admin/notification-management" (click)="closeDropdown()">Notification Management</a></li>
+          <li><a routerLink="/admin/system-parameters" (click)="closeDropdown()">System Parameters</a></li>
+        </ul>
+      </li>
+    </ng-container>
+    <!-- <ng-container *ngIf="loggedInUser?.role === 'Admin'">
       <li><a routerLink="/admin/user-management" (click)="closeDropdown()">User Management</a></li>
     </ng-container>
     <ng-container *ngIf="loggedInUser?.role === 'Admin'">
       <li><a routerLink="/admin/role-management" (click)="closeDropdown()">Role Management</a></li>
     </ng-container>
     <ng-container *ngIf="loggedInUser?.role === 'Admin'">
-      <!-- <li><a routerLink="/admin/notification-management" (click)="closeDropdown()">Notification Management</a></li> -->
+      <li><a routerLink="/admin/notification-management" (click)="closeDropdown()">Notification Management</a></li>
     </ng-container>
     <ng-container *ngIf="loggedInUser?.role === 'Admin'">
       <li><a routerLink="/admin/system-parameters" (click)="closeDropdown()">System Parameters</a></li>
-    </ng-container>
+    </ng-container> -->
 
     <li><a routerLink="/about" (click)="closeDropdown()">About</a></li>
     <li><a (click)="closeDropdown()">Contact</a></li>
