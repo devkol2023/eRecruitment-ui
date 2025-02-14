@@ -131,7 +131,7 @@
           <div class="photo-upload-row" style="width: 100%;">
             <div class="photo-upload-section" style="width: 100%;">
               <div class="photo-preview" style="width: 100%;">
-                <img [src]="profilePhoto" alt="Profile Photo" />
+                <img [src]="profilePhoto || '/images/default-profile.png'" alt="Profile Photo" />
               </div>
               <input type="file" id="profilePhotoInput" (change)="onProfilePhotoUpload($event)" accept="image/*" hidden>
               <button type="button" class="btn" (click)="triggerProfilePhotoUpload()">
