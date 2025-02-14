@@ -20,5 +20,6 @@ export const messages = {
     profileUpdated: 'Profile updated successfully.',
     succussed: 'Success!',
     jobAppliedSuccessfully: 'Your application has been submitted successfully. <br /> Reference No: <b>(number)</b>',
-    jobPostedSuccessfully: 'Job posted successfully.'
+    jobPostedSuccessfully: 'Job posted successfully.',
+    deleteConfirmation: 'You want to delete this item?'
 }

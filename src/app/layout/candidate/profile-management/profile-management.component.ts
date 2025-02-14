@@ -104,8 +104,21 @@ export class ProfileManagementComponent implements OnInit {
   }
 
   removeEducation(index: number) {
-    this.educationControls.removeAt(index);
-    delete this.uploadedDocuments['education'][index];
+    this.dialogMessage.open({
+      title: messages.confirmation,
+      message: messages.deleteConfirmation,
+      iconType: 'warning',
+      width: '400px',
+      buttons: [
+        { text: 'Yes', style: 'primary-btn' },
+        { text: 'No', style: 'secondary-btn' },
+      ]
+    }).subscribe((clickedButton: string) => {
+      if (clickedButton === 'Yes') {
+        this.educationControls.removeAt(index);
+        delete this.uploadedDocuments['education'][index];
+      }
+    });
   }
 
   addExperience() {
@@ -120,8 +133,21 @@ export class ProfileManagementComponent implements OnInit {
   }
 
   removeExperience(index: number) {
-    this.experienceControls.removeAt(index);
-    delete this.uploadedDocuments['experience'][index];
+    this.dialogMessage.open({
+      title: messages.confirmation,
+      message: messages.deleteConfirmation,
+      iconType: 'warning',
+      width: '400px',
+      buttons: [
+        { text: 'Yes', style: 'primary-btn' },
+        { text: 'No', style: 'secondary-btn' },
+      ]
+    }).subscribe((clickedButton: string) => {
+      if (clickedButton === 'Yes') {
+        this.experienceControls.removeAt(index);
+        delete this.uploadedDocuments['experience'][index];
+      }
+    });
   }
 
   addSkill() {
@@ -135,8 +161,21 @@ export class ProfileManagementComponent implements OnInit {
   }
 
   removeSkill(index: number) {
-    this.skillsControls.removeAt(index);
-    delete this.uploadedDocuments['skills'][index];
+    this.dialogMessage.open({
+      title: messages.confirmation,
+      message: messages.deleteConfirmation,
+      iconType: 'warning',
+      width: '400px',
+      buttons: [
+        { text: 'Yes', style: 'primary-btn' },
+        { text: 'No', style: 'secondary-btn' },
+      ]
+    }).subscribe((clickedButton: string) => {
+      if (clickedButton === 'Yes') {
+        this.skillsControls.removeAt(index);
+        delete this.uploadedDocuments['skills'][index];
+      }
+    });
   }
 
   addCertification(): void {
@@ -150,8 +189,21 @@ export class ProfileManagementComponent implements OnInit {
   }
 
   removeCertification(index: number) {
-    this.certificationControls.removeAt(index);
-    delete this.uploadedDocuments['certification'][index];
+    this.dialogMessage.open({
+      title: messages.confirmation,
+      message: messages.deleteConfirmation,
+      iconType: 'warning',
+      width: '400px',
+      buttons: [
+        { text: 'Yes', style: 'primary-btn' },
+        { text: 'No', style: 'secondary-btn' },
+      ]
+    }).subscribe((clickedButton: string) => {
+      if (clickedButton === 'Yes') {
+        this.certificationControls.removeAt(index);
+        delete this.uploadedDocuments['certification'][index];
+      }
+    });
   }
 
   onFileUpload(event: any, category: string, index?: number) {

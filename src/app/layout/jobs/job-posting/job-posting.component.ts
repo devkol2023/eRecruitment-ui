@@ -131,7 +131,20 @@ export class JobPostingComponent implements OnInit {
   }
 
   removeSkill(index: number) {
-    this.skillsControls.removeAt(index);
+    this.dialogMessage.open({
+      title: messages.confirmation,
+      message: messages.deleteConfirmation,
+      iconType: 'warning',
+      width: '400px',
+      buttons: [
+        { text: 'Yes', style: 'primary-btn' },
+        { text: 'No', style: 'secondary-btn' },
+      ]
+    }).subscribe((clickedButton: string) => {
+      if (clickedButton === 'Yes') {
+        this.skillsControls.removeAt(index);
+      }
+    });
   }
 
   addExperience(expDetails: string | null = null) {
@@ -143,7 +156,20 @@ export class JobPostingComponent implements OnInit {
   }
 
   removeExperience(index: number) {
-    this.experienceControls.removeAt(index);
+    this.dialogMessage.open({
+      title: messages.confirmation,
+      message: messages.deleteConfirmation,
+      iconType: 'warning',
+      width: '400px',
+      buttons: [
+        { text: 'Yes', style: 'primary-btn' },
+        { text: 'No', style: 'secondary-btn' },
+      ]
+    }).subscribe((clickedButton: string) => {
+      if (clickedButton === 'Yes') {
+        this.experienceControls.removeAt(index);
+      }
+    });
   }
 
   onCountryChange(selectedCountry: string): void {
