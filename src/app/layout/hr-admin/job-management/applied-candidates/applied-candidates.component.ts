@@ -260,7 +260,7 @@ export class AppliedCandidatesComponent implements OnInit {
 
   forwardCandidates(): void {
     const dialogRef = this.dialog.open(ForwardCandidatesModalComponent, {
-      width: '60%',
+      width: '50%',
       data: this.checkedCandidates
     });
 
