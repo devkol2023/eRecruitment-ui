@@ -11,24 +11,42 @@
                             <mat-expansion-panel [expanded]="true">
                                 <mat-expansion-panel-header class="header">
                                     <mat-panel-title>System Parameters</mat-panel-title>
-                                </mat-expansion-panel-header>
-                    
-                                <div class="container">
-                                    <!-- Document Upload Size -->
-                                    <div class="registration-item">
-                                        <label>Document Upload Size (MB)<span class="red-asterisk">*</span></label>
-                                        <input class="form-control" formControlName="documentUploadSize" type="number" placeholder="2 MB" />
-                                        <div class="error-message" *ngIf="systemParamsForm.get('documentUploadSize')?.touched && systemParamsForm.get('documentUploadSize')?.invalid">
-                                            <small *ngIf="systemParamsForm.get('documentUploadSize')?.hasError('required')">This field is required.</small>
-                                        </div>
+                                    </mat-expansion-panel-header>
+                                    <div class="group-form-field" style="margin-top: 10px;">
+                                        <!-- Document Upload Size -->
+                                        <mat-form-field appearance="outline" class="half-width">
+                                            <mat-label>Document Upload Size (MB)</mat-label>
+                                            <input matInput formControlName="documentUploadSize" type="number"/>
+                                            <mat-error *ngIf="systemParamsForm.get('documentUploadSize')?.touched && systemParamsForm.get('documentUploadSize')?.invalid">
+                                                This field is required.
+                                            </mat-error>
+                                        </mat-form-field>
+                                    
+                                        <!-- Password Expire Time -->
+                                        <mat-form-field appearance="outline" class="half-width">
+                                            <mat-label>Password Expire Time (Days)</mat-label>
+                                            <input matInput formControlName="passwordExpireTime" type="number"/>
+                                            <mat-error *ngIf="systemParamsForm.get('passwordExpireTime')?.touched && systemParamsForm.get('passwordExpireTime')?.invalid">
+                                                This field is required.
+                                            </mat-error>
+                                        </mat-form-field>
+
+                                        <!-- Invalid Login Attempt Count -->
+                                        <mat-form-field appearance="outline" class="half-width">
+                                            <mat-label>Invalid Login Attempt Count</mat-label>
+                                            <input matInput formControlName="invalidLoginAttempts" type="number"/>
+                                            <mat-error *ngIf="systemParamsForm.get('invalidLoginAttempts')?.touched && systemParamsForm.get('invalidLoginAttempts')?.invalid">
+                                                This field is required.
+                                            </mat-error>
+                                        </mat-form-field>
                                     </div>
-                    
-                                    <!-- Password Expire Time -->
+                                    
+                                    <div class="container">
+                                    <!-- File Types for eFile System -->
                                     <div class="registration-item">
-                                        <label>Password Expire Time (Days)<span class="red-asterisk">*</span></label>
-                                        <input class="form-control" formControlName="passwordExpireTime" type="number" placeholder="120 Days" />
-                                        <div class="error-message" *ngIf="systemParamsForm.get('passwordExpireTime')?.touched && systemParamsForm.get('passwordExpireTime')?.invalid">
-                                            <small *ngIf="systemParamsForm.get('passwordExpireTime')?.hasError('required')">This field is required.</small>
+                                        <label>File Types for MSME System<span class="red-asterisk">*</span></label>
+                                        <div class="checkbox-group">
+                                            <mat-checkbox *ngFor="let fileType of fileTypes" [value]="fileType" formControlName="fileTypes">{{ fileType }}</mat-checkbox>
                                         </div>
                                     </div>
                     
@@ -48,23 +66,6 @@
                                             <mat-radio-button value="yes">Yes</mat-radio-button>
                                             <mat-radio-button value="no">No</mat-radio-button>
                                         </mat-radio-group>
-                                    </div>
-                    
-                                    <!-- File Types for eFile System -->
-                                    <div class="registration-item">
-                                        <label>File Types for MSME System<span class="red-asterisk">*</span></label>
-                                        <div class="checkbox-group">
-                                            <mat-checkbox *ngFor="let fileType of fileTypes" [value]="fileType" formControlName="fileTypes">{{ fileType }}</mat-checkbox>
-                                        </div>
-                                    </div>
-                    
-                                    <!-- Invalid Login Attempt Count -->
-                                    <div class="registration-item">
-                                        <label>Invalid Login Attempt Count<span class="red-asterisk">*</span></label>
-                                        <input class="form-control" formControlName="invalidLoginAttempts" type="number" placeholder="5" />
-                                        <div class="error-message" *ngIf="systemParamsForm.get('invalidLoginAttempts')?.touched && systemParamsForm.get('invalidLoginAttempts')?.invalid">
-                                            <small *ngIf="systemParamsForm.get('invalidLoginAttempts')?.hasError('required')">This field is required.</small>
-                                        </div>
                                     </div>
                     
                                     <!-- Enable Two-Factor Authentication -->
