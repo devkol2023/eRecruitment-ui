@@ -15,8 +15,9 @@ export class UpcomingInterviewsComponent {
     { key: 'candidateName', label: 'Candidate Name', width: '15%' },
     { key: 'jobRefNo', label: 'Job Ref No', width: '12%' },
     { key: 'jobTitle', label: 'Job Title', width: '15%' },
-    { key: 'skills', label: 'Skills', width: '20%' },
-    { key: 'interviewDate', label: 'Date & Time', width: '15%' },
+    { key: 'skills', label: 'Skills', width: '15%' },
+    { key: 'interviewMode', label: 'Interview Mode', width: '10%' },
+    { key: 'interviewDate', label: 'Date & Time', width: '12%' },
     { key: 'status', label: 'Status', width: '10%' },
     { key: 'actions', label: 'Actions', width: '10%', type: 'action', types: { viewDetails: true, joinInterview: true } }
   ];
@@ -29,7 +30,9 @@ export class UpcomingInterviewsComponent {
       skills: 'JavaScript, TypeScript, Angular',
       interviewDate: '2024-02-15 at 10:00 AM',
       status: 'Ongoing',
+      interviewMode: 'Online',
       jobRefNo: 'SE2024-101',
+      actions: { },
     },
     {
       id: 'I002',
@@ -38,7 +41,9 @@ export class UpcomingInterviewsComponent {
       skills: 'Python, SQL, Tableau',
       interviewDate: '2024-02-20 at 2:00 PM',
       status: 'Upcoming',
+      interviewMode: 'Offline',
       jobRefNo: 'DA2024-102',
+      actions: { location: true },
     },
     {
       id: 'I003',
@@ -47,7 +52,9 @@ export class UpcomingInterviewsComponent {
       skills: 'SEO, Content Marketing, Google Analytics',
       interviewDate: '2024-02-25 at 1:00 PM',
       status: 'Upcoming',
+      interviewMode: 'Offline',
       jobRefNo: 'MS2024-103',
+      actions: { location: true },
     }
   ];
 
