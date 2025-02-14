@@ -131,6 +131,10 @@
                                 <mat-icon class="mat-icon-btn">video_call</mat-icon>
                             </button>
 
+                            <button mat-icon-button *ngIf="row?.actions?.location" matTooltip="Show Location" class="btn-delete">
+                                <mat-icon class="mat-icon-btn">place</mat-icon>
+                            </button>
+
                             <button mat-icon-button color="accent" *ngIf="col.types['shortlist']" class="btn-delete"
                                 matTooltip="Shortlist" (click)="shortList(row)">
                                 <mat-icon>check_circle</mat-icon>
