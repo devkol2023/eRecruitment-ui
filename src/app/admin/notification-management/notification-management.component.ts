@@ -23,36 +23,29 @@ export class NotificationManagementComponent implements OnInit {
     { key: 'endDateTime', label: 'End Date', width: '15%' },
     { key: '', label: 'Actions', width: '10%', type: 'action', types: { edit: true, delete: true } },
   ];
-  audienceType: string[] = ['HR Manager','Recruiter','Interviewer','Talent Acquisition Specialist'];
+  audienceType: string[] = ['HR Manager','Recruiter','Interviewer','Talent Acquisition Specialist', 'Registered Users', 'Job Seekers'];
 
   tableData: any[] = [
     {
-      title: 'New Credit Facility Launch',
-      message: 'We are excited to announce the launch of our new credit facility aimed at supporting small and medium enterprises (SMEs) in St. Vincent.',
-      audience: 'SME Clients',
-      sendDateTime: '02/01/2025',
-      endDateTime: '05/01/2025',
+      title: 'Job Fair Announcement',
+      message: 'We are hosting a job fair to connect job seekers with potential employers. Join us to explore various career opportunities.',
+      audience: 'Job Seekers',
+      sendDateTime: '02/15/2025',
+      endDateTime: '02/20/2025',
     },
     {
-      title: 'Annual General Meeting',
-      message: 'Join us for our Annual General Meeting to review the past year’s achievements and discuss future plans. All shareholders are invited.',
-      audience: 'Shareholders',
-      sendDateTime: '03/15/2025',
-      endDateTime: '03/15/2025',
-    },
-    {
-      title: 'Financial Literacy Workshop',
-      message: 'Sign up for our upcoming workshop on financial literacy, designed to help you manage your finances better. Open to all our clients.',
-      audience: 'Bank Clients',
+      title: 'New Job Postings Available',
+      message: 'Check out the latest job openings on our online job portal. Find opportunities that match your skills and career aspirations.',
+      audience: 'Registered Users',
       sendDateTime: '03/01/2025',
-      endDateTime: '04/01/2025',
+      endDateTime: '03/31/2025',
     },
     {
-      title: 'New Branch Opening',
-      message: 'We are pleased to announce the opening of our new branch in Kingstown. Visit us for all your banking needs, including loans, savings accounts, and more.',
-      audience: 'Local Residents',
-      sendDateTime: '04/10/2025',
-      endDateTime: '04/10/2026',
+      title: 'Interview Preparation Workshop',
+      message: 'Join our workshop to enhance your interview skills and improve your chances of securing your dream job.',
+      audience: 'Job Applicants',
+      sendDateTime: '03/10/2025',
+      endDateTime: '03/15/2025',
     }
   ];
   
