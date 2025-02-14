@@ -40,12 +40,10 @@
       
     </ng-container>
 
-    <ng-container *ngIf="loggedInUser?.role === 'Interviewer' && loggedInUser?.role === 'HR'">
-    </ng-container>
-
     <!-- Interviewer Menu -->
     <ng-container *ngIf="loggedInUser?.role === 'Interviewer'">
       <li><a routerLink="/interviewer/scheduled-interviews" (click)="closeDropdown()">Scheduled Interviews</a></li>
+      <li class="dropdown"><a routerLink="/calender" (click)="closeDropdown()">Calender</a></li>
     </ng-container>
 
     <!-- Candidate Menu -->
