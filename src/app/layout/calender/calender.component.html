@@ -21,9 +21,11 @@
 <div class="popup-modal" *ngIf="showPopup">
   <div class="popup-modal-content">
     <!-- Header -->
-    <div class="popup-header bg-red">
-      <h3>{{ popupTitle }}</h3>
-      <button class="close-button" (click)="closePopup()">&times;</button>
+    <div class="modal-header" style="margin: -20px -20px 0 -20px;">
+      <h2 class="modal-title mt-0">{{ popupTitle }}</h2>
+      <button mat-icon-button class="icon-red" (click)="closePopup()">
+          <mat-icon>cancel</mat-icon>
+      </button>
     </div>
 
     <!-- Body -->
@@ -34,7 +36,11 @@
       </div>
       <div class="popup-row">
         <span class="popup-label">Time:</span>
-        <span>{{ popupTime }}</span>
+        <span>{{ popupTime }} - {{ popupEndTime }}</span>
+      </div>
+      <div *ngIf="popupDuration" class="popup-row">
+        <span class="popup-label">Duration:</span>
+        <span>{{ popupDuration }}</span>
       </div>
       <div *ngIf="popupLocation" class="popup-row">
         <span class="popup-label">Location:</span>
@@ -60,8 +66,11 @@
           </span>
         </div>
       </div>
-    </div>
-<!-- <button *ngIf="isPrevious" class="btn" (click)="openFeedback()">Feedback</button> -->
 
-</div>
+      <!-- Show feedback button if it's a past event -->
+      <!-- <button *ngIf="isPrevious" class="btn">
+        Provide Feedback
+      </button> -->
+    </div>
+  </div>
 </div>

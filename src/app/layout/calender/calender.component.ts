@@ -122,6 +122,7 @@ export class CalenderComponent {
   popupDescription: string | null = null;
   popupAttendees: string[] | null = null;
   isPrevious: boolean = false;
+  popupEndTime: any;
 
 
   calendarPlugins = [dayGridPlugin, timeGridPlugin, interactionPlugin] // Plugins for month and week views
@@ -163,18 +164,32 @@ export class CalenderComponent {
   
 
   handleEventClick(arg: any): void {
-    // this.popupTitle = arg.event.title;
-    // this.popupDate = arg.event.start.toISOString().split('T')[0];
-    // this.popupTime = arg.event.start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    // this.popupDuration = arg.event.extendedProps.duration || null;
-    // this.popupLocation = arg.event.extendedProps.location || null;
-    // this.popupOrganizer = arg.event.extendedProps.organizer || null;
-    // this.popupCategory = arg.event.extendedProps.category || null;
-    // this.popupDescription = arg.event.extendedProps.description || null;
-    // this.popupAttendees = arg.event.extendedProps.attendees || null;
-    // this.isPrevious = arg.event.extendedProps.previous || false;
-    // this.showPopup = true;
+    this.popupTitle = arg.event.title;
+    this.popupDate = arg.event.start.toISOString().split('T')[0];
+    this.popupTime = arg.event.start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    this.popupEndTime = arg.event.end
+      ? arg.event.end.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      : 'N/A';
+    
+    // Calculate duration in hours & minutes
+    if (arg.event.start && arg.event.end) {
+      const durationMs = arg.event.end.getTime() - arg.event.start.getTime();
+      const hours = Math.floor(durationMs / (1000 * 60 * 60));
+      const minutes = Math.floor((durationMs % (1000 * 60 * 60)) / (1000 * 60));
+      this.popupDuration = `${hours}h ${minutes}m`;
+    } else {
+      this.popupDuration = null;
+    }
+  
+    this.popupLocation = arg.event.extendedProps.location || null;
+    this.popupOrganizer = arg.event.extendedProps.organizer || 'HR Department';
+    this.popupCategory = arg.event.extendedProps.category || 'Interview / HR Event';
+    this.popupDescription = arg.event.extendedProps.description || null;
+    this.popupAttendees = arg.event.extendedProps.attendees || [];
+    this.isPrevious = arg.event.extendedProps.previous || false;
+    this.showPopup = true;
   }
+  
 
   handleEventDrop(arg: any): void {
     console.log('Event moved:', arg.event);
