@@ -367,3 +367,81 @@ mat-form-field {
   font-weight: bold;
   margin-bottom: 5px;
 }
+
+/* Main Toggle Container */
+.custom-toggle {
+  position: relative;
+  display: inline-block;
+  width: 55px;
+  height: 28px;
+}
+
+/* Hide Default Checkbox */
+.custom-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Toggle Track */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ffeb99; /* Soft yellow track */
+  transition: 0.3s;
+  border-radius: 30px;
+  box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Toggle Thumb */
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 24px;
+  width: 24px;
+  left: 3px;
+  bottom: 2px;
+  background-color: #EFA601; /* Darker yellow thumb */
+  transition: 0.3s;
+  border-radius: 50%;
+  box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Checkmark Inside Thumb */
+.checkmark {
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+/* Move Thumb and Show Checkmark When Checked */
+.custom-toggle input:checked + .slider::before {
+  transform: translateX(26px);
+  background-color: #d32f2f; /* Dark Red Thumb when active */
+}
+
+/* Change Track Color on Checked */
+.custom-toggle input:checked + .slider {
+  background-color: #EFA601; /* Slightly darker yellow when active */
+}
+
+/* Show Checkmark When Checked */
+.custom-toggle input:checked + .slider .checkmark {
+  opacity: 1;
+  transform: translate(26px, -50%);
+}
+
+/* Smooth Hover Effect */
+.slider:hover::before {
+  box-shadow: 3px 4px 7px rgba(0, 0, 0, 0.4);
+}

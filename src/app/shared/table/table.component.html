@@ -50,10 +50,16 @@
 
                           <!-- Check if the column is 'toggle' -->
                           <ng-container *ngIf="col.key === 'toggle'">
-                            <mat-slide-toggle 
+                            <label class="custom-toggle">
+                                <input type="checkbox" [(ngModel)]="row.toggle" (change)="onToggleChange($event)" id="toggleCheckbox">
+                                <span class="slider">
+                                  <span class="checkmark">✔</span>
+                                </span>
+                              </label>                              
+                            <!-- <mat-slide-toggle 
                             [(ngModel)]="row.toggle"
                             (change)="onToggleChange($event)">
-                            </mat-slide-toggle>
+                            </mat-slide-toggle> -->
                             </ng-container>
                             
                         <ng-container *ngIf="col.type === 'button'">
