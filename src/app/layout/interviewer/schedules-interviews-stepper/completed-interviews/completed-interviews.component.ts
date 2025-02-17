@@ -66,7 +66,7 @@ export class CompletedInterviewsComponent {
 
   openFeedbackModal(interview: any): void {
     const dialogRef = this.dialog.open(InterviewFeedbackModalComponent, {
-      width: '50%',
+      width: '90%',
       data: interview,
       disableClose: true
     });

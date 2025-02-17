@@ -1,16 +1,79 @@
+.feedback-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.feedback-table th, .feedback-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  vertical-align: top; /* Ensures all content aligns from the top */
+}
+
+.feedback-table td {
+  padding-bottom: 0;
+}
+
+.feedback-table th {
+  background-color: #EFA601;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+}
+
+.competency-column {
+  width: 20%;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+.observation-column {
+  width: 40%;
+  vertical-align: middle;
+}
+
+.observation-column mat-form-field {
+  width: 100%;
+}
+
+.rating-column {
+  width: 40%;
+  text-align: left;
+  vertical-align: middle;
+}
+
+/* Rating Options Alignment */
 .rating {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .rating span {
-    padding: 3px 8px;
-    cursor: pointer;
-    border: 1px solid #ccc;
-  }
-  
-  .rating .selected {
-    background-color: #4CAF50;
-    color: white;
-    border-color: #4CAF50;
-  }
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  align-items: center;
+}
+
+.rating-option {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+}
+
+.overall-evaluation {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.overall-evaluation h3 {
+  color: #BF322B;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.overall-evaluation mat-form-field {
+  width: 100%;
+  margin-top: 10px;
+}
