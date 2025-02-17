@@ -27,66 +27,89 @@ export class CalenderComponent {
 
   events = [
     {
-      title: 'Vendor Workshop',
-      start: new Date(new Date().setDate(new Date().getDate() + 1)).setHours(10, 0), // Tomorrow at 10:00 AM
-      end: new Date(new Date().setDate(new Date().getDate() + 3)).setHours(12, 0),   // Ends in 3 days at 12:00 PM
-      location: 'Training Hall 3A',
-      description: 'Workshop between MSME vendors and corporate buyers.',
-      attendees: ['Vendors', 'Corporate Buyers'],
+      title: 'Employee Benefits & Policies Session',
+      start: new Date(new Date().setDate(new Date().getDate() + 1)).setHours(11, 30),
+      end: new Date(new Date().setDate(new Date().getDate() + 1)).setHours(12, 30),
+      location: 'HR Conference Room',
+      description: 'Detailed discussion on employee benefits, leave policies, and compliance rules.',
+      attendees: ['HR Representatives', 'Employees'],
       editable: true,
       previous: false
     },
+    // Interviews happening on the same day
     {
-      title: 'Finance Meeting',
-      start: new Date(new Date().setHours(9, 0)),  // Today at 9:00 AM
-      end: new Date(new Date().setHours(10, 30)),  // Ends at 10:30 AM
-      location: 'Conference Room 101',
-      description: 'Discuss loan assistance and financial aid for MSMEs.',
-      attendees: ['Bank Representatives', 'MSME Owners'],
+      title: 'Final Round Interview - Loan Officer',
+      start: new Date(new Date().setHours(10, 0)),  
+      end: new Date(new Date().setHours(11, 30)),  
+      location: 'Interview Room 101',
+      description: 'Final interview round for the Loan Officer position.',
+      attendees: ['HR Manager', 'Finance Team', 'Candidate'],
       editable: true,
-      previous: false  // Set to false because it's happening today
+      previous: false  
     },
     {
-      title: 'Digital Session',
-      start: new Date(new Date().setDate(new Date().getDate() - 2)).setHours(14, 0),  // Day before yesterday at 2:00 PM
-      end: new Date(new Date().setDate(new Date().getDate() - 2)).setHours(16, 0),    // Ends at 4:00 PM
-      location: 'Tech Lab A',
-      description: 'Training session for MSME growth.',
-      attendees: ['Marketing Experts', 'MSME Clients'],
+      title: 'Final Round Interview - Customer Service Representative',
+      start: new Date(new Date().setHours(10, 0)),  
+      end: new Date(new Date().setHours(11, 30)),  
+      location: 'Interview Room 102',
+      description: 'Final interview round for the Customer Service Representative role.',
+      attendees: ['HR Manager', 'Branch Head', 'Candidate'],
+      editable: true,
+      previous: false  
+    },
+    // Previous HR & Interview events
+    {
+      title: 'Candidate Screening - Teller Positions',
+      start: new Date(new Date().setDate(new Date().getDate() - 2)).setHours(14, 0),  
+      end: new Date(new Date().setDate(new Date().getDate() - 2)).setHours(16, 0),    
+      location: 'HR Office A',
+      description: 'Initial screening of candidates for Teller positions.',
+      attendees: ['HR Officers', 'Recruitment Team'],
       editable: true,
       previous: true
     },
     {
-      title: 'Compliance Training',
-      start: new Date(new Date().setDate(new Date().getDate() + 3)).setHours(15, 0), // Starts in 3 days at 3:00 PM
-      end: new Date(new Date().setDate(new Date().getDate() + 5)).setHours(17, 0),   // Ends in 5 days at 5:00 PM
-      location: 'Room 305',
-      description: 'Mandatory training for MSME operations.',
-      attendees: ['Legal Advisors', 'MSME Owners'],
-      editable: true,
-      previous: false
-    },
-    {
-      title: 'Leadership Meet',
-      start: new Date(new Date().setDate(new Date().getDate() - 1)).setHours(18, 0), // Tomorrow at 6:00 PM
-      end: new Date(new Date().setDate(new Date().getDate() - 1)).setHours(20, 0),   // Ends at 8:00 PM
-      location: 'Conference Room C',
-      description: 'Leadership discussion on scaling MSME businesses.',
-      attendees: ['Industry Leaders', 'Entrepreneurs'],
+      title: 'Salary Negotiation Meeting',
+      start: new Date(new Date().setDate(new Date().getDate() - 1)).setHours(16, 0),  
+      end: new Date(new Date().setDate(new Date().getDate() - 1)).setHours(17, 30),   
+      location: 'Executive Boardroom',
+      description: 'Discussion on salary package and benefits for new hires.',
+      attendees: ['HR Manager', 'Finance Team', 'Selected Candidates'],
       editable: true,
       previous: true
     },
     {
-      title: 'Biz Expansion',
-      start: new Date(new Date().setDate(new Date().getDate() + 1)).setHours(11, 0), // Starts in 7 days at 11:00 AM
-      end: new Date(new Date().setDate(new Date().getDate() + 1)).setHours(13, 0),   // Ends at 1:00 PM
-      location: 'Boardroom B',
-      description: 'Strategizing business expansion for MSME sectors.',
-      attendees: ['Alice', 'Bob', 'Charlie'],
+      title: 'Banking Talent Hunt',
+      start: new Date(new Date().setDate(new Date().getDate() + 5)).setHours(10, 0),  
+      end: new Date(new Date().setDate(new Date().getDate() + 5)).setHours(12, 0),   
+      location: 'Main Auditorium',
+      description: 'Talent acquisition drive for banking professionals.',
+      attendees: ['HR Team', 'Department Heads', 'Job Applicants'],
       editable: true,
       previous: false
-    }
-  ];
+    },
+    // Another set of interviews on the same day
+    {
+      title: 'Panel Interview - Relationship Manager',
+      start: new Date(new Date().setDate(new Date().getDate() + 2)).setHours(15, 0),  
+      end: new Date(new Date().setDate(new Date().getDate() + 2)).setHours(16, 30),  
+      location: 'Interview Room 105',
+      description: 'Interview for Relationship Manager role.',
+      attendees: ['HR Manager', 'Senior Managers', 'Candidate'],
+      editable: true,
+      previous: false
+    },
+    {
+      title: 'Panel Interview - Compliance Officer',
+      start: new Date(new Date().setDate(new Date().getDate() + 2)).setHours(15, 0),  
+      end: new Date(new Date().setDate(new Date().getDate() + 2)).setHours(16, 30),  
+      location: 'Interview Room 106',
+      description: 'Interview for Compliance Officer role.',
+      attendees: ['Legal Advisors', 'HR Team', 'Candidate'],
+      editable: true,
+      previous: false
+    },
+  ];  
   
   showPopup = false;
   popupTitle: string | null = null;
@@ -124,7 +147,7 @@ export class CalenderComponent {
       const end = new Date(eventInfo?.event?.end).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
       return {
         html: `
-          <div>
+          <div class="event-tooltip">
             <b>${eventInfo.event.title}</b>
             <div>${start} - ${end}</div>
           </div>
@@ -140,17 +163,17 @@ export class CalenderComponent {
   
 
   handleEventClick(arg: any): void {
-    this.popupTitle = arg.event.title;
-    this.popupDate = arg.event.start.toISOString().split('T')[0];
-    this.popupTime = arg.event.start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    this.popupDuration = arg.event.extendedProps.duration || null;
-    this.popupLocation = arg.event.extendedProps.location || null;
-    this.popupOrganizer = arg.event.extendedProps.organizer || null;
-    this.popupCategory = arg.event.extendedProps.category || null;
-    this.popupDescription = arg.event.extendedProps.description || null;
-    this.popupAttendees = arg.event.extendedProps.attendees || null;
-    this.isPrevious = arg.event.extendedProps.previous || false;
-    this.showPopup = true;
+    // this.popupTitle = arg.event.title;
+    // this.popupDate = arg.event.start.toISOString().split('T')[0];
+    // this.popupTime = arg.event.start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    // this.popupDuration = arg.event.extendedProps.duration || null;
+    // this.popupLocation = arg.event.extendedProps.location || null;
+    // this.popupOrganizer = arg.event.extendedProps.organizer || null;
+    // this.popupCategory = arg.event.extendedProps.category || null;
+    // this.popupDescription = arg.event.extendedProps.description || null;
+    // this.popupAttendees = arg.event.extendedProps.attendees || null;
+    // this.isPrevious = arg.event.extendedProps.previous || false;
+    // this.showPopup = true;
   }
 
   handleEventDrop(arg: any): void {
