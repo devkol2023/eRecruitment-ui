@@ -4,6 +4,7 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 
 import { CalenderRoutingModule } from './calender-routing.module';
 import { CalenderComponent } from './calender.component';
+import { SharedModule } from '../../shared/shared.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { CalenderComponent } from './calender.component';
   imports: [
     CommonModule,
     CalenderRoutingModule,
-    FullCalendarModule
+    FullCalendarModule,
+    SharedModule
   ]
 })
 export class CalenderModule { }
