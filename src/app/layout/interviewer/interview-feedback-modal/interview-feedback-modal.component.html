@@ -4,8 +4,39 @@
         <mat-icon>cancel</mat-icon>
     </button>
   </div>
+  <div class="modal-content" mat-dialog-content>
   <form [formGroup]="feedbackForm">
-    <div mat-dialog-content>
+    <table>
+      <thead>
+        <tr>
+            <th>Competencies Assessed</th>
+            <th>Observations</th>
+            <th>Rating Scale</th>
+        </tr>
+      </thead>
+      <tbody formArrayName="items">
+        <tr *ngFor="let item of items.controls; let i = index" [formGroupName]="i">
+          <td>{{ item.get('competency')?.value }}</td>
+          <td><textarea formControlName="observation" matInput></textarea></td>
+          <td>
+            <div class="rating">
+              <label *ngFor="let rating of evaluationData[i].ratings">
+                <input type="radio" [value]="rating" formControlName="rating" [attr.name]="'rating-' + i">
+                {{ rating }}
+              </label>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div mat-dialog-actions>
+      <button class="btn" (click)="dialogRef.close()">Cancel</button>
+      <button class="btn" style="margin-left: 15px;" (click)="onSubmit()">Submit</button>
+    </div>
+  </form>
+</div>
+
+    <!-- <div mat-dialog-content>
       <mat-form-field class="full-width">
         <mat-label>Candidate Name</mat-label>
         <input matInput formControlName="candidateName" />
@@ -39,11 +70,7 @@
         <textarea matInput formControlName="feedback" rows="2"></textarea>
         <mat-error *ngIf="feedbackForm.get('feedback')?.hasError('required')">Feedback is required</mat-error>
       </mat-form-field>
-    </div>
-  
-    <div mat-dialog-actions>
-      <button class="btn" (click)="dialogRef.close()">Cancel</button>
-      <button class="btn" style="margin-left: 15px;" (click)="onSubmit()">Submit</button>
-    </div>
-  </form>
+    </div> -->
+
+
   

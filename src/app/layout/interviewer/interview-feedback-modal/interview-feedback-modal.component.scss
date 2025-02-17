@@ -1,0 +1,16 @@
+.rating {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .rating span {
+    padding: 3px 8px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+  }
+  
+  .rating .selected {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+  }
