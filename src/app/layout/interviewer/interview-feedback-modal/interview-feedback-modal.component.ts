@@ -13,29 +13,39 @@ export class InterviewFeedbackModalComponent {
   feedbackForm: FormGroup;
   evaluationData = [
     {
-      competency: 'Technical Acumen',
-      observation: 'Candidate has good understanding on the technology projects. He is currently driving the team and project.',
+      competency: 'Financial Acumen',
+      observation: '',
       ratings: ['Exceeds Expectation', 'Meets Expectation', 'Does Not Meet Expectation']
     },
     {
-      competency: 'Digital Acumen',
-      observation: 'Candidate is well aware of the various tools and technology to gather the requirement, analyze it and make the proper documentation. He is also working with the team for the successful completion.',
+      competency: 'Customer Relationship Management',
+      observation: '',
       ratings: ['Exceeds Expectation', 'Meets Expectation', 'Does Not Meet Expectation']
-
     },
     {
-      competency: 'Business Acumen',
-      observation: 'Good knowledge to handle the client. Currently managing the project and the technical team.',
+      competency: 'Digital Banking & Technological Adaptation',
+      observation: '',
       ratings: ['Exceeds Expectation', 'Meets Expectation', 'Does Not Meet Expectation']
-
     },
     {
-      competency: 'Impactful Communication/leadership',
-      observation: 'Communication skill is very good.',
+      competency: 'Leadership & Decision Making',
+      observation: '',
       ratings: ['Exceeds Expectation', 'Meets Expectation', 'Does Not Meet Expectation']
-
     }
-  ];
+  ];  
+
+  designations: string[] = [
+    'Teller',
+    'Customer Service Representative',
+    'Loan Officer',
+    'Relationship Manager',
+    'Compliance Officer',
+    'Credit Analyst',
+    'Branch Manager',
+    'Risk Manager',
+    'Operations Officer',
+    'IT Security Analyst'
+  ]
 
   ratings = ['Exceeds Expectation', 'Meets Expectation', 'Does Not Meet Expectation'];
   constructor(
@@ -44,17 +54,15 @@ export class InterviewFeedbackModalComponent {
     private fb: FormBuilder
   ) {
     this.feedbackForm = this.fb.group({
-      // candidateName: [{ value: interview.candidateName, disabled: true }],
-      // jobTitle: [{ value: interview.jobTitle, disabled: true }],
-      // feedback: ['', Validators.required],
-      // // rating: ['', Validators.required],
-      // recommendation: ['', Validators.required],
-        items: this.fb.array(this.evaluationData.map(data => this.fb.group({
-          competency: [data.competency],
-          observation: [data.observation],
-          rating: [data.ratings]
-        })))
-    
+      candidateName: [interview.candidateName],
+      jobTitle: [interview.jobTitle],
+      overallObservation: ['', Validators.required],
+      designationRecommended: ['', Validators.required],
+      items: this.fb.array(this.evaluationData.map(data => this.fb.group({
+        competency: [data.competency],
+        observation: [data.observation],
+        rating: [data.ratings]
+      })))
     });
   }
 

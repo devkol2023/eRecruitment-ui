@@ -6,34 +6,79 @@
   </div>
   <div class="modal-content" mat-dialog-content>
   <form [formGroup]="feedbackForm">
-    <table>
+    <div class="group-form-field">
+      <mat-form-field appearance="outline" class="half-width">
+        <mat-label>Candidate Name</mat-label>
+        <input matInput formControlName="candidateName" readonly/>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="half-width">
+        <mat-label>Job Title</mat-label>
+        <input matInput formControlName="jobTitle" readonly/>
+      </mat-form-field>
+    </div>
+    <table class="feedback-table">
       <thead>
         <tr>
-            <th>Competencies Assessed</th>
-            <th>Observations</th>
-            <th>Rating Scale</th>
+          <th>Competencies Assessed</th>
+          <th>Observations</th>
+          <th>Rating Scale</th>
         </tr>
       </thead>
       <tbody formArrayName="items">
         <tr *ngFor="let item of items.controls; let i = index" [formGroupName]="i">
-          <td>{{ item.get('competency')?.value }}</td>
-          <td><textarea formControlName="observation" matInput></textarea></td>
-          <td>
+          <!-- Competency Name -->
+          <td class="competency-column">
+            <span class="competency-name">{{ item.get('competency')?.value }}</span>
+          </td>
+    
+          <!-- Observations -->
+          <td class="observation-column">
+            <mat-form-field appearance="outline" class="full-width">
+              <textarea formControlName="observation" matInput placeholder="Enter observation..."></textarea>
+            </mat-form-field>
+          </td>
+    
+          <!-- Rating Scale -->
+          <td class="rating-column">
             <div class="rating">
-              <label *ngFor="let rating of evaluationData[i].ratings">
+              <label *ngFor="let rating of evaluationData[i].ratings" class="rating-option">
                 <input type="radio" [value]="rating" formControlName="rating" [attr.name]="'rating-' + i">
-                {{ rating }}
+                <span>{{ rating }}</span>
               </label>
             </div>
           </td>
         </tr>
       </tbody>
     </table>
-    <div mat-dialog-actions>
-      <button class="btn" (click)="dialogRef.close()">Cancel</button>
-      <button class="btn" style="margin-left: 15px;" (click)="onSubmit()">Submit</button>
+    
+    <!-- Overall Evaluation Section -->
+    <div class="overall-evaluation">
+      <h3>Overall Evaluation</h3>
+
+      <!-- Overall Observation -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Overall Observation</mat-label>
+        <textarea matInput formControlName="overallObservation" placeholder="Enter overall observation..."></textarea>
+      </mat-form-field>
+
+      <!-- Designation Recommended (Dropdown) -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Designation Recommended</mat-label>
+        <mat-select formControlName="designationRecommended">
+          <mat-option *ngFor="let designation of designations" [value]="designation">
+            {{ designation }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
+
   </form>
+</div>
+
+<div mat-dialog-actions>
+  <button class="btn" (click)="dialogRef.close()">Cancel</button>
+  <button class="btn" style="margin-left: 15px;" (click)="onSubmit()">Submit</button>
 </div>
 
     <!-- <div mat-dialog-content>
